@@ -55,6 +55,10 @@
       color: white;
     }
 
+    .menu-open, .btns:hover{
+        background-color: #0f58c5;
+        color: white;
+    }
     </style>
 </head>
 <body class="hold-transition sidebar-mini layout-fixed">
