@@ -39,9 +39,12 @@
     background-color: #0f58c5;
     color: white;
   }
-
-  .nav > li > a:hover{
-    background-color:#0f58c5;
+  .navbar-nav .nav-item .nav-link {
+    color: red;
+}
+.navbar-nav .nav-item.active .nav-link,
+.navbar-nav .nav-item:hover .nav-link {
+    color: pink;
 }
   </style>
 </head>
