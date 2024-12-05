@@ -28,71 +28,71 @@
 
 
         <div class="row">
-          <div class="col-lg-3 col-6">
-            <!-- small box -->
-            <div class="small-box bg-info">
-              <div class="inner">
-                <h3>{{$countprojects }}</h3>
+            <div class="col-lg-3 col-6">
+                <!-- small box -->
+                <div class="small-box bg-info">
+                  <div class="inner">
+                    <h3>{{$capstone2 }}</h3>
 
-                <p>Projects</p>
+                    <p>Capstone 2</p>
+                  </div>
+                  <div class="icon">
+                    <i class="fa fa-book"></i>
+                  </div>
+                  <a href="{{ route('staff.viewproject') }}" class="small-box-footer">View Capstone 2 <i class="fas fa-arrow-circle-right"></i></a>
+                </div>
               </div>
-              <div class="icon">
-                <i class="fa fa-book"></i>
-              </div>
-              <a href="{{ route('staff.viewproject') }}" class="small-box-footer">View Projects <i class="fas fa-arrow-circle-right"></i></a>
-            </div>
-          </div>
-          <!-- ./col -->
-          <div class="col-lg-3 col-6">
-            <!-- small box -->
-            <div class="small-box bg-success">
-              <div class="inner">
-                <h3>{{$countresearch }}</h3>
+              <!-- ./col -->
+              <div class="col-lg-3 col-6">
+                <!-- small box -->
+                <div class="small-box bg-success">
+                  <div class="inner">
+                    <h3>{{$csthesis2 }}</h3>
 
-                <p>Practical Research</p>
+                    <p>CS Thesis 2</p>
+                  </div>
+                  <div class="icon">
+                    <i class="fas fa-search"></i>
+                  </div>
+                  <a href="{{ route('staff.viewresearch') }}" class="small-box-footer">View CS Thesis 2 <i class="fas fa-arrow-circle-right"></i></a>
+                </div>
               </div>
-              <div class="icon">
-                <i class="fas fa-search"></i>
-              </div>
-              <a href="{{ route('staff.viewresearch') }}" class="small-box-footer">View Research <i class="fas fa-arrow-circle-right"></i></a>
-            </div>
-          </div>
-          <!-- ./col -->
-          <div class="col-lg-3 col-6">
-            <!-- small box -->
-            <div class="small-box bg-warning">
-              <div class="inner">
-                <h3 class="text-light">{{$countthesisCapstone}}</h3>
+              <!-- ./col -->
+              <div class="col-lg-3 col-6">
+                <!-- small box -->
+                <div class="small-box bg-warning">
+                  <div class="inner">
+                    <h3 class="text-light">{{$shspracticalresearch}}</h3>
 
-                <p class="text-light">Capstone/Thesis</p>
+                    <p class="text-light">SHS Practical Research</p>
+                  </div>
+                  <div class="icon">
+                    <i class="fas fa-book-open"></i>
+                  </div>
+                  <a href="{{ route('staff.viewcapstonethesis') }}" class="small-box-footer"><font color="white">View SHS Practical Research </font> <i class="fas fa-arrow-circle-right text-light"></i></a>
+                </div>
               </div>
-              <div class="icon">
-                <i class="fas fa-book-open"></i>
-              </div>
-              <a href="{{ route('staff.viewcapstonethesis') }}" class="small-box-footer"><font color="white">View Capstone/Thesis </font> <i class="fas fa-arrow-circle-right text-light"></i></a>
-            </div>
-          </div>
-          <!-- ./col -->
-          <div class="col-lg-3 col-6">
-            <!-- small box -->
-            <div class="small-box bg-danger">
-              <div class="inner">
-                <h3>{{$counttotalProjects}}</h3>
+              <!-- ./col -->
+              <div class="col-lg-3 col-6">
+                <!-- small box -->
+                <div class="small-box bg-danger">
+                  <div class="inner">
+                    <h3>{{$bstmthesis}}</h3>
 
-                <p>Total Collections</p>
+                    <p>BSTM Thesis</p>
+                  </div>
+                  <div class="icon">
+                    <i class="fas fa-file"></i>
+                  </div>
+                  <a href="{{ route('staff.viewtotalprojects') }}" class="small-box-footer">View BSTM Thesis <i class="fas fa-arrow-circle-right"></i></a>
+                </div>
               </div>
-              <div class="icon">
-                <i class="fas fa-file"></i>
-              </div>
-              <a href="{{ route('staff.viewtotalprojects') }}" class="small-box-footer">View Collections <i class="fas fa-arrow-circle-right"></i></a>
-            </div>
-          </div>
           <!-- ./col -->
         </div>
 
 
 
-        <div class="row">
+        {{-- <div class="row">
             <div class="col-lg-3 col-6">
               <!-- small box -->
               <div class="small-box bg-success">
@@ -153,7 +153,7 @@
               </div>
             </div>
             <!-- ./col -->
-          </div>
+          </div> --}}
 
         <!-- /.row -->
         <!-- Main row -->
