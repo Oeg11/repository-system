@@ -2,7 +2,7 @@
 @section('content')
 
 <!-- Content Wrapper. Contains page content -->
-  <div class="content-wrapper">
+<div class="content-wrapper">
     <!-- Content Header (Page header) -->
     <div class="content-header">
       <div class="container-fluid">
@@ -28,13 +28,13 @@
                  data-toggle="modal" data-target="#modal-adddepartment">Add Department</button></div>
             @include('admin.modal.adddepartment')
         </div>
-        <hr>
         <table class="table table-bordered data-table3">
             <thead>
                 <tr>
                     <th scope="col">ID</th>
                     <th scope="col">Name</th>
-                    <th scope="col">Description</th>
+                    <th scope="col">Email</th>
+                    <th scope="col">Status</th>
                     <th width="100px">Action</th>
 
                 </tr>
