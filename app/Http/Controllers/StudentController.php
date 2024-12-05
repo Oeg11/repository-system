@@ -881,6 +881,7 @@ class StudentController extends Controller
            $files->move($destinationPath, $document_path);
        }
 
+       $status = 2;
        $archive_code = rand();
        $archive->archive_code = $archive_code;
        $archive->category = $request->category;
@@ -893,6 +894,7 @@ class StudentController extends Controller
        $archive->adviser = $request->adviser;
        $archive->banner_path = $banner_path;
        $archive->document_path = $document_path;
+       $archive->status = $status;
        $archive->student_id = $request->student_id;
        $archive->slug = Str::slug($request->title); //payroll-system
        $archive->google_id = $request->google_id;

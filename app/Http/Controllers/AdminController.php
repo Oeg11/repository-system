@@ -115,7 +115,7 @@ class AdminController extends Controller
                                       $html = '<center><span class="badge badge-success">Approved</span></center>';
                                   } else if ($data->status == 0) {
                                       $html = '<center><span class="badge badge-danger">Rejected</span></center>';
-                                  } else {
+                                  } else if ($data->status == 2) {
                                     $html = '<center><span class="badge badge-warning">Pending</span></center>';
                                 }
                               return $html;
