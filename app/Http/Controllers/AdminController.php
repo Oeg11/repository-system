@@ -892,11 +892,11 @@ class AdminController extends Controller
     public function ViewResearch(Request $request){
 
 
-        $archive = DB::table('student_models')
+        $archive = DB::table('users')
         ->select(
-            'student_models.id as student_id',
-            'student_models.fullname',
-            'student_models.email',
+            'users.id as student_id',
+            'users.name',
+            'users.email',
             'archives.id as archives_id',
             'archives.student_id',
             'archives.title',
@@ -909,12 +909,13 @@ class AdminController extends Controller
             'curricula.name as curriculum_name',
             'departments.name as department_name',
             )
-        ->leftjoin('archives','archives.student_id','=','student_models.id')
-        ->leftjoin('curricula','curricula.id','=','student_models.curriculum_id')
-        ->leftjoin('departments','departments.id','=','student_models.department_id')
+        ->leftjoin('archives','archives.student_id','=','users.id')
+        ->leftjoin('curricula','curricula.id','=','archives.curriculum_id')
+        ->leftjoin('departments','departments.id','=','archives.department_id')
         ->where('archives.category', 'CS Thesis 2')
         ->orderBy('archives.id','DESC')
         ->get();
+
 
         $systeminformation = SystemInformation::all();
         return view('admin.viewresearch', compact('archive','systeminformation'));
@@ -924,11 +925,11 @@ class AdminController extends Controller
     public function ViewCapstonethesis(Request $request){
 
 
-        $archive = DB::table('student_models')
+        $archive = DB::table('users')
         ->select(
-            'student_models.id as student_id',
-            'student_models.fullname',
-            'student_models.email',
+            'users.id as student_id',
+            'users.name',
+            'users.email',
             'archives.id as archives_id',
             'archives.student_id',
             'archives.title',
@@ -941,9 +942,9 @@ class AdminController extends Controller
             'curricula.name as curriculum_name',
             'departments.name as department_name',
             )
-        ->leftjoin('archives','archives.student_id','=','student_models.id')
-        ->leftjoin('curricula','curricula.id','=','student_models.curriculum_id')
-        ->leftjoin('departments','departments.id','=','student_models.department_id')
+        ->leftjoin('archives','archives.student_id','=','users.id')
+        ->leftjoin('curricula','curricula.id','=','archives.curriculum_id')
+        ->leftjoin('departments','departments.id','=','archives.department_id')
         ->where('archives.category', 'SHS Practical Research')
         ->orderBy('archives.id','DESC')
         ->get();
@@ -958,11 +959,11 @@ class AdminController extends Controller
     public function ViewTotalprojects(Request $request){
 
 
-        $archive = DB::table('student_models')
+        $archive = DB::table('users')
         ->select(
-            'student_models.id as student_id',
-            'student_models.fullname',
-            'student_models.email',
+            'users.id as student_id',
+            'users.name',
+            'users.email',
             'archives.id as archives_id',
             'archives.student_id',
             'archives.title',
@@ -975,9 +976,9 @@ class AdminController extends Controller
             'curricula.name as curriculum_name',
             'departments.name as department_name',
             )
-        ->leftjoin('archives','archives.student_id','=','student_models.id')
-        ->leftjoin('curricula','curricula.id','=','student_models.curriculum_id')
-        ->leftjoin('departments','departments.id','=','student_models.department_id')
+        ->leftjoin('archives','archives.student_id','=','users.id')
+        ->leftjoin('curricula','curricula.id','=','archives.curriculum_id')
+        ->leftjoin('departments','departments.id','=','archives.department_id')
         ->where('archives.category', 'BSTM Thesis')
         ->orderBy('archives.id','DESC')
         ->get();
