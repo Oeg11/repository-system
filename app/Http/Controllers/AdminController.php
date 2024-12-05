@@ -1217,9 +1217,19 @@ class AdminController extends Controller
 
     public function AdminReports(Request $request){
 
+        // $data = [
+        //     'labels' => ['January', 'February', 'March', 'April', 'May'],
+        //     'values' => [10, 20, 30, 40, 50]
+        // ];
+
+
+       $sales = archive::selectRaw('count(category) as month, SUM(count_rank) as total_sales')
+       ->groupBy('month')
+       ->get();
+
         $data = [
-            'labels' => ['January', 'February', 'March', 'April', 'May'],
-            'values' => [10, 20, 30, 40, 50]
+        'labels' => $sales->pluck('month'),
+        'values' => $sales->pluck('total_sales')
         ];
 
         $systeminformation = SystemInformation::all();
