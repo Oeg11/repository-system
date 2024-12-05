@@ -860,11 +860,11 @@ class AdminController extends Controller
     public function ViewProject(Request $request){
 
 
-        $archive = DB::table('student_models')
+        $archive = DB::table('users')
         ->select(
-            'student_models.id as student_id',
-            'student_models.fullname',
-            'student_models.email',
+            'users.id as student_id',
+            'users.name',
+            'users.email',
             'archives.id as archives_id',
             'archives.student_id',
             'archives.title',
@@ -877,9 +877,9 @@ class AdminController extends Controller
             'curricula.name as curriculum_name',
             'departments.name as department_name',
             )
-        ->leftjoin('archives','archives.student_id','=','student_models.id')
-        ->leftjoin('curricula','curricula.id','=','student_models.curriculum_id')
-        ->leftjoin('departments','departments.id','=','student_models.department_id')
+        ->leftjoin('archives','archives.student_id','=','users.id')
+        ->leftjoin('curricula','curricula.id','=','users.curriculum_id')
+        ->leftjoin('departments','departments.id','=','users.department_id')
         ->where('archives.category', 'Capstone 2')
         ->orderBy('archives.id','DESC')
         ->get();
