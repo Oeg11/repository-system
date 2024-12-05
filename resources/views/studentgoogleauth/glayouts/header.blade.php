@@ -55,7 +55,7 @@
       color: white;
     }
 
-    .menu-open, .btns:hover{
+    .btns:hover{
         background-color: #0f58c5;
         color: white;
     }
