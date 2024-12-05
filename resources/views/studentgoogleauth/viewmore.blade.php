@@ -39,7 +39,7 @@
 
                         {{-- <iframe src="{{ (!empty($getonethesis->document_path)) ? url('/storage/uploads/'.$getonethesis->document_path) :  url('assets/uploads/No_Image_Available.jpg')}}" width="100%" height="600px" oncontextmenu="return false;"></iframe> --}}
                         <body oncontextmenu="return false">
-                            <iframe id="pdfFrame" width="100%" height="600px" src="{{ (!empty($getonethesis->document_path)) ? url('/storage/uploads/'.$getonethesis->document_path) :  url('assets/uploads/No_Image_Available.jpg')}}"></iframe>
+                            <iframe id="pdfFrame" width="100%" height="600px" src="{{ (!empty($getonethesis->document_path)) ? url('/storage/uploads/'.$getonethesis->document_path.'&embedded=true') :  url('assets/uploads/No_Image_Available.jpg')}}"></iframe>
                         </body>
 
 
@@ -50,11 +50,11 @@
     </div>
 
 </div>
-<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.7.1/jquery.min.js" integrity="sha512-v2CJ7UaYy4JwqLDIrZUI/4hqeoQieOmAZNXBeQyjo21dadnwR+8ZaIJVT8EE2iyI61OV8e6M8PP2/4hpQINQ/g==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+{{-- <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.7.1/jquery.min.js" integrity="sha512-v2CJ7UaYy4JwqLDIrZUI/4hqeoQieOmAZNXBeQyjo21dadnwR+8ZaIJVT8EE2iyI61OV8e6M8PP2/4hpQINQ/g==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
 <script>
 PDFViewerApplicationOptions.set('disablePrinting', true);
 
 // Disable download button
 PDFViewerApplicationOptions.set('disableDownload', true);
-</script>
+</script> --}}
 @endsection
