@@ -28,58 +28,58 @@
 
 
         <div class="row">
-          {{-- <div class="col-lg-3 col-6">
+          <div class="col-lg-3 col-6">
             <!-- small box -->
             <div class="small-box bg-info">
               <div class="inner">
                 <h3>{{$countprojects }}</h3>
 
-                <p>Projects</p>
+                <p>Capstone 2</p>
               </div>
               <div class="icon">
                 <i class="fa fa-book"></i>
               </div>
               <a href="{{ route('admin.viewproject') }}" class="small-box-footer">View Projects <i class="fas fa-arrow-circle-right"></i></a>
             </div>
-          </div> --}}
+          </div>
           <!-- ./col -->
-          {{-- <div class="col-lg-3 col-6">
+          <div class="col-lg-3 col-6">
             <!-- small box -->
             <div class="small-box bg-success">
               <div class="inner">
                 <h3>{{$countresearch }}</h3>
 
-                <p>Practical Research</p>
+                <p>CS Thesis 2</p>
               </div>
               <div class="icon">
                 <i class="fas fa-search"></i>
               </div>
               <a href="{{ route('admin.viewresearch') }}" class="small-box-footer">View Research <i class="fas fa-arrow-circle-right"></i></a>
             </div>
-          </div> --}}
+          </div>
           <!-- ./col -->
-          {{-- <div class="col-lg-3 col-6">
+          <div class="col-lg-3 col-6">
             <!-- small box -->
             <div class="small-box bg-warning">
               <div class="inner">
                 <h3 class="text-light">{{$countthesisCapstone}}</h3>
 
-                <p class="text-light">Capstone/Thesis</p>
+                <p class="text-light">SHS Practical Research</p>
               </div>
               <div class="icon">
                 <i class="fas fa-book-open"></i>
               </div>
               <a href="{{ route('admin.viewcapstonethesis') }}" class="small-box-footer"><font color="white">View Capstone/Thesis </font> <i class="fas fa-arrow-circle-right text-light"></i></a>
             </div>
-          </div> --}}
+          </div>
           <!-- ./col -->
-          {{-- <div class="col-lg-3 col-6">
+          <div class="col-lg-3 col-6">
             <!-- small box -->
             <div class="small-box bg-danger">
               <div class="inner">
                 <h3>{{$counttotalProjects}}</h3>
 
-                <p>Total Collections</p>
+                <p>BSTM Thesis</p>
               </div>
               <div class="icon">
                 <i class="fas fa-file"></i>
@@ -88,11 +88,11 @@
             </div>
           </div>
           <!-- ./col -->
-        </div> --}}
+        </div>
 
 
 
-        <div class="row">
+        {{-- <div class="row">
             <div class="col-lg-3 col-6">
               <!-- small box -->
               <div class="small-box bg-info">
@@ -151,7 +151,7 @@
                 </div>
                 <a href="{{ route('admin.viewnotverifiedarchive') }}" class="small-box-footer">View Unverified Projects <i class="fas fa-arrow-circle-right"></i></a>
               </div>
-            </div>
+            </div> --}}
             <!-- ./col -->
           </div>
 
