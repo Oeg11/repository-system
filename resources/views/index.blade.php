@@ -162,7 +162,7 @@
                             </a> --}}
 
                             <a href="{{ route('auth.google') }}" class="btn microsoft-login-btn btn-block mt-2 d-flex">
-                                <img src="{{asset('assets/img/2993685_brand_brands_google_logo_logos_icon.svg')}}" height="30px" width="30px">&nbsp;&nbsp;Login with Google
+                                <img src="{{asset('assets/img/2993685_brand_brands_google_logo_logos_icon.svg')}}" height="30px" width="30px">&nbsp;&nbsp;Login with Google HI MY NEL
                               </a>
 
                         </div>
