@@ -32,10 +32,13 @@
               <!-- /.card-header -->
               <div class="card-body">
 
+                <div style="width:60%;hieght:20%;text-align:center">
+                    <h2 class="page-header" >Analytics Reports </h2>
+                    <div>Product </div>
+                    <canvas  id="chartjs_bar"></canvas>
+                </div>
+            </body>
 
-                <div id="container" style="width: 75%;">
-                    <canvas id="canvas"></canvas>
-                    </div>
 
             </div>
               <!-- /.card-body -->
@@ -58,34 +61,44 @@
   @endsection
   <script src="https://code.jquery.com/jquery-3.5.1.js"></script>
   <script src="https://cdnjs.cloudflare.com/ajax/libs/toastr.js/latest/toastr.min.js"></script>
-  <script src="http://www.chartjs.org/dist/2.7.3/Chart.bundle.js"></script>
-  <script src="http://www.chartjs.org/samples/latest/utils.js"></script>
-  <script>
-    var chartdata = {
-    type: 'bar',
-    data: {
-    labels: <?php echo json_encode($Months); ?>,
-    // labels: month,
-    datasets: [
-    {
-    label: 'this year',
-    backgroundColor: '#26B99A',
-    borderWidth: 1,
-    data: <?php echo json_encode($Data); ?>
-    }
-    ]
-    },
-    options: {
-    scales: {
-    yAxes: [{
-    ticks: {
-    beginAtZero:true
-    }
-    }]
-    }
-    }
-    }
-    var ctx = document.getElementById('canvas').getContext('3d');
-    new Chart(ctx, chartdata);
+  <script src="//code.jquery.com/jquery-1.9.1.js"></script>
+  <script src="//cdnjs.cloudflare.com/ajax/libs/Chart.js/2.4.0/Chart.min.js"></script>
+<script type="text/javascript">
+      var ctx = document.getElementById("chartjs_bar").getContext('2d');
+                var myChart = new Chart(ctx, {
+                    type: 'bar',
+                    data: {
+                        labels:data.labels,
+                        datasets: [{
+                            backgroundColor: [
+                               "#5969ff",
+                                "#ff407b",
+                                "#25d5f2",
+                                "#ffc750",
+                                "#2ec551",
+                                "#7040fa",
+                                "#ff004e"
+                            ],
+                            data:data.values,
+                        }]
+                    },
+                    options: {
+                           legend: {
+                        display: true,
+                        position: 'bottom',
+
+                        labels: {
+                            fontColor: '#71748d',
+                            fontFamily: 'Circular Std Book',
+                            fontSize: 14,
+                        }
+                    },
+
+
+                }
+              });
     </script>
+
+
+
 

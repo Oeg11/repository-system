@@ -1217,10 +1217,10 @@ class AdminController extends Controller
 
     public function AdminReports(Request $request){
 
-        // $data = [
-        //     'labels' => ['January', 'February', 'March', 'April', 'May'],
-        //     'values' => [10, 20, 30, 40, 50]
-        // ];
+        $data = [
+            'labels' => ['January', 'February', 'March', 'April', 'May'],
+            'values' => [10, 20, 30, 40, 50]
+        ];
 
 
     //    $sales = archive::selectRaw('MONTH(created_at) as month, SUM(count_rank) as total_sales')
@@ -1236,7 +1236,7 @@ class AdminController extends Controller
          $data  = array(1, 2, 3, 4, 5);
 
         $systeminformation = SystemInformation::all();
-        return view('admin.reports', ['Months' => $month, 'Data' => $data], compact('data','systeminformation'));
+        return view('admin.reports', compact('data','systeminformation'));
 
     }
 
