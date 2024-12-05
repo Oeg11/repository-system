@@ -26,6 +26,7 @@
                             <th scope="col">Project Title</th>
                             {{-- <th scope="col">Curriculum</th> --}}
                             <th scope="col">Status</th>
+                            <th scope="col">Remarks</th>
                             <th scope="col">Action</th>
                           </tr>
                         </thead>
@@ -38,12 +39,13 @@
                             <th>{{ $item->title }}</th>
                             {{-- <th>{{ $item->curriculum_name }}</th> --}}
                             <th>
-                                 @if($item->status == 0)
-                                 <span class="badge bg-secondary">Unpublished</span>
+                                 @if($item->status == 1)
+                                 <span class="badge bg-success">Approved</span>
                                  @else
-                                 <span class="badge bg-success">Published</span>
+                                 <span class="badge bg-danger">Rejected</span>
                                  @endif
                             </th>
+                            <th>{{ $item->remark }}</th>
                             <th>
                                 {{-- <button type="button" class="btn btn-primary">Edit</button> --}}
                                 <a href="{{ route('googleauthprojects.edit', ['id' => encrypt($item->archives_id)]) }}" class="btn btn-primary btn-sm">Edit</a>

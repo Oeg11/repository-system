@@ -813,6 +813,7 @@ class StudentController extends Controller
             'archives.abstract',
             'archives.banner_path',
             'archives.status',
+            'archives.remark',
             'archives.category',
             'archives.created_at',
             'archives.archive_code',
