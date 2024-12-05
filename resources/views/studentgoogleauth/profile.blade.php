@@ -1,7 +1,7 @@
 @extends('studentgoogleauth.glayouts.main')
 @section('content')
     <div class=" mt-4">
-
+        <div id="loader"></div>
         <div class="row">
 
             <div class="col-md-3"></div>

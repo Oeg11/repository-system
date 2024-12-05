@@ -2,7 +2,7 @@
 @section('content')
 
 <div class="container-fluid" style="margin-top:5%">
-
+    <div id="loader"></div>
 
     <div class="row g-1">
 

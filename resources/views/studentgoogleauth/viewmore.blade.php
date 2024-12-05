@@ -4,6 +4,7 @@
     <div class="col-md-10">
         <h3>View Thesis</h3>
     </div>
+    <div id="loader"></div>
     <div class="col-md-2">
         <div class="d-flex">
             <div class="flex-1"><a href="{{ route('studentgoogleauth.project') }}" type="submit"
