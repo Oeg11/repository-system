@@ -39,9 +39,6 @@
     background-color: #0f58c5;
     color: white;
   }
- .nav-link {
-    color: red;
-}
 
   </style>
 </head>
