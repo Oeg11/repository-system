@@ -92,6 +92,7 @@ class AdminController extends Controller
                 'archives.banner_path',
                 'archives.document_path',
                 'archives.status',
+                'archives.remark',
                 'archives.student_id',
                 'archives.slug',
                 'archives.count_rank',
@@ -146,6 +147,7 @@ class AdminController extends Controller
                                      href="javascript:void(0)" data-toggle="modal" data-target="#modal-archive"
                                     data-id="'.$row->archive_id.'"
                                     data-stat="'.$row->status.'"
+                                    data-remark="'.$row->remark.'"
                                     ><span class="fa fa-check text-dark"></span> Update Status</a>
                                     <a class="dropdown-item btn-deleteArchive" href="javascript:void(0)"
                                     data-del="'.$row->archive_id.'">
@@ -181,6 +183,7 @@ class AdminController extends Controller
 
            $archive = archive::find($request->id);
            $archive->status = $request->status;
+           $archive->remark = $request->remark;
            $archive->save();
           return response()->json([
            'status' => 200,

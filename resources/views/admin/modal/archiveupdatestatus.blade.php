@@ -23,8 +23,8 @@
                 </div>
 
                 <div class="form-group">
-                    <label for="status" class="control-label text-navy">Status</label>
-                      <textarea type="text" name="remark" class="form-control pk" id="remark" rows="5" placeholder="Please input remark..."></textarea>
+                    <label for="status" class="control-label text-navy">Remark</label>
+                      <textarea type="text" name="remark" class="form-control pk" id="edit_remark" rows="5" placeholder="Please input remark..."></textarea>
                 </div>
 
           </div>

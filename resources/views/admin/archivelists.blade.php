@@ -213,6 +213,7 @@
             });
 
          var status
+         var remark
          var id
 
         $('body').on('click', '.btn-update', function(e) {
@@ -230,9 +231,13 @@
             console.log("=================status===============");
             console.log(status);
 
+            remark = $(this).data('remark');
+            console.log("=================remark===============");
+            console.log(remark);
+
             $('#edit_id').val(id);
             $('#edit_status').val(status);
-
+            $('#edit_remark').val(remark);
 
         });
 
@@ -250,6 +255,7 @@
                         });
 
                     let status = $('#edit_status').val();
+                    let remark = $('#edit_remark').val();
                     let id =  $('#edit_id').val();
 
 
@@ -258,6 +264,7 @@
                         method: 'post',
                         data: {
                             status: status,
+                            remark: remark,
                             id: id
                         },
                         success: function(response){

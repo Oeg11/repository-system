@@ -23,6 +23,7 @@ class archive extends Model
         'banner_path',
         'document_path',
         'status',
+        'remark',
         'student_id',
         'slug',
         'count_rank',
