@@ -175,6 +175,15 @@
             </li>
 
 
+            <li class="nav-item">
+                <a href="{{route('admin.settings')}}" class="nav-link btns">
+                    <i class="nav-icon fa fa-print"></i>
+                  <p>
+                     Reports
+                  </p>
+                </a>
+            </li>
+
 
           </ul>
         </nav>
