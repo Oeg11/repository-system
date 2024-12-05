@@ -98,7 +98,7 @@
             <!-- Add icons to the links using the .nav-icon class
                  with font-awesome or any other icon font library -->
             <li class="nav-item">
-              <a href="{{route('admin.dashboard')}}"  class="nav-link btn">
+              <a href="{{route('admin.dashboard')}}"  class="nav-link btns">
                 <i class="nav-icon fas fa-tachometer-alt"></i>
                 <p>
                   Dashboard
@@ -110,7 +110,7 @@
 
 
             <li class="nav-item">
-              <a href="{{route('admin.archive')}}" class="nav-link btn">
+              <a href="{{route('admin.archive')}}" class="nav-link btns">
                   <i class="nav-icon fa fa-box"></i>
                 <p>
                   Collection List
@@ -121,7 +121,7 @@
 
 
             <li class="nav-item">
-              <a href="{{route('admin.studentlist')}}" class="nav-link btn">
+              <a href="{{route('admin.studentlist')}}" class="nav-link btns">
                 <i class="nav-icon fa fa-users"></i>
                 <p>
                   Student List
@@ -134,7 +134,7 @@
 
 
             <li class="nav-item">
-              <a href="{{route('admin.departmentlist')}}" class="nav-link btn">
+              <a href="{{route('admin.departmentlist')}}" class="nav-link btns">
                 <i class="nav-icon fa fa-list"></i>
                 <p>
                   Department List
@@ -142,7 +142,7 @@
               </a>
             </li>
             <li class="nav-item">
-              <a href="{{route('admin.curriculumlist')}}" class="btn nav-link">
+              <a href="{{route('admin.curriculumlist')}}" class="btns nav-link">
                 <i class="nav-icon fa fa-scroll"></i>
                 <p>
                    Curriculum List
@@ -150,7 +150,7 @@
               </a>
             </li>
             <li class="nav-item">
-                <a href="{{route('admin.faculty_stafflist')}}" class="nav-link btn">
+                <a href="{{route('admin.faculty_stafflist')}}" class="nav-link btns">
                     <i class="nav-icon fa fa-users-cog"></i>
                   <p>
                      Faculty/Staff List
@@ -158,7 +158,7 @@
                 </a>
             </li>
             <li class="nav-item">
-                <a href="{{route('admin.usercontrol')}}" class="nav-link btn">
+                <a href="{{route('admin.usercontrol')}}" class="nav-link btns">
                     <i class="nav-icon fa fa-desktop"></i>
                   <p>
                      User Control
@@ -166,7 +166,7 @@
                 </a>
             </li>
             <li class="nav-item">
-                <a href="{{route('admin.settings')}}" class="nav-link btn">
+                <a href="{{route('admin.settings')}}" class="nav-link btns">
                     <i class="nav-icon fa fa-cogs"></i>
                   <p>
                      Settings

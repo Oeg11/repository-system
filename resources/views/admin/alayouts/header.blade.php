@@ -35,7 +35,7 @@
 <style>
 
   /* Style the active class, and buttons on mouse-over */
-  .active, .btn:hover {
+  .active, .btns:hover {
     background-color: #0f58c5;
     color: white;
   }
