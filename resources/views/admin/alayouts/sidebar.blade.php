@@ -93,12 +93,12 @@
 
 
         <!-- Sidebar Menu -->
-        <nav class="mt-2">
+        <nav class="mt-2" id="myDIV">
           <ul class="nav nav-pills nav-sidebar flex-column" data-widget="treeview" role="menu" data-accordion="false">
             <!-- Add icons to the links using the .nav-icon class
                  with font-awesome or any other icon font library -->
             <li class="nav-item menu-open">
-              <a href="{{route('admin.dashboard')}}" class="nav-link ">
+              <a href="{{route('admin.dashboard')}}"  class="btn nav-link active">
                 <i class="nav-icon fas fa-tachometer-alt"></i>
                 <p>
                   Dashboard
@@ -110,7 +110,7 @@
 
 
             <li class="nav-item">
-              <a href="{{route('admin.archive')}}" class="nav-link">
+              <a href="{{route('admin.archive')}}" class="btn nav-link">
                   <i class="nav-icon fa fa-box"></i>
                 <p>
                   Collection List
@@ -121,7 +121,7 @@
 
 
             <li class="nav-item">
-              <a href="{{route('admin.studentlist')}}" class="nav-link">
+              <a href="{{route('admin.studentlist')}}" class="btn nav-link">
                 <i class="nav-icon fa fa-users"></i>
                 <p>
                   Student List
@@ -134,7 +134,7 @@
 
 
             <li class="nav-item">
-              <a href="{{route('admin.departmentlist')}}" class="nav-link">
+              <a href="{{route('admin.departmentlist')}}" class="btn nav-link">
                 <i class="nav-icon fa fa-list"></i>
                 <p>
                   Department List
@@ -142,7 +142,7 @@
               </a>
             </li>
             <li class="nav-item">
-              <a href="{{route('admin.curriculumlist')}}" class="nav-link">
+              <a href="{{route('admin.curriculumlist')}}" class="btn nav-link">
                 <i class="nav-icon fa fa-scroll"></i>
                 <p>
                    Curriculum List
@@ -150,7 +150,7 @@
               </a>
             </li>
             <li class="nav-item">
-                <a href="{{route('admin.faculty_stafflist')}}" class="nav-link">
+                <a href="{{route('admin.faculty_stafflist')}}" class="btn nav-link">
                     <i class="nav-icon fa fa-users-cog"></i>
                   <p>
                      Faculty/Staff List
@@ -158,7 +158,7 @@
                 </a>
             </li>
             <li class="nav-item">
-                <a href="{{route('admin.usercontrol')}}" class="nav-link">
+                <a href="{{route('admin.usercontrol')}}" class="btn nav-link">
                     <i class="nav-icon fa fa-desktop"></i>
                   <p>
                      User Control
@@ -166,7 +166,7 @@
                 </a>
             </li>
             <li class="nav-item">
-                <a href="{{route('admin.settings')}}" class="nav-link">
+                <a href="{{route('admin.settings')}}" class="btn nav-link">
                     <i class="nav-icon fa fa-cogs"></i>
                   <p>
                      Settings
@@ -184,10 +184,14 @@
     </aside>
 
     <script>
-        $(".nav>li").each(function() {
-            var navItem = $(this);
-            if (navItem.find("a").attr("href") == location.pathname) {
-            navItem.addClass("active");
-            }
-        });
-    </script>
+        // Add active class to the current button (highlight it)
+        var header = document.getElementById("myDIV");
+        var btns = header.getElementsByClassName("btn");
+        for (var i = 0; i < btns.length; i++) {
+          btns[i].addEventListener("click", function() {
+          var current = document.getElementsByClassName("active");
+          current[0].className = current[0].className.replace(" active", "");
+          this.className += " active";
+          });
+        }
+        </script>
