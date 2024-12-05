@@ -20,7 +20,7 @@
     <!-- /.content-header -->
 
 
-    <section class="content">
+    {{-- <section class="content">
         <div class="table-responsive">
 
         <h2>List of Students</h2><hr>
@@ -37,12 +37,54 @@
                 </tr>
             </thead>
              <tbody>
-               {{-- content here --}}
+
             </tbody>
           </table>
 
       </div>
-    </section>
+    </section> --}}
+
+
+    <div class="container-fluid">
+
+        <!-- Page Heading -->
+        <div class="d-sm-flex align-items-center justify-content-between mb-4">
+            <h4 class="h4 mb-0 text-gray-800">List of Faculty</h4>
+
+        </div>
+
+        <!-- Content Row -->
+        <div class="row">
+
+            <!-- Earnings (Monthly) Card Example -->
+            <div class="col-xl-12 col-md-6 mb-4">
+                <div class="card shadow h-100 py-2">
+                    <div class="card-body">
+
+                    <div class="table-responsive">
+                        <table class="table table-bordered data-table2" id="dataTable" width="100%" cellspacing="0">
+                            <thead>
+                                <tr>
+                                    <th scope="col">ID</th>
+                                    <th scope="col">Name</th>
+                                    <th scope="col">Email</th>
+                                    <th scope="col">Status</th>
+                                    <th width="100px">Action</th>
+                                </tr>
+                            </thead>
+
+                            <tbody>
+
+                            </tbody>
+                        </table>
+                    </div>
+                    </div>
+                </div>
+            </div>
+
+        <!-- Content Row -->
+ </div>
+</div>
 
 
  @include('admin.modal.viewstudent')
