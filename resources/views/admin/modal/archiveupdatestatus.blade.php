@@ -23,7 +23,7 @@
 
                 <div class="form-group">
                     <label for="status" class="control-label text-navy">Status</label>
-                      <textarea type="text" name="remark" class="form-control" id="remark" rows="5" placeholder="Please input remark..." hidden="hidden"></textarea>
+                      <textarea type="text" name="remark" class="form-control pk" id="remark" rows="5" placeholder="Please input remark..."></textarea>
                 </div>
 
           </div>
