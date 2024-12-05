@@ -26,7 +26,7 @@
           <div class="col-12">
             <div class="card">
               <div class="card-header">
-                 <h2>List of Students</h2><hr>
+                 <h2>List of Students</h2>
               </div>
               <!-- /.card-header -->
               <div class="card-body">
