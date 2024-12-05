@@ -32,11 +32,12 @@
               <!-- /.card-header -->
               <div class="card-body">
 
-                <div style="width:60%;hieght:20%;text-align:center">
-                    <h2 class="page-header" >Analytics Reports </h2>
-                    <div>Product </div>
-                    <canvas  id="chartjs_bar"></canvas>
+
+                <div style="width: 80%; margin: 0 auto;">
+                    <h1>Monthly Sales Report</h1>
+                    <canvas id="barChart"></canvas>
                 </div>
+
 
             </div>
               <!-- /.card-body -->
@@ -59,44 +60,31 @@
   @endsection
   <script src="https://code.jquery.com/jquery-3.5.1.js"></script>
   <script src="https://cdnjs.cloudflare.com/ajax/libs/toastr.js/latest/toastr.min.js"></script>
-  <script src="//code.jquery.com/jquery-1.9.1.js"></script>
-  <script src="//cdnjs.cloudflare.com/ajax/libs/Chart.js/2.4.0/Chart.min.js"></script>
-<script type="text/javascript">
-      var ctx = document.getElementById("chartjs_bar").getContext('2d');
-                var myChart = new Chart(ctx, {
-                    type: 'bar',
-                    data: {
-                        labels:data.labels,
-                        datasets: [{
-                            backgroundColor: [
-                               "#5969ff",
-                                "#ff407b",
-                                "#25d5f2",
-                                "#ffc750",
-                                "#2ec551",
-                                "#7040fa",
-                                "#ff004e"
-                            ],
-                            data:data.values,
-                        }]
-                    },
-                    options: {
-                           legend: {
-                        display: true,
-                        position: 'bottom',
+  <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+  <script>
+    // Data passed from the Laravel controller
+    var data = @json($data);
 
-                        labels: {
-                            fontColor: '#71748d',
-                            fontFamily: 'Circular Std Book',
-                            fontSize: 14,
-                        }
-                    },
-
-
+    var ctx = document.getElementById('barChart').getContext('2d');
+    var barChart = new Chart(ctx, {
+        type: 'bar',
+        data: {
+            labels: data.labels,  // X-axis labels
+            datasets: [{
+                label: 'Sales',  // Dataset label
+                data: data.values,  // Y-axis values
+                backgroundColor: 'rgba(75, 192, 192, 0.2)',
+                borderColor: 'rgba(75, 192, 192, 1)',
+                borderWidth: 1
+            }]
+        },
+        options: {
+            scales: {
+                y: {
+                    beginAtZero: true
                 }
-              });
-    </script>
-
-
-
+            }
+        }
+    });
+</script>
 
