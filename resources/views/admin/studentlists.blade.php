@@ -21,9 +21,10 @@
 
 
     <section class="content">
+        <div class="table-responsive">
       <div class="container-fluid">
         <h2>List of Students</h2><hr>
-        <div class="table-responsive">
+
           <table class="table table-bordered data-table2">
             <thead>
                 <tr>
