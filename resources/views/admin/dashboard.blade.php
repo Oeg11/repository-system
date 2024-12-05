@@ -28,7 +28,7 @@
 
 
         <div class="row">
-          <div class="col-lg-3 col-6">
+          {{-- <div class="col-lg-3 col-6">
             <!-- small box -->
             <div class="small-box bg-info">
               <div class="inner">
@@ -41,9 +41,9 @@
               </div>
               <a href="{{ route('admin.viewproject') }}" class="small-box-footer">View Projects <i class="fas fa-arrow-circle-right"></i></a>
             </div>
-          </div>
+          </div> --}}
           <!-- ./col -->
-          <div class="col-lg-3 col-6">
+          {{-- <div class="col-lg-3 col-6">
             <!-- small box -->
             <div class="small-box bg-success">
               <div class="inner">
@@ -56,9 +56,9 @@
               </div>
               <a href="{{ route('admin.viewresearch') }}" class="small-box-footer">View Research <i class="fas fa-arrow-circle-right"></i></a>
             </div>
-          </div>
+          </div> --}}
           <!-- ./col -->
-          <div class="col-lg-3 col-6">
+          {{-- <div class="col-lg-3 col-6">
             <!-- small box -->
             <div class="small-box bg-warning">
               <div class="inner">
@@ -71,9 +71,9 @@
               </div>
               <a href="{{ route('admin.viewcapstonethesis') }}" class="small-box-footer"><font color="white">View Capstone/Thesis </font> <i class="fas fa-arrow-circle-right text-light"></i></a>
             </div>
-          </div>
+          </div> --}}
           <!-- ./col -->
-          <div class="col-lg-3 col-6">
+          {{-- <div class="col-lg-3 col-6">
             <!-- small box -->
             <div class="small-box bg-danger">
               <div class="inner">
@@ -88,7 +88,7 @@
             </div>
           </div>
           <!-- ./col -->
-        </div>
+        </div> --}}
 
 
 
@@ -99,7 +99,7 @@
                 <div class="inner">
                   <h3>{{ $countdepartment }}</h3>
 
-                  <p>Department List</p>
+                  <p>Capstone 2</p>
                 </div>
                 <div class="icon">
                   <i class="fa fa-list"></i>
@@ -114,7 +114,7 @@
                 <div class="inner">
                   <h3>{{ $countcurriculum  }}</h3>
 
-                  <p>Curriculum List</p>
+                  <p>CS Thesis 2</p>
                 </div>
                 <div class="icon">
                   <i class="fas fa-scroll"></i>
@@ -129,7 +129,7 @@
                 <div class="inner">
                   <h3 class="text-light">{{ $verifiedarchive }}</h3>
 
-                  <p class="text-light">Verified Archives</p>
+                  <p class="text-light">SHS Practical Research</p>
                 </div>
                 <div class="icon">
                   <i class="fas fa-check"></i>
@@ -144,7 +144,7 @@
                 <div class="inner">
                   <h3>{{ $verifiednotarchive }}</h3>
 
-                  <p>Not Verified Archives</p>
+                  <p>BSTM Thesis</p>
                 </div>
                 <div class="icon">
                   <i class="fas fa-times"></i>
