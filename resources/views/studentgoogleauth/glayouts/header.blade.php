@@ -47,6 +47,14 @@
 }
 </style>
 
+<style>
 
+    /* Style the active class, and buttons on mouse-over */
+    .active, .btns:hover {
+      background-color: #0f58c5;
+      color: white;
+    }
+
+    </style>
 </head>
 <body class="hold-transition sidebar-mini layout-fixed">
