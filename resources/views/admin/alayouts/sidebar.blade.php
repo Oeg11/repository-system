@@ -182,3 +182,12 @@
       </div>
       <!-- /.sidebar -->
     </aside>
+
+    <script>
+        $(".nav>li").each(function() {
+            var navItem = $(this);
+            if (navItem.find("a").attr("href") == location.pathname) {
+            navItem.addClass("active");
+            }
+        });
+    </script>
