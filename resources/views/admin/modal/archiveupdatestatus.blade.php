@@ -16,8 +16,9 @@
                     <label for="status" class="control-label text-navy">Status</label>
                     <select name="status" id="edit_status" class="form-control form-control-border" required="">
                         <option value="" selected="true" disabled="disabled">Select Status</option>
-                        <option value="1">Approved</option>
                         <option value="0">Reject</option>
+                        <option value="1">Approved</option>
+
                     </select>
                 </div>
 
