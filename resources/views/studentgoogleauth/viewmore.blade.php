@@ -36,6 +36,10 @@
                         <label style="font-weight:bolder">Thesis Members</label><br>
                         <p class="mb-0 w-100"> {!! html_entity_decode($getonethesis->members) !!}</p><br>
 
+
+                        <iframe src="{{ 'uploads/'.$getonethesis->document_path}}" width="100%" height="600px"></iframe>
+
+
                     </div>
                 </div>
             </div>
