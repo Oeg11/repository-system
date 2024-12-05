@@ -1215,5 +1215,16 @@ class AdminController extends Controller
 
     }
 
+    public function AdminReports(Request $request){
+
+        $data = [
+            'labels' => ['January', 'February', 'March', 'April', 'May'],
+            'values' => [10, 20, 30, 40, 50]
+        ];
+
+        return view('admin.reports', compact('data'));
+
+    }
+
 
 }

@@ -76,6 +76,9 @@ use App\Http\Controllers\StudentController;
         // Route::post('/admin/update/', [YourController::class, 'updateStatus'])->name('update.status');
         Route::post('/admin/add/usercontrol', [AdminController::class, 'AddUserControl'])->name('admin.addusercontrol');
         Route::post('/admin/update/usercontrol', [AdminController::class, 'UpdateUserControl'])->name('admin.updateusercontrol');
+
+
+        Route::get('/admin/reports', [AdminController::class, 'AdminReports'])->name('admin.reports');
     });
 
     Route::get('/staff/login', [StaffController::class, 'stafflogin'])->name('staff.login');
