@@ -1222,7 +1222,8 @@ class AdminController extends Controller
             'values' => [10, 20, 30, 40, 50]
         ];
 
-        return view('admin.reports', compact('data'));
+        $systeminformation = SystemInformation::all();
+        return view('admin.reports', compact('data','systeminformation'));
 
     }
 
