@@ -32,7 +32,7 @@
             <!-- small box -->
             <div class="small-box bg-info">
               <div class="inner">
-                <h3>{{$csthesis2 }}</h3>
+                <h3>{{$capstone2 }}</h3>
 
                 <p>Capstone 2</p>
               </div>
