@@ -100,12 +100,12 @@
 
 
         <!-- Sidebar Menu -->
-        <nav class="mt-2" id="myDIV">
+        <nav class="mt-2" id="myDIV_">
           <ul class="nav nav-pills nav-sidebar flex-column" data-widget="treeview" role="menu" data-accordion="false">
             <!-- Add icons to the links using the .nav-icon class
                  with font-awesome or any other icon font library -->
             <li class="nav-item">
-              <a href="{{route('dashboard.google')}}" class="nav-link btns">
+              <a href="{{route('dashboard.google')}}" class="nav-link btns_">
                 <i class="nav-icon fas fa-tachometer-alt"></i>
                 <p>
                   Dashboard
@@ -116,7 +116,7 @@
 
 
             <li class="nav-item">
-              <a href="{{route('studentgoogleauth.thesiscapstone')}}" class="nav-link btns">
+              <a href="{{route('studentgoogleauth.thesiscapstone')}}" class="nav-link btns_">
                   <i class="nav-icon fa fa-upload"></i>
                 <p>
                   Submit Thesis/Capstone
@@ -124,7 +124,7 @@
               </a>
             </li>
             <li class="nav-item">
-              <a href="{{route('studentgoogleauth.project')}}" class="nav-link btns">
+              <a href="{{route('studentgoogleauth.project')}}" class="nav-link btns_">
                 <i class="nav-icon fa fa-file"></i>
                 <p>
                   Projects
@@ -132,7 +132,7 @@
               </a>
             </li>
             <li class="nav-item">
-              <a href="{{route('googleauthstudents.profile')}}" class="nav-link btns">
+              <a href="{{route('googleauthstudents.profile')}}" class="nav-link btns_">
                 <i class="nav-icon fa fa-user"></i>
                 <p>
                   Profile
@@ -140,7 +140,7 @@
               </a>
             </li>
             <li class="nav-item">
-              <a href="{{route('googleauthstudents.status')}}" class="nav-link btns">
+              <a href="{{route('googleauthstudents.status')}}" class="nav-link btns_">
                 <i class="nav-icon fa fa-layer-group"></i>
                 <p>
                   My Project status
@@ -157,8 +157,8 @@
     </aside>
     <script>
         // Add active class to the current button (highlight it)
-        var header = document.getElementById("myDIV");
-        var btns = header.getElementsByClassName("btns");
+        var header = document.getElementById("myDIV_");
+        var btns = header.getElementsByClassName("btns_");
         for (var i = 0; i < btns.length; i++) {
           btns[i].addEventListener("click", function() {
           var current = document.getElementsByClassName("active");
@@ -166,4 +166,4 @@
           this.className += " active";
           });
         }
-        </script>
+ </script>
