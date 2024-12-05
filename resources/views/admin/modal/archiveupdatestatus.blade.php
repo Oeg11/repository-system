@@ -43,10 +43,10 @@
     $("#edit_status").change(function () {
         var selected_option = $('#fnivel').val();
         if (selected_option === '1') {
-            $('#remark').attr('pk','0').show();
+            $('#remark').hide();
         }
         if (selected_option != '1') {
-            $("#remark").removeAttr('pk').hide();
+            $("#remark")..show();
         }
     });
 
