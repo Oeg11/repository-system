@@ -43,8 +43,7 @@
   </style>
 
 
-<script src="http://www.chartjs.org/dist/2.7.3/Chart.bundle.js"></script>
-  <script src="http://www.chartjs.org/samples/latest/utils.js"></script>
+
   <style>
   canvas {
     -moz-user-select: none;

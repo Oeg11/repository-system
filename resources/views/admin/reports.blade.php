@@ -58,7 +58,8 @@
   @endsection
   <script src="https://code.jquery.com/jquery-3.5.1.js"></script>
   <script src="https://cdnjs.cloudflare.com/ajax/libs/toastr.js/latest/toastr.min.js"></script>
-
+  <script src="http://www.chartjs.org/dist/2.7.3/Chart.bundle.js"></script>
+  <script src="http://www.chartjs.org/samples/latest/utils.js"></script>
   <script>
     var chartdata = {
     type: 'bar',
@@ -84,7 +85,7 @@
     }
     }
     }
-    var ctx = document.getElementById('canvas').getContext('2d');
+    var ctx = document.getElementById('canvas').getContext('3d');
     new Chart(ctx, chartdata);
     </script>
 
