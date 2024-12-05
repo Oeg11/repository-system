@@ -165,7 +165,7 @@
                                 <img src="{{asset('assets/img/2993685_brand_brands_google_logo_logos_icon.svg')}}" height="30px" width="30px">&nbsp;&nbsp;Login with Google
                               </a>
 
-                        </div>
+                        </div>oeg
 
 
                         {{-- <div class="form-group">
