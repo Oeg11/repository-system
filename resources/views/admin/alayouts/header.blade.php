@@ -39,13 +39,10 @@
     background-color: #0f58c5;
     color: white;
   }
-  .navbar-nav .nav-item .nav-link {
+ .nav-link {
     color: red;
 }
-.navbar-nav .nav-item.active .nav-link,
-.navbar-nav .nav-item:hover .nav-link {
-    color: pink;
-}
+
   </style>
 </head>
 <body class="hold-transition sidebar-mini layout-fixed">
