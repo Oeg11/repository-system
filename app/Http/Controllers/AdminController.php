@@ -58,10 +58,11 @@ class AdminController extends Controller
 
     public function admindashboard(){
 
-        $countprojects =  archive::where('category', 'Project')->count();//projects
-        $countresearch =   archive::where('category', 'Research')->count();//research
-        $countthesisCapstone =  archive::where('category', 'Capstone/Thesis')->count();//thesisCapstone
-        $counttotalProjects = archive::where('status', 1)->count();
+        $capstone2 =  archive::where('category', 'Capstone 2')->count();//projects
+        $csthesis2 =   archive::where('category', 'CS Thesis 2')->count();//research
+        $shspracticalresearch =  archive::where('category', 'SHS Practical Research')->count();//thesisCapstone
+        $bstmthesis =  archive::where('category', 'BSTM Thesis')->count();//thesisCapstone
+        // $counttotalProjects = archive::where('status', 1)->count();
 
         $countdepartment= department::count();
         $countcurriculum = curriculum::count();
@@ -70,7 +71,7 @@ class AdminController extends Controller
 
         $systeminformation = SystemInformation::all();
 
-      return view('admin.dashboard', compact('systeminformation','countprojects', 'countresearch','countthesisCapstone', 'counttotalProjects', 'countdepartment', 'countcurriculum', 'verifiedarchive', 'verifiednotarchive'));
+      return view('admin.dashboard', compact('systeminformation','capstone2', 'csthesis2','shspracticalresearch', 'bstmthesis', 'countdepartment', 'countcurriculum', 'verifiedarchive', 'verifiednotarchive'));
     }
 
 
