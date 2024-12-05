@@ -33,9 +33,9 @@
                 <tr>
                     <th scope="col">ID</th>
                     <th scope="col">Name</th>
-                    <th scope="col">Email</th>
-                    <th scope="col">Status</th>
+                    <th scope="col">Description</th>
                     <th width="100px">Action</th>
+
 
                 </tr>
             </thead>
