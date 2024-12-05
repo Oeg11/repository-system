@@ -880,7 +880,7 @@ class AdminController extends Controller
         ->leftjoin('archives','archives.student_id','=','student_models.id')
         ->leftjoin('curricula','curricula.id','=','student_models.curriculum_id')
         ->leftjoin('departments','departments.id','=','student_models.department_id')
-        ->where('archives.category', 'Project')
+        ->where('archives.category', 'Capstone 2')
         ->orderBy('archives.id','DESC')
         ->get();
 
@@ -912,7 +912,7 @@ class AdminController extends Controller
         ->leftjoin('archives','archives.student_id','=','student_models.id')
         ->leftjoin('curricula','curricula.id','=','student_models.curriculum_id')
         ->leftjoin('departments','departments.id','=','student_models.department_id')
-        ->where('archives.category', 'Research')
+        ->where('archives.category', 'CS Thesis 2')
         ->orderBy('archives.id','DESC')
         ->get();
 
@@ -944,13 +944,15 @@ class AdminController extends Controller
         ->leftjoin('archives','archives.student_id','=','student_models.id')
         ->leftjoin('curricula','curricula.id','=','student_models.curriculum_id')
         ->leftjoin('departments','departments.id','=','student_models.department_id')
-        ->where('archives.category', 'Capstone/Thesis')
+        ->where('archives.category', 'SHS Practical Research')
         ->orderBy('archives.id','DESC')
         ->get();
 
         $systeminformation = SystemInformation::all();
         return view('admin.viewcapstonethesis', compact('archive','systeminformation'));
     }
+
+
 
 
     public function ViewTotalprojects(Request $request){
@@ -976,8 +978,10 @@ class AdminController extends Controller
         ->leftjoin('archives','archives.student_id','=','student_models.id')
         ->leftjoin('curricula','curricula.id','=','student_models.curriculum_id')
         ->leftjoin('departments','departments.id','=','student_models.department_id')
+        ->where('archives.category', 'BSTM Thesis')
         ->orderBy('archives.id','DESC')
         ->get();
+
 
         $systeminformation = SystemInformation::all();
         return view('admin.viewtotalprojects', compact('archive','systeminformation'));
