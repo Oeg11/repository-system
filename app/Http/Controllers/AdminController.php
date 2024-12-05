@@ -1223,7 +1223,7 @@ class AdminController extends Controller
         // ];
 
 
-       $sales = archive::selectRaw('count(category) as month, SUM(count_rank) as total_sales')
+       $sales = archive::selectRaw('MONTH(created_at) as month, SUM(count_rank) as total_sales')
        ->groupBy('month')
        ->get();
 
