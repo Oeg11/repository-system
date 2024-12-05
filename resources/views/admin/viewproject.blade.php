@@ -40,12 +40,14 @@
                             <th>{{ $item->department_name }}</th>
                             <th>{{ $item->curriculum_name }}</th>
                             <th>
-                                 @if($item->status == 0)
-                                 <span class="badge bg-secondary">Unpublished</span>
-                                 @else
-                                 <span class="badge bg-success">Published</span>
-                                 @endif
-                            </th>
+                                @if($item->status == 1)
+                                  <span class="badge bg-success">Approved</span>
+                                @elseif($item->status == 0)
+                                  <span class="badge bg-danger">Rejected</span>
+                                @else
+                                  <span class="badge bg-warning">Pending</span>
+                                @endif
+                           </th>
 
                           </tr>
 
