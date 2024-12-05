@@ -39,7 +39,7 @@
               <div class="icon">
                 <i class="fa fa-book"></i>
               </div>
-              <a href="{{ route('admin.viewproject') }}" class="small-box-footer">View Projects <i class="fas fa-arrow-circle-right"></i></a>
+              <a href="{{ route('admin.viewproject') }}" class="small-box-footer">View Capstone 2 <i class="fas fa-arrow-circle-right"></i></a>
             </div>
           </div>
           <!-- ./col -->
@@ -54,7 +54,7 @@
               <div class="icon">
                 <i class="fas fa-search"></i>
               </div>
-              <a href="{{ route('admin.viewresearch') }}" class="small-box-footer">View Research <i class="fas fa-arrow-circle-right"></i></a>
+              <a href="{{ route('admin.viewresearch') }}" class="small-box-footer">View CS Thesis 2 <i class="fas fa-arrow-circle-right"></i></a>
             </div>
           </div>
           <!-- ./col -->
@@ -69,7 +69,7 @@
               <div class="icon">
                 <i class="fas fa-book-open"></i>
               </div>
-              <a href="{{ route('admin.viewcapstonethesis') }}" class="small-box-footer"><font color="white">View Capstone/Thesis </font> <i class="fas fa-arrow-circle-right text-light"></i></a>
+              <a href="{{ route('admin.viewcapstonethesis') }}" class="small-box-footer"><font color="white">View SHS Practical Research </font> <i class="fas fa-arrow-circle-right text-light"></i></a>
             </div>
           </div>
           <!-- ./col -->
@@ -84,7 +84,7 @@
               <div class="icon">
                 <i class="fas fa-file"></i>
               </div>
-              <a href="{{ route('admin.viewtotalprojects') }}" class="small-box-footer">View Coleections <i class="fas fa-arrow-circle-right"></i></a>
+              <a href="{{ route('admin.viewtotalprojects') }}" class="small-box-footer">View BSTM Thesis <i class="fas fa-arrow-circle-right"></i></a>
             </div>
           </div>
           <!-- ./col -->
