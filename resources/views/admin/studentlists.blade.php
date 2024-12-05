@@ -23,7 +23,8 @@
     <section class="content">
       <div class="container-fluid">
         <h2>List of Students</h2><hr>
-        <table class="table table-bordered data-table2">
+        <div class="table-responsive">
+          <table class="table table-bordered data-table2">
             <thead>
                 <tr>
                     <th scope="col">ID</th>
@@ -37,7 +38,8 @@
              <tbody>
                {{-- content here --}}
             </tbody>
-        </table>
+          </table>
+        </div>
       </div>
     </section>
   </div>
