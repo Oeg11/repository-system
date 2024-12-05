@@ -27,10 +27,11 @@ class StaffController extends Controller
 
     public function stafflogin(){
 
-        $countprojects =  archive::where('category', 'Project')->count();//projects
-        $countresearch =   archive::where('category', 'Research')->count();//research
-        $countthesisCapstone =  archive::where('category', 'Capstone/Thesis')->count();//thesisCapstone
-        $counttotalProjects = archive::where('status', 1)->count();
+        $capstone2 =  archive::where('category', 'Capstone 2')->count();//projects
+        $csthesis2 =   archive::where('category', 'CS Thesis 2')->count();//research
+        $shspracticalresearch =  archive::where('category', 'SHS Practical Research')->count();//thesisCapstone
+        $bstmthesis =  archive::where('category', 'BSTM Thesis')->count();//thesisCapstone
+        // $counttotalProjects = archive::where('status', 1)->count();
 
         $verified =  studentModel::where('status', 1)->count();//verified student
         $notverified =  studentModel::where('status', 0)->count();//Not verified student
@@ -38,7 +39,7 @@ class StaffController extends Controller
         $verifiednotarchive =  archive::where('status', 0)->count();//not verified archive
         $systeminformation = SystemInformation::all();
 
-      return view('staff.dashboard', compact('systeminformation','countprojects', 'countresearch','countthesisCapstone', 'counttotalProjects', 'verified', 'notverified', 'verifiedarchive', 'verifiednotarchive'));
+      return view('staff.dashboard', compact('systeminformation','capstone2', 'csthesis2','shspracticalresearch', 'bstmthesis', 'verified', 'notverified', 'verifiedarchive', 'verifiednotarchive'));
     }
 
 
