@@ -23,7 +23,7 @@
 
                 <div class="form-group">
                     <label for="status" class="control-label text-navy">Status</label>
-                      <textarea type="text" name="remark" id="remark" rows="5" placeholder="Please input remark..."></textarea>
+                      <textarea type="text" name="remark" class="form-control" id="remark" rows="5" placeholder="Please input remark..."></textarea>
                 </div>
 
           </div>
@@ -39,14 +39,14 @@
 
   <script type="text/javascript">
 
-$("#edit_status").change(function () {
-    var selected_option = $('#fnivel').val();
-    if (selected_option === '0') {
-        $('#remark').attr('pk','1').show();
-    }
-    if (selected_option != '1') {
-        $("#remark").removeAttr('pk').hide();
-    }
-})
+    $("#edit_status").change(function () {
+        var selected_option = $('#fnivel').val();
+        if (selected_option === '1') {
+            $('#remark').attr('pk','0').show();
+        }
+        if (selected_option != '1') {
+            $("#remark").removeAttr('pk').hide();
+        }
+    })
 
 </script>
