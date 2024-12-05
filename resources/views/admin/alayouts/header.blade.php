@@ -39,6 +39,10 @@
     background-color: #0f58c5;
     color: white;
   }
+
+  .nav > li > a:hover{
+    background-color:#0f58c5;
+}
   </style>
 </head>
 <body class="hold-transition sidebar-mini layout-fixed">
