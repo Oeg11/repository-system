@@ -121,7 +121,6 @@ class AdminController extends Controller
                     ->addColumn('action', function($row){
 
 
-
                             $btn = '<div class="btn-group">
                                     <button type="button" class="btn btn-default">Action</button>
                                     <button type="button" class="btn btn-default dropdown-toggle dropdown-icon" data-toggle="dropdown">
