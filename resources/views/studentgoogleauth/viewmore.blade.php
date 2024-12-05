@@ -37,7 +37,7 @@
                         <p class="mb-0 w-100"> {!! html_entity_decode($getonethesis->members) !!}</p><br>
 
 
-                        <iframe src="{{ (!empty($getonethesis->document_path)) ? url('/storage/uploads/'.$getonethesis->document_path) :  url('assets/uploads/No_Image_Available.jpg')}}" width="100%" height="600px"></iframe>
+                        <iframe src="{{ (!empty($getonethesis->document_path)) ? url('/storage/uploads/'.$getonethesis->document_path) :  url('assets/uploads/No_Image_Available.jpg')}}" width="100%" height="600px" oncontextmenu="return false;"></iframe>
 
 
                     </div>
@@ -49,6 +49,9 @@
 </div>
 <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.7.1/jquery.min.js" integrity="sha512-v2CJ7UaYy4JwqLDIrZUI/4hqeoQieOmAZNXBeQyjo21dadnwR+8ZaIJVT8EE2iyI61OV8e6M8PP2/4hpQINQ/g==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
 <script>
-    PDFViewerApplicationOptions.set('disableDownload', true);
+PDFViewerApplicationOptions.set('disablePrinting', true);
+
+// Disable download button
+PDFViewerApplicationOptions.set('disableDownload', true);
 </script>
 @endsection
