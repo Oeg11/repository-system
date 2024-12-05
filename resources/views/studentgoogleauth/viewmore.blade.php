@@ -37,7 +37,7 @@
                         <p class="mb-0 w-100"> {!! html_entity_decode($getonethesis->members) !!}</p><br>
 
 
-                        <iframe src="{{ (!empty($getonethesis->banner_path)) ? url('/storage/uploads/'.$getonethesis->banner_path) :  url('assets/uploads/No_Image_Available.jpg')}}" width="100%" height="600px"></iframe>
+                        <iframe src="{{ (!empty($getonethesis->document_path)) ? url('/storage/uploads/'.$getonethesis->document_path) :  url('assets/uploads/No_Image_Available.jpg')}}" width="100%" height="600px"></iframe>
 
 
                     </div>
