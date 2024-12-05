@@ -45,8 +45,8 @@
         if (selected_option === '1') {
             $('#remark').hide();
         }
-        if (selected_option != '1') {
-            $("#remark")..show();
+        if (selected_option === '0') {
+            $("#remark").show();
         }
     });
 
