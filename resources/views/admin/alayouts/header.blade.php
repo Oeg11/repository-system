@@ -33,14 +33,6 @@
   <link rel="stylesheet" href="{{asset('plugins/datatables-buttons/css/buttons.bootstrap4.min.css')}}">
   <script src="https://cdn.ckeditor.com/ckeditor5/37.0.1/classic/ckeditor.js"></script>
 <style>
-  .btn {
-    border: none;
-    outline: none;
-    padding: 10px 16px;
-    background-color: #f1f1f1;
-    cursor: pointer;
-    font-size: 18px;
-  }
 
   /* Style the active class, and buttons on mouse-over */
   .active, .btn:hover {
