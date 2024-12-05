@@ -1,0 +1,1209 @@
+<?php
+
+namespace App\Http\Controllers;
+use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Auth;
+use App\Models\archive;
+use App\Models\admin;
+use Illuminate\Support\Facades\Validator;
+use Illuminate\Database\Eloquent\Builder;
+use Illuminate\Support\Facades\DB;
+use App\Models\studentModel;
+use App\Models\department;
+use App\Models\curriculum;
+use App\Models\staff;
+use App\Models\SystemInformation;
+use Illuminate\Support\Str;
+use Illuminate\Support\Facades\Storage;
+use App\Models\usercontrol;
+use App\Models\User;
+use DataTables;
+
+
+class AdminController extends Controller
+{
+
+    public function adminlogin(){
+
+        return view('admin.index');
+    }
+
+    public function loginfunctionadmin(Request $request)
+    {
+        $request->validate([
+            'email' => 'required',
+            'password' => 'required',
+
+        ]);
+
+        $credentials = $request->only('email', 'password');
+
+        if (Auth::guard('admin')->attempt($credentials)) {
+             return response()->json([
+                 'success' => true,
+                 'redirect_url' => route('admin.dashboard'),
+             ]);
+        }else {
+
+             return response()->json([
+                 'success' => false,
+                 'message' => 'Invalid email and password.',
+             ]);
+         }
+
+
+    }
+
+
+
+    public function admindashboard(){
+
+        $countprojects =  archive::where('category', 'Project')->count();//projects
+        $countresearch =   archive::where('category', 'Research')->count();//research
+        $countthesisCapstone =  archive::where('category', 'Capstone/Thesis')->count();//thesisCapstone
+        $counttotalProjects = archive::where('status', 1)->count();
+
+        $countdepartment= department::count();
+        $countcurriculum = curriculum::count();
+        $verifiedarchive =  archive::where('status', 1)->count();//verified archive
+        $verifiednotarchive =  archive::where('status', 0)->count();//not verified archive
+
+        $systeminformation = SystemInformation::all();
+
+      return view('admin.dashboard', compact('systeminformation','countprojects', 'countresearch','countthesisCapstone', 'counttotalProjects', 'countdepartment', 'countcurriculum', 'verifiedarchive', 'verifiednotarchive'));
+    }
+
+
+    public function archivelists(Request $request){
+
+
+        if ($request->ajax()) {
+
+            $data = DB::table('archives')
+            ->select(
+                'archives.id as archive_id',
+                'archives.archive_code',
+                'archives.category',
+                'archives.year',
+                'archives.title',
+                'archives.abstract',
+                'archives.members',
+                'archives.adviser',
+                'archives.banner_path',
+                'archives.document_path',
+                'archives.status',
+                'archives.student_id',
+                'archives.slug',
+                'archives.count_rank',
+                'archives.created_at',
+                'curricula.name as curriculum_name',
+                'departments.name as department_name',
+                )
+            ->leftjoin('curricula','curricula.id','=','archives.curriculum_id')
+            ->leftjoin('departments','departments.id','=','archives.department_id')
+            ->get();
+
+            return Datatables::of($data)
+
+                    ->addIndexColumn()
+
+
+                    ->addColumn('status',function($data){
+                        $html = '';
+                          if ($data->status == 1) {
+                                      $html = '<center><span class="badge badge-success">Published</span></center>';
+                                  } else if ($data->status == 0) {
+                                      $html = '<center><span class="badge badge-danger">Not Published</span></center>';
+                                  }
+                              return $html;
+                          })
+
+                    ->addColumn('action', function($row){
+
+
+
+                            $btn = '<div class="btn-group">
+                                    <button type="button" class="btn btn-default">Action</button>
+                                    <button type="button" class="btn btn-default dropdown-toggle dropdown-icon" data-toggle="dropdown">
+                                    <span class="sr-only">Toggle Dropdown</span>
+                                    </button>
+                                    <div class="dropdown-menu" role="menu">
+                                    <a class="dropdown-item btn-viewarchive" href="javascript:void(0)"
+                                    data-toggle="modal" data-target="#modal-viewarchive"
+                                        data-id="'.$row->archive_id.'"
+                                        data-title="'.$row->title.'"
+                                        data-category="'.$row->category.'"
+                                        data-department_="'.$row->department_name.'"
+                                        data-curriculum_="'.$row->curriculum_name.'"
+                                        data-year="'.$row->year.'"
+                                        data-abstract="'.$row->abstract.'"
+                                        data-members="'.$row->members.'"
+                                        data-adviser="'.$row->adviser.'"
+                                        data-bannerpath="'.$row->banner_path.'"
+                                        data-documentpath="'.$row->document_path.'"
+                                    >
+                                    <span class="fa fa-external-link-alt text-gray"></span> View</a>
+                                    <a class="dropdown-item btn-update"
+                                     href="javascript:void(0)" data-toggle="modal" data-target="#modal-archive"
+                                    data-id="'.$row->archive_id.'"
+                                    data-stat="'.$row->status.'"
+                                    ><span class="fa fa-check text-dark"></span> Update Status</a>
+                                    <a class="dropdown-item btn-deleteArchive" href="javascript:void(0)"
+                                    data-del="'.$row->archive_id.'">
+                                    <span class="fa fa-trash text-danger"></span>
+                                     Delete</a>
+
+                                    </div>
+                                </div>';
+
+
+
+                            return $btn;
+
+                    })
+
+                    ->rawColumns(['status', 'action'])
+
+                    ->make(true);
+
+        }
+
+
+        $departments = department::all();
+        $curriculums = curriculum::all();
+
+        $systeminformation = SystemInformation::all();
+
+        return view('admin.archivelists', compact('systeminformation', 'departments', 'curriculums'));
+    }
+
+
+    public function updatearchivelist(Request $request) {
+
+           $archive = archive::find($request->id);
+           $archive->status = $request->status;
+           $archive->save();
+          return response()->json([
+           'status' => 200,
+       ]);
+    }
+
+
+        public function deleteArchive(Request $request) {
+            $id = $request->id;
+            archive::find($id)->delete();
+            return response()->json(['status'=> 200]);
+
+        }
+
+
+
+    // public function adminstudentlists(Request $request){
+
+
+    //     if ($request->ajax()) {
+
+    //         $data = DB::table('student_models')
+    //             ->select(
+    //                 'student_models.id as student_id',
+    //                 'student_models.fullname',
+    //                 'student_models.email',
+    //                 'student_models.department_id',
+    //                 'student_models.curriculum_id',
+    //                 'student_models.role',
+    //                 'student_models.created_at',
+    //                 'student_models.status',
+    //                 'curricula.name as curriculum_name',
+    //                 'departments.name as department_name',
+    //                 )
+    //             ->leftjoin('curricula','curricula.id','=','student_models.curriculum_id')
+    //             ->leftjoin('departments','departments.id','=','student_models.department_id')
+    //             ->get();
+
+    //         return Datatables::of($data)
+
+    //                 ->addIndexColumn()
+
+
+    //                 ->addColumn('status',function($data){
+    //                     $html = '';
+    //                     if ($data->status == 1) {
+    //                                 $html = '<center><span class="badge badge-success">Verified</span></center>';
+    //                             } else {
+    //                                 $html = '<center><span class="badge badge-danger">Not Verified</span></center>';
+    //                             }
+    //                         return $html;
+    //                     })
+
+    //                 ->addColumn('action', function($row){
+
+
+
+    //                         $btn = '<div class="btn-group">
+    //                                 <button type="button" class="btn btn-default">Action</button>
+    //                                 <button type="button" class="btn btn-default dropdown-toggle dropdown-icon" data-toggle="dropdown">
+    //                                 <span class="sr-only">Toggle Dropdown</span>
+    //                                 </button>
+    //                                 <div class="dropdown-menu" role="menu">
+    //                                 <a class="dropdown-item btn-viewstudent" href="javascript:void(0)"
+    //                                 data-toggle="modal" data-target="#modal-viewstudent"
+    //                                   data-id="'.$row->student_id.'"
+    //                                   data-fname="'.$row->fullname.'"
+    //                                   data-email="'.$row->email.'"
+    //                                   data-cur="'.$row->curriculum_name.'"
+    //                                   data-dept="'.$row->department_name.'"
+    //                                   data-status="'.$row->status.'"
+
+    //                                 ><span class="fa fa-external-link-alt text-gray"></span> View</a>
+
+    //                                  <a class="dropdown-item btn-editstudentstatus" href="javascript:void(0)"
+    //                                 data-toggle="modal" data-target="#modal-editstudentstatus"
+    //                                   data-id="'.$row->student_id.'"
+    //                                   data-status1="'.$row->status.'"
+
+    //                                 ><span class="fa fa-edit text-blue"></span> Edit</a>
+
+
+    //                                 <a class="dropdown-item btn-deleteStudent" href="javascript:void(0)"
+    //                                 data-del="'.$row->student_id.'">
+    //                                 <span class="fa fa-trash text-danger"></span>
+    //                                 Delete</a>
+
+    //                                 </div>
+    //                             </div>';
+
+
+
+    //                         return $btn;
+
+    //                 })
+
+    //                 ->rawColumns(['status', 'action'])
+
+    //                 ->make(true);
+
+    //     }
+
+    //     $systeminformation = SystemInformation::all();
+
+
+    //     return view('admin.studentlists', compact('systeminformation'));
+    // }
+
+
+    public function adminstudentlists(Request $request){
+
+
+        if ($request->ajax()) {
+
+            $data = DB::table('users')
+            ->select(
+                'users.id as student_id',
+                'users.name',
+                'users.email',
+                'users.role',
+                'users.status',
+                'users.created_at',
+                )
+            ->get();
+
+            return Datatables::of($data)
+
+                    ->addIndexColumn()
+
+
+                    // ->addColumn('status',function($data){
+                    //     $html = '';
+                    //     if ($data->status == 1) {
+                    //                 $html = '<center><span class="badge badge-success">Verified</span></center>';
+                    //             } else {
+                    //                 $html = '<center><span class="badge badge-danger">Not Verified</span></center>';
+                    //             }
+                    //         return $html;
+                    //     })
+
+                    ->addColumn('action', function($row){
+
+
+
+                            $btn = '<div class="btn-group">
+                                    <button type="button" class="btn btn-default">Action</button>
+                                    <button type="button" class="btn btn-default dropdown-toggle dropdown-icon" data-toggle="dropdown">
+                                    <span class="sr-only">Toggle Dropdown</span>
+                                    </button>
+                                    <div class="dropdown-menu" role="menu">
+                                    <a class="dropdown-item btn-viewstudent" href="javascript:void(0)"
+                                    data-toggle="modal" data-target="#modal-viewstudent"
+                                        data-id="'.$row->student_id.'"
+                                        data-fname="'.$row->name.'"
+                                        data-email="'.$row->email.'"
+                                        data-status="'.$row->status.'"
+
+                                    ><span class="fa fa-external-link-alt text-gray"></span> View</a>
+
+
+
+
+                                    <a class="dropdown-item btn-deleteStudent" href="javascript:void(0)"
+                                    data-del="'.$row->student_id.'">
+                                    <span class="fa fa-trash text-danger"></span>
+                                    Delete</a>
+
+                                    </div>
+                                </div>';
+
+
+
+                            return $btn;
+
+                    })
+
+                    // <a class="dropdown-item btn-editstudentstatus" href="javascript:void(0)"
+                    // data-toggle="modal" data-target="#modal-editstudentstatus"
+                    //   data-id="'.$row->student_id.'"
+                    //   data-status1="'.$row->status.'"
+
+                    // ><span class="fa fa-edit text-blue"></span> Edit</a>
+
+                    ->rawColumns(['action'])
+
+                    ->make(true);
+
+        }
+
+        $systeminformation = SystemInformation::all();
+
+
+        return view('admin.studentlistsgoogleauth', compact('systeminformation'));
+    }
+
+
+
+    public function updateStudentstatus(Request $request){
+            $archive = User::find($request->id);
+            $archive->status = $request->status;
+            $archive->save();
+        return response()->json([
+            'status' => 200,
+        ]);
+
+    }
+
+    public function deleteStudent_(Request $request) {
+        $id = $request->id;
+        User::find($id)->delete();
+        return response()->json(['status'=> 200]);
+
+    }
+
+
+
+    public function admindepartmentlists_(Request $request){
+
+
+        if ($request->ajax()) {
+
+            $data = DB::table('departments')
+                ->select('*')
+                ->get();
+
+            return Datatables::of($data)
+
+                    ->addIndexColumn()
+
+
+                    ->addColumn('action', function($row){
+
+
+
+                            $btn = '<div class="btn-group">
+                                    <button type="button" class="btn btn-default">Action</button>
+                                    <button type="button" class="btn btn-default dropdown-toggle dropdown-icon" data-toggle="dropdown">
+                                    <span class="sr-only">Toggle Dropdown</span>
+                                    </button>
+                                    <div class="dropdown-menu" role="menu">
+                                    <a class="dropdown-item btn-editdepartment" href="javascript:void(0)"
+                                    data-toggle="modal" data-target="#modal-editdepartment"
+                                        data-id="'.$row->id.'"
+                                        data-name="'.$row->name.'"
+                                        data-desc="'.$row->description.'"
+
+
+                                    ><span class="fa fa-edit text-blue"></span> Edit</a>
+
+                                    <a class="dropdown-item btn-deleteDepartment" href="javascript:void(0)"
+                                    data-del="'.$row->id.'">
+                                    <span class="fa fa-trash text-danger"></span>
+                                    Delete</a>
+
+                                    </div>
+                                </div>';
+
+
+
+                            return $btn;
+
+                    })
+
+                    ->rawColumns(['action'])
+
+                    ->make(true);
+
+        }
+        $systeminformation = SystemInformation::all();
+
+        return view('admin.departmentlists', compact('systeminformation'));
+    }
+
+    public function addDepartment(Request $request){
+
+
+        $validator = \Validator::make($request->all(), [
+            'name' => 'required|regex:/^([a-zA-Z\s\-\+\/\(\)]*)$/',
+            'description' => 'required',
+
+        ],[
+            'name.required' => 'Please input Department Name',
+            'description.required' => 'Please input Department Description',
+
+        ]);
+
+        if ($validator->fails()) {
+            return response()->json(['errors' => $validator->errors()]);
+        }
+
+        $deptData = [
+            'name' => $request->name,
+            'description' => $request->description,
+
+
+          ];
+          department::create($deptData);
+          return response()->json([
+            'status' => 200,
+          ]);
+    }
+
+    public function updateDepartment(Request $request){
+
+        $dept = department::find($request->id);
+        $dept->name = $request->name;
+        $dept->description = $request->description;
+        $dept->save();
+
+       return response()->json([
+        'status' => 200,
+
+      ]);
+
+    }
+
+    public function deleteDepartment_(Request $request){
+        $id = $request->id;
+        department::find($id)->delete();
+        return response()->json(['status'=> 200]);
+    }
+
+
+    public function admincurriculumlists_(Request $request){
+
+        if ($request->ajax()) {
+
+            $data = DB::table('curricula')
+            ->select(
+                'curricula.id as curriculum_id',
+                'curricula.department_id',
+                'curricula.name',
+                'curricula.description',
+                'departments.name as department_name',
+                )
+            ->leftjoin('departments','departments.id','=','curricula.department_id')
+            ->get();
+
+            return Datatables::of($data)
+
+                    ->addIndexColumn()
+
+
+                    ->addColumn('action', function($row){
+
+
+
+                            $btn = '<div class="btn-group">
+                                    <button type="button" class="btn btn-default">Action</button>
+                                    <button type="button" class="btn btn-default dropdown-toggle dropdown-icon" data-toggle="dropdown">
+                                    <span class="sr-only">Toggle Dropdown</span>
+                                    </button>
+                                    <div class="dropdown-menu" role="menu">
+                                    <a class="dropdown-item btn-editcurriculum" href="javascript:void(0)"
+                                    data-toggle="modal" data-target="#modal-editcurriculum"
+                                        data-id="'.$row->curriculum_id.'"
+                                        data-deptid="'.$row->department_id.'"
+                                        data-name="'.$row->name.'"
+                                        data-desc="'.$row->description.'"
+
+
+                                    ><span class="fa fa-edit text-blue"></span> Edit</a>
+
+                                    <a class="dropdown-item btn-deleteCurriculum" href="javascript:void(0)"
+                                    data-del="'.$row->curriculum_id.'">
+                                    <span class="fa fa-trash text-danger"></span>
+                                    Delete</a>
+
+                                    </div>
+                                </div>';
+
+
+
+                            return $btn;
+
+                    })
+
+                    ->rawColumns(['action'])
+
+                    ->make(true);
+
+        }
+
+        $departments = department::all();
+        $systeminformation = SystemInformation::all();
+        return view('admin.curriculumlists', compact('departments', 'systeminformation'));
+    }
+
+    public function addCurriculum(Request $request){
+
+        $validator = \Validator::make($request->all(), [
+            'department_id' => 'required',
+            'name' => 'required|regex:/^([a-zA-Z\s\-\+\/\(\)]*)$/',
+            'description' => 'required',
+
+        ],[
+            'department_id.required' => 'Please select Department',
+            'name.required' => 'Please input Name',
+            'description.required' => 'Please input Description',
+
+        ]);
+
+        if ($validator->fails()) {
+            return response()->json(['errors' => $validator->errors()]);
+        }
+
+
+        $deptData = [
+            'department_id' => $request->department_id,
+            'name' => $request->name,
+            'description' => $request->description,
+          ];
+          curriculum::create($deptData);
+          return response()->json([
+            'status' => 200,
+          ]);
+    }
+
+    public function updateCurriculum(Request $request){
+
+        $curri = curriculum::find($request->id);
+        $curri->department_id = $request->department_id;
+        $curri->name = $request->name;
+        $curri->description = $request->description;
+        $curri->save();
+
+       return response()->json([
+        'status' => 200,
+
+      ]);
+
+    }
+
+    public function deleteCurriculum_(Request $request){
+        $id = $request->id;
+        curriculum::find($id)->delete();
+        return response()->json(['status'=> 200]);
+
+    }
+
+
+    public function adminfaculty_stafflists_(Request $request){
+
+
+        if ($request->ajax()) {
+
+            $data = DB::table('staff')
+            ->select(
+                'id',
+                'firstname',
+                'middlename',
+                'lastname',
+                'email',
+                'password',
+                'status',
+                DB::raw('CONCAT(firstname, " ", IFNULL(middlename, ""), " ",  lastname) AS fullname')
+                )
+            ->get();
+
+            return Datatables::of($data)
+
+                    ->addIndexColumn()
+
+
+                    ->addColumn('status',function($data){
+                        $html = '';
+                        if ($data->status == 'active') {
+                                    $html = '<center><span class="badge badge-success">Active</span></center>';
+                                } else {
+                                    $html = '<center><span class="badge badge-danger">In Active</span></center>';
+                                }
+                            return $html;
+                        })
+
+
+                    ->addColumn('action', function($row){
+
+
+
+                            $btn = '<div class="btn-group">
+                                    <button type="button" class="btn btn-default">Action</button>
+                                    <button type="button" class="btn btn-default dropdown-toggle dropdown-icon" data-toggle="dropdown">
+                                    <span class="sr-only">Toggle Dropdown</span>
+                                    </button>
+                                    <div class="dropdown-menu" role="menu">
+                                    <a class="dropdown-item btn-fstaff" href="javascript:void(0)"
+                                    data-toggle="modal" data-target="#modal-editfacultystaff"
+                                        data-id="'.$row->id.'"
+                                        data-fname="'.$row->firstname.'"
+                                        data-mname="'.$row->middlename.'"
+                                        data-lname="'.$row->lastname.'"
+                                        data-email="'.$row->email.'"
+                                        data-stat="'.$row->status.'"
+
+                                    ><span class="fa fa-edit text-blue"></span> Edit</a>
+
+                                    <a class="dropdown-item btn-deletefacultystaff" href="javascript:void(0)"
+                                    data-del="'.$row->id.'">
+                                    <span class="fa fa-trash text-danger"></span>
+                                    Delete</a>
+
+                                    </div>
+                                </div>';
+
+
+
+                            return $btn;
+
+                    })
+
+                    ->rawColumns(['status', 'action'])
+
+                    ->make(true);
+
+        }
+        $systeminformation = SystemInformation::all();
+        return view('admin.faculty_stafflists', compact('systeminformation'));
+    }
+
+    public function AddStaff(Request $request){
+
+
+        $validator = \Validator::make($request->all(), [
+            'firstname' => 'required|regex:/^([a-zA-Z\s\-\+\/\(\)]*)$/',
+            'middlename' => '',
+            'lastname' => 'required|regex:/^([a-zA-Z\s\-\+\/\(\)]*)$/',
+            'email' => 'required|email|unique:staff',
+            'password' => 'required|min:8',
+
+        ],[
+            'firstname.required' => 'Required First Name',
+            'name.required' => 'Required Last Name',
+            'name.required' => 'Required Unique Email',
+            'password.required' => 'Password minimum 8 characters',
+
+        ]);
+
+        if ($validator->fails()) {
+            return response()->json(['errors' => $validator->errors()]);
+        }
+
+
+        $staff = [
+            'firstname' => $request->firstname,
+            'middlename' => $request->middlename,
+            'lastname' => $request->lastname,
+            'email' => $request->email,
+            'password' => bcrypt($request->password),
+          ];
+          staff::create($staff);
+
+          return response()->json([
+            'status' => 200,
+          ]);
+
+    }
+
+
+    public function updateFacultystaff(Request $request){
+
+        $fstaff = staff::find($request->id);
+        $fstaff->firstname = $request->firstname;
+        $fstaff->middlename = $request->middlename;
+        $fstaff->lastname = $request->lastname;
+        $fstaff->email = $request->email;
+        $fstaff->status = $request->status;
+        $fstaff->save();
+
+       return response()->json([
+        'status' => 200,
+
+      ]);
+
+    }
+
+    public function deleteFacultystaff_(Request $request){
+        $id = $request->id;
+        staff::find($id)->delete();
+        return response()->json(['status'=> 200]);
+    }
+
+
+    public function adminsettings_(Request $request){
+
+
+        if ($request->ajax()) {
+
+            $data = DB::table('system_information')
+            ->select('*')
+            ->get();
+
+            return Datatables::of($data)
+
+                    ->addIndexColumn()
+
+                    ->addColumn('action', function($row){
+
+
+
+                            $btn = '<div class="btn-group">
+                                    <button type="button" class="btn btn-default">Action</button>
+                                    <button type="button" class="btn btn-default dropdown-toggle dropdown-icon" data-toggle="dropdown">
+                                    <span class="sr-only">Toggle Dropdown</span>
+                                    </button>
+                                    <div class="dropdown-menu" role="menu">
+                                    <a class="dropdown-item btn-settings" href="javascript:void(0)"
+                                    data-toggle="modal" data-target="#modal-editsettings"
+                                        data-id="'.$row->id.'"
+                                        data-sname="'.$row->system_name.'"
+                                        data-ssname="'.$row->system_short_name.'"
+                                        data-desc="'.$row->description.'"
+                                        data-about="'.$row->about.'"
+                                        data-email="'.$row->email.'"
+                                        data-cno="'.$row->contact_number.'"
+                                        data-address="'.$row->address.'"
+
+
+                                    ><span class="fa fa-edit text-blue"></span> Edit</a>
+
+                                    <a class="dropdown-item btn-deletesettings" href="javascript:void(0)"
+                                    data-del="'.$row->id.'">
+                                    <span class="fa fa-trash text-danger"></span>
+                                    Delete</a>
+
+                                    </div>
+                                </div>';
+
+
+
+                            return $btn;
+
+                    })
+
+                    ->rawColumns(['action'])
+
+                    ->make(true);
+
+        }
+        $systeminformation = SystemInformation::all();
+        return view('admin.settings', compact('systeminformation'));
+    }
+
+
+    public function updateSettings(Request $request){
+
+        $settings = SystemInformation::find($request->id);
+        $settings->system_name = $request->system_name;
+        $settings->system_short_name = $request->system_short_name;
+        $settings->description = $request->description;
+        $settings->about = $request->about;
+        $settings->email = $request->email;
+        $settings->contact_number = $request->contact_number;
+        $settings->address = $request->address;
+        $settings->save();
+
+       return response()->json([
+        'status' => 200,
+
+      ]);
+
+    }
+
+    public function deleteSettings_(Request $request){
+
+        $id = $request->id;
+        SystemInformation::find($id)->delete();
+        return response()->json(['status'=> 200]);
+    }
+
+
+    public function ViewProject(Request $request){
+
+
+        $archive = DB::table('student_models')
+        ->select(
+            'student_models.id as student_id',
+            'student_models.fullname',
+            'student_models.email',
+            'archives.id as archives_id',
+            'archives.student_id',
+            'archives.title',
+            'archives.abstract',
+            'archives.banner_path',
+            'archives.status',
+            'archives.category',
+            'archives.created_at',
+            'archives.archive_code',
+            'curricula.name as curriculum_name',
+            'departments.name as department_name',
+            )
+        ->leftjoin('archives','archives.student_id','=','student_models.id')
+        ->leftjoin('curricula','curricula.id','=','student_models.curriculum_id')
+        ->leftjoin('departments','departments.id','=','student_models.department_id')
+        ->where('archives.category', 'Project')
+        ->orderBy('archives.id','DESC')
+        ->get();
+
+        $systeminformation = SystemInformation::all();
+        return view('admin.viewproject', compact('archive','systeminformation'));
+    }
+
+
+    public function ViewResearch(Request $request){
+
+
+        $archive = DB::table('student_models')
+        ->select(
+            'student_models.id as student_id',
+            'student_models.fullname',
+            'student_models.email',
+            'archives.id as archives_id',
+            'archives.student_id',
+            'archives.title',
+            'archives.abstract',
+            'archives.banner_path',
+            'archives.status',
+            'archives.category',
+            'archives.created_at',
+            'archives.archive_code',
+            'curricula.name as curriculum_name',
+            'departments.name as department_name',
+            )
+        ->leftjoin('archives','archives.student_id','=','student_models.id')
+        ->leftjoin('curricula','curricula.id','=','student_models.curriculum_id')
+        ->leftjoin('departments','departments.id','=','student_models.department_id')
+        ->where('archives.category', 'Research')
+        ->orderBy('archives.id','DESC')
+        ->get();
+
+        $systeminformation = SystemInformation::all();
+        return view('admin.viewresearch', compact('archive','systeminformation'));
+    }
+
+
+    public function ViewCapstonethesis(Request $request){
+
+
+        $archive = DB::table('student_models')
+        ->select(
+            'student_models.id as student_id',
+            'student_models.fullname',
+            'student_models.email',
+            'archives.id as archives_id',
+            'archives.student_id',
+            'archives.title',
+            'archives.abstract',
+            'archives.banner_path',
+            'archives.status',
+            'archives.category',
+            'archives.created_at',
+            'archives.archive_code',
+            'curricula.name as curriculum_name',
+            'departments.name as department_name',
+            )
+        ->leftjoin('archives','archives.student_id','=','student_models.id')
+        ->leftjoin('curricula','curricula.id','=','student_models.curriculum_id')
+        ->leftjoin('departments','departments.id','=','student_models.department_id')
+        ->where('archives.category', 'Capstone/Thesis')
+        ->orderBy('archives.id','DESC')
+        ->get();
+
+        $systeminformation = SystemInformation::all();
+        return view('admin.viewcapstonethesis', compact('archive','systeminformation'));
+    }
+
+
+    public function ViewTotalprojects(Request $request){
+
+
+        $archive = DB::table('student_models')
+        ->select(
+            'student_models.id as student_id',
+            'student_models.fullname',
+            'student_models.email',
+            'archives.id as archives_id',
+            'archives.student_id',
+            'archives.title',
+            'archives.abstract',
+            'archives.banner_path',
+            'archives.status',
+            'archives.category',
+            'archives.created_at',
+            'archives.archive_code',
+            'curricula.name as curriculum_name',
+            'departments.name as department_name',
+            )
+        ->leftjoin('archives','archives.student_id','=','student_models.id')
+        ->leftjoin('curricula','curricula.id','=','student_models.curriculum_id')
+        ->leftjoin('departments','departments.id','=','student_models.department_id')
+        ->orderBy('archives.id','DESC')
+        ->get();
+
+        $systeminformation = SystemInformation::all();
+        return view('admin.viewtotalprojects', compact('archive','systeminformation'));
+    }
+
+
+    public function ViewVerifiedarchive(Request $request){
+
+
+        $verifiedarchive = DB::table('student_models')
+        ->select(
+            'student_models.id as student_id',
+            'student_models.fullname',
+            'student_models.email',
+            'archives.id as archives_id',
+            'archives.student_id',
+            'archives.title',
+            'archives.abstract',
+            'archives.banner_path',
+            'archives.status',
+            'archives.category',
+            'archives.created_at',
+            'archives.archive_code',
+            'curricula.name as curriculum_name',
+            'departments.name as department_name',
+            )
+        ->leftjoin('archives','archives.student_id','=','student_models.id')
+        ->leftjoin('curricula','curricula.id','=','student_models.curriculum_id')
+        ->leftjoin('departments','departments.id','=','student_models.department_id')
+        ->where('archives.status', 1)
+        ->orderBy('archives.id','DESC')
+        ->get();
+
+        $systeminformation = SystemInformation::all();
+        return view('admin.viewverifiedarchive', compact('verifiedarchive','systeminformation'));
+
+    }
+
+    public function ViewNotVerifiedarchive(Request $request){
+
+        $notverifiedarchive = DB::table('student_models')
+        ->select(
+            'student_models.id as student_id',
+            'student_models.fullname',
+            'student_models.email',
+            'archives.id as archives_id',
+            'archives.student_id',
+            'archives.title',
+            'archives.abstract',
+            'archives.banner_path',
+            'archives.status',
+            'archives.category',
+            'archives.created_at',
+            'archives.archive_code',
+            'curricula.name as curriculum_name',
+            'departments.name as department_name',
+            )
+        ->leftjoin('archives','archives.student_id','=','student_models.id')
+        ->leftjoin('curricula','curricula.id','=','student_models.curriculum_id')
+        ->leftjoin('departments','departments.id','=','student_models.department_id')
+        ->where('archives.status', 0)
+        ->orderBy('archives.id','DESC')
+        ->get();
+
+        $systeminformation = SystemInformation::all();
+        return view('admin.viewnotverifiedarchive', compact('notverifiedarchive','systeminformation'));
+    }
+
+
+
+    public function ChangePassword(Request $request){
+
+
+        $adminauthID = Auth::user()->id;
+        $userlog = admin::where('id', $adminauthID)->get();
+
+        $systeminformation = SystemInformation::all();
+        return view('admin.changepassword',compact('systeminformation','userlog'));
+
+    }
+
+    public function updatePassword(Request $request){
+
+
+        $validator = \Validator::make($request->all(), [
+
+            'email' => 'required',
+            'password' => 'required|min:8',
+
+        ],[
+            'name.required' => 'Required Email',
+            'password.required' => 'Password minimum 8 characters',
+
+        ]);
+
+        if ($validator->fails()) {
+            return response()->json(['errors' => $validator->errors()]);
+        }
+
+
+
+        $id = admin::find($request->id);
+          $cpassword = "";
+        if (empty($request->password)) {
+            $cpassword = $request->defaultpassword; //back old password
+        } else {
+            $cpassword = bcrypt($request->password); //update new password
+
+        }
+
+        $data = [
+            'email' => $request->email,
+            'password' => $cpassword,
+
+        ];
+
+       $id->update($data);
+          return response()->json([
+            'status' => 200,
+          ]);
+
+
+    }
+
+    public function userControl(){
+
+        $systeminformation = SystemInformation::all();
+        $staffs = staff::all();
+        $collections = archive::all();
+
+
+
+        $collections = DB::table('usercontrols')
+        ->select(
+            'usercontrols.id as usercontrol_id',
+            'usercontrols.staff_id',
+            'usercontrols.collectionlist_view',
+            'usercontrols.collectionlist_updatestatus',
+            'usercontrols.collectionlist_delete',
+            'staff.id as ustaff_id',
+            'staff.firstname',
+            'staff.lastname',
+
+            )
+
+        ->leftjoin('staff','staff.id','=','usercontrols.staff_id')
+        ->get();
+
+        return view('admin.usercontrol', compact('systeminformation','staffs','collections'));
+    }
+
+
+
+    public function AddUserControl(Request $request){
+        $validator = \Validator::make($request->all(), [
+            'staff_id' => 'required|unique:usercontrols,staff_id,'.$request->input('staff_id'),
+
+        ],[
+            'staff_id.required' => 'Required select a Staff',
+
+        ]);
+
+        if ($validator->fails()) {
+            return response()->json(['errors' => $validator->errors()]);
+        }
+
+
+        $staff = [
+            'staff_id' => $request->staff_id,
+            'collectionlist_view' => $request->collectionlist_view,
+            'collectionlist_updatestatus' => $request->collectionlist_updatestatus,
+            'collectionlist_delete' => $request->collectionlist_delete,
+          ];
+          usercontrol::create($staff);
+
+          return response()->json([
+            'status' => 200,
+          ]);
+
+
+     }
+
+
+    // public function userControl(){
+
+    //     $systeminformation = SystemInformation::all();
+    //     $staffs = staff::all();
+    //     $collections = archive::all();
+
+
+
+    //     $collections = DB::table('staff')
+    //     ->select(
+    //         'staff.id as ustaff_id',
+    //         'staff.firstname',
+    //         'staff.lastname',
+    //         'usercontrols.id as usercontrol_id',
+    //         'usercontrols.staff_id',
+    //         'usercontrols.collectionlist_view',
+    //         'usercontrols.collectionlist_updatestatus',
+    //         'usercontrols.collectionlist_delete',
+
+
+    //         )
+
+    //     ->leftjoin('usercontrols','usercontrols.staff_id','=','staff.id')
+    //     ->get();
+
+    //     return view('admin.usercontrol', compact('systeminformation','staffs','collections'));
+    // }
+
+
+    public function UpdateUserControl(Request $request){
+
+        $id = usercontrol::find($request->id);
+        $data = [
+            'staff_id' => $request->staff_id,
+            'collectionlist_view' => $request->collectionlist_view,
+            'collectionlist_updatestatus' => $request->collectionlist_updatestatus,
+            'collectionlist_delete' => $request->collectionlist_delete,
+
+
+        ];
+
+       $id->update($data);
+          return response()->json([
+            'status' => 200,
+          ]);
+
+
+    }
+
+
+}
