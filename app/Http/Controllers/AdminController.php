@@ -1223,17 +1223,20 @@ class AdminController extends Controller
         // ];
 
 
-       $sales = archive::selectRaw('MONTH(created_at) as month, SUM(count_rank) as total_sales')
-       ->groupBy('month')
-       ->get();
+    //    $sales = archive::selectRaw('MONTH(created_at) as month, SUM(count_rank) as total_sales')
+    //    ->groupBy('month')
+    //    ->get();
 
-        $data = [
-        'labels' => $sales->pluck('month'),
-        'values' => $sales->pluck('total_sales')
-        ];
+    //     $data = [
+    //     'labels' => $sales->pluck('month'),
+    //     'values' => $sales->pluck('total_sales')
+    //     ];
+
+         $month = array('Jan', 'Feb', 'Mar', 'Apr', 'May');
+         $data  = array(1, 2, 3, 4, 5);
 
         $systeminformation = SystemInformation::all();
-        return view('admin.reports', compact('data','systeminformation'));
+        return view('admin.reports', ['Months' => $month, 'Data' => $data], compact('data','systeminformation'));
 
     }
 

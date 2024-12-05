@@ -33,11 +33,9 @@
               <div class="card-body">
 
 
-                <div style="width: 80%; margin: 0 auto;">
-                    <h1>Monthly Sales Report</h1>
-                    <canvas id="barChart"></canvas>
-                </div>
-
+                <div id="container" style="width: 75%;">
+                    <canvas id="canvas"></canvas>
+                    </div>
 
             </div>
               <!-- /.card-body -->
@@ -60,31 +58,33 @@
   @endsection
   <script src="https://code.jquery.com/jquery-3.5.1.js"></script>
   <script src="https://cdnjs.cloudflare.com/ajax/libs/toastr.js/latest/toastr.min.js"></script>
-  <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
-  <script>
-    // Data passed from the Laravel controller
-    var data = @json($data);
 
-    var ctx = document.getElementById('barChart').getContext('2d');
-    var barChart = new Chart(ctx, {
-        type: 'bar',
-        data: {
-            labels: data.labels,  // X-axis labels
-            datasets: [{
-                label: 'Sales',  // Dataset label
-                data: data.values,  // Y-axis values
-                backgroundColor: 'rgba(75, 192, 192, 0.2)',
-                borderColor: 'rgba(75, 192, 192, 1)',
-                borderWidth: 1
-            }]
-        },
-        options: {
-            scales: {
-                y: {
-                    beginAtZero: true
-                }
-            }
-        }
-    });
-</script>
+  <script>
+    var chartdata = {
+    type: 'bar',
+    data: {
+    labels: <?php echo json_encode($Months); ?>,
+    // labels: month,
+    datasets: [
+    {
+    label: 'this year',
+    backgroundColor: '#26B99A',
+    borderWidth: 1,
+    data: <?php echo json_encode($Data); ?>
+    }
+    ]
+    },
+    options: {
+    scales: {
+    yAxes: [{
+    ticks: {
+    beginAtZero:true
+    }
+    }]
+    }
+    }
+    }
+    var ctx = document.getElementById('canvas').getContext('2d');
+    new Chart(ctx, chartdata);
+    </script>
 
