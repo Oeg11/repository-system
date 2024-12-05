@@ -37,8 +37,6 @@
                     <div>Product </div>
                     <canvas  id="chartjs_bar"></canvas>
                 </div>
-            </body>
-
 
             </div>
               <!-- /.card-body -->
