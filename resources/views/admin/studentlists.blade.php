@@ -22,7 +22,7 @@
 
     <section class="content">
         <div class="table-responsive">
-      <div class="container-fluid">
+
         <h2>List of Students</h2><hr>
 
           <table class="table table-bordered data-table2">
@@ -40,7 +40,7 @@
                {{-- content here --}}
             </tbody>
           </table>
-        </div>
+
       </div>
     </section>
 
