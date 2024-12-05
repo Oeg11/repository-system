@@ -878,8 +878,8 @@ class AdminController extends Controller
             'departments.name as department_name',
             )
         ->leftjoin('archives','archives.student_id','=','users.id')
-        ->leftjoin('curricula','curricula.id','=','users.curriculum_id')
-        ->leftjoin('departments','departments.id','=','users.department_id')
+        ->leftjoin('curricula','curricula.id','=','archives.curriculum_id')
+        ->leftjoin('departments','departments.id','=','archives.department_id')
         ->where('archives.category', 'Capstone 2')
         ->orderBy('archives.id','DESC')
         ->get();
