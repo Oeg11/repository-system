@@ -69,6 +69,38 @@
 
 <script>
     document.addEventListener("DOMContentLoaded", function () {
+
+        // Bar Chart
+
+        var barChartData = {
+            labels: <?php echo $CategoryName ?>,
+            datasets: [{
+                label: 'Count',
+                backgroundColor: 'rgb(79,129,189)',
+                borderColor: 'rgba(0, 158, 251, 1)',
+                borderWidth: 1,
+                data: <?php echo $countCategory; ?>,
+            }]
+        };
+
+        var ctx = document.getElementById('bargraph2').getContext('2d');
+        window.myBar = new Chart(ctx, {
+            type: 'bar',
+            data: barChartData,
+            options: {
+                responsive: true,
+                legend: {
+                    display: false,
+                }
+            }
+        });
+
+    });
+</script>
+
+
+<script>
+    document.addEventListener("DOMContentLoaded", function () {
         // Pie chart
         new Chart(document.getElementById("chartjs-pie2"), {
             type: "pie",
@@ -92,67 +124,7 @@
 
 </script>
 
-<script>
-    $(function () {
 
-
-
-    //   var donutChartCanvas = $('#donutChart').get(0).getContext('2d')
-    //   var donutData        = {
-    //     labels: [
-    //         'Chrome',
-    //         'IE',
-    //         'FireFox',
-    //         'Safari',
-    //         'Opera',
-    //         'Navigator',
-    //     ],
-    //     datasets: [
-    //       {
-    //         data: [700,500,400,600,300,100],
-    //         backgroundColor : ['#f56954', '#00a65a', '#f39c12', '#00c0ef', '#3c8dbc', '#d2d6de'],
-    //       }
-    //     ]
-    //   }
-    //   var donutOptions     = {
-    //     maintainAspectRatio : false,
-    //     responsive : true,
-    //   }
-    //   //Create pie or douhnut chart
-    //   // You can switch between pie and douhnut using the method below.
-    //   new Chart(donutChartCanvas, {
-    //     type: 'doughnut',
-    //     data: donutData,
-    //     options: donutOptions
-    //   })
-
-      //-------------
-      //- PIE CHART -
-      //-------------
-      // Get context with jQuery - using jQuery's .get() method.
-      var pieChartCanvas = $('#pieChart').get(0).getContext('2d')
-      var pieData        = donutData;
-      var pieOptions     = {
-        maintainAspectRatio : false,
-        responsive : true,
-      }
-      //Create pie or douhnut chart
-      // You can switch between pie and douhnut using the method below.
-      new Chart(pieChartCanvas, {
-        type: 'pie',
-        data: pieData,
-        options: pieOptions
-      })
-
-      //-------------
-      //- BAR CHART -
-      //-------------
-
-
-
-
-    })
-  </script>
 
 
 <script>

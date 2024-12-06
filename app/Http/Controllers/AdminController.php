@@ -1221,9 +1221,7 @@ class AdminController extends Controller
     public function AdminReports(Request $request)
     {
 
-
-        $fetchdata = archive::select(
-             'type',
+        $fetchdata = archive::select('type',
               DB::raw("count(type) as counttype")
              )
             ->groupBy('type')
@@ -1255,23 +1253,52 @@ class AdminController extends Controller
                 info($result2);
             }
 
+
+            ///////////////////////////////////barchart 2/////////////////////////////////
+
+
+
+            $fetchdata2 = archive::select('category',
+             DB::raw("count(category) as countcategory"))
+            ->groupBy('category')
+            ->get();
+
+            $categoryname = archive::select(
+                DB::raw('category as CategoryName'))
+                ->groupBy('category')->get();
+
+            $result3[] = ['CategoryName'];
+
+            foreach ($categoryname as $key => $value) {
+
+                $result3[++$key] = $value->CategoryName;
+
+                info($result3);
+            }
+
+            $fetchcategory = archive::select(
+                DB::raw('count(category) as countCategory'))
+                ->groupBy('category')->get();
+
+            $result4[] = ['countCategory'];
+
+            foreach ($fetchcategory as $key => $value2) {
+
+                $result4[++$key] = $value2->fetchcategory;
+
+                info($result4);
+            }
+
+
             $systeminformation = SystemInformation::all();
             $types = archive::all();
-            return view('admin.reports', compact('fetchdata','systeminformation','types'))
+            return view('admin.reports', compact('fetchdata','fetchdata2', 'systeminformation','types'))
             ->with('NameType', json_encode($result))
-            ->with('TypeCount', json_encode($result2));
-
+            ->with('TypeCount', json_encode($result2))
+            ->with('CategoryName', json_encode($result3))
+            ->with('countCategory', json_encode($result4));
 
     }
-
-
-    // public function AdminReports(Request $request){
-
-    //     $systeminformation = SystemInformation::all();
-    //     $types = archive::all();
-    //     return view('admin.reports', compact('systeminformation','types'));
-
-    // }
 
 
 }
