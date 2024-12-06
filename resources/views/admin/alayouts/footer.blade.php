@@ -73,13 +73,13 @@
         // Bar Chart
 
         var barChartData = {
-            labels: <?php echo $CategoryName; ?>,
+            labels: {{ $CategoryName }}
             datasets: [{
                 label: 'Count',
                 backgroundColor: 'rgb(79,129,189)',
                 borderColor: 'rgba(0, 158, 251, 1)',
                 borderWidth: 1,
-                data: <?php echo $countCategory; ?>,
+                data: {{$countCategory}},
             }]
         };
 
@@ -105,9 +105,9 @@
         new Chart(document.getElementById("chartjs-pie2"), {
             type: "pie",
             data: {
-                labels: <?php echo $NameType; ?>,
+                labels: {{$NameType}},
                 datasets: [{
-                    data: <?php echo $TypeCount; ?>,
+                    data: {{$TypeCount}},
                     backgroundColor : ['#f56954', '#00a65a', '#f39c12', '#00c0ef', '#3c8dbc', '#d2d6de'],
                     borderColor: "transparent"
                 }]
