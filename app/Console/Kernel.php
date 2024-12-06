@@ -9,7 +9,7 @@ class Kernel extends ConsoleKernel
 {
     protected $commands = [
 
-        'App\Console\Commands\DbBackup'
+        \App\Console\Commands\DbBackup::class,
 
     ];
 
