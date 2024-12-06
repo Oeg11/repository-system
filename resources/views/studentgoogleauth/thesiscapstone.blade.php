@@ -29,10 +29,10 @@
                                <label><b>Type</b></label>
                                  <select class="form-control form-control-lg" id="type" name="type" aria-label="Default select example">
                                     <option value="" selected="true" disabled="disabled">&larr; Select Type &rarr;</option>
-                                  <option value="Capstone 2">Capstone 2</option>
-                                  <option value="CS Thesis 2">CS Thesis 2</option>
-                                  <option value="SHS Practical Research">SHS Practical Research</option>
-                                  <option value="BSTM Thesis">BSTM Thesis</option>
+                                    <option value="Capstone 2">Capstone 2</option>
+                                    <option value="CS Thesis 2">CS Thesis 2</option>
+                                    <option value="SHS Practical Research">SHS Practical Research</option>
+                                    <option value="BSTM Thesis">BSTM Thesis</option>
                                </select>
                               </div>
                               <span id="type-error" class="text-danger"></span>
@@ -54,6 +54,7 @@
                           <span id="category-error" class="text-danger"></span>
                     </div>
                </div>
+
                    <div class="row mt-3">
                                 <div class="col-md-6">
                                 <div class="form-group">

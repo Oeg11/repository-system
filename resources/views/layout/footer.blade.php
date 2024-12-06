@@ -15,13 +15,13 @@
 
                     <ul class="liste-unstyled pull-right">
 
-                        <li><a href="#facebook"><i class="fa fa-facebook"></i></a></li>
+                        <li><a href="javascript:void(0);" data-bs-toggle="modal" data-bs-target="#staticBackdrop">Terms and Condition</a></li>
 
-                        <li><a href="#twitter"><i class="fa fa-twitter"></i></a></li>
+                        {{-- <li><a href="#twitter"><i class="fa fa-twitter"></i></a></li>
 
                         <li><a href="#linkedin"><i class="fa fa-linkedin"></i></a></li>
 
-                        <li><a href="#instagram"><i class="fa fa-instagram"></i></a></li>
+                        <li><a href="#instagram"><i class="fa fa-instagram"></i></a></li> --}}
 
                     </ul>
 
@@ -32,6 +32,29 @@
         </div>
 
     </footer>
+
+
+
+
+  
+  <!-- Modal -->
+  <div class="modal fade" id="staticBackdrop" data-bs-backdrop="static" data-bs-keyboard="false" tabindex="-1" aria-labelledby="staticBackdropLabel" aria-hidden="true">
+    <div class="modal-dialog">
+      <div class="modal-content">
+        <div class="modal-header">
+          <h5 class="modal-title" id="staticBackdropLabel">Modal title</h5>
+          <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+        </div>
+        <div class="modal-body">
+          ...
+        </div>
+        <div class="modal-footer">
+          <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+          <button type="button" class="btn btn-primary">Understood</button>
+        </div>
+      </div>
+    </div>
+  </div>
 
 
 
