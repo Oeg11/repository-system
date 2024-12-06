@@ -932,6 +932,7 @@ class StudentController extends Controller
             'archives.adviser',
             'archives.banner_path',
             'archives.document_path',
+            'archives.type',
             'archives.status',
             'archives.created_at',
             'archives.archive_code',
