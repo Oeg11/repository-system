@@ -93,7 +93,7 @@
                                     <div class="row d-flex">
                                             <div class="col-md-3">
                                                 <label for="country">Country</label>
-                                                <select class="form-control" id="country">
+                                                <select class="form-control" id="type">
                                                     @foreach ($types as $row)
                                                         <option value="{{ $row->id }}">{{ $row->type }}</option>
                                                     @endforeach

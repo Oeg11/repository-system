@@ -1217,23 +1217,50 @@ class AdminController extends Controller
 
     }
 
-    public function AdminReports(Request $request){
 
-        $charts = archive::select(DB::raw("COUNT(*) as count"))
+    public function AdminReports(Request $request)
+    {
+        $data = archive::where('id', $request->id)
+            // use When for filtering by date
+            ->when($request->from, function ($query) use ($request) {
+                return $query->whereDate('created_at', '>=', $request->from);
+            })
+            ->when($request->to, function ($query) use ($request) {
+                return $query->whereDate('created_at', '<=', $request->to);
+            })
+            ->select(
+                 'Web Application as Web_Application',
+                 'Mobile Application as Mobile_Application',
+                  'PC Application as PC_Application'
+                  )
+            ->orderBy('created_at', 'desc')
+            ->first();
 
-        ->whereYear('created_at', date('Y'))
-
-        ->groupBy(DB::raw("Month(created_at)"))
-
-        ->pluck('count');
-
-
-
-        $systeminformation = SystemInformation::all();
-        $types = archive::all();
-        return view('admin.reports', compact('systeminformation','charts','types'));
-
+        return response()->json(['data' => [
+            $data->Web_Application,
+            $data->Mobile_Application,
+            $data->PC_Application
+        ]]);
     }
+
+
+    // public function AdminReports(Request $request){
+
+    //     $charts = archive::select(DB::raw("COUNT(*) as count"))
+
+    //     ->whereYear('created_at', date('Y'))
+
+    //     ->groupBy(DB::raw("Month(created_at)"))
+
+    //     ->pluck('count');
+
+
+
+    //     $systeminformation = SystemInformation::all();
+    //     $types = archive::all();
+    //     return view('admin.reports', compact('systeminformation','charts','types'));
+
+    // }
 
 
 }

@@ -67,40 +67,87 @@
 <script src="{{asset('plugins/datatables-buttons/js/buttons.colVis.min.js')}}"></script>
 {{-- <script src="{{asset('plugins/chart.js/Chart.min.js') }}"></script> --}}
 
+<script>
+    let chart;
+
+    function getData() {
+        $.ajax({
+            url: '/doughnut-chart-data',
+            method: 'GET',
+            dataType: 'json',
+            data: {
+                'type': $("#type").val(),
+                'from': $("#from").val(),
+                'to': $("#to").val(),
+            },
+            success: function(data) {
+                const ctx = document.getElementById('doughnutChart').getContext('2d');
+                if (chart) {
+                    chart.destroy();
+                }
+                chart = new Chart(ctx, {
+                    type: 'doughnut',
+                    data: {
+                        labels: ['Confirmed', 'Recovered', 'Active'],
+                        datasets: [{
+                            data: data.data,
+                            backgroundColor: [
+                                'rgba(255, 99, 132, 0.7)',
+                                'rgba(75, 192, 192, 0.7)',
+                                'rgba(54, 162, 235, 0.7)'
+                            ],
+                        }]
+                    },
+                    options: {
+                        responsive: true,
+                        maintainAspectRatio: false,
+                    }
+                });
+            },
+            error: function(error) {
+                console.error('Error fetching doughnut chart data:', error);
+            }
+        });
+    }
+    $(document).ready(function() {
+        getData();
+    });
+</script>
+
 
 <script>
     $(function () {
 
-        var charts =  {{ Js::from($charts) }};
+    //     var charts =  {{ Js::from($charts) }};
 
-      var donutChartCanvas = $('#donutChart').get(0).getContext('2d')
-      var donutData        = {
-        labels: [
-            'Chrome',
-            'IE',
-            'FireFox',
-            'Safari',
-            'Opera',
-            'Navigator',
-        ],
-        datasets: [
-          {
-            data: [700,500,400,600,300,100],
-            backgroundColor : ['#f56954', '#00a65a', '#f39c12', '#00c0ef', '#3c8dbc', '#d2d6de'],
-          }
-        ]
-      }
-      var donutOptions     = {
-        maintainAspectRatio : false,
-        responsive : true,
-      }
-      //Create pie or douhnut chart
-      // You can switch between pie and douhnut using the method below.
-      new Chart(donutChartCanvas, {
-        type: 'doughnut',
-        data: donutData,
-        options: donutOptions
-      })
+    //   var donutChartCanvas = $('#donutChart').get(0).getContext('2d')
+    //   var donutData        = {
+    //     labels: [
+    //         'Chrome',
+    //         'IE',
+    //         'FireFox',
+    //         'Safari',
+    //         'Opera',
+    //         'Navigator',
+    //     ],
+    //     datasets: [
+    //       {
+    //         data: [700,500,400,600,300,100],
+    //         backgroundColor : ['#f56954', '#00a65a', '#f39c12', '#00c0ef', '#3c8dbc', '#d2d6de'],
+    //       }
+    //     ]
+    //   }
+    //   var donutOptions     = {
+    //     maintainAspectRatio : false,
+    //     responsive : true,
+    //   }
+    //   //Create pie or douhnut chart
+    //   // You can switch between pie and douhnut using the method below.
+    //   new Chart(donutChartCanvas, {
+    //     type: 'doughnut',
+    //     data: donutData,
+    //     options: donutOptions
+    //   })
 
       //-------------
       //- PIE CHART -
