@@ -49,7 +49,7 @@
                         @forelse ($data as $row)
                         <tr>
                             <td>{{ $row->date_store }} </td>
-                            <td>{{ $row->database_path }} </td>
+                            <td>{{ substr($row->database_path, 19) }} </td>
                             <td><a href="{{ asset(storage_path($row->database_path)) }}" class="btn btn-success" download >Download Database</a></td>
                             @empty
 
