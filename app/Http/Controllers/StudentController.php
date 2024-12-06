@@ -660,6 +660,7 @@ class StudentController extends Controller
     public function googleauthstudentProject(Request $request){
         $archive = DB::table('archives')
         ->select(
+            'archives.id',
             'archives.title',
             'archives.abstract',
             'archives.slug',
@@ -670,9 +671,9 @@ class StudentController extends Controller
         // ->get();
 
 
-        $ranks = DB::table('users')
+        $ranks = DB::table('archives')
         ->select(
-            'archives.student_id',
+            'archives.id',
             'archives.title',
             'archives.abstract',
             'archives.count_rank',
