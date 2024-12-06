@@ -53,7 +53,6 @@ class DbBackup extends Command
 
         return 0;
 
-
         // \Log::info("Cake Cron execution!");
         // $this->info('db:backup Command is working fine!');
     }
