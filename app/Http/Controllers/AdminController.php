@@ -1284,7 +1284,7 @@ class AdminController extends Controller
 
             foreach ($fetchcategory as $key => $value4) {
 
-                $result4[++$key] = $value4->fetchcategory;
+                $result4[++$key] = $value4->countCategory;
 
                 info($result4);
             }
