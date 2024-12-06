@@ -32,12 +32,8 @@
               </div>
               <!-- /.card-header -->
               <div class="card-body">
-
-
-                <div style="width: 80%; margin: 0 auto;">
-                    <h1>Monthly Sales Report</h1>
-                    <canvas id="barChart"></canvas>
-                </div>
+                <h1>{{ $chart1->options['chart_title'] }}</h1>
+                {!! $chart1->renderHtml() !!}
 
 
             </div>
@@ -59,6 +55,12 @@
 
 
   @endsection
+
+  @section('javascript')
+{!! $chart1->renderChartJsLibrary() !!}
+{!! $chart1->renderJs() !!}
+@endsection
+
   {{-- <script src="https://code.jquery.com/jquery-3.5.1.js"></script> --}}
   <script src="https://cdnjs.cloudflare.com/ajax/libs/toastr.js/latest/toastr.min.js"></script>
   <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>

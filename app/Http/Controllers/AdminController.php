@@ -18,6 +18,7 @@ use Illuminate\Support\Facades\Storage;
 use App\Models\usercontrol;
 use App\Models\User;
 use DataTables;
+use LaravelDaily\LaravelCharts\Classes\LaravelChart;
 
 
 class AdminController extends Controller
@@ -1217,26 +1218,19 @@ class AdminController extends Controller
 
     public function AdminReports(Request $request){
 
-        $data = [
-            'labels' => ['January', 'February', 'March', 'April', 'May'],
-            'values' => [10, 20, 30, 40, 50]
+
+        $chart_options = [
+            'chart_title' => 'Users by months',
+            'report_type' => 'created_at',
+            'model' => 'App\Models\archive',
+            'group_by_field' => 'created_at',
+            'group_by_period' => 'count_rank',
+            'chart_type' => 'bar',
         ];
-
-
-    //    $sales = archive::selectRaw('MONTH(created_at) as month, SUM(count_rank) as total_sales')
-    //    ->groupBy('month')
-    //    ->get();
-
-    //     $data = [
-    //     'labels' => $sales->pluck('month'),
-    //     'values' => $sales->pluck('total_sales')
-    //     ];
-
-         $month = array('Jan', 'Feb', 'Mar', 'Apr', 'May');
-         $data  = array(1, 2, 3, 4, 5);
+        $chart1 = new LaravelChart($chart_options);
 
         $systeminformation = SystemInformation::all();
-        return view('admin.reports', compact('data','systeminformation'));
+        return view('admin.reports', compact('data','systeminformation','chart1'));
 
     }
 

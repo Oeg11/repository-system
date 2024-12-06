@@ -6,6 +6,7 @@ $vendorDir = dirname(__DIR__);
 $baseDir = dirname($vendorDir);
 
 return array(
+    'App\\Console\\Commands\\DbBackup' => $baseDir . '/app/Console/Commands/DbBackup.php',
     'App\\Console\\Kernel' => $baseDir . '/app/Console/Kernel.php',
     'App\\Exceptions\\Handler' => $baseDir . '/app/Exceptions/Handler.php',
     'App\\Http\\Controllers\\AdminController' => $baseDir . '/app/Http/Controllers/AdminController.php',
@@ -2272,6 +2273,8 @@ return array(
     'Illuminate\\View\\ViewFinderInterface' => $vendorDir . '/laravel/framework/src/Illuminate/View/ViewFinderInterface.php',
     'Illuminate\\View\\ViewName' => $vendorDir . '/laravel/framework/src/Illuminate/View/ViewName.php',
     'Illuminate\\View\\ViewServiceProvider' => $vendorDir . '/laravel/framework/src/Illuminate/View/ViewServiceProvider.php',
+    'LaravelDaily\\LaravelCharts\\Classes\\LaravelChart' => $vendorDir . '/laraveldaily/laravel-charts/src/Classes/LaravelChart.php',
+    'LaravelDaily\\LaravelCharts\\LaravelChartsServiceProvider' => $vendorDir . '/laraveldaily/laravel-charts/src/LaravelChartsServiceProvider.php',
     'Laravel\\Prompts\\Concerns\\Colors' => $vendorDir . '/laravel/prompts/src/Concerns/Colors.php',
     'Laravel\\Prompts\\Concerns\\Cursor' => $vendorDir . '/laravel/prompts/src/Concerns/Cursor.php',
     'Laravel\\Prompts\\Concerns\\Erase' => $vendorDir . '/laravel/prompts/src/Concerns/Erase.php',
