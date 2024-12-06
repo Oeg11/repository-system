@@ -33,12 +33,12 @@
               <div class="inner">
                 <h3>{{$capstone2 }}</h3>
 
-                <p>Projects</p>
+                <p>Capstone 2</p>
               </div>
               <div class="icon">
                 <i class="fa fa-book"></i>
               </div>
-              <a href="{{ route('googleauthstudent.viewproject') }}" class="small-box-footer">View Projects <i class="fas fa-arrow-circle-right"></i></a>
+              <a href="{{ route('googleauthstudent.viewproject') }}" class="small-box-footer">View Capstone 2 <i class="fas fa-arrow-circle-right"></i></a>
             </div>
           </div>
           <!-- ./col -->
@@ -48,12 +48,12 @@
               <div class="inner">
                 <h3>{{$csthesis2 }}</h3>
 
-                <p>Practical Research</p>
+                <p>CS Thesis 2</p>
               </div>
               <div class="icon">
                 <i class="fas fa-scroll"></i>
               </div>
-              <a href="{{ route('googleauthstudent.viewresearch') }}" class="small-box-footer">View Research <i class="fas fa-arrow-circle-right"></i></a>
+              <a href="{{ route('googleauthstudent.viewresearch') }}" class="small-box-footer">View CS Thesis 2 <i class="fas fa-arrow-circle-right"></i></a>
             </div>
           </div>
           <!-- ./col -->
@@ -63,12 +63,12 @@
               <div class="inner">
                 <h3 class="text-light">{{$shspracticalresearch}}</h3>
 
-                <p class="text-light">Capstone/Thesis</p>
+                <p class="text-light">SHS Practical Research</p>
               </div>
               <div class="icon">
                 <i class="fas fa-book-open"></i>
               </div>
-              <a href="{{ route('googleauthstudent.viewcapstonethesis') }}" class="small-box-footer"><font color="white">View Capstone/Thesis </font> <i class="fas fa-arrow-circle-right text-light"></i></a>
+              <a href="{{ route('googleauthstudent.viewcapstonethesis') }}" class="small-box-footer"><font color="white">View SHS Practical Research </font> <i class="fas fa-arrow-circle-right text-light"></i></a>
             </div>
           </div>
           <!-- ./col -->
@@ -78,12 +78,12 @@
               <div class="inner">
                 <h3>{{$bstmthesis}}</h3>
 
-                <p>Total Collections</p>
+                <p>BSTM Thesis</p>
               </div>
               <div class="icon">
                 <i class="fas fa-archive"></i>
               </div>
-              <a href="{{ route('googleauthstudent.viewtotalprojects') }}" class="small-box-footer">View Collections <i class="fas fa-arrow-circle-right"></i></a>
+              <a href="{{ route('googleauthstudent.viewtotalprojects') }}" class="small-box-footer">View BSTM Thesis <i class="fas fa-arrow-circle-right"></i></a>
             </div>
           </div>
           <!-- ./col -->
