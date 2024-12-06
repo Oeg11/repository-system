@@ -659,6 +659,16 @@
 
 });
 </script>
+<script type="text/javascript">
+  $(window).on('load', function(){
+      //you remove this timeout
+      setTimeout(function(){
+          $('#loader').fadeOut('slow');
+      });
+      //remove the timeout
+      //$('#loader').fadeOut('slow');
+  });
+</script>
 
 
 </body>
