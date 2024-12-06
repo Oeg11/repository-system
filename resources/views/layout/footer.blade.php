@@ -20,7 +20,7 @@
 
                     <ul class="liste-unstyled pull-right">
 
-                        <li><a href="javascript:void(0);" data-toggle="modal" data-target="#termsandcondition">Terms and Condition</a></li>
+                        <li><a href="javascript:void(0);" data-toggle="modal" data-target="#termsandcondition" style="text-decoration:none;color:white">Terms and Condition</a></li>
 
                         {{-- <li><a href="#twitter"><i class="fa fa-twitter"></i></a></li>
 
