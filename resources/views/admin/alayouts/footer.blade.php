@@ -118,7 +118,7 @@
 <script>
     $(function () {
 
-    //     var charts =  {{ Js::from($charts) }};
+
 
     //   var donutChartCanvas = $('#donutChart').get(0).getContext('2d')
     //   var donutData        = {
