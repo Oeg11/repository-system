@@ -1230,7 +1230,7 @@ class AdminController extends Controller
 
 
         $systeminformation = SystemInformation::all();
-        return view('admin.reports', compact('data','systeminformation','chart'));
+        return view('admin.reports', compact('systeminformation','chart'));
 
     }
 
