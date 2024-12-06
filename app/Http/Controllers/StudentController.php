@@ -759,14 +759,15 @@ class StudentController extends Controller
 
      public function googleauthRankcount(Request $request){
 
-        archive::where('id', $request->id)
-        ->update([
-          'count_rank'=> DB::raw('count_rank + 1'),
-        ]);
+       $id = archive::where('id', $request->id);
+       dd($id);
+        // ->update([
+        //   'count_rank'=> DB::raw('count_rank + 1'),
+        // ]);
 
-        return response()->json([
-            'status' => 200,
-          ]);
+        // return response()->json([
+        //     'status' => 200,
+        //   ]);
 
 
      }
