@@ -72,7 +72,7 @@
 
     function getData() {
         $.ajax({
-            url: '/doughnut-chart-data',
+            url: '{{ route('admin.reports')}}',
             method: 'GET',
             dataType: 'json',
             data: {

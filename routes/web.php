@@ -79,7 +79,7 @@ use App\Http\Controllers\StudentController;
 
        // Route::get('/admin/reports', [AdminController::class, 'AdminReports'])->name('admin.reports');
 
-        Route::get('doughnut-chart-data', [AdminController::class, 'AdminReports']);
+        Route::get('/admin/reports', [AdminController::class, 'AdminReports'])->name('admin.reports');
     });
 
     Route::get('/staff/login', [StaffController::class, 'stafflogin'])->name('staff.login');
