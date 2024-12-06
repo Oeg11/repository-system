@@ -67,68 +67,6 @@
 <script src="{{asset('plugins/datatables-buttons/js/buttons.colVis.min.js')}}"></script>
 {{-- <script src="{{asset('plugins/chart.js/Chart.min.js') }}"></script> --}}
 
-
-
-
-
-{{-- <script>
-    let chart;
-
-    function getData() {
-
-        $.ajax({
-            url: '{{ route('admin.reportssearch')}}',
-            method: 'GET',
-            dataType: 'json',
-            data: {
-                'type': $("#type").val(),
-                'from': $("#from").val(),
-                'to': $("#to").val(),
-            },
-            success: function(data) {
-
-                var pieChartCanvas = $('#pieChart').get(0).getContext('2d')
-                var pieData        = donutData;
-                var pieOptions     = {
-                    maintainAspectRatio : false,
-                    responsive : true,
-                }
-                if (chart) {
-                    chart.destroy();
-                }
-
-                chart = new Chart(ctx, {
-                    type: 'doughnut',
-                    data: {
-                        labels: ['Confirmed', 'Recovered', 'Active'],
-                        datasets: [{
-                            data: data.data,
-                            new Chart(pieChartCanvas, {
-                                type: 'pie',
-                                data: pieData,
-                                options: pieOptions
-                            })
-
-                        }]
-                    },
-                    options: {
-                        responsive: true,
-                        maintainAspectRatio: false,
-                    }
-                });
-
-
-            },
-            error: function(error) {
-                console.error('Error fetching doughnut chart data:', error);
-            }
-        });
-    }
-    $(document).ready(function() {
-        getData();
-    });
-</script> --}}
-
 <script>
     document.addEventListener("DOMContentLoaded", function () {
         // Pie chart
@@ -137,12 +75,12 @@
             data: {
                 labels: <?php echo $TypeName; ?>,
                 datasets: [{
-                    data: <?php echo '['. substr($TypeCount,19)?>,
+                    data: <?php echo $TypeCount; ?>,
                     backgroundColor: [
-                        window.theme.primary,
-                        window.theme.danger,
-                        window.theme.warning,
-                    ],
+                                    'rgba(255, 99, 132, 0.7)',
+                                    'rgba(75, 192, 192, 0.7)',
+                                    'rgba(54, 162, 235, 0.7)'
+                                ],
                     borderColor: "transparent"
                 }]
             },
