@@ -199,16 +199,7 @@
 
  <script>
     $(function () {
-      /* ChartJS
-       * -------
-       * Here we will create a few charts using ChartJS
-       */
-
-      //--------------
-      //- AREA CHART -
-      //--------------
-
-      // Get context with jQuery - using jQuery's .get() method.
+    var charts =  {{ Js::from($charts) }};
       var areaChartCanvas = $('#areaChart').get(0).getContext('2d')
 
       var areaChartData = {
@@ -223,7 +214,7 @@
             pointStrokeColor    : 'rgba(60,141,188,1)',
             pointHighlightFill  : '#fff',
             pointHighlightStroke: 'rgba(60,141,188,1)',
-            data                : [28, 48, 40, 19, 86, 27, 90]
+            data                : charts
           },
           {
             label               : 'Electronics',
