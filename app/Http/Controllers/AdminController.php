@@ -1255,7 +1255,7 @@ class AdminController extends Controller
                 info($result2);
             }
 
-            return view('admin.calamity-report', compact('fetchdata'))
+            return view('admin.reports', compact('fetchdata'))
             ->with('TypeName', json_encode($result))
             ->with('TypeCount', json_encode($result2));
 
