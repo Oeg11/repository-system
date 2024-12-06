@@ -4,6 +4,7 @@ namespace App\Console\Commands;
 
 use Illuminate\Console\Command;
 
+
 use Carbon\Carbon;
 use Illuminate\Support\Facades\Storage;
 
@@ -43,7 +44,9 @@ class DbBackup extends Command
         $returnVar = NULL;
         $output  = NULL;
 
-        exec($command, $output, $returnVar);
+         \Log::info($command, $output, $returnVar);
+         $this->info('db:backup Command is working fine!');
+
 
         // \Log::info("Cake Cron execution!");
         // $this->info('db:backup Command is working fine!');
