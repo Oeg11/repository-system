@@ -37,7 +37,7 @@ class DbBackup extends Command
 
         $command = "mysqldump --user=" . env('DB_USERNAME') ." --password=" . env('DB_PASSWORD')
                 . " --host=" . env('DB_HOST') . " " . env('DB_DATABASE')
-                . "  | gzip > " . public_path('/storage/uploads') . $filename;
+                . "  | gzip > " . storage_path() . "/app/backup/" . $filename;
 
         $returnVar = NULL;
         $output  = NULL;
