@@ -74,7 +74,7 @@
       function getData() {
 
       var pieChartCanvas = $('#pieChart').get(0).getContext('2d')
-      var pieData        = donutData;
+      var pieData        = data.data;
       var pieOptions     = {
         maintainAspectRatio : false,
         responsive : true,
