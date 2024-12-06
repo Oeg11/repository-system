@@ -1,3 +1,4 @@
+@include('modal.termsandcondition')
 
     <footer>
 
@@ -17,7 +18,7 @@
                         Launch demo modal
                       </button> --}}
 
-                    <ul class="liste-unstyled">
+                    <ul class="liste-unstyled pull-cent">
 
                         <li><a href="javascript:void(0);" data-toggle="modal" data-target="#termsandcondition">Terms and Condition</a></li>
 
@@ -37,8 +38,7 @@
 
     </footer>
 
-     @include('modal.termsandcondition')
-
+   
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
 
     <!-- Include all compiled plugins (below), or include individual files as needed -->
