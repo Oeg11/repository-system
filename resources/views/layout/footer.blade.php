@@ -1,8 +1,5 @@
 <!-- Button trigger modal -->
-<button type="button" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#exampleModal">
-    Launch demo modal
-  </button>
-  
+
   <!-- Modal -->
   <div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
     <div class="modal-dialog">
@@ -37,8 +34,11 @@
                     <h5 class="pull-left">STI Marikina &copy;2024 All rights reserved</h5>
 
                     <ul class="liste-unstyled pull-right">
-
-                        <li><a href="javascript:void(0);" data-bs-toggle="modal" data-bs-target="#exampleModal">Terms and Condition</a></li>
+                       <li><button type="button" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#exampleModal">
+                        Terms and Condition
+                      </button>
+                      </li>
+                        {{-- <li><a href="javascript:void(0);" data-bs-toggle="modal" data-bs-target="#exampleModal">Terms and Condition</a></li> --}}
 
                         {{-- <li><a href="#twitter"><i class="fa fa-twitter"></i></a></li>
 
