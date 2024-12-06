@@ -2,6 +2,7 @@
 
 namespace App\Console;
 
+use App\Console\Commands\DbBackup;
 use Illuminate\Console\Scheduling\Schedule;
 use Illuminate\Foundation\Console\Kernel as ConsoleKernel;
 
@@ -9,7 +10,7 @@ class Kernel extends ConsoleKernel
 {
     protected $commands = [
 
-        \App\Console\Commands\DbBackup::class,
+        DbBackup::class,
 
     ];
 
