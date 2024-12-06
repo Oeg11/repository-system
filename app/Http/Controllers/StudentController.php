@@ -953,6 +953,7 @@ class StudentController extends Controller
 
         $validator = Validator::make($request->all(), [
 
+            'type' =>'required',
             'category' =>'required',
             'department_id' =>'required',
             'curriculum_id' =>'required',
@@ -965,6 +966,7 @@ class StudentController extends Controller
             'document_path' =>'required',
         ],[
 
+            'type.required' => 'Please select type',
             'category.required' => 'Please select category',
             'department_id.required' => 'Please select your Department',
             'curriculum_id.required' => 'Please select your Curriculum',
@@ -1013,6 +1015,7 @@ class StudentController extends Controller
 
 
          $projectData = [
+            'type' => $request->type,
             'category' => $request->category,
             'department_id' => $request->department_id,
             'curriculum_id' => $request->curriculum_id,

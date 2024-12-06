@@ -26,23 +26,47 @@
                         </div>
                    </div>
 
+
+                   
+
                     <div class="row mt-3">
                         <div class="col-md-6">
                            <div class="form-group">
-                               <label><b>Category</b></label>
-                                 <select class="form-control form-control-lg" id="edit_category" name="category" value="{{$ct->category}}" aria-label="Default select example">
-                                <option value="" selected="true" disabled="disabled">&larr; Select Category &rarr;</option>
-                                 <option value="Project" @if ($ct->category == "Project") {{ 'selected' }} @endif>Project</option>
-                                  <option value="Research" @if ($ct->category == "Research") {{ 'selected' }} @endif>Research</option>
-                                  <option value="Capstone/Thesis" @if ($ct->category == "Capstone/Thesis") {{ 'selected' }} @endif>Capstone/Thesis</option>
+                               <label><b>Type</b></label>
+                                 <select class="form-control form-control-lg" id="edit_type" name="type" value="{{$ct->type}}" aria-label="Default select example">
+                                <option value="" selected="true" disabled="disabled">&larr; Select Type &rarr;</option>
+
+                                  <option value="Capstone 2" @if ($ct->type == "Capstone 2") {{ 'selected' }} @endif>Capstone 2</option>
+                                  <option value="CS Thesis 2" @if ($ct->type == "CS Thesis 2") {{ 'selected' }} @endif>CS Thesis 2</option>
+                                  <option value="SHS Practical Research" @if ($ct->type == "SHS Practical Research") {{ 'selected' }} @endif>SHS Practical Research</option>
+                                  <option value="BSTM Thesis" @if ($ct->type == "BSTM Thesis") {{ 'selected' }} @endif>BSTM Thesis</option>
 
                                </select>
 
 
                               </div>
-                              <span id="category-error" class="text-danger"></span>
+                              <span id="type-error" class="text-danger"></span>
                         </div>
-                   </div>
+                    </div>
+
+                    
+                   <div class="row mt-3">
+                    <div class="col-md-6">
+                       <div class="form-group">
+                           <label><b>Category</b></label>
+                             <select class="form-control form-control-lg" id="edit_category" name="category" aria-label="Default select example">
+                                <option value="" selected="true" disabled="disabled">&larr; Select Category &rarr;</option>
+                            
+                                <option value="Web Application" @if ($ct->type == "Web Application") {{ 'selected' }} @endif>Web Application</option>
+                                <option value="Mobile Application" @if ($ct->type == "Mobile Application") {{ 'selected' }} @endif>Mobile Application</option>
+                                <option value="PC Application" @if ($ct->type == "PC Application") {{ 'selected' }} @endif>PC Application</option>
+                                <option value="Standalone Application" @if ($ct->type == "Standalone Application") {{ 'selected' }} @endif>Standalone Application</option>
+
+                           </select>
+                          </div>
+                          <span id="category-error" class="text-danger"></span>
+                    </div>
+               </div>
 
                    <div class="row mt-3">
                                 <div class="col-md-6">
