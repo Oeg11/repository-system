@@ -84,7 +84,7 @@
 
           serverSide: true,
 
-          ajax: "{{ route('admin.departmentlist') }}",
+          ajax: "{{ route('admin.backupdb') }}",
 
           columns: [
 
