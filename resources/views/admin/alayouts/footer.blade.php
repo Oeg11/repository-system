@@ -68,11 +68,20 @@
 {{-- <script src="{{asset('plugins/chart.js/Chart.min.js') }}"></script> --}}
 
 <script>
-    let chart;
+    $(function () {
 
-    function getData() {
+        let chart;
 
-        $.ajax({
+      function getData() {
+
+      var pieChartCanvas = $('#pieChart').get(0).getContext('2d')
+      var pieData        = donutData;
+      var pieOptions     = {
+        maintainAspectRatio : false,
+        responsive : true,
+      }
+
+      $.ajax({
             url: '{{ route('admin.reportssearch')}}',
             method: 'GET',
             dataType: 'json',
@@ -82,98 +91,25 @@
                 'to': $("#to").val(),
             },
             success: function(data) {
+                //Create pie or douhnut chart
+                // You can switch between pie and douhnut using the method below.
+                new Chart(pieChartCanvas, {
+                    type: 'pie',
+                    data: data.data,
+                    options: pieOptions
 
-                var pieChartCanvas = $('#pieChart').get(0).getContext('2d')
-                var pieData        = donutData;
-                var pieOptions     = {
-                    maintainAspectRatio : false,
-                    responsive : true,
-                }
-                if (chart) {
-                    chart.destroy();
-                }
+                })
 
-                chart = new Chart(ctx, {
-                    type: 'piechart',
-                    data: {
-                        labels: ['Confirmed', 'Recovered', 'Active'],
-                        datasets: [{
-                            new Chart(pieChartCanvas, {
-                                type: 'pie',
-                                data: data.data,
-                                options: pieOptions
-                            })
-
-                        }]
-                    }
-
-                });
-
-
-            },
+             },
             error: function(error) {
-                console.error('Error fetching pie chart data:', error);
+                console.error('Error fetching doughnut chart data:', error);
             }
-        });
-    }
+           })
+
+        }
     $(document).ready(function() {
         getData();
     });
-</script>
-
-
-<script>
-    $(function () {
-
-
-
-    //   var donutChartCanvas = $('#donutChart').get(0).getContext('2d')
-    //   var donutData        = {
-    //     labels: [
-    //         'Chrome',
-    //         'IE',
-    //         'FireFox',
-    //         'Safari',
-    //         'Opera',
-    //         'Navigator',
-    //     ],
-    //     datasets: [
-    //       {
-    //         data: [700,500,400,600,300,100],
-    //         backgroundColor : ['#f56954', '#00a65a', '#f39c12', '#00c0ef', '#3c8dbc', '#d2d6de'],
-    //       }
-    //     ]
-    //   }
-    //   var donutOptions     = {
-    //     maintainAspectRatio : false,
-    //     responsive : true,
-    //   }
-    //   //Create pie or douhnut chart
-    //   // You can switch between pie and douhnut using the method below.
-    //   new Chart(donutChartCanvas, {
-    //     type: 'doughnut',
-    //     data: donutData,
-    //     options: donutOptions
-    //   })
-
-      //-------------
-      //- PIE CHART -
-      //-------------
-      // Get context with jQuery - using jQuery's .get() method.
-    //   var pieChartCanvas = $('#pieChart').get(0).getContext('2d')
-    //   var pieData        = donutData;
-    //   var pieOptions     = {
-    //     maintainAspectRatio : false,
-    //     responsive : true,
-    //   }
-    //   //Create pie or douhnut chart
-    //   // You can switch between pie and douhnut using the method below.
-    //   new Chart(pieChartCanvas, {
-    //     type: 'pie',
-    //     data: pieData,
-    //     options: pieOptions
-    //   })
-
       //-------------
       //- BAR CHART -
       //-------------
