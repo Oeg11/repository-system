@@ -1103,7 +1103,7 @@ class StudentController extends Controller
         ->leftjoin('archives','archives.student_id','=','users.id')
         ->leftjoin('curricula','curricula.id','=','archives.curriculum_id')
         ->leftjoin('departments','departments.id','=','archives.department_id')
-        ->where('archives.category', 'Mobile Application')
+        ->where(['archives.category' => 'Mobile Application', 'archives.student_id' => Auth::user()->id])
         ->orderBy('archives.id','DESC')
         ->get();
 
@@ -1136,7 +1136,7 @@ class StudentController extends Controller
         ->leftjoin('archives','archives.student_id','=','users.id')
         ->leftjoin('curricula','curricula.id','=','archives.curriculum_id')
         ->leftjoin('departments','departments.id','=','archives.department_id')
-        ->where('archives.category', 'PC Application')
+        ->where(['archives.category' => 'PC Application', 'archives.student_id' => Auth::user()->id])
         ->orderBy('archives.id','DESC')
         ->get();
 
@@ -1169,7 +1169,7 @@ class StudentController extends Controller
         ->leftjoin('archives','archives.student_id','=','users.id')
         ->leftjoin('curricula','curricula.id','=','archives.curriculum_id')
         ->leftjoin('departments','departments.id','=','archives.department_id')
-        ->where('archives.category', 'Standalone Application')
+        ->where(['archives.category' => 'Standalone Application', 'archives.student_id' => Auth::user()->id])
         ->orderBy('archives.id','DESC')
         ->get();
 
