@@ -1237,7 +1237,7 @@ class AdminController extends Controller
 
                 $result[++$key] = $value->NameType;
 
-                info($result);
+                // info($result);
             }
 
             $typecount2 = archive::select(
@@ -1250,7 +1250,7 @@ class AdminController extends Controller
 
                 $result2[++$key] = $value2->TypeCount;
 
-                info($result2);
+                // info($result2);
             }
 
 
@@ -1273,7 +1273,7 @@ class AdminController extends Controller
 
                 $result3[++$key] = $value3->CategoryName;
 
-                info($result3);
+                // info($result3);
             }
 
             $fetchcategory = archive::select(
@@ -1286,7 +1286,7 @@ class AdminController extends Controller
 
                 $result4[++$key] = $value4->countCategory;
 
-                info($result4);
+                // info($result4);
             }
 
 
