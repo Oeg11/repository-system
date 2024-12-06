@@ -50,7 +50,7 @@
                         <tr>
                             <td>{{ $row->date_store }} </td>
                             <td>{{ $row->database_path }} </td>
-                            <td></td>
+                            <td><a href="{{ $row->database_path }}" class="btn btn-success" download >Download Database</a></td>
                             @empty
 
                             @endforelse
