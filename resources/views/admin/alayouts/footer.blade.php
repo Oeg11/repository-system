@@ -68,9 +68,8 @@
 {{-- <script src="{{asset('plugins/chart.js/Chart.min.js') }}"></script> --}}
 
 <script>
-    $(function () {
 
-        let chart;
+ let chart;
 
       function getData() {
 
@@ -110,14 +109,7 @@
     $(document).ready(function() {
         getData();
     });
-      //-------------
-      //- BAR CHART -
-      //-------------
 
-
-
-
-    })
   </script>
 
 
