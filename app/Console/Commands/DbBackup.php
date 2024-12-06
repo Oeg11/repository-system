@@ -31,22 +31,28 @@ class DbBackup extends Command
     public function handle()
     {
 
-        if (! Storage::exists('backup')) {
-            Storage::makeDirectory('backup');
+        $dbHost = env('DB_HOST');
+        $dbName = env('DB_DATABASE');
+        $dbUser = env('DB_USERNAME');
+        $dbPass = env('DB_PASSWORD');
+        $backupPath = storage_path('backups/' . date('Y-m-d_H-i-s') . '_backup.sql');
+
+        // Ensure the backups directory exists
+        if (!file_exists(storage_path('backups'))) {
+            mkdir(storage_path('backups'), 0755, true);
         }
 
-        $filename = "backup-" . Carbon::now()->format('Y-m-d') . ".gz";
+        $command = "mysqldump -h $dbHost -u $dbUser -p$dbPass $dbName > $backupPath";
 
-        $command = "mysqldump --user=" . env('DB_USERNAME') ." --password=" . env('DB_PASSWORD')
-                . " --host=" . env('DB_HOST') . " " . env('DB_DATABASE')
-                . "  | gzip > " . storage_path() . "/app/backup/" . $filename;
+        exec($command, $output, $returnVar);
 
-        $returnVar = NULL;
-        $output  = NULL;
+        if ($returnVar === 0) {
+            $this->info("Backup successful! Saved to: $backupPath");
+        } else {
+            $this->error("Backup failed. Check your configuration or permissions.");
+        }
 
-         \Log::info($command, $output, $returnVar);
-         $this->info('db:backup Command is working fine!');
-
+        return $returnVar;
 
         // \Log::info("Cake Cron execution!");
         // $this->info('db:backup Command is working fine!');
