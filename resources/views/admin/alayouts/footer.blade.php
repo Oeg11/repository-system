@@ -73,7 +73,7 @@
         // Bar Chart
 
         var barChartData = {
-            labels: <?php echo $CategoryName ?>,
+            labels: <?php echo $CategoryName; ?>,
             datasets: [{
                 label: 'Count',
                 backgroundColor: 'rgb(79,129,189)',
