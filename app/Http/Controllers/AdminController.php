@@ -1308,7 +1308,7 @@ class AdminController extends Controller
 
             if ($request->ajax()) {
 
-                $data = DB::table('backups')
+                $data = DB::table('backupdatabase')
                     ->select('*')
                     ->get();
 
