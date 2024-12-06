@@ -671,16 +671,16 @@ class StudentController extends Controller
         // ->get();
 
 
-        $ranks = DB::table('archives')
-        ->select(
-            'archives.id',
-            'archives.title',
-            'archives.abstract',
-            'archives.count_rank',
-            'archives.banner_path')
-        ->where('archives.status',  1)
-        ->orderBy('archives.count_rank','DESC')
-        ->get();
+        // $ranks = DB::table('archives')
+        // ->select(
+        //     'archives.id',
+        //     'archives.title',
+        //     'archives.abstract',
+        //     'archives.count_rank',
+        //     'archives.banner_path')
+        // ->where('archives.status',  1)
+        // ->orderBy('archives.count_rank','DESC')
+        // ->get();
         // ->get();
 
 
@@ -697,7 +697,7 @@ class StudentController extends Controller
         $getSearchurl = $request->q;
         $systeminformation = SystemInformation::all();
         $user = Auth::user(); //google auth
-        return view('studentgoogleauth.projects', compact('user', 'systeminformation','archive','paginates','getSearchurl','ranks'));
+        return view('studentgoogleauth.projects', compact('user', 'systeminformation','archive','paginates','getSearchurl'));
      }
 
      public function googleauthSearchProject(Request $request){
@@ -714,22 +714,22 @@ class StudentController extends Controller
         $getSearchurl = $request->q;
 
 
-        $ranks = DB::table('archives')
-        ->select(
-            'archives.id',
-            'archives.title',
-            'archives.abstract',
-            'archives.count_rank',
-            'archives.banner_path')
-        ->where('archives.status',  1)
-        ->orderBy('archives.count_rank','DESC')
-        ->get();
+        // $ranks = DB::table('archives')
+        // ->select(
+        //     'archives.id',
+        //     'archives.title',
+        //     'archives.abstract',
+        //     'archives.count_rank',
+        //     'archives.banner_path')
+        // ->where('archives.status',  1)
+        // ->orderBy('archives.count_rank','DESC')
+        // ->get();
 
-        
+
         $systeminformation = SystemInformation::all();
         $user = Auth::user(); //google auth
 
-        return view('studentgoogleauth.projects',compact('user', 'systeminformation','paginates','getSearchurl','ranks'));
+        return view('studentgoogleauth.projects',compact('user', 'systeminformation','paginates','getSearchurl'));
     }
 
 

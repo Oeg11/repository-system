@@ -109,6 +109,22 @@
                 </div>
                 <div class="card-body">
                     <ul class="list-group list-group-flush">
+
+                        @php
+                        
+                        $ranks = DB::table('archives')
+                            ->select(
+                                'archives.id',
+                                'archives.title',
+                                'archives.abstract',
+                                'archives.count_rank',
+                                'archives.banner_path')
+                            ->where('archives.status',  1)
+                            ->orderBy('archives.count_rank','DESC')
+                            ->get();
+ 
+                        @endphp
+
                         @foreach ($ranks as $row)
                         <li class="list-group-item">{{ Str::ucfirst($row->title) }} <span class="badge bg-primary"
                                 style="float: right">{{ $row->count_rank }}</span></li>
