@@ -60,7 +60,7 @@
 
   <script type="text/javascript">
 
-      var users =  {{ Js::from($users) }};
+      var users =  {{ Js::from($charts) }};
 
 
 
