@@ -34,6 +34,7 @@ class DbBackup extends Command
         $fileName = storage_path('/app/backup/' . date('Y-m-d_H-i-s') . '_backup.sql');
         $date = date('Y-m-d_H-i-s');
         $path = '/app/backup/' . date('Y-m-d_H-i-s') . '_backup.sql';
+
         DB::table('backupdatabase')->insert(
             array(
                    'date_store'   =>   $date,

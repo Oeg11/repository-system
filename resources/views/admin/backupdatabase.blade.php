@@ -50,7 +50,7 @@
                         <tr>
                             <td>{{ $row->date_store }} </td>
                             <td>{{ substr($row->database_path, 12) }} </td>
-                            <td><a href="{{ $row->database_path }}" class="btn btn-success" download >Download Database</a></td>
+                            <td><a href="{!! storage_path('/storage/app/backup/'. $row->database_path)  !!}" class="btn btn-success" download >Download Database</a></td>
                             @empty
 
                             @endforelse
