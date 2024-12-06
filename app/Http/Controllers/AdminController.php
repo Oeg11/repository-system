@@ -1263,15 +1263,15 @@ class AdminController extends Controller
             ->groupBy('category')
             ->get();
 
-            $categoryname = archive::select(
+            $cat = archive::select(
                 DB::raw('category as CategoryName'))
                 ->groupBy('category')->get();
 
             $result3[] = ['CategoryName'];
 
-            foreach ($categoryname as $key => $value) {
+            foreach ($cat as $key => $value3) {
 
-                $result3[++$key] = $value->CategoryName;
+                $result3[++$key] = $value3->CategoryName;
 
                 info($result3);
             }
@@ -1282,9 +1282,9 @@ class AdminController extends Controller
 
             $result4[] = ['countCategory'];
 
-            foreach ($fetchcategory as $key => $value2) {
+            foreach ($fetchcategory as $key => $value4) {
 
-                $result4[++$key] = $value2->fetchcategory;
+                $result4[++$key] = $value4->fetchcategory;
 
                 info($result4);
             }
