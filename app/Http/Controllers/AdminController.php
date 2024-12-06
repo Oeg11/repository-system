@@ -1229,7 +1229,6 @@ class AdminController extends Controller
                 return $query->whereDate('created_at', '<=', $request->to);
             })
             ->select(
-                'title',
                  'type',
                  'category',
                   )
@@ -1237,7 +1236,6 @@ class AdminController extends Controller
             ->first();
 
       return response()->json(['data' => [
-            $data->title,
             $data->type,
             $data->category
         ]]);
