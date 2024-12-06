@@ -2,10 +2,9 @@
 
 namespace App\Console\Commands;
 
-use Log;
+use Illuminate\Console\Command;
 
 use Carbon\Carbon;
-use Illuminate\Console\Command;
 use Illuminate\Support\Facades\Storage;
 
 
@@ -30,9 +29,19 @@ class DbBackup extends Command
      */
     public function handle()
     {
-            $output = "junil toledo";
+        if (! Storage::exists('backup')) {
+            Storage::makeDirectory('backup');
+        }
 
-            Log::error("Database backup failed: ", $output);
+        $filename = "backup-" . Carbon::now()->format('Y-m-d') . ".gz";
 
+        $command = "mysqldump --user=" . env('DB_USERNAME') ." --password=" . env('DB_PASSWORD')
+                . " --host=" . env('DB_HOST') . " " . env('DB_DATABASE')
+                . "  | gzip > " . storage_path() . "/app/backup/" . $filename;
+
+        $returnVar = NULL;
+        $output  = NULL;
+
+        exec($command, $output, $returnVar);
     }
 }
