@@ -15,7 +15,7 @@
 
                     <ul class="liste-unstyled pull-right">
 
-                        <li><a href="javascript:void(0);" data-bs-toggle="modal" data-target="#staticBackdrop">Terms and Condition</a></li>
+                        <li><a href="javascript:void(0);" data-bs-toggle="modal" data-bs-target="#staticBackdrop">Terms and Condition</a></li>
 
                         {{-- <li><a href="#twitter"><i class="fa fa-twitter"></i></a></li>
 
@@ -38,7 +38,7 @@
 
   
   <!-- Modal -->
-  <div class="modal fade" id="staticBackdrop" data-bs-backdrop="static" data-keyboard="false" tabindex="-1" aria-labelledby="staticBackdropLabel" aria-hidden="true">
+  <div class="modal fade" id="staticBackdrop" data-bs-backdrop="static" data-bs-keyboard="false" tabindex="-1" aria-labelledby="staticBackdropLabel" aria-hidden="true">
     <div class="modal-dialog">
       <div class="modal-content">
         <div class="modal-header">
