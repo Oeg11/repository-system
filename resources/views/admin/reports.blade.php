@@ -61,6 +61,14 @@
                       <!-- /.card -->
 
                       <!-- PIE CHART -->
+
+                      <!-- /.card -->
+
+                    </div>
+                    <!-- /.col (LEFT) -->
+                    <div class="col-md-6">
+                      <!-- LINE CHART -->
+                      <!-- /.card -->
                       <div class="card card-success">
                         <div class="card-header">
                           <h3 class="card-title">Bar Chart</h3>
@@ -81,14 +89,6 @@
                         </div>
                         <!-- /.card-body -->
                       </div>
-                      <!-- /.card -->
-
-                    </div>
-                    <!-- /.col (LEFT) -->
-                    <div class="col-md-6">
-                      <!-- LINE CHART -->
-                      <!-- /.card -->
-
                       <!-- BAR CHART -->
 
                       <!-- /.card -->
