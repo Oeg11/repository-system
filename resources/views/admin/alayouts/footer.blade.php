@@ -76,12 +76,7 @@
                 labels: <?php echo $TypeName; ?>,
                 datasets: [{
                     data: <?php echo $TypeCount; ?>,
-                    backgroundColor: [
-                                    'rgba(255, 99, 132, 0.7)',
-                                    'rgba(75, 192, 192, 0.7)',
-                                    'rgba(54, 162, 235, 0.7)',
-                                    'rgba(227, 123, 102, 0.7)',
-                                ],
+                    backgroundColor : ['#f56954', '#00a65a', '#f39c12', '#00c0ef', '#3c8dbc', '#d2d6de'],
                     borderColor: "transparent"
                 }]
             },
