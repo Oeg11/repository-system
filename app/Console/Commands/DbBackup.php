@@ -30,34 +30,20 @@ class DbBackup extends Command
     public function handle()
     {
 
-
-        $dbHost = env('DB_HOST');
-        $dbName = env('DB_DATABASE');
-        $dbUser = env('DB_USERNAME');
-        $dbPass = env('DB_PASSWORD');
-        $backupPath = storage_path('app/backup/' . date('Y-m-d_H-i-s') . '_backup.sql');
-
-        // Ensure the backups directory exists
-        if (!file_exists(storage_path('app/backup'))) {
-            mkdir(storage_path('app/backup'), 0755, true);
+        if (! Storage::exists('backup')) {
+            Storage::makeDirectory('backup');
         }
 
-        $command = "mysqldump -h $dbHost -u $dbUser -p$dbPass $dbName > $backupPath";
+        $filename = "backup-" . Carbon::now()->format('Y-m-d') . ".gz";
 
-        // Execute the command
+        $command = "mysqldump --user=" . env('DB_USERNAME') ." --password=" . env('DB_PASSWORD')
+                . " --host=" . env('DB_HOST') . " " . env('DB_DATABASE')
+                . "  | gzip > " . storage_path() . "/app/backup/" . $filename;
+
+        $returnVar = NULL;
+        $output  = NULL;
+
         exec($command, $output, $returnVar);
-
-        if ($returnVar === 0) {
-            $this->info("Backup successful! Saved to: $backupPath");
-        } else {
-            $this->error("Backup failed. Please check your configuration.");
-            // Optional: Log the failure
-            \Log::error("Database backup failed: ", $output);
-            $this->info('db:backup Command is working fine!');
-        }
-
-        return $returnVar;
-
 
         // \Log::info("Cake Cron execution!");
         // $this->info('db:backup Command is working fine!');
