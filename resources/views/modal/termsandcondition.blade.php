@@ -10,8 +10,8 @@
             </div>
             <div class="modal-body">
                <p>
-                Terms and Conditions for the Web-Based Repository of Projects, Theses, and Practical Research 
-                (STI Marikina)<br>
+                Terms and Conditions for the Web-Based Repository of Projects, Theses, and Practical Research <br>
+                (STI Marikina)<br><br>
                   Effective Date: [Insert Date]<br><br>
                                     The STI Marikina Web-Based Repository is established to store, manage, and provide access to student 
                     projects, theses, and research outputs for academic purposes. These rules and regulations aim to 

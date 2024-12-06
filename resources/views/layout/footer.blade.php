@@ -13,11 +13,7 @@
                     <hr>
 
                     <h5 class="pull-left">STI Marikina &copy;2024 All rights reserved</h5>
-{{-- 
-                    <button type="button" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#exampleModal">
-                        Launch demo modal
-                      </button> --}}
-
+                
                     <ul class="liste-unstyled pull-right">
 
                         <li><a href="javascript:void(0);" data-toggle="modal" data-target="#termsandcondition" style="text-decoration:none;color:white">Terms and Condition</a></li>
