@@ -60,7 +60,7 @@
 
   <script type="text/javascript">
 
-      var users =  {{ Js::from($charts) }};
+      var charts =  {{ Js::from($charts) }};
 
 
 
@@ -116,7 +116,7 @@
 
           series: [{
 
-              name: 'New Users',
+              name: 'New Data',
 
               data: charts
 
