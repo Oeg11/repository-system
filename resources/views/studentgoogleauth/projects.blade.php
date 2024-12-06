@@ -48,7 +48,7 @@
                                     <span style="color:#8c8c8c">By</span> <span style="color:#007bff">{{
                                         Str::ucfirst($item->fullname) }}</span>
                                     <br>
-                                    <p class="mb-0 w-100"style="color:#8c8c8c;font-size:10px">
+                                    <p class="mb-0 w-100"style="color:#8c8c8c;font-size:11px">
                                        {{
                                         Str::ucfirst($item->category) }}</p><Br>
     
