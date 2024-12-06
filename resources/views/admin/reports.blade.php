@@ -37,9 +37,9 @@
                       <!-- AREA CHART -->
 
                       <!-- DONUT CHART -->
-                      <div class="card card-success">
+                      <div class="card card-danger">
                         <div class="card-header">
-                          <h3 class="card-title">Stacked Bar Chart</h3>
+                          <h3 class="card-title">Donut Chart</h3>
 
                           <div class="card-tools">
                             <button type="button" class="btn btn-tool" data-card-widget="collapse">
@@ -51,9 +51,7 @@
                           </div>
                         </div>
                         <div class="card-body">
-                          <div class="chart">
-                            <canvas id="stackedBarChart" style="min-height: 250px; height: 250px; max-height: 250px; max-width: 100%;"></canvas>
-                          </div>
+                          <canvas id="donutChart" style="min-height: 250px; height: 250px; max-height: 250px; max-width: 100%;"></canvas>
                         </div>
                         <!-- /.card-body -->
                       </div>
