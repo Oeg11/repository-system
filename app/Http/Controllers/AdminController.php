@@ -1236,11 +1236,14 @@ class AdminController extends Controller
             ->orderBy('created_at', 'desc')
             ->first();
 
-        return response()->json(['data' => [
+        $all = response()->json(['data' => [
             $data->Web_Application,
             $data->Mobile_Application,
             $data->PC_Application
         ]]);
+        $types = archive::all();
+        return view('admin.reports', compact('systeminformation','all','types'));
+
     }
 
 
