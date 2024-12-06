@@ -90,7 +90,7 @@
                         </div>
                         <div class="card-body">
 
-                                    <div class="row">
+                                    <div class="row d-flex">
                                             <div class="col-md-3">
                                                 <label for="country">Country</label>
                                                 <select class="form-control" id="country">
@@ -110,7 +110,7 @@
                                         </div>
                                         <div class="col-md-3">
                                             <label  style="color:white">x</label>
-                                            <input type="button" class="btn btn-success" value="Filter" onclick="getData()" />
+                                            <input type="button" class="btn btn-success mt-3" value="Filter" onclick="getData()" />
                                         </div>
                                     </div>
                                <hr>
