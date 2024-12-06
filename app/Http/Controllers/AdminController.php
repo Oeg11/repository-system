@@ -1229,15 +1229,20 @@ class AdminController extends Controller
                 return $query->whereDate('created_at', '<=', $request->to);
             })
             ->select(
-                 'Web Application',
-                 'Mobile Application',
-                  'PC Application'
+                'title',
+                 'type',
+                 'category',
                   )
             ->orderBy('created_at', 'desc')
             ->first();
 
+       $all = response()->json(['data' => [
+            $data->title,
+            $data->type,
+            $data->category
+        ]]);
         $types = archive::all();
-        return view('admin.reports', ['data' => $data], compact('systeminformation','types'));
+        return view('admin.reports', compact('systeminformation','types'))->with('all');
 
     }
 
