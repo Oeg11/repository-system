@@ -77,9 +77,8 @@ use App\Http\Controllers\StudentController;
         Route::post('/admin/update/usercontrol', [AdminController::class, 'UpdateUserControl'])->name('admin.updateusercontrol');
 
 
-       // Route::get('/admin/reports', [AdminController::class, 'AdminReports'])->name('admin.reports');
-
-        Route::get('/admin/reports', [AdminController::class, 'AdminReports'])->name('admin.reports');
+       Route::get('/admin/reports', [AdminController::class, 'AdminReports'])->name('admin.reports');
+       Route::get('/admin/backup/database', [AdminController::class, 'AdminBackupDatabase'])->name('admin.backupdb');
 
     });
 

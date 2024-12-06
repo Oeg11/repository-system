@@ -4,7 +4,7 @@ namespace App\Console\Commands;
 
 use Illuminate\Console\Command;
 use Spatie\DbDumper\Databases\MySql;
-
+use Illuminate\Support\Facades\DB;
 use Carbon\Carbon;
 use Illuminate\Support\Facades\Storage;
 
@@ -32,6 +32,13 @@ class DbBackup extends Command
     {
 
         $fileName = storage_path('/app/backup/' . date('Y-m-d_H-i-s') . '_backup.sql');
+        $date = date('Y-m-d_H-i-s');
+        DB::table('users')->insert(
+            array(
+                   'date_store'   =>   $date,
+                   'database_path'   =>   $fileName
+            )
+       );
 
         // Ensure the backups directory exists
         if (!file_exists(storage_path('/app/backup/'))) {

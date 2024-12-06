@@ -17,6 +17,7 @@ use Illuminate\Support\Str;
 use Illuminate\Support\Facades\Storage;
 use App\Models\usercontrol;
 use App\Models\User;
+use App\Models\backup;
 use DataTables;
 
 
@@ -1299,6 +1300,59 @@ class AdminController extends Controller
             ->with('countCategory', json_encode($result4));
 
     }
+
+
+
+    public function AdminBackupDatabase(Request $request){
+
+
+            if ($request->ajax()) {
+
+                $data = DB::table('backups')
+                    ->select('*')
+                    ->get();
+
+                return Datatables::of($data)
+
+                        ->addIndexColumn()
+
+
+                        ->addColumn('action', function($row){
+
+
+
+                                $btn = '<div class="btn-group">
+                                        <button type="button" class="btn btn-default">Action</button>
+                                        <button type="button" class="btn btn-default dropdown-toggle dropdown-icon" data-toggle="dropdown">
+                                        <span class="sr-only">Toggle Dropdown</span>
+                                        </button>
+                                        <div class="dropdown-menu" role="menu">
+                                        <a class="dropdown-item btn-deleteDepartment" href="javascript:void(0)"
+                                        data-del="'.$row->id.'">
+                                        <span class="fa fa-trash text-danger"></span>
+                                        Delete</a>
+
+                                        </div>
+                                    </div>';
+
+
+
+                                return $btn;
+
+                        })
+
+                        ->rawColumns(['action'])
+
+                        ->make(true);
+
+            }
+
+            $systeminformation = SystemInformation::all();
+            return view('admin.backupdatabase', compact('systeminformation'));
+        }
+
+
+
 
 
 }
