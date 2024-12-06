@@ -79,7 +79,8 @@
                     backgroundColor: [
                                     'rgba(255, 99, 132, 0.7)',
                                     'rgba(75, 192, 192, 0.7)',
-                                    'rgba(54, 162, 235, 0.7)'
+                                    'rgba(54, 162, 235, 0.7)',
+                                    'rgba(227, 123, 102, 0.7)',
                                 ],
                     borderColor: "transparent"
                 }]
