@@ -36,7 +36,7 @@
               <!-- /.card-header -->
               <div class="card-body">
                 <div class="table-responsive">
-                <table class="table table-bordered table-hover data-table3_">
+                <table class="table table-bordered table-hover data-table34">
                     <thead>
                         <tr>
                             <th scope="col">Database</th>
@@ -62,14 +62,10 @@
     </section>
     <!-- /.content -->
   </div>
- @include('admin.modal.editdepartment')
-
 
   @endsection
   <script src="https://code.jquery.com/jquery-3.5.1.js"></script>
   <script src="https://cdnjs.cloudflare.com/ajax/libs/toastr.js/latest/toastr.min.js"></script>
-
-
 
 
   <script type="text/javascript">
@@ -78,7 +74,7 @@
 
     //view all archive
 
-      var table = $('.data-table3_').DataTable({
+      var table = $('.data-table34').DataTable({
 
           processing: true,
 
