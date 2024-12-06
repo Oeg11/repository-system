@@ -47,13 +47,13 @@
                     </thead>
                      <tbody>
                         @forelse ($data as $row)
-                          <td>{{ $row->date_store }} </td>
-                          <td>{{ $row->database_path }} </td>
-                          <td></td>
-                        @empty
-
-                        @endforelse
                         <tr>
+                            <td>{{ $row->date_store }} </td>
+                            <td>{{ $row->database_path }} </td>
+                            <td></td>
+                            @empty
+
+                            @endforelse
 
                         </tr>
                     </tbody>
