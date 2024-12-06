@@ -49,8 +49,8 @@
                         @forelse ($data as $row)
                         <tr>
                             <td>{{ $row->date_store }} </td>
-                            <td>{{ asset('$row->database_path') }} </td>
-                            <td><a href="{{ asset('$row->database_path') }}" class="btn btn-success" download >Download Database</a></td>
+                            <td>{{ url($row->database_path) }} </td>
+                            <td><a href="{{ url($row->database_path) }}" class="btn btn-success" download >Download Database</a></td>
                             @empty
 
                             @endforelse
