@@ -35,7 +35,16 @@ class DbBackup extends Command
             $command = "mysqldump --user=". env('DB_USERNAME') . " --password=" . env('DB_PASSWORD') . " --host=" .  env('DB_HOST') . " ". env('DB_DATABASE') . " gzip > " . storage_path() . "/app/backup/". $fileName;
             $output = NULL;
             $returnVar = NULL;
-            exec($command, $output,$returnVar);
+
+            exec($command, $output, $returnVar);
+
+            if ($returnVar === 0) {
+                $this->info("Backup successful! Saved to: $fileName");
+            } else {
+                $this->error("Backup failed. Check your configuration or permissions.");
+            }
+
+            return $returnVar;
 
 
         // \Log::info("Cake Cron execution!");
