@@ -87,25 +87,6 @@
     //view all archive
 
       var table = $('.data-table34').DataTable({
-
-          processing: true,
-
-          serverSide: true,
-
-          ajax: "{{ route('admin.backupdb') }}",
-
-          columns: [
-
-              {data: 'id', name: 'id'},
-
-              {data: 'date_store', name: 'date_store'},
-
-              {data: 'database_path', name: 'database_path'},
-
-              {data: 'action', name: 'action', orderable: false, searchable: false},
-
-          ]
-
       });
 
          //end view all archive
