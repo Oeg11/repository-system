@@ -32,8 +32,7 @@
               </div>
               <!-- /.card-header -->
               <div class="card-body">
-                <h1>{{ $chart1->options['chart_title'] }}</h1>
-                {!! $chart1->renderHtml() !!}
+                <div id="chart-output"></div>
 
 
             </div>
@@ -55,39 +54,102 @@
 
 
   @endsection
-
-  @section('javascript')
-{!! $chart1->renderChartJsLibrary() !!}
-{!! $chart1->renderJs() !!}
-@endsection
-
   {{-- <script src="https://code.jquery.com/jquery-3.5.1.js"></script> --}}
   <script src="https://cdnjs.cloudflare.com/ajax/libs/toastr.js/latest/toastr.min.js"></script>
-  <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
-  <script>
-    // Data passed from the Laravel controller
-    var data = @json($data);
+  <script src="https://code.highcharts.com/highcharts.js"></script>
 
-    var ctx = document.getElementById('barChart').getContext('2d');
-    var barChart = new Chart(ctx, {
-        type: 'bar',
-        data: {
-            labels: data.labels,  // X-axis labels
-            datasets: [{
-                label: 'Sales',  // Dataset label
-                data: data.values,  // Y-axis values
-                backgroundColor: 'rgba(75, 192, 192, 0.2)',
-                borderColor: 'rgba(75, 192, 192, 1)',
-                borderWidth: 1
-            }]
-        },
-        options: {
-            scales: {
-                y: {
-                    beginAtZero: true
-                }
-            }
-        }
-    });
-</script>
+  <script type="text/javascript">
 
+      var users =  {{ Js::from($users) }};
+
+
+
+      Highcharts.chart('chart-output', {
+
+          title: {
+
+              text: 'New User Growth, 2022'
+
+          },
+
+          subtitle: {
+
+              text: 'Source: Data Analytic'
+
+          },
+
+           xAxis: {
+
+              categories: ['Jan', 'Feb', 'Mar', 'Apr', 'May', 'Jun', 'Jul', 'Aug', 'Sep', 'Oct', 'Nov', 'Dec']
+
+          },
+
+          yAxis: {
+
+              title: {
+
+                  text: 'Number of New Users'
+
+              }
+
+          },
+
+          legend: {
+
+              layout: 'vertical',
+
+              align: 'right',
+
+              verticalAlign: 'middle'
+
+          },
+
+          plotOptions: {
+
+              series: {
+
+                  allowPointSelect: true
+
+              }
+
+          },
+
+          series: [{
+
+              name: 'New Users',
+
+              data: users
+
+          }],
+
+          responsive: {
+
+              rules: [{
+
+                  condition: {
+
+                      maxWidth: 500
+
+                  },
+
+                  chartOptions: {
+
+                      legend: {
+
+                          layout: 'horizontal',
+
+                          align: 'center',
+
+                          verticalAlign: 'bottom'
+
+                      }
+
+                  }
+
+              }]
+
+          }
+
+  });
+
+  </script>
