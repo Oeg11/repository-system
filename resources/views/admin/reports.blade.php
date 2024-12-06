@@ -77,7 +77,7 @@
                         <div class="card-header">
 
 
-                          <h3 class="card-title">Pie Chart</h3>
+                          <h3 class="card-title">Type Analytic</h3>
 
                           <div class="card-tools">
                             <button type="button" class="btn btn-tool" data-card-widget="collapse">
