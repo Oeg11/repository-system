@@ -1243,14 +1243,14 @@ class AdminController extends Controller
             }
 
             $typecount2 = archive::select(
-                DB::raw('count(type) as typeCount'))
+                DB::raw('count(type) as TypeCount'))
                 ->groupBy('type')->get();
 
-            $result2[] = ['typeCount'];
+            $result2[] = ['TypeCount'];
 
             foreach ($typecount2 as $key => $value2) {
 
-                $result2[++$key] = $value2->typeCount;
+                $result2[++$key] = $value2->TypeCount;
 
                 info($result2);
             }
@@ -1258,7 +1258,7 @@ class AdminController extends Controller
             $systeminformation = SystemInformation::all();
             $types = archive::all();
             return view('admin.reports', compact('fetchdata','systeminformation','types'))
-            ->with('TypeName', json_encode($result))
+            ->with('NameType', json_encode($result))
             ->with('TypeCount', json_encode($result2));
 
 

@@ -73,7 +73,7 @@
         new Chart(document.getElementById("chartjs-pie2"), {
             type: "pie",
             data: {
-                labels: <?php echo $TypeName; ?>,
+                labels: <?php echo $NameType; ?>,
                 datasets: [{
                     data: <?php echo $TypeCount; ?>,
                     backgroundColor : ['#f56954', '#00a65a', '#f39c12', '#00c0ef', '#3c8dbc', '#d2d6de'],
