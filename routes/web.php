@@ -80,6 +80,7 @@ use App\Http\Controllers\StudentController;
        // Route::get('/admin/reports', [AdminController::class, 'AdminReports'])->name('admin.reports');
 
         Route::get('/admin/reports', [AdminController::class, 'AdminReports'])->name('admin.reports');
+        Route::get('/admin/reports/search', [AdminController::class, 'AdminReportsSearch'])->name('admin.reportssearch');
     });
 
     Route::get('/staff/login', [StaffController::class, 'stafflogin'])->name('staff.login');

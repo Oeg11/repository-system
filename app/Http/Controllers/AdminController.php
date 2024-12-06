@@ -1218,7 +1218,7 @@ class AdminController extends Controller
     }
 
 
-    public function AdminReports(Request $request)
+    public function AdminReportsSearch(Request $request)
     {
         $data = archive::where('id', $request->id)
             // use When for filtering by date
@@ -1236,34 +1236,21 @@ class AdminController extends Controller
             ->orderBy('created_at', 'desc')
             ->first();
 
-       $all = response()->json(['data' => [
+      return response()->json(['data' => [
             $data->title,
             $data->type,
             $data->category
         ]]);
-        $types = archive::all();
-        return view('admin.reports', compact('systeminformation','types'))->with('all');
-
     }
 
 
-    // public function AdminReports(Request $request){
+    public function AdminReports(Request $request){
 
-    //     $charts = archive::select(DB::raw("COUNT(*) as count"))
+        $systeminformation = SystemInformation::all();
+        $types = archive::all();
+        return view('admin.reports', compact('systeminformation','types'));
 
-    //     ->whereYear('created_at', date('Y'))
-
-    //     ->groupBy(DB::raw("Month(created_at)"))
-
-    //     ->pluck('count');
-
-
-
-    //     $systeminformation = SystemInformation::all();
-    //     $types = archive::all();
-    //     return view('admin.reports', compact('systeminformation','charts','types'));
-
-    // }
+    }
 
 
 }

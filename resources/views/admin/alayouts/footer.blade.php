@@ -72,7 +72,7 @@
 
     function getData() {
         $.ajax({
-            url: '{{ route('admin.reports')}}',
+            url: '{{ route('admin.reportssearch')}}',
             method: 'GET',
             dataType: 'json',
             data: {
