@@ -38,11 +38,11 @@ class DbBackup extends Command
 
             exec($command, $output, $returnVar);
 
-            if ($returnVar === 0) {
-                $this->info("Backup successful! Saved to: $fileName");
-            } else {
-                $this->error("Backup failed. Check your configuration or permissions.");
-            }
+                if ($returnVar === 0) {
+                    $this->info("Backup successful! Saved to: $fileName");
+                } else {
+                    $this->error("Backup failed. Check your configuration or permissions.");
+                }
 
             return $returnVar;
 
