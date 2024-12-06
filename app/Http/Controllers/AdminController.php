@@ -1219,7 +1219,9 @@ class AdminController extends Controller
 
     public function AdminReports(Request $request){
 
-        $charts = archive::select(DB::raw("COUNT(*) as count"))
+        $charts = archive::select('title',
+                                   DB::raw("COUNT(*) as count")
+                                )
 
         ->whereYear('created_at', date('Y'))
 
@@ -1230,7 +1232,8 @@ class AdminController extends Controller
 
 
         $systeminformation = SystemInformation::all();
-        return view('admin.reports', compact('systeminformation','charts'));
+        $types = archive::all();
+        return view('admin.reports', compact('systeminformation','charts','types'));
 
     }
 
