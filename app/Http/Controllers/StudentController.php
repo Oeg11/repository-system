@@ -658,34 +658,24 @@ class StudentController extends Controller
 
 
     public function googleauthstudentProject(Request $request){
-        $archive = DB::table('users')
+        $archive = DB::table('archives')
         ->select(
-            'users.id',
-            'users.name',
-            'users.email',
-            'archives.student_id',
             'archives.title',
             'archives.abstract',
             'archives.slug',
             'archives.banner_path')
-        ->leftjoin('archives','archives.student_id','=','users.id')
         ->where('archives.status', '=',  1)
         ->orderBy('archives.id','DESC')
         ->simplePaginate(5);
         // ->get();
 
 
-        $ranks = DB::table('users')
+        $ranks = DB::table('archives')
         ->select(
-            'users.id',
-            'users.name',
-            'users.email',
-            'archives.student_id',
             'archives.title',
             'archives.abstract',
-            'archives.count_rank',
+            'archives.slug',
             'archives.banner_path')
-        ->leftjoin('archives','archives.student_id','=','users.id')
         ->where('archives.status',  1)
         ->orderBy('archives.count_rank','DESC')
         ->get();
