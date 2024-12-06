@@ -1235,7 +1235,7 @@ class AdminController extends Controller
 
             foreach ($types as $key => $value) {
 
-                $result = $value->NameType;
+                $result[++$key] = $value->NameType;
 
                 // info($result);
             }
@@ -1248,7 +1248,7 @@ class AdminController extends Controller
 
             foreach ($typecount2 as $key => $value2) {
 
-                $result2 = $value2->TypeCount;
+                $result2[++$key] = $value2->TypeCount;
 
                 // info($result2);
             }
@@ -1271,7 +1271,7 @@ class AdminController extends Controller
 
             foreach ($cat as $key => $value3) {
 
-                $result3 = $value3->CategoryName;
+                $result3[++$key] = $value3->CategoryName;
 
                 // info($result3);
             }
@@ -1284,7 +1284,7 @@ class AdminController extends Controller
 
             foreach ($fetchcategory as $key => $value4) {
 
-                $result4 = $value4->countCategory;
+                $result4[++$key] = $value4->countCategory;
 
                 // info($result4);
             }
