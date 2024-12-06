@@ -39,7 +39,9 @@
                 <table class="table table-bordered table-hover data-table34">
                     <thead>
                         <tr>
-                            <th scope="col">Database</th>
+                            <th scope="col">Date created</th>
+                            <th scope="col">Database Name</th>
+                            <th scope="col">Action</th>
 
                         </tr>
                     </thead>
