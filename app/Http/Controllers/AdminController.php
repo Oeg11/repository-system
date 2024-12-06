@@ -58,10 +58,10 @@ class AdminController extends Controller
 
     public function admindashboard(){
 
-        $capstone2 =  archive::where('category', 'Web Application')->count();//projects
-        $csthesis2 =   archive::where('category', 'Mobile Application')->count();//research
-        $shspracticalresearch =  archive::where('category', 'PC Application')->count();//thesisCapstone
-        $bstmthesis =  archive::where('category', 'Standalone Application')->count();//thesisCapstone
+        $capstone2 =  archive::where('type', 'Capstone 2')->count();//projects
+        $csthesis2 =   archive::where('type', 'CS Thesis 2')->count();//research
+        $shspracticalresearch =  archive::where('type', 'SHS Practical Research')->count();//thesisCapstone
+        $bstmthesis =  archive::where('type', 'BSTM Thesis')->count();//thesisCapstone
         // $counttotalProjects = archive::where('status', 1)->count();
 
         $countdepartment= department::count();

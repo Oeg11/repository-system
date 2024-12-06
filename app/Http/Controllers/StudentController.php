@@ -635,10 +635,10 @@ class StudentController extends Controller
     public function studentDashboardGoogle(){
 
         $user = Auth::user(); //google auth
-        $capstone2 =  archive::where('category', 'Web Application')->count();//projects
-        $csthesis2 =   archive::where('category', 'Mobile Application')->count();//research
-        $shspracticalresearch =  archive::where('category', 'PC Application')->count();//thesisCapstone
-        $bstmthesis =  archive::where('category', 'Standalone Application')->count();//thesisCapstone
+        $capstone2 =  archive::where('type', 'Capstone 2')->count();//projects
+        $csthesis2 =   archive::where('type', 'CS Thesis 2')->count();//research
+        $shspracticalresearch =  archive::where('type', 'SHS Practical Research')->count();//thesisCapstone
+        $bstmthesis =  archive::where('type', 'BSTM Thesis')->count();//thesisCapstone
 
         $systeminformation = SystemInformation::all();
         return view('studentgoogleauth.dashboard', compact('user', 'systeminformation','capstone2', 'csthesis2','shspracticalresearch', 'bstmthesis'));
