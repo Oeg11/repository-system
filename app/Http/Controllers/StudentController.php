@@ -1047,11 +1047,11 @@ class StudentController extends Controller
     public function googleauthViewProject(Request $request){
 
 
-        $archive = DB::table('student_models')
+        $archive = DB::table('users')
         ->select(
-            'student_models.id as student_id',
-            'student_models.fullname',
-            'student_models.email',
+            'users.id as student_id',
+            'users.name',
+            'users.email',
             'archives.id as archives_id',
             'archives.student_id',
             'archives.title',
@@ -1064,10 +1064,10 @@ class StudentController extends Controller
             'curricula.name as curriculum_name',
             'departments.name as department_name',
             )
-        ->leftjoin('archives','archives.student_id','=','student_models.id')
-        ->leftjoin('curricula','curricula.id','=','student_models.curriculum_id')
-        ->leftjoin('departments','departments.id','=','student_models.department_id')
-        ->where('archives.category', 'Project')
+        ->leftjoin('archives','archives.student_id','=','users.id')
+        ->leftjoin('curricula','curricula.id','=','archives.curriculum_id')
+        ->leftjoin('departments','departments.id','=','archives.department_id')
+        ->where('archives.category', 'Web Application')
         ->orderBy('archives.id','DESC')
         ->get();
 
@@ -1080,11 +1080,11 @@ class StudentController extends Controller
     public function googleauthViewResearch(Request $request){
 
 
-        $archive = DB::table('student_models')
+         $archive = DB::table('users')
         ->select(
-            'student_models.id as student_id',
-            'student_models.fullname',
-            'student_models.email',
+            'users.id as student_id',
+            'users.name',
+            'users.email',
             'archives.id as archives_id',
             'archives.student_id',
             'archives.title',
@@ -1097,10 +1097,10 @@ class StudentController extends Controller
             'curricula.name as curriculum_name',
             'departments.name as department_name',
             )
-        ->leftjoin('archives','archives.student_id','=','student_models.id')
-        ->leftjoin('curricula','curricula.id','=','student_models.curriculum_id')
-        ->leftjoin('departments','departments.id','=','student_models.department_id')
-        ->where('archives.category', 'Research')
+        ->leftjoin('archives','archives.student_id','=','users.id')
+        ->leftjoin('curricula','curricula.id','=','archives.curriculum_id')
+        ->leftjoin('departments','departments.id','=','archives.department_id')
+        ->where('archives.category', 'Mobile Application')
         ->orderBy('archives.id','DESC')
         ->get();
 
@@ -1113,11 +1113,11 @@ class StudentController extends Controller
     public function googleauthViewCapstonethesis(Request $request){
 
 
-        $archive = DB::table('student_models')
+       $archive = DB::table('users')
         ->select(
-            'student_models.id as student_id',
-            'student_models.fullname',
-            'student_models.email',
+            'users.id as student_id',
+            'users.name',
+            'users.email',
             'archives.id as archives_id',
             'archives.student_id',
             'archives.title',
@@ -1130,10 +1130,10 @@ class StudentController extends Controller
             'curricula.name as curriculum_name',
             'departments.name as department_name',
             )
-        ->leftjoin('archives','archives.student_id','=','student_models.id')
-        ->leftjoin('curricula','curricula.id','=','student_models.curriculum_id')
-        ->leftjoin('departments','departments.id','=','student_models.department_id')
-        ->where('archives.category', 'Capstone/Thesis')
+        ->leftjoin('archives','archives.student_id','=','users.id')
+        ->leftjoin('curricula','curricula.id','=','archives.curriculum_id')
+        ->leftjoin('departments','departments.id','=','archives.department_id')
+        ->where('archives.category', 'PC Application')
         ->orderBy('archives.id','DESC')
         ->get();
 
@@ -1146,11 +1146,11 @@ class StudentController extends Controller
     public function googleauthViewTotalprojects(Request $request){
 
 
-        $archive = DB::table('student_models')
+        $archive = DB::table('users')
         ->select(
-            'student_models.id as student_id',
-            'student_models.fullname',
-            'student_models.email',
+            'users.id as student_id',
+            'users.name',
+            'users.email',
             'archives.id as archives_id',
             'archives.student_id',
             'archives.title',
@@ -1163,9 +1163,10 @@ class StudentController extends Controller
             'curricula.name as curriculum_name',
             'departments.name as department_name',
             )
-        ->leftjoin('archives','archives.student_id','=','student_models.id')
-        ->leftjoin('curricula','curricula.id','=','student_models.curriculum_id')
-        ->leftjoin('departments','departments.id','=','student_models.department_id')
+        ->leftjoin('archives','archives.student_id','=','users.id')
+        ->leftjoin('curricula','curricula.id','=','archives.curriculum_id')
+        ->leftjoin('departments','departments.id','=','archives.department_id')
+        ->where('archives.category', 'Standalone Application')
         ->orderBy('archives.id','DESC')
         ->get();
 
