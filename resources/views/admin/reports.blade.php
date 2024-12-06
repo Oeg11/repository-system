@@ -90,8 +90,6 @@
                         </div>
                         <div class="card-body">
 
-                            <div class="card mb-3">
-                                <div class="card-body">
                                     <div class="row">
                                             <div class="col-md-3">
                                                 <label for="country">Country</label>
@@ -114,8 +112,7 @@
                                             <input type="button" class="btn btn-success" value="Filter" onclick="getData()" />
                                         </div>
                                     </div>
-                                </div>
-                            </div>
+                               <hr>
 
                           <canvas id="pieChart" style="min-height: 250px; height: 250px; max-height: 250px; max-width: 100%;"></canvas>
                         </div>
