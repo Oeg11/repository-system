@@ -13,9 +13,15 @@
 
                     <h5 class="pull-left">STI Marikina &copy;2024 All rights reserved</h5>
 
+               
+
                     <ul class="liste-unstyled pull-right">
 
-                        <li><a href="javascript:void(0);" data-toggle="modal" data-target="#termsandcondition">Terms and Condition</a></li>
+                        <li>
+                            <button type="button" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#termsandcondition">
+                                Launch demo modal
+                              </button>
+                        </li>
 
                         {{-- <li><a href="#twitter"><i class="fa fa-twitter"></i></a></li>
 
@@ -33,28 +39,7 @@
 
     </footer>
 
-     {{-- @include('modal.termsandcondition') --}}
-
-         <!-- Modal -->
-    <div class="modal fade" id="exampleModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
-        <div class="modal-dialog" role="document">
-        <div class="modal-content">
-            <div class="modal-header">
-            <h5 class="modal-title" id="exampleModalLabel">Modal title</h5>
-            <button type="button" class="close" data-dismiss="modal" aria-label="Close">
-                <span aria-hidden="true">&times;</span>
-            </button>
-            </div>
-            <div class="modal-body">
-            ...
-            </div>
-            <div class="modal-footer">
-            <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
-            <button type="button" class="btn btn-primary">Save changes</button>
-            </div>
-        </div>
-        </div>
-    </div>
+     @include('modal.termsandcondition')
 
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
 
