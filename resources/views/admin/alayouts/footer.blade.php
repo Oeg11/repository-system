@@ -71,6 +71,7 @@
     let chart;
 
     function getData() {
+
         $.ajax({
             url: '{{ route('admin.reportssearch')}}',
             method: 'GET',
@@ -81,31 +82,37 @@
                 'to': $("#to").val(),
             },
             success: function(data) {
-                const ctx = document.getElementById('doughnutChart').getContext('2d');
+
+                var pieChartCanvas = $('#pieChart').get(0).getContext('2d')
+                var pieData        = donutData;
+                var pieOptions     = {
+                    maintainAspectRatio : false,
+                    responsive : true,
+                }
                 if (chart) {
                     chart.destroy();
                 }
+
                 chart = new Chart(ctx, {
-                    type: 'doughnut',
+                    type: 'piechart',
                     data: {
                         labels: ['Confirmed', 'Recovered', 'Active'],
                         datasets: [{
-                            data: data.data,
-                            backgroundColor: [
-                                'rgba(255, 99, 132, 0.7)',
-                                'rgba(75, 192, 192, 0.7)',
-                                'rgba(54, 162, 235, 0.7)'
-                            ],
+                            new Chart(pieChartCanvas, {
+                                type: 'pie',
+                                data: data.data,
+                                options: pieOptions
+                            })
+
                         }]
-                    },
-                    options: {
-                        responsive: true,
-                        maintainAspectRatio: false,
                     }
+
                 });
+
+
             },
             error: function(error) {
-                console.error('Error fetching doughnut chart data:', error);
+                console.error('Error fetching pie chart data:', error);
             }
         });
     }
@@ -153,19 +160,19 @@
       //- PIE CHART -
       //-------------
       // Get context with jQuery - using jQuery's .get() method.
-      var pieChartCanvas = $('#pieChart').get(0).getContext('2d')
-      var pieData        = donutData;
-      var pieOptions     = {
-        maintainAspectRatio : false,
-        responsive : true,
-      }
-      //Create pie or douhnut chart
-      // You can switch between pie and douhnut using the method below.
-      new Chart(pieChartCanvas, {
-        type: 'pie',
-        data: pieData,
-        options: pieOptions
-      })
+    //   var pieChartCanvas = $('#pieChart').get(0).getContext('2d')
+    //   var pieData        = donutData;
+    //   var pieOptions     = {
+    //     maintainAspectRatio : false,
+    //     responsive : true,
+    //   }
+    //   //Create pie or douhnut chart
+    //   // You can switch between pie and douhnut using the method below.
+    //   new Chart(pieChartCanvas, {
+    //     type: 'pie',
+    //     data: pieData,
+    //     options: pieOptions
+    //   })
 
       //-------------
       //- BAR CHART -
