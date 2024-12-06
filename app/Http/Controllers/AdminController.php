@@ -1218,7 +1218,7 @@ class AdminController extends Controller
     }
 
 
-    public function AdminReportsSearch(Request $request)
+    public function AdminReports(Request $request)
     {
 
 
@@ -1255,7 +1255,9 @@ class AdminController extends Controller
                 info($result2);
             }
 
-            return view('admin.reports', compact('fetchdata'))
+            $systeminformation = SystemInformation::all();
+            $types = archive::all();
+            return view('admin.reports', compact('fetchdata','systeminformation','types'))
             ->with('TypeName', json_encode($result))
             ->with('TypeCount', json_encode($result2));
 
@@ -1263,13 +1265,13 @@ class AdminController extends Controller
     }
 
 
-    public function AdminReports(Request $request){
+    // public function AdminReports(Request $request){
 
-        $systeminformation = SystemInformation::all();
-        $types = archive::all();
-        return view('admin.reports', compact('systeminformation','types'));
+    //     $systeminformation = SystemInformation::all();
+    //     $types = archive::all();
+    //     return view('admin.reports', compact('systeminformation','types'));
 
-    }
+    // }
 
 
 }
