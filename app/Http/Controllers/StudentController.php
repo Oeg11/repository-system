@@ -670,11 +670,12 @@ class StudentController extends Controller
         // ->get();
 
 
-        $ranks = DB::table('archives')
+        $ranks = DB::table('users')
         ->select(
+            'archives.student_id',
             'archives.title',
             'archives.abstract',
-            'archives.slug',
+            'archives.count_rank',
             'archives.banner_path')
         ->where('archives.status',  1)
         ->orderBy('archives.count_rank','DESC')
