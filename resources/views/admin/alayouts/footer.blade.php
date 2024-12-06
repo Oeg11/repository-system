@@ -72,7 +72,7 @@
     $(function () {
 
 
-        var stackedBarChartCanvas = $('#stackedBarChart').get(0).getContext('2d')
+    var stackedBarChartCanvas = $('#stackedBarChart').get(0).getContext('2d');
     var stackedBarChartData = $.extend(true, {}, barChartData)
 
     var stackedBarChartOptions = {
@@ -92,13 +92,13 @@
       type: 'bar',
       data: stackedBarChartData,
       options: stackedBarChartOptions
-    })
+    });
 
       //-------------
       //- PIE CHART -
       //-------------
       // Get context with jQuery - using jQuery's .get() method.
-      var pieChartCanvas = $('#pieChart').get(0).getContext('2d')
+      var pieChartCanvas = $('#pieChart').get(0).getContext('2d');
       var pieData        = donutData;
       var pieOptions     = {
         maintainAspectRatio : false,
@@ -110,7 +110,7 @@
         type: 'pie',
         data: pieData,
         options: pieOptions
-      })
+      });
 
       //-------------
       //- BAR CHART -
