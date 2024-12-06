@@ -135,7 +135,7 @@
         new Chart(document.getElementById("chartjs-pie2"), {
             type: "pie",
             data: {
-                labels: <?php echo '['. substr($TypeName,18)?>,
+                labels: <?php echo $TypeName; ?>,
                 datasets: [{
                     data: <?php echo '['. substr($TypeCount,19)?>,
                     backgroundColor: [
