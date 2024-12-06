@@ -29,7 +29,7 @@
             <div class="card">
               <div class="card-header">
                 <div class="row">
-                    <div class="col-md-10"><h2>List of Backup FDatabase</h2></div>
+                    <div class="col-md-10"><h2>List of Backup Database</h2></div>
 
                 </div>
               </div>
@@ -46,6 +46,16 @@
                         </tr>
                     </thead>
                      <tbody>
+                        @forelse ($data as $row)
+                          <td>{{ $row->date_store }} </td>
+                          <td>{{ $row->database_path }} </td>
+                          <td></td>
+                        @empty
+
+                        @endforelse
+                        <tr>
+
+                        </tr>
                     </tbody>
                 </table>
               </div>
