@@ -132,7 +132,7 @@
             });
 
 
-
+            $('#type-error').html("");
              $('#category-error').html("");
              $('#department_id-error').html("");
              $('#curriculum_id-error').html("");
@@ -145,7 +145,12 @@
              $('#document_path-error').html("");
 
 
-             var category = $('#category option:selected').val();
+          var type = $('#type option:selected').val();
+           console.log("========================type========================");
+           console.log(type);
+
+
+           var category = $('#category option:selected').val();
            console.log("========================category========================");
            console.log(category);
 
@@ -200,7 +205,8 @@
            console.log(google_id);
 
            var data = new FormData(this.form);
-
+              
+               data.append('type', type);
                data.append('category', category);
                data.append('department_id', department_id);
                data.append('curriculum_id', curriculum_id);

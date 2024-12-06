@@ -35,7 +35,7 @@
                                   <option value="BSTM Thesis">BSTM Thesis</option>
                                </select>
                               </div>
-                              <span id="category-error" class="text-danger"></span>
+                              <span id="type-error" class="text-danger"></span>
                         </div>
                    </div>
 
