@@ -1220,25 +1220,46 @@ class AdminController extends Controller
 
     public function AdminReportsSearch(Request $request)
     {
-        $data = archive::where('id', $request->id)
-            // use When for filtering by date
-            ->when($request->from, function ($query) use ($request) {
-                return $query->whereDate('created_at', '>=', $request->from);
-            })
-            ->when($request->to, function ($query) use ($request) {
-                return $query->whereDate('created_at', '<=', $request->to);
-            })
-            ->select(
-                 'type',
-                 'category',
-                  )
-            ->orderBy('created_at', 'desc')
-            ->first();
 
-      return response()->json(['data' => [
-            $data->type,
-            $data->category
-        ]]);
+
+        $fetchdata = archive::select(
+             'type',
+              DB::raw("count(type) as counttype")
+             )
+            ->groupBy('type')
+            ->get();
+
+            $types = archive::select(
+                DB::raw('type as NameType'))
+                ->groupBy('type')->get();
+
+            $result[] = ['NameType'];
+
+            foreach ($types as $key => $value) {
+
+                $result[++$key] = $value->NameType;
+
+                info($result);
+            }
+
+            $typecount2 = archive::select(
+                DB::raw('count(type) as typeCount'))
+                ->groupBy('type')->get();
+
+            $result2[] = ['typeCount'];
+
+            foreach ($typecount2 as $key => $value2) {
+
+                $result2[++$key] = $value2->typeCount;
+
+                info($result2);
+            }
+
+            return view('admin.calamity-report', compact('fetchdata'))
+            ->with('TypeName', json_encode($result))
+            ->with('TypeCount', json_encode($result2));
+
+
     }
 
 

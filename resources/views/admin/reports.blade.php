@@ -90,7 +90,7 @@
                         </div>
                         <div class="card-body">
 
-                                    <div class="row d-flex">
+                                    {{-- <div class="row d-flex">
                                             <div class="col-md-3">
                                                 <label for="country">Country</label>
                                                 <select class="form-control" id="type">
@@ -113,9 +113,12 @@
                                             <input type="button" class="btn btn-success mt-3" value="Filter" onclick="getData()" />
                                         </div>
                                     </div>
-                               <hr>
+                               <hr> --}}
 
-                          <canvas id="pieChart" style="min-height: 250px; height: 250px; max-height: 250px; max-width: 100%;"></canvas>
+                               <div class="chart chart-lg">
+                                <canvas id="chartjs-pie2"></canvas>
+                            </div>
+
                         </div>
                         <!-- /.card-body -->
                       </div>
