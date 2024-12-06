@@ -26,9 +26,9 @@
                     <div class="row mt-3">
                         <div class="col-md-6">
                            <div class="form-group">
-                               <label><b>Category</b></label>
-                                 <select class="form-control form-control-lg" id="category" name="category" aria-label="Default select example">
-                                    <option value="" selected="true" disabled="disabled">&larr; Select Category &rarr;</option>
+                               <label><b>Type</b></label>
+                                 <select class="form-control form-control-lg" id="type" name="type" aria-label="Default select example">
+                                    <option value="" selected="true" disabled="disabled">&larr; Select Type &rarr;</option>
                                   <option value="Capstone 2">Capstone 2</option>
                                   <option value="CS Thesis 2">CS Thesis 2</option>
                                   <option value="SHS Practical Research">SHS Practical Research</option>
@@ -39,6 +39,21 @@
                         </div>
                    </div>
 
+                   <div class="row mt-3">
+                    <div class="col-md-6">
+                       <div class="form-group">
+                           <label><b>Category</b></label>
+                             <select class="form-control form-control-lg" id="category" name="category" aria-label="Default select example">
+                                <option value="" selected="true" disabled="disabled">&larr; Select Category &rarr;</option>
+                              <option value="Web Application">Web Application</option>
+                              <option value="Mobile Application">Mobile Application</option>
+                              <option value="PC Application">PC Application</option>
+                              <option value="Standalone Application">Standalone Application</option>
+                           </select>
+                          </div>
+                          <span id="category-error" class="text-danger"></span>
+                    </div>
+               </div>
                    <div class="row mt-3">
                                 <div class="col-md-6">
                                 <div class="form-group">
