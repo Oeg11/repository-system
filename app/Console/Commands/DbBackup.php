@@ -2,9 +2,10 @@
 
 namespace App\Console\Commands;
 
-use Illuminate\Console\Command;
+use Log;
 
 use Carbon\Carbon;
+use Illuminate\Console\Command;
 use Illuminate\Support\Facades\Storage;
 
 
@@ -31,7 +32,7 @@ class DbBackup extends Command
     {
             $output = "junil toledo";
 
-            \Log::error("Database backup failed: ", $output);
-     
+            Log::error("Database backup failed: ", $output);
+
     }
 }
