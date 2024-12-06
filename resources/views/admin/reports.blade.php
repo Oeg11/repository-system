@@ -104,8 +104,6 @@
                     <div class="col-md-6">
                       <!-- LINE CHART -->
 
-                        <!-- /.card-body -->
-                      </div>
                       <!-- /.card -->
 
                       <!-- BAR CHART -->
