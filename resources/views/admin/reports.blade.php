@@ -108,7 +108,7 @@
                                             <label for="To">To</label>
                                             <input type="date" id="to" name="to" class="form-control" />
                                         </div>
-                                        <div class="col-md-3">
+                                        <div class="col-md-3 mt-3">
                                             <input type="button" class="btn btn-success" value="Filter" onclick="getData()" />
                                         </div>
                                     </div>
