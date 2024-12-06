@@ -118,7 +118,7 @@
 
               name: 'New Users',
 
-              data: users
+              data: charts
 
           }],
 
