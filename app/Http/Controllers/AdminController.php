@@ -1310,7 +1310,7 @@ class AdminController extends Controller
 
                 $data = DB::table('backupdatabase')
                     ->select('*')
-                    ->orderBy('id', 'DESC')
+                    ->orderBy('date_store', 'DESC')
                     ->get();
 
             $systeminformation = SystemInformation::all();
