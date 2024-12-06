@@ -57,10 +57,10 @@
                              <select class="form-control form-control-lg" id="edit_category" name="category" aria-label="Default select example">
                                 <option value="" selected="true" disabled="disabled">&larr; Select Category &rarr;</option>
                             
-                                <option value="Web Application" @if ($ct->type == "Web Application") {{ 'selected' }} @endif>Web Application</option>
-                                <option value="Mobile Application" @if ($ct->type == "Mobile Application") {{ 'selected' }} @endif>Mobile Application</option>
-                                <option value="PC Application" @if ($ct->type == "PC Application") {{ 'selected' }} @endif>PC Application</option>
-                                <option value="Standalone Application" @if ($ct->type == "Standalone Application") {{ 'selected' }} @endif>Standalone Application</option>
+                                <option value="Web Application" @if ($ct->category == "Web Application") {{ 'selected' }} @endif>Web Application</option>
+                                <option value="Mobile Application" @if ($ct->category == "Mobile Application") {{ 'selected' }} @endif>Mobile Application</option>
+                                <option value="PC Application" @if ($ct->category == "PC Application") {{ 'selected' }} @endif>PC Application</option>
+                                <option value="Standalone Application" @if ($ct->category == "Standalone Application") {{ 'selected' }} @endif>Standalone Application</option>
 
                            </select>
                           </div>
