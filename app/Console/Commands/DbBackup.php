@@ -6,7 +6,7 @@ use Illuminate\Console\Command;
 
 use Carbon\Carbon;
 use Illuminate\Support\Facades\Storage;
-use Spatie\Backup\Tasks\Backup\BackupJobFactory;
+
 
 class DbBackup extends Command
 {
@@ -29,29 +29,19 @@ class DbBackup extends Command
      */
     public function handle()
     {
-
-        try {
-            $backupJob = BackupJobFactory::createFromArray(config('backup'));
-            $backupJob->run();
-            $this->info('Backup completed successfully!');
-        } catch (\Exception $e) {
-            $this->error('Backup failed: ' . $e->getMessage());
+        if (! Storage::exists('backup')) {
+            Storage::makeDirectory('backup');
         }
 
-        return 0;
+        $filename = "backup-" . Carbon::now()->format('Y-m-d') . ".gz";
 
-        // $filename = "backup-" . Carbon::now()->format('Y-m-d') . ".gz";
+        $command = "mysqldump --user=" . env('DB_USERNAME') ." --password=" . env('DB_PASSWORD')
+                . " --host=" . env('DB_HOST') . " " . env('DB_DATABASE')
+                . "  | gzip > " . storage_path() . "/app/backup/" . $filename;
 
-  
+        $returnVar = NULL;
+        $output  = NULL;
 
-        // $command = "mysqldump --user=" . env('DB_USERNAME') ." --password=" . env('DB_PASSWORD') . " --host=" . env('DB_HOST') . " " . env('DB_DATABASE') . "  | gzip > " . storage_path() . "/storage/uploads/" . $filename;
-
-        // $returnVar = NULL;
-
-        // $output  = NULL;
-
-  
-
-        // exec($command, $output, $returnVar);
+        exec($command, $output, $returnVar);
     }
 }
