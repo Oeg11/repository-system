@@ -147,98 +147,81 @@
 
   @endsection
 
-  {{-- <script type="text/javascript">
 
-      var charts =  {{ Js::from($charts) }};
+  <script>
+    document.addEventListener("DOMContentLoaded", function () {
+
+        // Bar Chart
+
+        var barChartData = {
+            labels: <?php echo $CategoryName; ?>,
+            datasets: [{
+                label: 'Count',
+                backgroundColor: 'rgb(79,129,189)',
+                borderColor: 'rgba(0, 158, 251, 1)',
+                borderWidth: 1,
+                data: <?php echo $countCategory; ?>,
+            }]
+        };
+
+        var ctx = document.getElementById('bargraph2').getContext('2d');
+        window.myBar = new Chart(ctx, {
+            type: 'bar',
+            data: barChartData,
+            options: {
+                responsive: true,
+                legend: {
+                    display: false,
+                }
+            }
+        });
+
+    });
+</script>
+
+
+<script>
+    document.addEventListener("DOMContentLoaded", function () {
+        // Pie chart
+        new Chart(document.getElementById("chartjs-pie2"), {
+            type: "pie",
+            data: {
+                labels: <?php echo $NameType; ?>,
+                datasets: [{
+                    data: <?php echo $TypeCount; ?>,
+                    backgroundColor : ['#f56954', '#00a65a', '#f39c12', '#00c0ef', '#3c8dbc', '#d2d6de'],
+                    borderColor: "transparent"
+                }]
+            },
+            options: {
+                maintainAspectRatio: true,
+                legend: {
+                    display: true,
+                }
+            }
+        });
+
+    });
+
+</script>
 
 
 
-      Highcharts.chart('chart-output', {
 
-          title: {
-
-              text: 'New User Growth, 2022'
-
-          },
-
-          subtitle: {
-
-              text: 'Source: Data Analytic'
-
-          },
-
-           xAxis: {
-
-              categories: ['Jan', 'Feb', 'Mar', 'Apr', 'May', 'Jun', 'Jul', 'Aug', 'Sep', 'Oct', 'Nov', 'Dec']
-
-          },
-
-          yAxis: {
-
-              title: {
-
-                  text: 'Number of New Users'
-
-              }
-
-          },
-
-          legend: {
-
-              layout: 'vertical',
-
-              align: 'right',
-
-              verticalAlign: 'middle'
-
-          },
-
-          plotOptions: {
-
-              series: {
-
-                  allowPointSelect: true
-
-              }
-
-          },
-
-          series: [{
-
-              name: 'New Data',
-
-              data: charts
-
-          }],
-
-          responsive: {
-
-              rules: [{
-
-                  condition: {
-
-                      maxWidth: 500
-
-                  },
-
-                  chartOptions: {
-
-                      legend: {
-
-                          layout: 'horizontal',
-
-                          align: 'center',
-
-                          verticalAlign: 'bottom'
-
-                      }
-
-                  }
-
-              }]
-
-          }
-
-  });
-
-  </script> --}}
+<script>
+    $(function () {
+      $("#example1").DataTable({
+        "responsive": true, "lengthChange": false, "autoWidth": false,
+        // "buttons": ["copy", "csv", "excel", "pdf", "print", "colvis"]
+      }).buttons().container().appendTo('#example1_wrapper .col-md-6:eq(0)');
+      $('#example2').DataTable({
+        "paging": true,
+        "lengthChange": false,
+        "searching": false,
+        "ordering": true,
+        "info": true,
+        "autoWidth": false,
+        "responsive": true,
+      });
+    });
+  </script>
