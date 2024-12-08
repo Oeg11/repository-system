@@ -35,7 +35,6 @@ class StudentImport implements ToCollection, ToModel
             $stud->role = $row[6];
             $stud->status = $row[7];
             $stud->google_id = $row[8];
-            $stud->remember_token = $row[9];
             $stud->save();
 
 
