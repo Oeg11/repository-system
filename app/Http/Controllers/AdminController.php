@@ -1330,17 +1330,35 @@ class AdminController extends Controller
     public function Adminimportdata(Request $request){
 
 
-        $request->validate([
-            'import_file' =>[
-                'required',
-                'file'
-            ],
+
+
+        $validator = \Validator::make($request->all(), [
+            'import_file' => 'required|file',
+
+        ],[
+            'import_file.required' => 'Required csv file',
+
         ]);
 
-        $systeminformation = SystemInformation::all();
-        return view('admin.import', compact('systeminformation'));
+        if ($validator->fails()) {
+            return response()->json(['errors' => $validator->errors()]);
+        }
 
 
+        $file = $request->file('import_file');
+
+        // Parse the CSX file
+        $data = $this->parseCSX($file->getPathname());
+
+        // Process or save the data
+        foreach ($data as $row) {
+            studentModel::create($row); // Adjust to match your database schema
+        }
+
+        return response()->json(['status' => 200]);
+
+        // $systeminformation = SystemInformation::all();
+        // return view('admin.import', compact('systeminformation'));
 
     }
 

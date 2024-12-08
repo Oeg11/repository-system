@@ -82,7 +82,7 @@ use App\Http\Controllers\StudentController;
 
         //my added routes
        Route::get('admin/import', [AdminController::class, 'Adminuserimport'])->name('admin.userimport');
-       Route::post('admin/import', [AdminController::class, 'Adminimportdata'])->name('admin.updateusercontrol');
+       Route::post('admin/import/csv', [AdminController::class, 'Adminimportdata'])->name('admin.useraddingcsv');
 
 
 
