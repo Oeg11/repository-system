@@ -378,9 +378,9 @@
 
 
 
-           var student_id = $('#edit_student_id').val();
-           console.log("========================student_id========================");
-           console.log(student_id);
+           var student_foreign_id = $('#edit_student_foreign_id').val();
+           console.log("========================student_foreign_id========================");
+           console.log(student_foreign_id);
 
            var id = $('#id').val();
            console.log("========================id========================");
@@ -404,7 +404,7 @@
                data.append('document_path', $('#add_document_path')[0].files[0]);
                data.append('default_banner_path', default_banner_path);
                data.append('default_document_path', default_document_path);
-               data.append('student_id', student_id);
+               data.append('student_foreign_id', student_foreign_id);
                data.append('id',id);
 
            $.ajax({

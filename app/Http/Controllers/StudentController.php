@@ -346,6 +346,7 @@ class StudentController extends Controller
            'student_models.email',
            'archives.id as archives_id',
            'archives.student_id',
+           'archives.student_foreign_id',
            'archives.category',
            'archives.department_id',
            'archives.curriculum_id',
@@ -456,6 +457,7 @@ class StudentController extends Controller
             'document_path' => $request->document_path,
             'banner_path' => $imagefile,
             'document_path' => $docfile,
+            'student_foreign_id' => $request->student_foreign_id,
 
         ];
        $id->update($projectData);
