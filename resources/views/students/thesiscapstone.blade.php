@@ -200,7 +200,7 @@
 
     </div>
 
-      @include('student.modal.termandprivacy')
+      @include('students.modal.termandprivacy')
 
     @endsection
 
