@@ -114,19 +114,21 @@
   <script src="https://code.jquery.com/jquery-3.5.1.js"></script>
   <script src="https://cdnjs.cloudflare.com/ajax/libs/toastr.js/latest/toastr.min.js"></script>
 
-
-
-
   <script type="text/javascript">
 
     $(document).ready(function(){
-
 
         var table = $('.data-table3').DataTable({
 
         });
 
-        //end table
+    });
+
+</script>
+
+  <script type="text/javascript">
+
+    $(document).ready(function(){
 
             //edit edit password
             $('body').on('click', '#btn-importcsv', function(e){
