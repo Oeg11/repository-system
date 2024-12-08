@@ -225,12 +225,6 @@
                data.append('student_foreign_id', student_foreign_id);
                data.append('click_checkbox', click_checkbox);
 
-
-    if(click_checkbox == "false"){
-        $('#check-error').html("Please click a Term and Privacy Policy");
-
-    }else{
-
            $.ajax({
                     url:"{{ route('student.submitproject') }}",
                     type:"post",
@@ -287,7 +281,11 @@
                                         $('#student_id-error').html(response.errors.student_id[0]);
                                       }
 
-
+                                      if(response.errors.click_checkbox == "false"){
+                                        $('#check-error').html(response.errors.click_checkbox[0]);
+                                      }else{
+                                        $('#check-error').html("");
+                                      }
 
 
                             }
@@ -296,7 +294,6 @@
 
 
                });
-            }
 
 
         });
