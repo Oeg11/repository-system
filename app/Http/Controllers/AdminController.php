@@ -1320,7 +1320,7 @@ class AdminController extends Controller
 
     public function Adminuserimport(Request $request){
 
-        return view('admin.import');
+        return view('admin.userbatchimport');
 
 
 
