@@ -192,9 +192,9 @@
            console.log("========================document_path========================");
            console.log(document_path);
 
-           var student_id = $('#student_id').val();
-           console.log("========================student_id========================");
-           console.log(student_id);
+           var student_foreign_id = $('#student_foreign_id').val();
+           console.log("========================student_foreign_id========================");
+           console.log(student_foreign_id);
 
 
 
@@ -210,7 +210,7 @@
                data.append('adviser', adviser);
                data.append('banner_path', $('#file-ip-1')[0].files[0]);
                data.append('document_path', $('#document_path')[0].files[0]);
-               data.append('student_id', student_id);
+               data.append('student_foreign_id', student_foreign_id);
 
            $.ajax({
                     url:"{{ route('student.submitproject') }}",

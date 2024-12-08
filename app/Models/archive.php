@@ -29,6 +29,7 @@ class archive extends Model
         'slug',
         'count_rank',
         'google_id',
+        'student_foreign_id',
         'usercontrol_id',
         'collectionlist_view',
         'collectionlist_updatestatus',
