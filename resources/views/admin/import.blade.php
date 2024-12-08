@@ -122,6 +122,12 @@
     $(document).ready(function(){
 
 
+        var table = $('.data-table3').DataTable({
+
+        });
+
+        //end table
+
             //edit edit password
             $('body').on('click', '#btn-importcsv', function(e){
 
