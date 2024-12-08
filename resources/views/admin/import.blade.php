@@ -14,17 +14,25 @@
                         <div id="mgs2"></div>
                         @csrf
 
-                        <div class="input-group">
-                            <input type="file" name="import_file" id="import_file" class="form-control">
-                            <span class="text-danger">
-                                <strong id="import_file-error"></strong>
-                             </span>
+                        <div class="row g-1">
+                            <div class="col-md-10">
+                                <div class="input-group">
+                                    <input type="file" name="import_file" id="import_file" class="form-control">
+                                    <span class="text-danger">
+                                        <strong id="import_file-error"></strong>
+                                     </span>
+                                </div>
+                            </div>
 
-
-                            <button type="button" class="btn btn-primary" id="btn-importcsv">Import</button>
-
+                            <div class="col-md-2">
+                                <div class="input-group">
+                                    <button type="button" class="btn btn-primary" id="btn-importcsv">Import</button>
+                                </div>
+                            </div>
 
                         </div>
+
+
                         </div>
                     </form>
                 </div>
