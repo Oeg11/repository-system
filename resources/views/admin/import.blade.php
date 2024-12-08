@@ -74,12 +74,18 @@
                   console.log(import_file);
 
 
+                  var data = new FormData(this.form);
+
+                  data.append('import_file', $('#import_file')[0].files[0]);
+
                   $.ajax({
-                      url: '{{ route("admin.useraddingcsv") }}',
-                      method: 'post',
-                      data: {
-                          import_file: import_file,
-                      },
+                        url: '{{ route("admin.useraddingcsv") }}',
+                        method: 'post',
+                        data:data,
+                        cache:false,
+                        contentType: false,
+                        processData: false,
+
                       success: function(response){
                         console.log(response);
                             if(response.errors) {
