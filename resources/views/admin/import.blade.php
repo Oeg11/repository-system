@@ -17,7 +17,7 @@
                         <div class="row g-1">
                             <div class="col-md-10">
                                 <div class="input-group">
-                                    <input type="file" name="import_file" accept=".csv, .xlsx" id="import_file" class="form-control">
+                                    <input type="file" name="import_file" id="import_file" accept=".csv, .xlsx"  class="form-control">
 
                                 </div>
                                 <span class="text-danger">

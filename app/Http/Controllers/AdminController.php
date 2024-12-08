@@ -1346,17 +1346,16 @@ class AdminController extends Controller
 
 
         $file = $request->file('import_file');
-        dd($file);
 
-        // // Parse the CSX file
-        // $data = $this->parseCSX($file->getPathname());
+        // Parse the CSX file
+        $data = $this->parseCSX($file->getPathname());
 
-        // // Process or save the data
-        // foreach ($data as $row) {
-        //     studentModel::create($row); // Adjust to match your database schema
-        // }
+        // Process or save the data
+        foreach ($data as $row) {
+            studentModel::create($row); // Adjust to match your database schema
+        }
 
-        // return response()->json(['status' => 200]);
+        return response()->json(['status' => 200]);
 
         // $systeminformation = SystemInformation::all();
         // return view('admin.import', compact('systeminformation'));
