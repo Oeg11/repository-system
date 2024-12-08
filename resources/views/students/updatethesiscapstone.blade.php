@@ -196,7 +196,7 @@
                 <div class="col-md-12">
                    <div class="form-group">
                     <input type="hidden" id="id" name="id" value="{{ $ct->archives_id}}">
-                    <input type="hidden" id="edit_student_foreign_id" name="student_id" value="{{ Auth::user()->id }}">
+                    <input type="text" id="edit_student_foreign_id" name="student_id" value="{{ Auth::user()->id }}">
 
                     <input type="hidden" id="edit_banner_path" name="edit_banner_path" value="{{$ct->banner_path}}">
                     <input type="hidden" id="edit_document_path" name="document_path" value="{{$ct->document_path}}">

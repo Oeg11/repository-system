@@ -366,7 +366,7 @@ class StudentController extends Controller
            )
        ->leftjoin('archives','archives.student_id','=','student_models.id')
        ->leftjoin('curricula','curricula.id','=','student_models.curriculum_id')
-       ->where('archives.id',  decrypt($request->id))
+       ->where(['archives.id' =>  decrypt($request->id), 'student_foreign_id'=> Auth::user()->id])
        ->get();
 
        $departments = department::all();
