@@ -1315,7 +1315,7 @@ class AdminController extends Controller
 
             $systeminformation = SystemInformation::all();
             return view('admin.backupdatabase', compact('systeminformation','data'));
-        }
+    }
 
 
     public function Adminuserimport(Request $request){
@@ -1325,7 +1325,24 @@ class AdminController extends Controller
 
 
 
-        }
+    }
+
+    public function Adminimportdata(Request $request){
+
+
+        $request->validate([
+            'import_file' =>[
+                'required',
+                'file'
+            ],
+        ]);
+
+        $systeminformation = SystemInformation::all();
+        return view('admin.import', compact('systeminformation'));
+
+
+
+    }
 
 
 }

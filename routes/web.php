@@ -79,7 +79,9 @@ use App\Http\Controllers\StudentController;
 
        Route::get('/admin/reports', [AdminController::class, 'AdminReports'])->name('admin.reports');
        Route::get('/admin/backup/database', [AdminController::class, 'AdminBackupDatabase'])->name('admin.backupdb');
+
        Route::get('admin/import', [AdminController::class, 'Adminuserimport'])->name('admin.userimport');
+       Route::post('admin/import', [AdminController::class, 'Adminimportdata'])->name('admin.updateusercontrol');
 
 
 
