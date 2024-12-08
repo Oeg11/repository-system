@@ -2,112 +2,119 @@
 @section('content')
 
 
-<div class="container-fluid">
-    <div class="row">
-        <div class="col-md-12 mt-5">
-            <div class="card">
-                <div class="card-header">
-                    <h4>Import users by uploading excel file</h4>
-                </div>
-                <div class="card-body">
-                    <form method="POST" enctype="multipart/form-data">
-                        <div id="mgs2____"></div>
-                        @csrf
-
-                        <div class="row g-1">
-                            <div class="col-md-10">
-                                <div class="input-group">
-                                    <input type="file" name="import_file" id="import_file" accept=".csv, .xlsx"  class="form-control">
-
-                                </div>
-                                <span class="text-danger">
-                                    <strong id="import_file-error"></strong>
-                                 </span>
-                            </div>
-
-                            <div class="col-md-2">
-                                <div class="input-group">
-                                    <button type="button" class="btn btn-primary" id="btn-importcsv">Import</button>
-                                </div>
-                            </div>
-
-                        </div>
-
-
-                        </div>
-                    </form>
-
-                          <div class="row">
-                            <div class="col-12">
-                              <div class="card">
-                                <div class="card-header">
-                                   <div class="row">
-                                      <div class="col-md-10"><h2>List of Curriculum</h2></div>
-                                      <div class="col-md-2"><button type="button" class="btn btn-success"
-                                          >Export Student list</button></div>
-                                  </div>
-                                </div>
-                                <!-- /.card-header -->
-                                <div class="card-body">
-                                  <div class="table-responsive">
-                                  <table class="table table-bordered table-hover data-table4">
-                                      <thead>
-                                          <tr>
-                                            <th scope="col">ID</th>
-                                            <th scope="col">Name</th>
-                                            <th scope="col">Email</th>
-                                            <th scope="col">Password</th>
-                                            <th scope="col">Department</th>
-                                            <th scope="col">Curriculum</th>
-                                            <th scope="col">Role</th>
-                                            <th scope="col">Status</th>
-                                            {{-- <th width="100px">Action</th> --}}
-                                          </tr>
-                                      </thead>
-                                       <tbody>
-                                        <tr>
-                                          @foreach ($students as $row)
-                                            <td>{{ $row->id  }}</td>
-                                            <td>{{ $row->fullname  }}</td>
-                                            <td>{{ $row->email  }}</td>
-                                            <td>{{ $row->password  }}</td>
-                                            <td>{{ $row->department_id  }}</td>
-                                            <td>{{ $row->curriculum_id  }}</td>
-                                            <td>{{ $row->role  }}</td>
-                                            <td>{{ $row->status  }}</td>
-                                          @endforeach
-                                        </tr>
-                                      </tbody>
-                                  </table>
-                                </div>
-                              </div>
-                                <!-- /.card-body -->
-                              </div>
-                              <!-- /.card -->
-
-                              <!-- /.card -->
-                            </div>
-                            <!-- /.col -->
-                          </div>
-                          <!-- /.row -->
-
-
-
-
-                </div>
-            </div>
+<div class="content-wrapper">
+  <div id="loader"></div>
+    <!-- Content Header (Page header) -->
+    <section class="content-header">
+      <div class="container-fluid">
+        <div class="row mb-2">
+          <div class="col-sm-6">
+            {{-- <h1>Dashboard</h1> --}}
+          </div>
+          <div class="col-sm-6">
+            <ol class="breadcrumb float-sm-right">
+              <li class="breadcrumb-item"><a href="{{ route('admin.dashboard')}}">Home</a></li>
+              {{-- <li class="breadcrumb-item">Dashboard</li> --}}
+            </ol>
+          </div>
         </div>
-    </div>
-</div>
+      </div><!-- /.container-fluid -->
+    </section>
+
+    <!-- Main content -->
+    <section class="content">
+      <div class="container-fluid">
+        <div class="row">
+          <div class="col-12">
+            <div class="card">
+              <div class="card-header">
+
+                <form method="POST" enctype="multipart/form-data">
+                    <div id="mgs2____"></div>
+                    @csrf
+
+                    <div class="row g-1">
+                        <div class="col-md-10">
+                            <div class="input-group">
+                                <input type="file" name="import_file" id="import_file" accept=".csv, .xlsx"  class="form-control">
+
+                            </div>
+                            <span class="text-danger">
+                                <strong id="import_file-error"></strong>
+                             </span>
+                        </div>
+
+                        <div class="col-md-2">
+                            <div class="input-group">
+                                <button type="button" class="btn btn-primary" id="btn-importcsv">Import</button>
+                            </div>
+                        </div>
+
+                    </div>
+
+                  </form>
+                  <hr>
+                <div class="row">
+                    <div class="col-md-10"><h4>Import users by uploading excel file</h4></div>
+                    <div class="col-md-2"><button type="button" class="btn btn-success"
+                         >Export Excel</button></div>
+                </div>
+              </div>
+              <!-- /.card-header -->
+              <div class="card-body">
+                <div class="table-responsive">
+                <table class="table table-bordered table-hover data-table3">
+                    <thead>
+                        <tr>
+                            <th scope="col">ID</th>
+                            <th scope="col">Name</th>
+                            <th scope="col">Email</th>
+                            <th scope="col">Password</th>
+                            <th scope="col">Department</th>
+                            <th scope="col">Curriculum</th>
+                            <th scope="col">Role</th>
+                            <th scope="col">Status</th>
+
+                        </tr>
+                    </thead>
+                     <tbody>
+                        <tr>
+                            @foreach ($students as $row)
+                              <td>{{ $row->id  }}</td>
+                              <td>{{ $row->fullname  }}</td>
+                              <td>{{ $row->email  }}</td>
+                              <td>{{ $row->password  }}</td>
+                              <td>{{ $row->department_id  }}</td>
+                              <td>{{ $row->curriculum_id  }}</td>
+                              <td>{{ $row->role  }}</td>
+                              <td>{{ $row->status  }}</td>
+                            @endforeach
+                          </tr>
+                    </tbody>
+                </table>
+              </div>
+            </div>
+              <!-- /.card-body -->
+            </div>
+            <!-- /.card -->
+
+            <!-- /.card -->
+          </div>
+          <!-- /.col -->
+        </div>
+        <!-- /.row -->
+      </div>
+      <!-- /.container-fluid -->
+    </section>
+    <!-- /.content -->
+  </div>
+
 
   @endsection
   <script src="https://code.jquery.com/jquery-3.5.1.js"></script>
   <script src="https://cdnjs.cloudflare.com/ajax/libs/toastr.js/latest/toastr.min.js"></script>
 
 
-
-  <script src="https://code.jquery.com/jquery-3.5.1.js"></script>
-  <script src="https://cdnjs.cloudflare.com/ajax/libs/toastr.js/latest/toastr.min.js"></script>
 
 
   <script type="text/javascript">
