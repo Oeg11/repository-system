@@ -18,10 +18,11 @@
                             <div class="col-md-10">
                                 <div class="input-group">
                                     <input type="file" name="import_file" id="import_file" class="form-control">
-                                    <span class="text-danger">
-                                        <strong id="import_file-error"></strong>
-                                     </span>
+
                                 </div>
+                                <span class="text-danger">
+                                    <strong id="import_file-error"></strong>
+                                 </span>
                             </div>
 
                             <div class="col-md-2">
