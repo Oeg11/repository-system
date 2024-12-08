@@ -165,8 +165,11 @@ class StudentController extends Controller
         ->where('student_models.id',  Auth::user()->id)
         ->get();
 
+        $departments = department::all();
+        $curriculums = curriculum::all();
         $systeminformation = SystemInformation::all();
-        return view('students.profile',  compact('systeminformation','userauth'));
+
+        return view('students.profile',  compact('systeminformation','userauth','departments','curriculums'));
      }
 
      public function studentStatus(Request $request){

@@ -36,11 +36,44 @@
                             </div>
                        </div>
 
-                                <div class="row mt-3">
+
+                       <div class="row mt-3">
+                        <div class="col-md-6">
+                        <div class="form-group">
+                            <label><b>Department</b></label>
+                        <select class="form-control form-control-lg" name="department_id" id="department_id" placeholder="Select Department">
+                            <option value="" selected="true" disabled="disabled">Select Department</option>
+                        @foreach ($departments as $dept)
+                            <option value="{{ $dept->id }}">{{ $dept->name }}</option>
+                        @endforeach
+
+                        </select>
+                        <span id="department_id-error" class="text-danger"></span>
+                                    </div>
+                            </div>
+                        </div>
+
+                        <div class="row mt-3">
+                            <div class="col-md-6">
+                            <div class="form-group">
+                                <label><b>Curriculum</b></label>
+                                    <select class="form-control form-control-lg" name="curriculum_id" id="curriculum_id" placeholder="Select Curriculum">
+                                        <option value="" selected="true" disabled="disabled">Select Curriculum</option>
+                                        @foreach ($curriculums as $curr)
+                                        <option value="{{ $curr->id }}">{{ $curr->name }}</option>
+                                    @endforeach
+                                    </select>
+                                    <span id="curriculum_id-error" class="text-danger"></span>
+                                </div>
+                        </div>
+                        </div>
+
+
+                                {{-- <div class="row mt-3">
                                     <div class="col-md-7">
                                     <div class="form-group">
                                         <label><b>Department</b></label>
-                                            <input type="text" id="title" name="title" value="{{ $user->department_name }}" class="form-control form-control-lg" disabled="disabled">
+                                            <input type="text" id="title" name="title" value="{{ $user->department_name }}" class="form-control form-control-lg">
                                         </div>
                                         <span id="title-error" class="text-danger"></span>
                                     </div>
@@ -50,11 +83,11 @@
                                 <div class="col-md-7">
                                 <div class="form-group">
                                     <label><b>Curriculum</b></label>
-                                        <input type="text" id="title" name="title" value="{{ $user->curriculum_name }}" class="form-control form-control-lg" disabled="disabled">
+                                        <input type="text" id="title" name="title" value="{{ $user->curriculum_name }}" class="form-control form-control-lg">
                                     </div>
                                     <span id="title-error" class="text-danger"></span>
                                 </div>
-                        </div>
+                        </div> --}}
 
 
                         <div class="row mt-3">
