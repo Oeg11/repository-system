@@ -136,44 +136,46 @@ class StudentController extends Controller
                 return response()->json(['errors' => $validator->errors()]);
             }
 
-        // $archive = new archive;
-        // $banner_path = "";
-        // $files = $request->file('banner_path');
-        // if ($files !== null) {
-        //     $banner_path = time() . '.' . $files->getClientOriginalExtension();
-        //     $destinationPath = public_path('/storage/uploads');
-        //     $files->move($destinationPath, $banner_path);
-        // }
+        $archive = new archive;
+        $banner_path = "";
+        $files = $request->file('banner_path');
+        if ($files !== null) {
+            $banner_path = time() . '.' . $files->getClientOriginalExtension();
+            $destinationPath = public_path('/storage/uploads');
+            $files->move($destinationPath, $banner_path);
+        }
 
-        // $document_path = "";
-        // $files = $request->file('document_path');
-        // if ($files !== null) {
-        //     $document_path = time() . '.' . $files->getClientOriginalExtension();
-        //     $destinationPath = public_path('/storage/uploads');
-        //     $files->move($destinationPath, $document_path);
-        // }
+        $document_path = "";
+        $files = $request->file('document_path');
+        if ($files !== null) {
+            $document_path = time() . '.' . $files->getClientOriginalExtension();
+            $destinationPath = public_path('/storage/uploads');
+            $files->move($destinationPath, $document_path);
+        }
 
-        // $archive_code = rand();
-        // $archive->archive_code = $archive_code;
-        // $archive->type = $request->type;
-        // $archive->category = $request->category;
-        // $archive->department_id = $request->department_id;
-        // $archive->curriculum_id = $request->curriculum_id;
-        // $archive->title = $request->title; //payroll system
-        // $archive->year = $request->year;
-        // $archive->abstract = $request->abstract;
-        // $archive->members = $request->members;
-        // $archive->adviser = $request->adviser;
-        // $archive->banner_path = $banner_path;
-        // $archive->document_path = $document_path;
-        // $archive->status = 2;
-        // $archive->student_foreign_id = $request->student_foreign_id;
-        // $archive->slug = Str::slug($request->title); //payroll-system
-        // $archive->save();
+        $archive_code = rand();
+        $archive->archive_code = $archive_code;
+        $archive->type = $request->type;
+        $archive->category = $request->category;
+        $archive->department_id = $request->department_id;
+        $archive->curriculum_id = $request->curriculum_id;
+        $archive->title = $request->title; //payroll system
+        $archive->year = $request->year;
+        $archive->abstract = $request->abstract;
+        $archive->members = $request->members;
+        $archive->adviser = $request->adviser;
+        $archive->banner_path = $banner_path;
+        $archive->document_path = $document_path;
+        $archive->status = 2;
+        $archive->student_foreign_id = $request->student_foreign_id;
+        $archive->slug = Str::slug($request->title); //payroll-system
+        $archive->save();
 
-        //     return response()->json(['status' => 200]);
+            return response()->json(['status' => 200]);
 
      }
+
+
 
      public function studentProfile(Request $request){
 
