@@ -205,7 +205,7 @@
            console.log(google_id);
 
            var data = new FormData(this.form);
-              
+
                data.append('type', type);
                data.append('category', category);
                data.append('department_id', department_id);

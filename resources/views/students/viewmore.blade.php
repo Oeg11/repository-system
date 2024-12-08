@@ -1,5 +1,6 @@
 @extends('students.slayouts.main')
 @section('content')
+<div id="loader"></div>
 <div class="row" style="margin-top:5%">
     <div class="col-md-10">
         <h3>View Thesis</h3>

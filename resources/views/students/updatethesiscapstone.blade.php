@@ -1,6 +1,6 @@
 @extends('students.slayouts.main')
 @section('content')
-
+<div id="loader"></div>
     <div class=" mt-4">
 
    <div class="row">

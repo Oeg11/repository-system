@@ -3,7 +3,7 @@
 
 <div class=" mt-4">
     <div class="row p-2 ">
-
+        <div id="loader"></div>
         <div class="col-md-3"></div>
         <div class="col-md-9">
 
