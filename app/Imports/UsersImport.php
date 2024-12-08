@@ -8,14 +8,14 @@ namespace App\Imports;
 
 use App\Models\studentModel;
 
-use Maatwebsite\Excel\Concerns\ToModel;
+// use Maatwebsite\Excel\Concerns\ToModel;
 
 use Maatwebsite\Excel\Concerns\WithHeadingRow;
 
 use Hash;
 
 
-class UsersImport implements ToModel, WithHeadingRow
+class UsersImport implements  WithHeadingRow
 
 {
 
