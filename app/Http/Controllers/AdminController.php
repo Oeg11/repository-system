@@ -1317,7 +1317,7 @@ class AdminController extends Controller
             return view('admin.backupdatabase', compact('systeminformation','data'));
     }
 
-
+                //my added funtion
     public function Adminuserimport(Request $request){
 
         $systeminformation = SystemInformation::all();
