@@ -235,62 +235,57 @@
                     // dataType:"json",
                     success: function(response){
 
-                        console.log(response.data);
+                        if(response.status == 200){
+                            toastr.success('submitted successfully');
+                            setTimeout(function (){
+                                window.location.href ="{{ route('students.thesiscapstone') }}";
 
-                        // if(response.status == 200){
-                        //     toastr.success('submitted successfully');
-                        //     setTimeout(function (){
-                        //         window.location.href ="{{ route('students.thesiscapstone') }}";
+                              }, 1500);
+                            }
 
-                        //       }, 1500);
-                        //     }
-
-
+                            if(response.errors){
 
 
-                        //     if(response.errors){
+                                  if(response.errors.category){
+                                        $('#category-error').html(response.errors.category[0]);
+                                      }
+                                      if(response.errors.department_id){
+                                        $('#department_id-error').html(response.errors.department_id[0]);
+                                      }
+                                      if(response.errors.curriculum_id){
+                                        $('#curriculum_id-error').html(response.errors.curriculum_id[0]);
+                                      }
+                                      if(response.errors.title){
+                                        $('#title-error').html(response.errors.title[0]);
+                                      }
+                                      if(response.errors.year){
+                                        $('#year-error').html(response.errors.year[0]);
+                                      }
+                                      if(response.errors.abstract){
+                                        $('#abstract-error').html(response.errors.abstract[0]);
+                                      }
+                                      if(response.errors.members){
+                                        $('#members-error').html(response.errors.members[0]);
+                                      }
+                                      if(response.errors.adviser){
+                                        $('#adviser-error').html(response.errors.adviser[0]);
+                                      }
+                                      if(response.errors.banner_path){
+                                        $('#banner_path-error').html(response.errors.banner_path[0]);
+                                      }
+                                      if(response.errors.document_path){
+                                        $('#document_path-error').html(response.errors.document_path[0]);
+                                      }
+                                      if(response.errors.student_id){
+                                        $('#student_id-error').html(response.errors.student_id[0]);
+                                      }
+
+                                      if(response.errors.click_checkbox){
+                                        $('#check-error').html(response.errors.click_checkbox[0]);
+                                      }
 
 
-                        //           if(response.errors.category){
-                        //                 $('#category-error').html(response.errors.category[0]);
-                        //               }
-                        //               if(response.errors.department_id){
-                        //                 $('#department_id-error').html(response.errors.department_id[0]);
-                        //               }
-                        //               if(response.errors.curriculum_id){
-                        //                 $('#curriculum_id-error').html(response.errors.curriculum_id[0]);
-                        //               }
-                        //               if(response.errors.title){
-                        //                 $('#title-error').html(response.errors.title[0]);
-                        //               }
-                        //               if(response.errors.year){
-                        //                 $('#year-error').html(response.errors.year[0]);
-                        //               }
-                        //               if(response.errors.abstract){
-                        //                 $('#abstract-error').html(response.errors.abstract[0]);
-                        //               }
-                        //               if(response.errors.members){
-                        //                 $('#members-error').html(response.errors.members[0]);
-                        //               }
-                        //               if(response.errors.adviser){
-                        //                 $('#adviser-error').html(response.errors.adviser[0]);
-                        //               }
-                        //               if(response.errors.banner_path){
-                        //                 $('#banner_path-error').html(response.errors.banner_path[0]);
-                        //               }
-                        //               if(response.errors.document_path){
-                        //                 $('#document_path-error').html(response.errors.document_path[0]);
-                        //               }
-                        //               if(response.errors.student_id){
-                        //                 $('#student_id-error').html(response.errors.student_id[0]);
-                        //               }
-
-                        //               if(response.errors.click_checkbox){
-                        //                 $('#check-error').html(response.errors.click_checkbox[0]);
-                        //               }
-
-
-                        //     }
+                            }
 
 
                         }
