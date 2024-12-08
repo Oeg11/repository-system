@@ -496,6 +496,22 @@
            console.log("========================email========================");
            console.log(email);
 
+
+           var password = $('#password').val();
+           console.log("========================password========================");
+           console.log(password);
+
+
+           var department_id = $('#department_id option:selected').val();
+           console.log("========================department_id========================");
+           console.log(department_id);
+
+           var curriculum_id = $('#curriculum_id option:selected').val();
+           console.log("========================curriculum_id========================");
+           console.log(curriculum_id);
+
+
+
            var id = $('#id').val();
            console.log("========================id========================");
            console.log(id);
@@ -508,6 +524,9 @@
                     data:{
                         fullname: fullname,
                         email: email,
+                        password: password,
+                        department_id: department_id,
+                        curriculum_id: curriculum_id,
                         id: id,
 
 

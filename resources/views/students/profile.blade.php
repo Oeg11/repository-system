@@ -40,6 +40,18 @@
                        <div class="row mt-3">
                         <div class="col-md-7">
                         <div class="form-group">
+                            <label><b>Password</b></label>
+                                <input type="text" id="password" name="password" value="{{ $user->password }}" class="form-control form-control-lg">
+                            </div>
+                            <span id="password-error" class="text-danger"></span>
+                        </div>
+                   </div>
+
+
+
+                       <div class="row mt-3">
+                        <div class="col-md-7">
+                        <div class="form-group">
                             <label><b>Department</b></label>
                         <select class="form-control form-control-lg" name="department_id" id="department_id" value="{{ $user->department_id }}" placeholder="Select Department">
                             <option value="" selected="true" disabled="disabled">Select Department</option>
@@ -66,28 +78,7 @@
                                     <span id="curriculum_id-error" class="text-danger"></span>
                                 </div>
                         </div>
-                        </div>
-
-
-                                {{-- <div class="row mt-3">
-                                    <div class="col-md-7">
-                                    <div class="form-group">
-                                        <label><b>Department</b></label>
-                                            <input type="text" id="title" name="title" value="{{ $user->department_name }}" class="form-control form-control-lg">
-                                        </div>
-                                        <span id="title-error" class="text-danger"></span>
-                                    </div>
-                            </div>
-
-                            <div class="row mt-3">
-                                <div class="col-md-7">
-                                <div class="form-group">
-                                    <label><b>Curriculum</b></label>
-                                        <input type="text" id="title" name="title" value="{{ $user->curriculum_name }}" class="form-control form-control-lg">
-                                    </div>
-                                    <span id="title-error" class="text-danger"></span>
-                                </div>
-                        </div> --}}
+                      </div>
 
 
                         <div class="row mt-3">

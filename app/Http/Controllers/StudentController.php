@@ -18,6 +18,7 @@ use App\Models\SystemInformation;
 use Socialite;
 use Google_Client;
 use Illuminate\Support\Facades\Session;
+use Hash;
 
 class StudentController extends Controller
 {
@@ -206,6 +207,9 @@ class StudentController extends Controller
         ->update([
             'fullname' => $request->fullname,
             'email' => $request->email,
+            'password' => Hash::make($request->password),
+            'department_id' => $request->department_id,
+            'curriculum_id' => $request->curriculum_id,
         ]);
         return response()->json([
             'status' => 200,
