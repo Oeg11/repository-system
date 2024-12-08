@@ -13,7 +13,7 @@ class StudentExport implements FromCollection, WithHeadings
     */
     public function collection()
     {
-        return studentModel::select("id", "fullname", "email", "password", "department_id", "curriculum_id", "role", "status", "google_id")->get();
+        return studentModel::select("id", "fullname", "email", "department_id", "curriculum_id", "role", "status")->get();
     }
 
 
@@ -21,7 +21,7 @@ class StudentExport implements FromCollection, WithHeadings
 
     {
 
-        return ["id", "fullname", "email", "password", "department_id", "curriculum_id", "role", "status", "google_id"];
+        return ["id", "fullname", "email",  "department_id", "curriculum_id", "role", "status"];
 
     }
 
