@@ -495,8 +495,10 @@ class StudentController extends Controller
         ->leftjoin('curricula','curricula.id','=','student_models.curriculum_id')
         ->leftjoin('departments','departments.id','=','student_models.department_id')
         ->where('archives.category', 'Project')
+        ->where(['archives.category' => 'Web Application', 'archives.student_id' => Auth::user()->id])
         ->orderBy('archives.id','DESC')
         ->get();
+
 
         $systeminformation = SystemInformation::all();
         return view('students.viewproject', compact('archive','systeminformation'));
