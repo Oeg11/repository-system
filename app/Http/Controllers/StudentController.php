@@ -82,77 +82,79 @@ class StudentController extends Controller
 
    public function submitProject(Request $request){
 
-         $validator = Validator::make($request->all(), [
+    dd($request->click_checkbox);
 
-                'type' =>'required',
-                'category' =>'required',
-                'department_id' =>'required',
-                'curriculum_id' =>'required',
-                'title' =>'required',
-                'year' =>'required',
-                'abstract' =>'required',
-                'members' =>'required',
-                'adviser' =>'required',
-                'banner_path' =>'required|mimes:png,jpg,jpeg|max:2048',
-                'document_path' =>'required',
-                'click_checkbox' =>'required|boolean',
-            ],[
+        //  $validator = Validator::make($request->all(), [
 
-                'type.required' => 'Please select type',
-                'category.required' => 'Please select category',
-                'department_id.required' => 'Please select your Department',
-                'curriculum_id.required' => 'Please select your Curriculum',
-                'title.required' => 'Please input unique Title',
-                'year.required' => 'Please select Year',
-                'abstract.required' => 'Please enter Abstract',
-                'members.required' => 'Please enter members',
-                'adviser.required' => 'Please input your Adviser',
-                'banner_path.required' => 'Please upload sample Image',
-                'document_path.required' => 'Please Attached document',
-                'click_checkbox.required' => 'Please click a Term and Privacy Policy'
+        //         'type' =>'required',
+        //         'category' =>'required',
+        //         'department_id' =>'required',
+        //         'curriculum_id' =>'required',
+        //         'title' =>'required',
+        //         'year' =>'required',
+        //         'abstract' =>'required',
+        //         'members' =>'required',
+        //         'adviser' =>'required',
+        //         'banner_path' =>'required|mimes:png,jpg,jpeg|max:2048',
+        //         'document_path' =>'required',
+        //         'click_checkbox' =>'required|boolean',
+        //     ],[
 
-            ]);
+        //         'type.required' => 'Please select type',
+        //         'category.required' => 'Please select category',
+        //         'department_id.required' => 'Please select your Department',
+        //         'curriculum_id.required' => 'Please select your Curriculum',
+        //         'title.required' => 'Please input unique Title',
+        //         'year.required' => 'Please select Year',
+        //         'abstract.required' => 'Please enter Abstract',
+        //         'members.required' => 'Please enter members',
+        //         'adviser.required' => 'Please input your Adviser',
+        //         'banner_path.required' => 'Please upload sample Image',
+        //         'document_path.required' => 'Please Attached document',
+        //         'click_checkbox.required' => 'Please click a Term and Privacy Policy'
 
-            if ($validator->fails()) {
-                return response()->json(['errors' => $validator->errors()]);
-            }
+        //     ]);
 
-        $archive = new archive;
-        $banner_path = "";
-        $files = $request->file('banner_path');
-        if ($files !== null) {
-            $banner_path = time() . '.' . $files->getClientOriginalExtension();
-            $destinationPath = public_path('/storage/uploads');
-            $files->move($destinationPath, $banner_path);
-        }
+        //     if ($validator->fails()) {
+        //         return response()->json(['errors' => $validator->errors()]);
+        //     }
 
-        $document_path = "";
-        $files = $request->file('document_path');
-        if ($files !== null) {
-            $document_path = time() . '.' . $files->getClientOriginalExtension();
-            $destinationPath = public_path('/storage/uploads');
-            $files->move($destinationPath, $document_path);
-        }
+        // $archive = new archive;
+        // $banner_path = "";
+        // $files = $request->file('banner_path');
+        // if ($files !== null) {
+        //     $banner_path = time() . '.' . $files->getClientOriginalExtension();
+        //     $destinationPath = public_path('/storage/uploads');
+        //     $files->move($destinationPath, $banner_path);
+        // }
 
-        $archive_code = rand();
-        $archive->archive_code = $archive_code;
-        $archive->type = $request->type;
-        $archive->category = $request->category;
-        $archive->department_id = $request->department_id;
-        $archive->curriculum_id = $request->curriculum_id;
-        $archive->title = $request->title; //payroll system
-        $archive->year = $request->year;
-        $archive->abstract = $request->abstract;
-        $archive->members = $request->members;
-        $archive->adviser = $request->adviser;
-        $archive->banner_path = $banner_path;
-        $archive->document_path = $document_path;
-        $archive->status = 2;
-        $archive->student_foreign_id = $request->student_foreign_id;
-        $archive->slug = Str::slug($request->title); //payroll-system
-        $archive->save();
+        // $document_path = "";
+        // $files = $request->file('document_path');
+        // if ($files !== null) {
+        //     $document_path = time() . '.' . $files->getClientOriginalExtension();
+        //     $destinationPath = public_path('/storage/uploads');
+        //     $files->move($destinationPath, $document_path);
+        // }
 
-            return response()->json(['status' => 200]);
+        // $archive_code = rand();
+        // $archive->archive_code = $archive_code;
+        // $archive->type = $request->type;
+        // $archive->category = $request->category;
+        // $archive->department_id = $request->department_id;
+        // $archive->curriculum_id = $request->curriculum_id;
+        // $archive->title = $request->title; //payroll system
+        // $archive->year = $request->year;
+        // $archive->abstract = $request->abstract;
+        // $archive->members = $request->members;
+        // $archive->adviser = $request->adviser;
+        // $archive->banner_path = $banner_path;
+        // $archive->document_path = $document_path;
+        // $archive->status = 2;
+        // $archive->student_foreign_id = $request->student_foreign_id;
+        // $archive->slug = Str::slug($request->title); //payroll-system
+        // $archive->save();
+
+        //     return response()->json(['status' => 200]);
 
      }
 
