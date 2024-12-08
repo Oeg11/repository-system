@@ -27,15 +27,15 @@ class StudentImport implements ToCollection, ToModel
         if($this->current > 1){
 
             $stud = new studentModel;
-            $stud->fullname = $row[0];
-            $stud->email = $row[1];
-            $stud->password = Hash::make($row[2]);
-            $stud->department_id = $row[3];
-            $stud->curriculum_id = $row[4];
-            $stud->role = $row[5];
-            $stud->status = $row[6];
-            $stud->google_id = $row[7];
-            $stud->remember_token = $row[8];
+            $stud->fullname = $row[1];
+            $stud->email = $row[2];
+            $stud->password = Hash::make($row[3]);
+            $stud->department_id = $row[4];
+            $stud->curriculum_id = $row[5];
+            $stud->role = $row[6];
+            $stud->status = $row[7];
+            $stud->google_id = $row[8];
+            $stud->remember_token = $row[9];
             $stud->save();
 
 
