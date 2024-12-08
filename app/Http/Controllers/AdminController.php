@@ -1330,20 +1330,17 @@ class AdminController extends Controller
 
     public function Adminimportdata(Request $request){
 
+        // $validator = \Validator::make($request->all(), [
+        //     'import_file' => 'required',
 
+        // ],[
+        //     'import_file.required' => 'Required csv file',
 
+        // ]);
 
-        $validator = \Validator::make($request->all(), [
-            'import_file' => 'required',
-
-        ],[
-            'import_file.required' => 'Required csv file',
-
-        ]);
-
-        if ($validator->fails()) {
-            return response()->json(['errors' => $validator->errors()]);
-        }
+        // if ($validator->fails()) {
+        //     return response()->json(['errors' => $validator->errors()]);
+        // }
 
          Excel::import(new UsersImport, request()->file('import_file'));
 
