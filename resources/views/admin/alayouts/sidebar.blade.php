@@ -194,7 +194,7 @@
             </li>
 
             <li class="nav-item">
-                <a href="" class="nav-link btns">
+                <a href="{{route('admin.import')}}" class="nav-link btns">
                     <i class="nav-icon fa fa-upload"></i>
                   <p>
                      Batch Upload
