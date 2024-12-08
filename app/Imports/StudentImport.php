@@ -11,7 +11,6 @@ use Hash;
 class StudentImport implements ToCollection, ToModel
 {
 
-    private $current = 0;
     /**
     * @param Collection $collection
     */
@@ -23,22 +22,28 @@ class StudentImport implements ToCollection, ToModel
     public function model(array $row)
 
     {
-        $this->current++;
-        if($this->current > 1){
-
-            $stud = new studentModel;
-            $stud->fullname = $row[0];
-            $stud->email = $row[1];
-            $stud->password = Hash::make($row[2]);
-            $stud->department_id = $row[3];
-            $stud->curriculum_id = $row[4];
-            $stud->role = $row[5];
-            $stud->status = $row[6];
-            $stud->google_id = $row[7];
-            $stud->save();
 
 
-        }
+        return new studentModel([
+
+            'fullname'     => $row['fullname'],
+
+            'email'    => $row['email'],
+
+            'password' => Hash::make($row['password']),
+
+            'department_id'     => $row['department_id'],
+
+            'curriculum_id'    => $row['curriculum_id'],
+
+            'role'     => $row['role'],
+
+            'status'    => $row['status'],
+
+            'google_id'     => $row['google_id'],
+
+        ]);
+
     }
 
 }
