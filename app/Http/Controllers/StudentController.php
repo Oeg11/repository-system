@@ -345,6 +345,7 @@ class StudentController extends Controller
            'student_models.fullname',
            'student_models.email',
            'archives.id as archives_id',
+           'archives.student_id',
            'archives.student_foreign_id',
            'archives.category',
            'archives.department_id',
