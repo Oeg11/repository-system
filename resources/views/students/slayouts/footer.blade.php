@@ -203,7 +203,7 @@
            console.log("========================student_foreign_id========================");
            console.log(student_foreign_id);
 
-           var click_checkbox = $("#click_checkbox").is(":checked") ? 1 : 0;
+           var click_checkbox = $("#click_checkbox").is(":checked") ? "1" : "0";
            console.log("========================click_checkbox========================");
            console.log(click_checkbox);
 
