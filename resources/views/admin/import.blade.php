@@ -19,9 +19,11 @@
                             <span class="text-danger">
                                 <strong id="import_file-error"></strong>
                              </span>
-                        </div>
-                        <div class="input-group">
+
+
                             <button type="button" class="btn btn-primary" id="btn-importcsv">Import</button>
+
+
                         </div>
                         </div>
                     </form>
@@ -82,7 +84,7 @@
                           // console.log(response.status == "Success");
                           if(response.status == 200){
 
-                             $('#mgs2').html('<div class="alert alert-success">Insert CSV File Successfully!</div>');
+                             $('#mgs2').html('<div class="alert alert-success">CSX imported successfully!</div>');
                                setTimeout(function(){
                                   window.location.reload();
                               }, 2000);
