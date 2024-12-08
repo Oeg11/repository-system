@@ -1322,7 +1322,7 @@ class AdminController extends Controller
                 //my added funtion
     public function Adminuserimport(Request $request){
 
-        $students = StudentImport::all();
+        $students = studentModel::all();
 
         $systeminformation = SystemInformation::all();
         return view('admin.import', compact('systeminformation','students'));
