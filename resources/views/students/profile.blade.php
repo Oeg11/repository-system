@@ -60,9 +60,10 @@
                             <label><b>Department</b></label>
                         <select class="form-control form-control-lg" name="department_id" id="department_id__" value="{{ $user->department_id }}" placeholder="Select Department">
                             <option value="" selected="true" disabled="disabled">Select Department</option>
-                        @foreach ($departments as $dept)
-                            <option value="{{ $dept->id }}">{{ $dept->name }}</option>
-                        @endforeach
+                            @foreach($departments as $dept)
+                            <option value="{{ $dept->id }}" {{ (collect($ct->department_id)->contains($dept->id)) ? 'selected':'' }}>{{ $dept->name }}</option>
+                          @endforeach
+
 
                         </select>
                         <span id="department_id-error" class="text-danger"></span>
@@ -76,9 +77,9 @@
                                 <label><b>Curriculum</b></label>
                                     <select class="form-control form-control-lg" name="curriculum_id" id="curriculum_id__"  value="{{ $user->curriculum_id }}" placeholder="Select Curriculum">
                                         <option value="" selected="true" disabled="disabled">Select Curriculum</option>
-                                        @foreach ($curriculums as $curr)
-                                        <option value="{{ $curr->id }}">{{ $curr->name }}</option>
-                                    @endforeach
+                                    @foreach ($curriculums as $curr)
+                                        <option value="{{ $curr->id }}" {{ (collect($ct->curriculum_id)->contains($curr->id)) ? 'selected':'' }}>{{ $curr->name }}</option>
+                                     @endforeach
                                     </select>
                                     <span id="curriculum_id-error" class="text-danger"></span>
                                 </div>
