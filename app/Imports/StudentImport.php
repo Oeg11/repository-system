@@ -24,7 +24,7 @@ class StudentImport implements ToCollection, ToModel
     {
 
 
-        return new studentModel([
+        $data = new studentModel([
 
             'fullname' => $row['fullname'],
 
@@ -43,6 +43,8 @@ class StudentImport implements ToCollection, ToModel
             'google_id' => $row['google_id'],
 
         ]);
+
+        create($data);
 
     }
 
