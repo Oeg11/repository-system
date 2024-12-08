@@ -23,7 +23,7 @@
         <div class="modal-footer justify-content-between">
             <input type="hidden" id="edit_id">
           <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
-          <button type="button" class="btn btn-primary" id="btn-adddepartment">Save</button>
+          {{-- <button type="button" class="btn btn-primary" id="btn-adddepartment">Save</button> --}}
         </div>
        </form>
       </div>
