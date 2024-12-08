@@ -10,12 +10,12 @@ use App\Models\studentModel;
 
 // use Maatwebsite\Excel\Concerns\ToModel;
 
-use Maatwebsite\Excel\Concerns\WithHeadingRow;
+// use Maatwebsite\Excel\Concerns\WithHeadingRow;
 
 use Hash;
 
 
-class UsersImport implements  WithHeadingRow
+class UsersImport implements
 
 {
 
