@@ -1333,10 +1333,10 @@ class AdminController extends Controller
 
 
         $validator = \Validator::make($request->all(), [
-            'import_file' => 'required|file',
+            'import_file' => 'required|mimes:csv,txt',
 
         ],[
-            'import_file.required' => 'required|mimes:csv,txt',
+            'import_file.required' => 'Required csv file',
 
         ]);
 
