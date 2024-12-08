@@ -7,7 +7,7 @@
         <div class="col-md-12">
             <div class="card">
                 <div class="card-header">
-                    <h4>Import User Excel Data</h4>
+                    <h4>Import user by uploading excel file</h4>
                 </div>
                 <div class="card-body">
                     <form action="{{url('admin/import')}}" method="POST" enctype="multipart/form-data">
