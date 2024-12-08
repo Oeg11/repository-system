@@ -1321,7 +1321,7 @@ class AdminController extends Controller
     public function Adminuserimport(Request $request){
 
         $systeminformation = SystemInformation::all();
-        return view('admin.userimport', compact('systeminformation'));
+        return view('admin.import', compact('systeminformation'));
 
 
 
