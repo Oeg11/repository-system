@@ -185,6 +185,7 @@ class StudentController extends Controller
             'student_models.email',
             'archives.id as archives_id',
             'archives.student_id',
+            'archives.student_foreign_id',
             'archives.title',
             'archives.abstract',
             'archives.banner_path',
@@ -195,9 +196,9 @@ class StudentController extends Controller
             'curricula.name as curriculum_name',
 
             )
-        ->leftjoin('archives','archives.student_id','=','student_models.id')
+        ->leftjoin('archives','archives.student_foreign_id','=','student_models.id')
         ->leftjoin('curricula','curricula.id','=','student_models.curriculum_id')
-        ->where('student_id',  Auth::user()->id)
+        ->where('student_foreign_id',  Auth::user()->id)
         ->orderBy('archives.id','DESC')
         ->simplePaginate(5);
         // ->get();
@@ -366,7 +367,7 @@ class StudentController extends Controller
            )
        ->leftjoin('archives','archives.student_id','=','student_models.id')
        ->leftjoin('curricula','curricula.id','=','student_models.curriculum_id')
-       ->where(['archives.id' =>  decrypt($request->id), 'student_foreign_id'=> Auth::user()->id])
+       ->where(['archives.id' =>  decrypt($request->id)])
        ->get();
 
        $departments = department::all();
