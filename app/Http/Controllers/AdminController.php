@@ -19,8 +19,9 @@ use App\Models\usercontrol;
 use App\Models\User;
 use App\Models\backup;
 use DataTables;
-
-
+use App\Exports\UsersExport;
+use App\Imports\UsersImport;
+use Maatwebsite\Excel\Facades\Excel;
 
 
 class AdminController extends Controller
@@ -1344,28 +1345,11 @@ class AdminController extends Controller
             return response()->json(['errors' => $validator->errors()]);
         }
 
-        $data = studentModel::all()->toArray();
-        $xmlContent = $this->generateCSX($data);
+         Excel::import(new UsersImport, request()->file('import_file'));
 
-        return response($xmlContent)
-            ->header('Content-Type', 'application/xml')
-            ->header('Content-Disposition', 'attachment; filename="export.csx"');
-
-
-        // $file = $request->file('import_file');
-
-        // // Parse the CSX file
-        // $data = $this->parseCSX($file->getPathname());
-
-        // // Process or save the data
-        // foreach ($data as $row) {
-        //     studentModel::create($row); // Adjust to match your database schema
-        // }
 
         return response()->json(['status' => 200]);
 
-        // $systeminformation = SystemInformation::all();
-        // return view('admin.import', compact('systeminformation'));
 
     }
 
