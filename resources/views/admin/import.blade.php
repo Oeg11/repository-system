@@ -46,7 +46,8 @@
 
                         <div class="col-md-2">
                             <div class="input-group">
-                                <button type="button" class="btn btn-primary" id="btn-importcsv">Import</button>
+                                {{-- <button type="button" class="btn btn-primary" id="btn-importcsv">Import</button> --}}
+                                <a class="btn btn-warning float-end" class="btn btn-primary" href="{{ route('users.export') }}">Export User Data</a>
                             </div>
                         </div>
 

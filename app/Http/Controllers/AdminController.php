@@ -19,8 +19,8 @@ use App\Models\usercontrol;
 use App\Models\User;
 use App\Models\backup;
 use DataTables;
-// use App\Exports\UsersExport;
-// use App\Imports\UsersImport;
+
+use App\Exports\StudentExport;
 use App\Imports\StudentImport;
 use Excel;
 
@@ -1352,6 +1352,11 @@ class AdminController extends Controller
 
 
     }
+
+        public function AdminExportexcel(Request $request){
+
+            return Excel::download(new StudentExport, 'studentlist.xlsx');
+        }
 
 
 }
