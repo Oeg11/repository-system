@@ -457,7 +457,7 @@ class StudentController extends Controller
             'document_path' => $request->document_path,
             'banner_path' => $imagefile,
             'document_path' => $docfile,
-            'student_foreign_id' => $request->student_foreign_id,
+            // 'student_foreign_id' => $request->student_foreign_id,
 
         ];
        $id->update($projectData);
