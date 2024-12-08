@@ -493,6 +493,7 @@ class StudentController extends Controller
             'student_models.email',
             'archives.id as archives_id',
             'archives.student_id',
+            'archives.student_foreign_id',
             'archives.title',
             'archives.abstract',
             'archives.banner_path',
@@ -503,7 +504,7 @@ class StudentController extends Controller
             'curricula.name as curriculum_name',
             'departments.name as department_name',
             )
-        ->leftjoin('archives','archives.student_id','=','student_models.id')
+        ->leftjoin('archives','archives.student_foreign_id','=','student_models.id')
         ->leftjoin('curricula','curricula.id','=','student_models.curriculum_id')
         ->leftjoin('departments','departments.id','=','student_models.department_id')
         ->where('archives.category', 'Project')
@@ -527,6 +528,7 @@ class StudentController extends Controller
             'student_models.email',
             'archives.id as archives_id',
             'archives.student_id',
+            'archives.student_foreign_id',
             'archives.title',
             'archives.abstract',
             'archives.banner_path',
@@ -537,10 +539,10 @@ class StudentController extends Controller
             'curricula.name as curriculum_name',
             'departments.name as department_name',
             )
-        ->leftjoin('archives','archives.student_id','=','student_models.id')
+        ->leftjoin('archives','archives.student_foreign_id','=','student_models.id')
         ->leftjoin('curricula','curricula.id','=','student_models.curriculum_id')
         ->leftjoin('departments','departments.id','=','student_models.department_id')
-        ->where('archives.category', 'Research')
+        ->where(['archives.category' => 'Mobile Application', 'archives.student_foreign_id' => Auth::user()->id])
         ->orderBy('archives.id','DESC')
         ->get();
 
@@ -559,6 +561,7 @@ class StudentController extends Controller
             'student_models.email',
             'archives.id as archives_id',
             'archives.student_id',
+            'archives.student_foreign_id',
             'archives.title',
             'archives.abstract',
             'archives.banner_path',
@@ -569,10 +572,10 @@ class StudentController extends Controller
             'curricula.name as curriculum_name',
             'departments.name as department_name',
             )
-        ->leftjoin('archives','archives.student_id','=','student_models.id')
+        ->leftjoin('archives','archives.student_foreign_id','=','student_models.id')
         ->leftjoin('curricula','curricula.id','=','student_models.curriculum_id')
         ->leftjoin('departments','departments.id','=','student_models.department_id')
-        ->where('archives.category', 'Capstone/Thesis')
+        ->where(['archives.category' => 'PC Application', 'archives.student_foreign_id' => Auth::user()->id])
         ->orderBy('archives.id','DESC')
         ->get();
 
@@ -591,6 +594,7 @@ class StudentController extends Controller
             'student_models.email',
             'archives.id as archives_id',
             'archives.student_id',
+            'archives.student_foreign_id',
             'archives.title',
             'archives.abstract',
             'archives.banner_path',
@@ -601,9 +605,10 @@ class StudentController extends Controller
             'curricula.name as curriculum_name',
             'departments.name as department_name',
             )
-        ->leftjoin('archives','archives.student_id','=','student_models.id')
+        ->leftjoin('archives','archives.student_foreign_id','=','student_models.id')
         ->leftjoin('curricula','curricula.id','=','student_models.curriculum_id')
         ->leftjoin('departments','departments.id','=','student_models.department_id')
+        ->where(['archives.category' => 'Standalone Application', 'archives.student_foreign_id' => Auth::user()->id])
         ->orderBy('archives.id','DESC')
         ->get();
 
