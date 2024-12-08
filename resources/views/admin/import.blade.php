@@ -46,7 +46,7 @@
 
                         <div class="col-md-2">
                             <div class="input-group">
-                             <button type="button" class="btn btn-primary" id="btn-importcsv">Import</button>
+                             <button type="button" class="btn btn-primary" id="btn-importcsv">Import CSV</button>
 
                             </div>
                         </div>
