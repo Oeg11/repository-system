@@ -281,7 +281,7 @@
                                       }
 
                                       if(response.errors.click_checkbox){
-                                         $('#check-error').html(response.error.click_checkbox[0]);
+                                         $('#check-error').html(response.errors.click_checkbox[0]);
                                       }
 
 

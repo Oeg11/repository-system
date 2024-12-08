@@ -87,7 +87,7 @@ class StudentController extends Controller
     ]);
 
     return response()->json([
-        'error' => $validatedData,
+        'errors' => $validatedData,
     ]);
 
         //  $validator = Validator::make($request->all(), [
