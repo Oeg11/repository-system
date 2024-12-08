@@ -19,32 +19,18 @@ class StudentImport implements ToCollection, ToModel
 
     }
 
-    public function model(array $row)
+    public function model(array $row)  {
 
-    {
-
-
-        $data = new studentModel([
-
+        studentModel::create([
             'fullname' => $row['fullname'],
-
             'email' => $row['email'],
-
             'password' => Hash::make($row['password']),
-
             'department_id' => $row['department_id'],
-
             'curriculum_id' => $row['curriculum_id'],
-
             'role' => $row['role'],
-
             'status' => $row['status'],
-
             'google_id' => $row['google_id'],
-
-        ]);
-
-        create($data);
+          ]);
 
     }
 
