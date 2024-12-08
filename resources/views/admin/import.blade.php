@@ -7,7 +7,7 @@
         <div class="col-md-12">
             <div class="card">
                 <div class="card-header">
-                    <h4>Import user by uploading excel file</h4>
+                    <h4>Import users by uploading excel file</h4>
                 </div>
                 <div class="card-body">
                     <form action="{{url('admin/import')}}" method="POST" enctype="multipart/form-data">
@@ -15,6 +15,7 @@
 
                         <div class="input-group">
                             <input type="file" name="import_file" class="form-control">
+                            <br>
                             <button class="btn btn-primary">Import</button>
                         </div>
                     </form>
