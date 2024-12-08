@@ -348,6 +348,7 @@ class StudentController extends Controller
            'archives.id as archives_id',
            'archives.student_id',
            'archives.student_foreign_id',
+           'archives.type',
            'archives.category',
            'archives.department_id',
            'archives.curriculum_id',
