@@ -78,8 +78,8 @@
                         </tr>
                     </thead>
                      <tbody>
+                        @foreach ($students as $row)
                         <tr>
-                            @foreach ($students as $row)
                               <td>{{ $row->id  }}</td>
                               <td>{{ $row->fullname  }}</td>
                               <td>{{ $row->email  }}</td>
@@ -88,8 +88,9 @@
                               <td>{{ $row->curriculum_id  }}</td>
                               <td>{{ $row->role  }}</td>
                               <td>{{ $row->status  }}</td>
-                            @endforeach
+
                           </tr>
+                          @endforeach
                     </tbody>
                 </table>
               </div>
