@@ -9,9 +9,10 @@
 
         <div class="card shadow-lg p-3 mb-5 bg-body rounded" style="border-top:2px solid #007bff;margin-top:5%">
             <div class="card-body">
+                <div id="msg___"></div>
                 <div class="row">
 
-                    <div id="msg___"></div>
+
 
                     <div class="col-md-3"></div>
 
