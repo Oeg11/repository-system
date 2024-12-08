@@ -30,14 +30,13 @@
                     <div class="col-md-6">
                        <div class="form-group">
                            <label><b>Type</b></label>
-                             <select class="form-control form-control-lg" id="edit_type" name="type"  aria-label="Default select example">
+                             <select class="form-control form-control-lg" id="edit_type" name="type" value="{{$ct->type}}"  aria-label="Default select example">
                             <option value="" selected="true" disabled="disabled">&larr; Select Type &rarr;</option>
 
-                              <option value="Capstone 2" @if ($ct->type == "Capstone 2") {{ 'selected' }} @endif>Capstone 2</option>
-                              <option value="CS Thesis 2" @if ($ct->type == "CS Thesis 2") {{ 'selected' }} @endif>CS Thesis 2</option>
-                              <option value="SHS Practical Research" @if ($ct->type == "SHS Practical Research") {{ 'selected' }} @endif>SHS Practical Research</option>
-                              <option value="BSTM Thesis" @if ($ct->type == "BSTM Thesis") {{ 'selected' }} @endif>BSTM Thesis</option>
-
+                              <option value="Capstone 2" @if ($ct->type === "Capstone 2") {{ 'selected' }} @endif>Capstone 2</option>
+                              <option value="CS Thesis 2" @if ($ct->type === "CS Thesis 2") {{ 'selected' }} @endif>CS Thesis 2</option>
+                              <option value="SHS Practical Research" @if ($ct->type === "SHS Practical Research") {{ 'selected' }} @endif>SHS Practical Research</option>
+                              <option value="BSTM Thesis" @if ($ct->type === "BSTM Thesis") {{ 'selected' }} @endif>BSTM Thesis</option>
                            </select>
 
 
