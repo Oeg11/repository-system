@@ -203,7 +203,7 @@
            console.log("========================student_foreign_id========================");
            console.log(student_foreign_id);
 
-           var click_checkbox =  $('#click_checkbox').is(':checked') ? "true" : "false";
+           var click_checkbox =  $('#click_checkbox').is(':checked') ? 1 : 0;
            console.log("========================click_checkbox========================");
            console.log(click_checkbox);
 
@@ -280,7 +280,7 @@
                                         $('#student_id-error').html(response.errors.student_id[0]);
                                       }
 
-                                      if(response.errors.click_checkbox ==="true"){
+                                      if(response.errors.click_checkbox == 1){
                                          $('#check-error').hide();
                                       }else{
                                         $('#check-error').html("Please click a Term and Privacy Policy");

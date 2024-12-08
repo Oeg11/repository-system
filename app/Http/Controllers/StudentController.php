@@ -82,25 +82,6 @@ class StudentController extends Controller
 
    public function submitProject(Request $request){
 
-    // $validatedData = $request->validate([
-    //     'type' =>'required',
-    //     'category' =>'required',
-    //     'department_id' =>'required',
-    //     'curriculum_id' =>'required',
-    //     'title' =>'required',
-    //     'year' =>'required',
-    //     'abstract' =>'required',
-    //     'members' =>'required',
-    //     'adviser' =>'required',
-    //     'banner_path' =>'required|mimes:png,jpg,jpeg|max:2048',
-    //     'document_path' =>'required',
-    //     'click_checkbox' => 'required|boolean',
-    // ]);
-
-    // return response()->json([
-    //     'errors' => $validatedData,
-    // ]);
-
          $validator = Validator::make($request->all(), [
 
                 'type' =>'required',
@@ -114,7 +95,7 @@ class StudentController extends Controller
                 'adviser' =>'required',
                 'banner_path' =>'required|mimes:png,jpg,jpeg|max:2048',
                 'document_path' =>'required',
-                'click_checkbox' => 'required|boolean',
+                'click_checkbox' => 'required',
             ],[
 
                 'type.required' => 'Please select type',
