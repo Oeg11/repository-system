@@ -8,14 +8,14 @@ namespace App\Imports;
 
 use App\Models\studentModel;
 
-// use Maatwebsite\Excel\Concerns\ToModel;
+use Maatwebsite\Excel\Concerns\ToModel;
 
-// use Maatwebsite\Excel\Concerns\WithHeadingRow;
+use Maatwebsite\Excel\Concerns\WithHeadingRow;
 
 use Hash;
 
 
-class UsersImport
+class UsersImport implements ToModel, WithHeadingRow
 
 {
 
@@ -28,7 +28,6 @@ class UsersImport
     * @return \Illuminate\Database\Eloquent\Model|null
 
     */
-
 
     public function model(array $row)
 
