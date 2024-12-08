@@ -12,7 +12,7 @@
         "laravel/socialite": "^5.16",
         "laravel/tinker": "^2.8",
         "laraveldaily/laravel-charts": "^0.2.3",
-        "maatwebsite/excel": "^1.1",
+        "maatwebsite/excel": "^3.1",
         "socialiteproviders/microsoft": "^4.5",
         "spatie/db-dumper": "^3.7",
         "spatie/laravel-backup": "^9.1",

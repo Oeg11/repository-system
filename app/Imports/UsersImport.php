@@ -29,6 +29,7 @@ class UsersImport
 
     */
 
+
     public function model(array $row)
 
     {
