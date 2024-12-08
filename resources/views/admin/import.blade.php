@@ -34,7 +34,7 @@
                     @csrf
 
                     <div class="row g-1">
-                        <div class="col-md-10">
+                        <div class="col-md-4">
                             <div class="input-group">
                                 <input type="file" name="import_file" id="import_file" accept=".csv, .xlsx"  class="form-control">
 
