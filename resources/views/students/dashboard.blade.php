@@ -31,7 +31,7 @@
             <!-- small box -->
             <div class="small-box bg-info">
               <div class="inner">
-                <h3>{{$countprojects }}</h3>
+                <h3>{{$capstone2 }}</h3>
 
                 <p>Capstone 2</p>
               </div>
@@ -46,7 +46,7 @@
             <!-- small box -->
             <div class="small-box bg-success">
               <div class="inner">
-                <h3>{{$countresearch }}</h3>
+                <h3>{{$csthesis2 }}</h3>
 
                 <p>CS Thesis 2</p>
               </div>
@@ -61,7 +61,7 @@
             <!-- small box -->
             <div class="small-box bg-warning">
               <div class="inner">
-                <h3 class="text-light">{{$countthesisCapstone}}</h3>
+                <h3 class="text-light">{{$shspracticalresearch}}</h3>
 
                 <p class="text-light">SHS Practical Research</p>
               </div>
@@ -76,7 +76,7 @@
             <!-- small box -->
             <div class="small-box bg-danger">
               <div class="inner">
-                <h3>{{$counttotalProjects}}</h3>
+                <h3>{{$bstmthesis}}</h3>
 
                 <p>BSTM Thesis</p>
               </div>

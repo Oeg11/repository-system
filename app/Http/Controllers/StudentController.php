@@ -26,13 +26,15 @@ class StudentController extends Controller
     public function studentDashboard(){
 
 
-        $countprojects =  archive::where('category', 'Project')->count();//projects
-        $countresearch =   archive::where('category', 'Research')->count();//research
-        $countthesisCapstone =  archive::where('category', 'Capstone/Thesis')->count();//thesisCapstone
-        $counttotalProjects = archive::where('status', 1)->count();
+
+        $capstone2 =  archive::where(['type' => 'Capstone 2', 'student_foreign_id' => Auth::user()->id])->count();//projects
+        $csthesis2 =   archive::where(['type' => 'CS Thesis 2', 'student_foreign_id' => Auth::user()->id])->count();//research
+        $shspracticalresearch =  archive::where(['type' => 'SHS Practical Research', 'student_foreign_id' => Auth::user()->id])->count();//thesisCapstone
+        $bstmthesis =  archive::where(['type' => 'BSTM Thesis', 'student_foreign_id' => Auth::user()->id])->count();//thesisCapstone
+
 
         $systeminformation = SystemInformation::all();
-        return view('students.dashboard', compact('systeminformation','countprojects', 'countresearch','countthesisCapstone', 'counttotalProjects'));
+        return view('students.dashboard', compact('systeminformation','capstone2', 'csthesis2','shspracticalresearch', 'bstmthesis'));
     }
 
 
@@ -495,7 +497,7 @@ class StudentController extends Controller
         ->leftjoin('curricula','curricula.id','=','student_models.curriculum_id')
         ->leftjoin('departments','departments.id','=','student_models.department_id')
         ->where('archives.category', 'Project')
-        ->where(['archives.category' => 'Web Application', 'archives.student_id' => Auth::user()->id])
+        ->where(['archives.category' => 'Web Application', 'archives.student_foreign_id' => Auth::user()->id])
         ->orderBy('archives.id','DESC')
         ->get();
 
