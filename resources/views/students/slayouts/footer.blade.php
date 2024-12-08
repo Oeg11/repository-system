@@ -244,6 +244,8 @@
                             }
 
 
+
+
                             if(response.errors){
 
 
@@ -286,9 +288,14 @@
                                       }
 
 
-                            }
+                            },
 
-                        }
+
+                        } ,   error: function (xhr) {
+
+                            $('#check-error').html(xhr.responseJSON.message);
+
+                            }
 
 
                });
