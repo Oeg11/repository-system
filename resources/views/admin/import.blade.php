@@ -2,10 +2,25 @@
 @section('content')
 
 
-<div class="content-wrapper">
-    hello world
+<div class="container">
+    <div class="row">
+        <div class="col-md-12">
+            <div class="card">
+                <div class="card-header">
+                    <h4>Import User Excel Data</h4>
+                </div>
+                <div class="card-body">
+                    <form action="{{url('admin/import')}}" method="POST" enctype="multipart/form-data">
+                        @csrf
 
-  </div>
+                        <input type="file" name="import_file" class="form-control">
+                        <button class="btn btn-primary">Import</button>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
 
   @endsection
   <script src="https://code.jquery.com/jquery-3.5.1.js"></script>
