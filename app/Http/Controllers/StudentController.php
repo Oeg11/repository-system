@@ -84,6 +84,7 @@ class StudentController extends Controller
 
          $validator = Validator::make($request->all(), [
 
+                'type' =>'required',
                 'category' =>'required',
                 'department_id' =>'required',
                 'curriculum_id' =>'required',
@@ -96,6 +97,7 @@ class StudentController extends Controller
                 'document_path' =>'required',
             ],[
 
+                'type.required' => 'Please select type',
                 'category.required' => 'Please select category',
                 'department_id.required' => 'Please select your Department',
                 'curriculum_id.required' => 'Please select your Curriculum',
@@ -132,6 +134,7 @@ class StudentController extends Controller
 
         $archive_code = rand();
         $archive->archive_code = $archive_code;
+        $archive->type = $request->type;
         $archive->category = $request->category;
         $archive->department_id = $request->department_id;
         $archive->curriculum_id = $request->curriculum_id;
