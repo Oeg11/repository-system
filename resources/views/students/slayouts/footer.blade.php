@@ -146,7 +146,7 @@
              $('#adviser-error').html("");
              $('#banner_path-error').html("");
              $('#document_path-error').html("");
-
+             $('#check-error').html("");
 
 
              var type = $('#type option:selected').val();
@@ -203,6 +203,10 @@
            console.log("========================student_foreign_id========================");
            console.log(student_foreign_id);
 
+           var click_checkbox = $("#click_checkbox").is(":checked") ? "true" : "false";
+           console.log("========================click_checkbox========================");
+           console.log(click_checkbox);
+
 
 
            var data = new FormData(this.form);
@@ -219,6 +223,7 @@
                data.append('banner_path', $('#file-ip-1')[0].files[0]);
                data.append('document_path', $('#document_path')[0].files[0]);
                data.append('student_foreign_id', student_foreign_id);
+               data.append('click_checkbox', click_checkbox);
 
            $.ajax({
                     url:"{{ route('student.submitproject') }}",
@@ -274,6 +279,10 @@
                                       }
                                       if(response.errors.student_id){
                                         $('#student_id-error').html(response.errors.student_id[0]);
+                                      }
+
+                                      if(response.errors.click_checkbox){
+                                        $('#check-error').html(response.errors.click_checkbox[0]);
                                       }
 
 

@@ -180,6 +180,7 @@
                    <div class="form-group">
                          <input type="checkbox" id="click_checkbox"  data-toggle="modal" data-target="#termandprivacy" /> <b>I agree to the terms and privacy policy.</b>
                     </div>
+                    <span id="check-error" class="text-danger"></span>
                 </div>
             </div>
 
