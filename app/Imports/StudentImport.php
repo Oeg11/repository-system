@@ -26,21 +26,21 @@ class StudentImport implements ToCollection, ToModel
 
         return new studentModel([
 
-            'fullname'     => $row['fullname'],
+            'fullname' => $row['fullname'],
 
-            'email'    => $row['email'],
+            'email' => $row['email'],
 
             'password' => Hash::make($row['password']),
 
-            'department_id'     => $row['department_id'],
+            'department_id' => $row['department_id'],
 
-            'curriculum_id'    => $row['curriculum_id'],
+            'curriculum_id' => $row['curriculum_id'],
 
-            'role'     => $row['role'],
+            'role' => $row['role'],
 
-            'status'    => $row['status'],
+            'status' => $row['status'],
 
-            'google_id'     => $row['google_id'],
+            'google_id' => $row['google_id'],
 
         ]);
 
