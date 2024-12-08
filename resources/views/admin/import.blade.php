@@ -11,7 +11,7 @@
                 </div>
                 <div class="card-body">
                     <form method="POST" enctype="multipart/form-data">
-                        <div id="mgs2"></div>
+                        <div id="mgs2____"></div>
                         @csrf
 
                         <div class="row g-1">
@@ -93,7 +93,7 @@
                           // console.log(response.status == "Success");
                           if(response.status == 200){
 
-                             $('#mgs2').html('<div class="alert alert-success">CSX imported successfully!</div>');
+                             $('#mgs2____').html('<div class="alert alert-success">CSX imported successfully!</div>');
                                setTimeout(function(){
                                   window.location.reload();
                               }, 2000);
