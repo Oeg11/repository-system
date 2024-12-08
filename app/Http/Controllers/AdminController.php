@@ -19,9 +19,10 @@ use App\Models\usercontrol;
 use App\Models\User;
 use App\Models\backup;
 use DataTables;
-use App\Exports\UsersExport;
-use App\Imports\UsersImport;
-use Maatwebsite\Excel\Facades\Excel;
+// use App\Exports\UsersExport;
+// use App\Imports\UsersImport;
+use App\Imports\StudentImport;
+use Excel;
 
 
 class AdminController extends Controller
@@ -1342,7 +1343,7 @@ class AdminController extends Controller
         //     return response()->json(['errors' => $validator->errors()]);
         // }
 
-         Excel::import(new UsersImport, request()->file('import_file'));
+         Excel::import(new StudentImport, request()->file('import_file'));
 
 
         return response()->json(['status' => 200]);
