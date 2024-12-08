@@ -156,6 +156,7 @@ class StudentController extends Controller
             'student_models.id',
             'student_models.fullname',
             'student_models.email',
+            'student_models.password',
             'student_models.department_id',
             'student_models.curriculum_id',
             'curricula.name as curriculum_name',
