@@ -1331,7 +1331,7 @@ class AdminController extends Controller
 
     public function Adminimportdata(Request $request){
 
-        dd(request()->file('import_file'));
+       // dd(request()->file('import_file'));
 
         // $validator = \Validator::make($request->all(), [
         //     'import_file' => 'required',
@@ -1345,10 +1345,10 @@ class AdminController extends Controller
         //     return response()->json(['errors' => $validator->errors()]);
         // }
 
-        //  Excel::import(new StudentImport, request()->file('import_file'));
+         Excel::import(new StudentImport, request()->file('import_file'));
 
 
-        // return response()->json(['status' => 200]);
+        return response()->json(['status' => 200]);
 
 
     }
