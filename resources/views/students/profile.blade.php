@@ -10,12 +10,15 @@
         <div class="card shadow-lg p-3 mb-5 bg-body rounded" style="border-top:2px solid #007bff;margin-top:5%">
             <div class="card-body">
                 <div class="row">
+
+                    <div id="msg___"></div>
+
                     <div class="col-md-3"></div>
 
                 @foreach ($userauth as $user)
                     <div class="col-md-9">
                         <form method="post" enctype="multipart/form-data">
-                            <div id="msg___"></div>
+
                             @csrf
                         <div class="row">
                             <div class="col-md-7">
