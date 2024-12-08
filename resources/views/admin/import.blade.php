@@ -46,8 +46,8 @@
 
                         <div class="col-md-2">
                             <div class="input-group">
-                                {{-- <button type="button" class="btn btn-primary" id="btn-importcsv">Import</button> --}}
-                                <a class="btn btn-warning float-end" class="btn btn-primary" href="{{ route('admin.exportexcel') }}">Export User Data</a>
+                             <button type="button" class="btn btn-primary" id="btn-importcsv">Import</button>
+
                             </div>
                         </div>
 
@@ -57,8 +57,7 @@
                   <hr>
                 <div class="row">
                     <div class="col-md-10"><h4>Import users by uploading excel file</h4></div>
-                    <div class="col-md-2"><button type="button" class="btn btn-success"
-                         >Export Excel</button></div>
+                    <div class="col-md-2">  <a class="btn btn-warning float-end" class="btn btn-success" href="{{ route('admin.exportexcel') }}">Export User Data</a>
                 </div>
               </div>
               <!-- /.card-header -->
