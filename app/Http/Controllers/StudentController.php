@@ -97,21 +97,6 @@ class StudentController extends Controller
         'document_path' =>'required',
         'click_checkbox' =>'required',
         'click_checkbox' => 'required|boolean',
-    ],[
-
-    'type.required' => 'Please select type',
-    'category.required' => 'Please select category',
-    'department_id.required' => 'Please select your Department',
-    'curriculum_id.required' => 'Please select your Curriculum',
-    'title.required' => 'Please input unique Title',
-    'year.required' => 'Please select Year',
-    'abstract.required' => 'Please enter Abstract',
-    'members.required' => 'Please enter members',
-    'adviser.required' => 'Please input your Adviser',
-    'banner_path.required' => 'Please upload sample Image',
-    'document_path.required' => 'Please Attached document',
-    'click_checkbox.required' => 'Please click a Term and Privacy Policy'
-
     ]);
 
     return response()->json([
