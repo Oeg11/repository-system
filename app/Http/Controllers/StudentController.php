@@ -337,6 +337,7 @@ class StudentController extends Controller
 
      public function ProjectUpdate(Request $request){
 
+       $id =  decrypt($request->id);
 
        $uthesiscapstone = DB::table('student_models')
        ->select(
@@ -367,7 +368,6 @@ class StudentController extends Controller
        ->leftjoin('curricula','curricula.id','=','student_models.curriculum_id')
        ->where('archives.id',  decrypt($request->id))
        ->get();
-
 
        $departments = department::all();
        $curriculums = curriculum::all();
