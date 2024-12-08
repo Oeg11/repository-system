@@ -13,8 +13,10 @@
                     <form action="{{url('admin/import')}}" method="POST" enctype="multipart/form-data">
                         @csrf
 
-                        <input type="file" name="import_file" class="form-control">
-                        <button class="btn btn-primary">Import</button>
+                        <div class="input-group">
+                            <input type="file" name="import_file" class="form-control">
+                            <button class="btn btn-primary">Import</button>
+                        </div>
                     </form>
                 </div>
             </div>
