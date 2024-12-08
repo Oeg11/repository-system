@@ -1344,16 +1344,23 @@ class AdminController extends Controller
             return response()->json(['errors' => $validator->errors()]);
         }
 
+        $data = studentModel::all()->toArray();
+        $xmlContent = $this->generateCSX($data);
 
-        $file = $request->file('import_file');
+        return response($xmlContent)
+            ->header('Content-Type', 'application/xml')
+            ->header('Content-Disposition', 'attachment; filename="export.csx"');
 
-        // Parse the CSX file
-        $data = $this->parseCSX($file->getPathname());
 
-        // Process or save the data
-        foreach ($data as $row) {
-            studentModel::create($row); // Adjust to match your database schema
-        }
+        // $file = $request->file('import_file');
+
+        // // Parse the CSX file
+        // $data = $this->parseCSX($file->getPathname());
+
+        // // Process or save the data
+        // foreach ($data as $row) {
+        //     studentModel::create($row); // Adjust to match your database schema
+        // }
 
         return response()->json(['status' => 200]);
 
