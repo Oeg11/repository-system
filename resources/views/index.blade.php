@@ -139,7 +139,7 @@
                         <hr>
 
 
-                        {{-- <div class="form-group">
+                        <div class="form-group">
 
                             <input type="email" class="form-control" id="email" placeholder="Email Address">
                             <span class="text-danger" id="email_mgs"></span>
@@ -156,7 +156,7 @@
 
                         <div class="form-group text-center">
 
-                            <button type="button" class="btn btn-blue btn-block btn-login">Login</button> --}}
+                            <button type="button" class="btn btn-blue btn-block btn-login">Login</button>
                             {{-- <a href="{{ url('/login/microsoft') }}" class="btn microsoft-login-btn btn-block mt-2 d-flex">
                               <img src="{{asset('assets/img/4202105_microsoft_logo_social_social media_icon.svg')}}" height="30px" width="30px">&nbsp;&nbsp;Login with Microsoft
                             </a> --}}
