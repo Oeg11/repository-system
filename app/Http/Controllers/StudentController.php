@@ -142,6 +142,7 @@ class StudentController extends Controller
         $archive->adviser = $request->adviser;
         $archive->banner_path = $banner_path;
         $archive->document_path = $document_path;
+        $archive->status = 2;
         $archive->student_foreign_id = $request->student_foreign_id;
         $archive->slug = Str::slug($request->title); //payroll-system
         $archive->save();
