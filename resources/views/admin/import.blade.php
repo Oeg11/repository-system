@@ -36,6 +36,70 @@
 
                         </div>
                     </form>
+
+
+
+                    <section class="content">
+                        <div class="container-fluid">
+                          <div class="row">
+                            <div class="col-12">
+                              <div class="card">
+                                <div class="card-header">
+                                   <div class="row">
+                                      <div class="col-md-10"><h2>List of Curriculum</h2></div>
+                                      <div class="col-md-2"><button type="button" class="btn btn-success"
+                                          >Export Student list</button></div>
+                                  </div>
+                                </div>
+                                <!-- /.card-header -->
+                                <div class="card-body">
+                                  <div class="table-responsive">
+                                  <table class="table table-bordered table-hover data-table4">
+                                      <thead>
+                                          <tr>
+                                            <th scope="col">ID</th>
+                                            <th scope="col">Name</th>
+                                            <th scope="col">Email</th>
+                                            <th scope="col">Password</th>
+                                            <th scope="col">Department</th>
+                                            <th scope="col">Curriculum</th>
+                                            <th scope="col">Role</th>
+                                            <th scope="col">Status</th>
+                                            {{-- <th width="100px">Action</th> --}}
+                                          </tr>
+                                      </thead>
+                                       <tbody>
+                                        <tr>
+                                          @foreach ($students as $row)
+                                            <td>{{ $row->id  }}</td>
+                                            <td>{{ $row->fullname  }}</td>
+                                            <td>{{ $row->email  }}</td>
+                                            <td>{{ $row->password  }}</td>
+                                            <td>{{ $row->department_id  }}</td>
+                                            <td>{{ $row->curriculum_id  }}</td>
+                                            <td>{{ $row->role  }}</td>
+                                            <td>{{ $row->status  }}</td>
+                                          @endforeach
+                                        </tr>
+                                      </tbody>
+                                  </table>
+                                </div>
+                              </div>
+                                <!-- /.card-body -->
+                              </div>
+                              <!-- /.card -->
+
+                              <!-- /.card -->
+                            </div>
+                            <!-- /.col -->
+                          </div>
+                          <!-- /.row -->
+                        </div>
+                        <!-- /.container-fluid -->
+                      </section>
+
+
+
                 </div>
             </div>
         </div>

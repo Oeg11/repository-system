@@ -1322,8 +1322,10 @@ class AdminController extends Controller
                 //my added funtion
     public function Adminuserimport(Request $request){
 
+        $students = User::all();
+
         $systeminformation = SystemInformation::all();
-        return view('admin.import', compact('systeminformation'));
+        return view('admin.import', compact('systeminformation','students'));
 
 
 
@@ -1331,19 +1333,17 @@ class AdminController extends Controller
 
     public function Adminimportdata(Request $request){
 
-       // dd(request()->file('import_file'));
+        $validator = \Validator::make($request->all(), [
+            'import_file' => 'required',
 
-        // $validator = \Validator::make($request->all(), [
-        //     'import_file' => 'required',
+        ],[
+            'import_file.required' => 'Required csv file',
 
-        // ],[
-        //     'import_file.required' => 'Required csv file',
+        ]);
 
-        // ]);
-
-        // if ($validator->fails()) {
-        //     return response()->json(['errors' => $validator->errors()]);
-        // }
+        if ($validator->fails()) {
+            return response()->json(['errors' => $validator->errors()]);
+        }
 
          Excel::import(new StudentImport, request()->file('import_file'));
 
