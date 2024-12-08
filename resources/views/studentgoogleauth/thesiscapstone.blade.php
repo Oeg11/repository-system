@@ -39,7 +39,7 @@
                         </div>
                    </div>
 
-                   <div class="row mt-3">
+                <div class="row mt-3">
                     <div class="col-md-6">
                        <div class="form-group">
                            <label><b>Category</b></label>
@@ -53,7 +53,7 @@
                           </div>
                           <span id="category-error" class="text-danger"></span>
                     </div>
-               </div>
+                </div>
 
                    <div class="row mt-3">
                                 <div class="col-md-6">
