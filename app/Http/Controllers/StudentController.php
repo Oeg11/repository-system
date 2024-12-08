@@ -507,7 +507,6 @@ class StudentController extends Controller
         ->leftjoin('archives','archives.student_foreign_id','=','student_models.id')
         ->leftjoin('curricula','curricula.id','=','student_models.curriculum_id')
         ->leftjoin('departments','departments.id','=','student_models.department_id')
-        ->where('archives.category', 'Project')
         ->where(['archives.category' => 'Web Application', 'archives.student_foreign_id' => Auth::user()->id])
         ->orderBy('archives.id','DESC')
         ->get();
