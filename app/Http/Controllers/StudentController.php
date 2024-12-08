@@ -82,21 +82,50 @@ class StudentController extends Controller
 
    public function submitProject(Request $request){
 
+    $validatedData = $request->validate([
+        'click_checkbox' => 'required|boolean',
+    ]);
 
+    return response()->json([
+        'success' => true,
+        'message' => 'Checkbox validated successfully!',
+        'error' => $validatedData,
+    ]);
 
-         $validator = Validator::make($request->all(), [
+        //  $validator = Validator::make($request->all(), [
 
+        //         'type' =>'required',
+        //         'category' =>'required',
+        //         'department_id' =>'required',
+        //         'curriculum_id' =>'required',
+        //         'title' =>'required',
+        //         'year' =>'required',
+        //         'abstract' =>'required',
+        //         'members' =>'required',
+        //         'adviser' =>'required',
+        //         'banner_path' =>'required|mimes:png,jpg,jpeg|max:2048',
+        //         'document_path' =>'required',
+        //         'click_checkbox' =>'required',
+        //     ],[
 
-                'click_checkbox' =>'required|boolean',
-            ],[
+        //         'type.required' => 'Please select type',
+        //         'category.required' => 'Please select category',
+        //         'department_id.required' => 'Please select your Department',
+        //         'curriculum_id.required' => 'Please select your Curriculum',
+        //         'title.required' => 'Please input unique Title',
+        //         'year.required' => 'Please select Year',
+        //         'abstract.required' => 'Please enter Abstract',
+        //         'members.required' => 'Please enter members',
+        //         'adviser.required' => 'Please input your Adviser',
+        //         'banner_path.required' => 'Please upload sample Image',
+        //         'document_path.required' => 'Please Attached document',
+        //         'click_checkbox.required' => 'Please click a Term and Privacy Policy'
 
-                'click_checkbox.required' => 'Please click a Term and Privacy Policy'
+        //     ]);
 
-            ]);
-
-            if ($validator->fails()) {
-                return response()->json(['errors' => $validator->errors()]);
-            }
+        //     if ($validator->fails()) {
+        //         return response()->json(['errors' => $validator->errors()]);
+        //     }
 
         // $archive = new archive;
         // $banner_path = "";
