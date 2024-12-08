@@ -345,7 +345,7 @@ class StudentController extends Controller
            'student_models.fullname',
            'student_models.email',
            'archives.id as archives_id',
-           'archives.student_id',
+           'archives.student_foreign_id',
            'archives.category',
            'archives.department_id',
            'archives.curriculum_id',
@@ -363,7 +363,7 @@ class StudentController extends Controller
            'curricula.name as curriculum_name',
 
            )
-       ->leftjoin('archives','archives.student_id','=','student_models.id')
+       ->leftjoin('archives','archives.student_foreign_id','=','student_models.id')
        ->leftjoin('curricula','curricula.id','=','student_models.curriculum_id')
        ->where('archives.id',  decrypt($request->id))
        ->get();
