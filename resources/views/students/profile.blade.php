@@ -15,6 +15,7 @@
                 @foreach ($userauth as $user)
                     <div class="col-md-9">
                         <form method="post" enctype="multipart/form-data">
+                            <div id="msg___"></div>
                             @csrf
                         <div class="row">
                             <div class="col-md-7">

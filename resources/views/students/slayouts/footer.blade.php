@@ -1,11 +1,11 @@
-
+{{--
 <footer class="main-footer">
     <strong>Copyright &copy; 2024 <a href="#">STI Repository</a>.</strong>
     All rights reserved.
     <div class="float-right d-none d-sm-inline-block">
       <b>Version</b> 3.2.0
     </div>
-  </footer>
+  </footer> --}}
 
   <!-- Control Sidebar -->
   <aside class="control-sidebar control-sidebar-dark">
@@ -535,7 +535,7 @@
                     success: function(res){
 
                         if(res.status == 200){
-                            toastr.success('Information updated successfully.');
+                            $("#msg___").html('<div class="alert alert-success">Information updated successfully.</div>');
                             setTimeout(function (){
                                 window.location.href ="{{ route('students.profile') }}";
 
