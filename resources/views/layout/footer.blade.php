@@ -1,3 +1,4 @@
+@include('modal.termsandcondition')
 
     <footer>
 
@@ -12,16 +13,16 @@
                     <hr>
 
                     <h5 class="pull-left">STI Marikina &copy;2024 All rights reserved</h5>
-
+                
                     <ul class="liste-unstyled pull-right">
 
-                        <li><a href="#facebook"><i class="fa fa-facebook"></i></a></li>
+                        <li><a href="javascript:void(0);" data-toggle="modal" data-target="#termsandcondition" style="text-decoration:none;color:white">Terms and Condition</a></li>
 
-                        <li><a href="#twitter"><i class="fa fa-twitter"></i></a></li>
+                        {{-- <li><a href="#twitter"><i class="fa fa-twitter"></i></a></li>
 
                         <li><a href="#linkedin"><i class="fa fa-linkedin"></i></a></li>
 
-                        <li><a href="#instagram"><i class="fa fa-instagram"></i></a></li>
+                        <li><a href="#instagram"><i class="fa fa-instagram"></i></a></li> --}}
 
                     </ul>
 
@@ -33,10 +34,7 @@
 
     </footer>
 
-
-
-    <!-- jQuery (necessary for Bootstrap's JavaScript plugins) -->
-
+   
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
 
     <!-- Include all compiled plugins (below), or include individual files as needed -->

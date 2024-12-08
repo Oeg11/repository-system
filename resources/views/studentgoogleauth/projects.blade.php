@@ -48,6 +48,12 @@
                                     <span style="color:#8c8c8c">By</span> <span style="color:#007bff">{{
                                         Str::ucfirst($item->fullname) }}</span>
                                     <br>
+                                    <p class="mb-0 w-100"style="color:#8c8c8c;font-size:11px">
+                                       {{
+                                        Str::ucfirst($item->category) }}</p><Br>
+    
+    
+                                    </p><br>
 
                                 <p class="mb-0 w-100"> {!!
                                     html_entity_decode(ucwords(\Illuminate\Support\Str::words($item->abstract , 30)))
@@ -103,6 +109,22 @@
                 </div>
                 <div class="card-body">
                     <ul class="list-group list-group-flush">
+
+                        @php
+                        
+                        $ranks = DB::table('archives')
+                            ->select(
+                                'archives.id',
+                                'archives.title',
+                                'archives.abstract',
+                                'archives.count_rank',
+                                'archives.banner_path')
+                            ->where('archives.status',  1)
+                            ->orderBy('archives.count_rank','DESC')
+                            ->get();
+ 
+                        @endphp
+
                         @foreach ($ranks as $row)
                         <li class="list-group-item">{{ Str::ucfirst($row->title) }} <span class="badge bg-primary"
                                 style="float: right">{{ $row->count_rank }}</span></li>

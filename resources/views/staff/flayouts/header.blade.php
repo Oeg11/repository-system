@@ -33,6 +33,18 @@
   <link rel="stylesheet" href="{{asset('plugins/datatables-buttons/css/buttons.bootstrap4.min.css')}}">
   <script src="https://cdn.ckeditor.com/ckeditor5/37.0.1/classic/ckeditor.js"></script>
 
+<style>
+  #loader{
+    position: fixed;
+    left: 0px;
+    top: 0px;
+    width: 100%;
+    height: 100%;
+    z-index: 9999;
+    background: url('{{ asset("assets/img/output-onlinegiftools.gif") }}') 50% 50% no-repeat rgb(249,249,249);
+    opacity: 1;
+}
 
+</style>
 </head>
 <body class="hold-transition sidebar-mini layout-fixed">

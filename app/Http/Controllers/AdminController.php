@@ -17,7 +17,10 @@ use Illuminate\Support\Str;
 use Illuminate\Support\Facades\Storage;
 use App\Models\usercontrol;
 use App\Models\User;
+use App\Models\backup;
 use DataTables;
+
+
 
 
 class AdminController extends Controller
@@ -58,10 +61,10 @@ class AdminController extends Controller
 
     public function admindashboard(){
 
-        $capstone2 =  archive::where('category', 'Capstone 2')->count();//projects
-        $csthesis2 =   archive::where('category', 'CS Thesis 2')->count();//research
-        $shspracticalresearch =  archive::where('category', 'SHS Practical Research')->count();//thesisCapstone
-        $bstmthesis =  archive::where('category', 'BSTM Thesis')->count();//thesisCapstone
+        $capstone2 =  archive::where('type', 'Capstone 2')->count();//projects
+        $csthesis2 =   archive::where('type', 'CS Thesis 2')->count();//research
+        $shspracticalresearch =  archive::where('type', 'SHS Practical Research')->count();//thesisCapstone
+        $bstmthesis =  archive::where('type', 'BSTM Thesis')->count();//thesisCapstone
         // $counttotalProjects = archive::where('status', 1)->count();
 
         $countdepartment= department::count();
@@ -880,7 +883,7 @@ class AdminController extends Controller
         ->leftjoin('archives','archives.student_id','=','users.id')
         ->leftjoin('curricula','curricula.id','=','archives.curriculum_id')
         ->leftjoin('departments','departments.id','=','archives.department_id')
-        ->where('archives.category', 'Capstone 2')
+        ->where('archives.category', 'Web Application')
         ->orderBy('archives.id','DESC')
         ->get();
 
@@ -912,7 +915,7 @@ class AdminController extends Controller
         ->leftjoin('archives','archives.student_id','=','users.id')
         ->leftjoin('curricula','curricula.id','=','archives.curriculum_id')
         ->leftjoin('departments','departments.id','=','archives.department_id')
-        ->where('archives.category', 'CS Thesis 2')
+        ->where('archives.category', 'Mobile Application')
         ->orderBy('archives.id','DESC')
         ->get();
 
@@ -945,7 +948,7 @@ class AdminController extends Controller
         ->leftjoin('archives','archives.student_id','=','users.id')
         ->leftjoin('curricula','curricula.id','=','archives.curriculum_id')
         ->leftjoin('departments','departments.id','=','archives.department_id')
-        ->where('archives.category', 'SHS Practical Research')
+        ->where('archives.category', 'PC Application')
         ->orderBy('archives.id','DESC')
         ->get();
 
@@ -979,7 +982,7 @@ class AdminController extends Controller
         ->leftjoin('archives','archives.student_id','=','users.id')
         ->leftjoin('curricula','curricula.id','=','archives.curriculum_id')
         ->leftjoin('departments','departments.id','=','archives.department_id')
-        ->where('archives.category', 'BSTM Thesis')
+        ->where('archives.category', 'Standalone Application')
         ->orderBy('archives.id','DESC')
         ->get();
 
@@ -1215,30 +1218,107 @@ class AdminController extends Controller
 
     }
 
-    public function AdminReports(Request $request){
 
-        $data = [
-            'labels' => ['January', 'February', 'March', 'April', 'May'],
-            'values' => [10, 20, 30, 40, 50]
-        ];
+    public function AdminReports(Request $request)
+    {
+
+        $fetchdata = archive::select('type',
+              DB::raw("count(type) as counttype")
+             )
+            ->groupBy('type')
+            ->get();
+
+            $types = archive::select(
+                DB::raw('type as NameType'))
+                ->groupBy('type')->get();
+
+            $result[] = ['NameType'];
+
+            foreach ($types as $key => $value) {
+
+                $result[++$key] = $value->NameType;
+
+                // info($result);
+            }
+
+            $typecount2 = archive::select(
+                DB::raw('count(type) as TypeCount'))
+                ->groupBy('type')->get();
+
+            $result2[] = ['TypeCount'];
+
+            foreach ($typecount2 as $key => $value2) {
+
+                $result2[++$key] = $value2->TypeCount;
+
+                // info($result2);
+            }
 
 
-    //    $sales = archive::selectRaw('MONTH(created_at) as month, SUM(count_rank) as total_sales')
-    //    ->groupBy('month')
-    //    ->get();
+            ///////////////////////////////////barchart 2/////////////////////////////////
 
-    //     $data = [
-    //     'labels' => $sales->pluck('month'),
-    //     'values' => $sales->pluck('total_sales')
-    //     ];
 
-         $month = array('Jan', 'Feb', 'Mar', 'Apr', 'May');
-         $data  = array(1, 2, 3, 4, 5);
 
-        $systeminformation = SystemInformation::all();
-        return view('admin.reports', compact('data','systeminformation'));
+            $fetchdata2 = archive::select('category',
+             DB::raw("count(category) as countcategory"))
+            ->groupBy('category')
+            ->get();
+
+            $cat = archive::select(
+                DB::raw('category as CategoryName'))
+                ->groupBy('category')->get();
+
+            $result3[] = ['CategoryName'];
+
+            foreach ($cat as $key => $value3) {
+
+                $result3[++$key] = $value3->CategoryName;
+
+                // info($result3);
+            }
+
+            $fetchcategory = archive::select(
+                DB::raw('count(category) as countCategory'))
+                ->groupBy('category')->get();
+
+            $result4[] = ['countCategory'];
+
+            foreach ($fetchcategory as $key => $value4) {
+
+                $result4[++$key] = $value4->countCategory;
+
+                // info($result4);
+            }
+
+
+            $systeminformation = SystemInformation::all();
+            $types = archive::all();
+            return view('admin.reports', compact('fetchdata','fetchdata2', 'systeminformation','types'))
+            ->with('NameType', json_encode($result))
+            ->with('TypeCount', json_encode($result2))
+            ->with('CategoryName', json_encode($result3))
+            ->with('countCategory', json_encode($result4));
 
     }
+
+
+
+    public function AdminBackupDatabase(Request $request){
+
+
+
+
+                $data = DB::table('backupdatabase')
+                    ->select('*')
+                    ->orderBy('id', 'DESC')
+                    ->get();
+
+            $systeminformation = SystemInformation::all();
+            return view('admin.backupdatabase', compact('systeminformation','data'));
+        }
+
+
+
 
 
 }

@@ -12,6 +12,7 @@ class archive extends Model
 
     protected $fillable = [
         'archive_code',
+        'type',
         'category',
         'department_id',
         'curriculum_id',

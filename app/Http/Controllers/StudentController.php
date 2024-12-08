@@ -346,6 +346,7 @@ class StudentController extends Controller
            'archives.adviser',
            'archives.banner_path',
            'archives.document_path',
+           'archives.type',
            'archives.status',
            'archives.created_at',
            'archives.archive_code',
@@ -635,13 +636,13 @@ class StudentController extends Controller
     public function studentDashboardGoogle(){
 
         $user = Auth::user(); //google auth
-        $countprojects =  archive::where('category', 'Project')->count();//projects
-        $countresearch =   archive::where('category', 'Research')->count();//research
-        $countthesisCapstone =  archive::where('category', 'Capstone/Thesis')->count();//thesisCapstone
-        $counttotalProjects = archive::where('status', 1)->count();
+        $capstone2 =  archive::where(['type' => 'Capstone 2', 'student_id' => Auth::user()->id])->count();//projects
+        $csthesis2 =   archive::where(['type' => 'CS Thesis 2', 'student_id' => Auth::user()->id])->count();//research
+        $shspracticalresearch =  archive::where(['type' => 'SHS Practical Research', 'student_id' => Auth::user()->id])->count();//thesisCapstone
+        $bstmthesis =  archive::where(['type' => 'BSTM Thesis', 'student_id' => Auth::user()->id])->count();//thesisCapstone
 
         $systeminformation = SystemInformation::all();
-        return view('studentgoogleauth.dashboard', compact('user', 'systeminformation','countprojects', 'countresearch','countthesisCapstone', 'counttotalProjects'));
+        return view('studentgoogleauth.dashboard', compact('user', 'systeminformation','capstone2', 'csthesis2','shspracticalresearch', 'bstmthesis'));
 
     }
 
@@ -657,37 +658,29 @@ class StudentController extends Controller
 
 
     public function googleauthstudentProject(Request $request){
-        $archive = DB::table('student_models')
+        $archive = DB::table('archives')
         ->select(
-            'student_models.id',
-            'student_models.fullname',
-            'student_models.email',
-            'archives.student_id',
+            'archives.id',
             'archives.title',
             'archives.abstract',
             'archives.slug',
             'archives.banner_path')
-        ->leftjoin('archives','archives.student_id','=','student_models.id')
         ->where('archives.status', '=',  1)
         ->orderBy('archives.id','DESC')
         ->simplePaginate(5);
         // ->get();
 
 
-        $ranks = DB::table('student_models')
-        ->select(
-            'student_models.id',
-            'student_models.fullname',
-            'student_models.email',
-            'archives.student_id',
-            'archives.title',
-            'archives.abstract',
-            'archives.count_rank',
-            'archives.banner_path')
-        ->leftjoin('archives','archives.student_id','=','student_models.id')
-        ->where('archives.status',  1)
-        ->orderBy('archives.count_rank','DESC')
-        ->get();
+        // $ranks = DB::table('archives')
+        // ->select(
+        //     'archives.id',
+        //     'archives.title',
+        //     'archives.abstract',
+        //     'archives.count_rank',
+        //     'archives.banner_path')
+        // ->where('archives.status',  1)
+        // ->orderBy('archives.count_rank','DESC')
+        // ->get();
         // ->get();
 
 
@@ -704,7 +697,7 @@ class StudentController extends Controller
         $getSearchurl = $request->q;
         $systeminformation = SystemInformation::all();
         $user = Auth::user(); //google auth
-        return view('studentgoogleauth.projects', compact('user', 'systeminformation','archive','paginates','getSearchurl','ranks'));
+        return view('studentgoogleauth.projects', compact('user', 'systeminformation','archive','paginates','getSearchurl'));
      }
 
      public function googleauthSearchProject(Request $request){
@@ -721,25 +714,22 @@ class StudentController extends Controller
         $getSearchurl = $request->q;
 
 
-        $ranks = DB::table('student_models')
-        ->select(
-            'student_models.id',
-            'student_models.fullname',
-            'student_models.email',
-            'archives.student_id',
-            'archives.title',
-            'archives.abstract',
-            'archives.count_rank',
-            'archives.banner_path')
-        ->leftjoin('archives','archives.student_id','=','student_models.id')
-        ->where('archives.status',  1)
-        ->orderBy('archives.count_rank','DESC')
-        ->get();
+        // $ranks = DB::table('archives')
+        // ->select(
+        //     'archives.id',
+        //     'archives.title',
+        //     'archives.abstract',
+        //     'archives.count_rank',
+        //     'archives.banner_path')
+        // ->where('archives.status',  1)
+        // ->orderBy('archives.count_rank','DESC')
+        // ->get();
+
 
         $systeminformation = SystemInformation::all();
         $user = Auth::user(); //google auth
 
-        return view('studentgoogleauth.projects',compact('user', 'systeminformation','paginates','getSearchurl','ranks'));
+        return view('studentgoogleauth.projects',compact('user', 'systeminformation','paginates','getSearchurl'));
     }
 
 
@@ -758,10 +748,9 @@ class StudentController extends Controller
 
      public function googleauthRankcount(Request $request){
 
-        archive::where('id', $request->id)
-        ->update([
-          'count_rank'=> DB::raw('count_rank + 1'),
-        ]);
+       $studentauth = archive::find($request->id);
+       $studentauth->count_rank += 1;
+       $studentauth->save();
 
         return response()->json([
             'status' => 200,
@@ -812,6 +801,7 @@ class StudentController extends Controller
             'archives.title',
             'archives.abstract',
             'archives.banner_path',
+            'archives.type',
             'archives.status',
             'archives.remark',
             'archives.category',
@@ -836,6 +826,7 @@ class StudentController extends Controller
 
         $validator = Validator::make($request->all(), [
 
+              'type' =>'required',
                'category' =>'required',
                'department_id' =>'required',
                'curriculum_id' =>'required',
@@ -848,6 +839,7 @@ class StudentController extends Controller
                'document_path' =>'required',
            ],[
 
+               'type.required' => 'Please select type',
                'category.required' => 'Please select category',
                'department_id.required' => 'Please select your Department',
                'curriculum_id.required' => 'Please select your Curriculum',
@@ -885,6 +877,7 @@ class StudentController extends Controller
        $status = 2;
        $archive_code = rand();
        $archive->archive_code = $archive_code;
+       $archive->type = $request->type;
        $archive->category = $request->category;
        $archive->department_id = $request->department_id;
        $archive->curriculum_id = $request->curriculum_id;
@@ -927,6 +920,7 @@ class StudentController extends Controller
             'archives.adviser',
             'archives.banner_path',
             'archives.document_path',
+            'archives.type',
             'archives.status',
             'archives.created_at',
             'archives.archive_code',
@@ -950,6 +944,7 @@ class StudentController extends Controller
 
         $validator = Validator::make($request->all(), [
 
+            'type' =>'required',
             'category' =>'required',
             'department_id' =>'required',
             'curriculum_id' =>'required',
@@ -962,6 +957,7 @@ class StudentController extends Controller
             'document_path' =>'required',
         ],[
 
+            'type.required' => 'Please select type',
             'category.required' => 'Please select category',
             'department_id.required' => 'Please select your Department',
             'curriculum_id.required' => 'Please select your Curriculum',
@@ -1010,6 +1006,7 @@ class StudentController extends Controller
 
 
          $projectData = [
+            'type' => $request->type,
             'category' => $request->category,
             'department_id' => $request->department_id,
             'curriculum_id' => $request->curriculum_id,
@@ -1047,11 +1044,11 @@ class StudentController extends Controller
     public function googleauthViewProject(Request $request){
 
 
-        $archive = DB::table('student_models')
+        $archive = DB::table('users')
         ->select(
-            'student_models.id as student_id',
-            'student_models.fullname',
-            'student_models.email',
+            'users.id as student_id',
+            'users.name',
+            'users.email',
             'archives.id as archives_id',
             'archives.student_id',
             'archives.title',
@@ -1064,10 +1061,10 @@ class StudentController extends Controller
             'curricula.name as curriculum_name',
             'departments.name as department_name',
             )
-        ->leftjoin('archives','archives.student_id','=','student_models.id')
-        ->leftjoin('curricula','curricula.id','=','student_models.curriculum_id')
-        ->leftjoin('departments','departments.id','=','student_models.department_id')
-        ->where('archives.category', 'Project')
+        ->leftjoin('archives','archives.student_id','=','users.id')
+        ->leftjoin('curricula','curricula.id','=','archives.curriculum_id')
+        ->leftjoin('departments','departments.id','=','archives.department_id')
+        ->where(['archives.category' => 'Web Application', 'archives.student_id' => Auth::user()->id])
         ->orderBy('archives.id','DESC')
         ->get();
 
@@ -1080,11 +1077,11 @@ class StudentController extends Controller
     public function googleauthViewResearch(Request $request){
 
 
-        $archive = DB::table('student_models')
+         $archive = DB::table('users')
         ->select(
-            'student_models.id as student_id',
-            'student_models.fullname',
-            'student_models.email',
+            'users.id as student_id',
+            'users.name',
+            'users.email',
             'archives.id as archives_id',
             'archives.student_id',
             'archives.title',
@@ -1097,10 +1094,10 @@ class StudentController extends Controller
             'curricula.name as curriculum_name',
             'departments.name as department_name',
             )
-        ->leftjoin('archives','archives.student_id','=','student_models.id')
-        ->leftjoin('curricula','curricula.id','=','student_models.curriculum_id')
-        ->leftjoin('departments','departments.id','=','student_models.department_id')
-        ->where('archives.category', 'Research')
+        ->leftjoin('archives','archives.student_id','=','users.id')
+        ->leftjoin('curricula','curricula.id','=','archives.curriculum_id')
+        ->leftjoin('departments','departments.id','=','archives.department_id')
+        ->where(['archives.category' => 'Mobile Application', 'archives.student_id' => Auth::user()->id])
         ->orderBy('archives.id','DESC')
         ->get();
 
@@ -1113,11 +1110,11 @@ class StudentController extends Controller
     public function googleauthViewCapstonethesis(Request $request){
 
 
-        $archive = DB::table('student_models')
+       $archive = DB::table('users')
         ->select(
-            'student_models.id as student_id',
-            'student_models.fullname',
-            'student_models.email',
+            'users.id as student_id',
+            'users.name',
+            'users.email',
             'archives.id as archives_id',
             'archives.student_id',
             'archives.title',
@@ -1130,10 +1127,10 @@ class StudentController extends Controller
             'curricula.name as curriculum_name',
             'departments.name as department_name',
             )
-        ->leftjoin('archives','archives.student_id','=','student_models.id')
-        ->leftjoin('curricula','curricula.id','=','student_models.curriculum_id')
-        ->leftjoin('departments','departments.id','=','student_models.department_id')
-        ->where('archives.category', 'Capstone/Thesis')
+        ->leftjoin('archives','archives.student_id','=','users.id')
+        ->leftjoin('curricula','curricula.id','=','archives.curriculum_id')
+        ->leftjoin('departments','departments.id','=','archives.department_id')
+        ->where(['archives.category' => 'PC Application', 'archives.student_id' => Auth::user()->id])
         ->orderBy('archives.id','DESC')
         ->get();
 
@@ -1146,11 +1143,11 @@ class StudentController extends Controller
     public function googleauthViewTotalprojects(Request $request){
 
 
-        $archive = DB::table('student_models')
+        $archive = DB::table('users')
         ->select(
-            'student_models.id as student_id',
-            'student_models.fullname',
-            'student_models.email',
+            'users.id as student_id',
+            'users.name',
+            'users.email',
             'archives.id as archives_id',
             'archives.student_id',
             'archives.title',
@@ -1163,9 +1160,10 @@ class StudentController extends Controller
             'curricula.name as curriculum_name',
             'departments.name as department_name',
             )
-        ->leftjoin('archives','archives.student_id','=','student_models.id')
-        ->leftjoin('curricula','curricula.id','=','student_models.curriculum_id')
-        ->leftjoin('departments','departments.id','=','student_models.department_id')
+        ->leftjoin('archives','archives.student_id','=','users.id')
+        ->leftjoin('curricula','curricula.id','=','archives.curriculum_id')
+        ->leftjoin('departments','departments.id','=','archives.department_id')
+        ->where(['archives.category' => 'Standalone Application', 'archives.student_id' => Auth::user()->id])
         ->orderBy('archives.id','DESC')
         ->get();
 

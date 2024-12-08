@@ -27,10 +27,10 @@ class StaffController extends Controller
 
     public function stafflogin(){
 
-        $capstone2 =  archive::where('category', 'Capstone 2')->count();//projects
-        $csthesis2 =   archive::where('category', 'CS Thesis 2')->count();//research
-        $shspracticalresearch =  archive::where('category', 'SHS Practical Research')->count();//thesisCapstone
-        $bstmthesis =  archive::where('category', 'BSTM Thesis')->count();//thesisCapstone
+        $capstone2 =  archive::where('type', 'Capstone 2')->count();//projects
+        $csthesis2 =   archive::where('type', 'CS Thesis 2')->count();//research
+        $shspracticalresearch =  archive::where('type', 'SHS Practical Research')->count();//thesisCapstone
+        $bstmthesis =  archive::where('type', 'BSTM Thesis')->count();//thesisCapstone
         // $counttotalProjects = archive::where('status', 1)->count();
 
         $verified =  studentModel::where('status', 1)->count();//verified student
@@ -433,7 +433,7 @@ public function ViewProject(Request $request){
     ->leftjoin('archives','archives.student_id','=','users.id')
     ->leftjoin('curricula','curricula.id','=','archives.curriculum_id')
     ->leftjoin('departments','departments.id','=','archives.department_id')
-    ->where('archives.category', 'Capstone 2')
+    ->where('archives.category', 'Web Application')
     ->orderBy('archives.id','DESC')
     ->get();
 
@@ -465,7 +465,7 @@ public function ViewResearch(Request $request){
     ->leftjoin('archives','archives.student_id','=','users.id')
     ->leftjoin('curricula','curricula.id','=','archives.curriculum_id')
     ->leftjoin('departments','departments.id','=','archives.department_id')
-    ->where('archives.category', 'CS Thesis 2')
+    ->where('archives.category', 'Mobile Application')
     ->orderBy('archives.id','DESC')
     ->get();
 
@@ -478,28 +478,28 @@ public function ViewCapstonethesis(Request $request){
 
 
     $archive = DB::table('users')
-        ->select(
-            'users.id as student_id',
-            'users.name',
-            'users.email',
-            'archives.id as archives_id',
-            'archives.student_id',
-            'archives.title',
-            'archives.abstract',
-            'archives.banner_path',
-            'archives.status',
-            'archives.category',
-            'archives.created_at',
-            'archives.archive_code',
-            'curricula.name as curriculum_name',
-            'departments.name as department_name',
-            )
-        ->leftjoin('archives','archives.student_id','=','users.id')
-        ->leftjoin('curricula','curricula.id','=','archives.curriculum_id')
-        ->leftjoin('departments','departments.id','=','archives.department_id')
-        ->where('archives.category', 'SHS Practical Research')
-        ->orderBy('archives.id','DESC')
-        ->get();
+    ->select(
+        'users.id as student_id',
+        'users.name',
+        'users.email',
+        'archives.id as archives_id',
+        'archives.student_id',
+        'archives.title',
+        'archives.abstract',
+        'archives.banner_path',
+        'archives.status',
+        'archives.category',
+        'archives.created_at',
+        'archives.archive_code',
+        'curricula.name as curriculum_name',
+        'departments.name as department_name',
+        )
+    ->leftjoin('archives','archives.student_id','=','users.id')
+    ->leftjoin('curricula','curricula.id','=','archives.curriculum_id')
+    ->leftjoin('departments','departments.id','=','archives.department_id')
+    ->where('archives.category', 'PC Application')
+    ->orderBy('archives.id','DESC')
+    ->get();
 
     $systeminformation = SystemInformation::all();
     return view('staff.viewcapstonethesis', compact('archive','systeminformation'));
@@ -510,28 +510,28 @@ public function ViewTotalprojects(Request $request){
 
 
     $archive = DB::table('users')
-        ->select(
-            'users.id as student_id',
-            'users.name',
-            'users.email',
-            'archives.id as archives_id',
-            'archives.student_id',
-            'archives.title',
-            'archives.abstract',
-            'archives.banner_path',
-            'archives.status',
-            'archives.category',
-            'archives.created_at',
-            'archives.archive_code',
-            'curricula.name as curriculum_name',
-            'departments.name as department_name',
-            )
-        ->leftjoin('archives','archives.student_id','=','users.id')
-        ->leftjoin('curricula','curricula.id','=','archives.curriculum_id')
-        ->leftjoin('departments','departments.id','=','archives.department_id')
-        ->where('archives.category', 'BSTM Thesis')
-        ->orderBy('archives.id','DESC')
-        ->get();
+    ->select(
+        'users.id as student_id',
+        'users.name',
+        'users.email',
+        'archives.id as archives_id',
+        'archives.student_id',
+        'archives.title',
+        'archives.abstract',
+        'archives.banner_path',
+        'archives.status',
+        'archives.category',
+        'archives.created_at',
+        'archives.archive_code',
+        'curricula.name as curriculum_name',
+        'departments.name as department_name',
+        )
+    ->leftjoin('archives','archives.student_id','=','users.id')
+    ->leftjoin('curricula','curricula.id','=','archives.curriculum_id')
+    ->leftjoin('departments','departments.id','=','archives.department_id')
+    ->where('archives.category', 'Standalone Application')
+    ->orderBy('archives.id','DESC')
+    ->get();
 
 
     $systeminformation = SystemInformation::all();

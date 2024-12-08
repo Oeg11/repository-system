@@ -72,13 +72,14 @@ use App\Http\Controllers\StudentController;
 
         Route::get('admin/changepassword', [AdminController::class, 'ChangePassword'])->name('admin.changepassword');
         Route::post('/admin/update/password', [AdminController::class, 'updatePassword'])->name('admin.updatepassword');
-
         // Route::post('/admin/update/', [YourController::class, 'updateStatus'])->name('update.status');
         Route::post('/admin/add/usercontrol', [AdminController::class, 'AddUserControl'])->name('admin.addusercontrol');
         Route::post('/admin/update/usercontrol', [AdminController::class, 'UpdateUserControl'])->name('admin.updateusercontrol');
 
 
-        Route::get('/admin/reports', [AdminController::class, 'AdminReports'])->name('admin.reports');
+       Route::get('/admin/reports', [AdminController::class, 'AdminReports'])->name('admin.reports');
+       Route::get('/admin/backup/database', [AdminController::class, 'AdminBackupDatabase'])->name('admin.backupdb');
+
     });
 
     Route::get('/staff/login', [StaffController::class, 'stafflogin'])->name('staff.login');

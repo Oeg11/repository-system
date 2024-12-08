@@ -1,6 +1,7 @@
 @extends('admin.alayouts.main')
 @section('content')
 <div class=" mt-4">
+  <div id="loader"></div>
     <div class="row p-2 ">
 
         <div class="col-md-3"></div>

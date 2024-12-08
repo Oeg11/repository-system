@@ -3,7 +3,8 @@
 namespace App\Console\Commands;
 
 use Illuminate\Console\Command;
-
+use Spatie\DbDumper\Databases\MySql;
+use Illuminate\Support\Facades\DB;
 use Carbon\Carbon;
 use Illuminate\Support\Facades\Storage;
 
@@ -29,19 +30,39 @@ class DbBackup extends Command
      */
     public function handle()
     {
-        if (! Storage::exists('backup')) {
-            Storage::makeDirectory('backup');
+
+        $fileName = public_path('/storage/app/backup/' . date('Y-m-d_H-i-s') . '_backup.sql');
+        $date = date('Y-m-d_H-i-s');
+        $path = '/storage/app/backup/' . date('Y-m-d_H-i-s') . '_backup.sql';
+
+        DB::table('backupdatabase')->insert(
+            array(
+                   'date_store'   =>   $date,
+                   'database_path'   =>   $path
+            )
+       );
+
+        // Ensure the backups directory exists
+        if (!file_exists(storage_path('/app/backup/'))) {
+            mkdir(storage_path('/app/backup/'), 0755, true);
         }
 
-        $filename = "backup-" . Carbon::now()->format('Y-m-d') . ".gz";
+        try {
+            MySql::create()
+                ->setDbName(env('DB_DATABASE'))
+                ->setUserName(env('DB_USERNAME'))
+                ->setPassword(env('DB_PASSWORD'))
+                ->setHost(env('DB_HOST'))
+                ->dumpToFile($fileName);
 
-        $command = "mysqldump --user=" . env('DB_USERNAME') ." --password=" . env('DB_PASSWORD')
-                . " --host=" . env('DB_HOST') . " " . env('DB_DATABASE')
-                . "  | gzip > " . storage_path() . "/app/backup/" . $filename;
+            $this->info("Backup successful! Saved to: $fileName");
+        } catch (\Exception $e) {
+            $this->error("Backup failed: " . $e->getMessage());
+        }
 
-        $returnVar = NULL;
-        $output  = NULL;
+        return 0;
 
-        exec($command, $output, $returnVar);
+        // \Log::info("Cake Cron execution!");
+        // $this->info('db:backup Command is working fine!');
     }
 }
