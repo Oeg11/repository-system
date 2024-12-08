@@ -178,7 +178,7 @@
              <div class="row mt-3">
                 <div class="col-md-6">
                    <div class="form-group">
-                         <input type="checkbox" id="term_and_privacy"  data-toggle="modal" data-target="#myModal" /> <b>I agree to the terms and privacy policy.</b>
+                         <input type="checkbox" id="test7"  data-toggle="modal" data-target="#myModal" /> <b>I agree to the terms and privacy policy.</b>
                     </div>
                 </div>
             </div>
@@ -198,8 +198,11 @@
     </div>
    </div>
 
+    </div>
 
-   <div class="modal fade" id="termandprivacyModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+
+    <!-- Modal -->
+<div class="modal fade" id="myModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
     <div class="modal-dialog">
       <div class="modal-content">
         <div class="modal-header">
@@ -218,22 +221,16 @@
   </div>
 
 
-    </div>
-
-
-    <!-- Modal -->
+    @endsection
 
     <script>
         $(document).ready(function(){
-                ​$("#term_and_privacy").on("change", function(e){
+                ​$("#test7").on("change", function(e){
                     if(e.target.checked){
-                    $('#termandprivacyModal').modal();
-                 }
-              });
-         });
+                    $('#myModal').modal();
+                }
+                });
+
+            });
     </script>
-
-    @endsection
-
-
 
