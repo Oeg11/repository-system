@@ -283,7 +283,7 @@
                                       if(response.errors.click_checkbox == 1){
                                          $('#check-error').hide();
                                       }else{
-                                        $('#check-error').html("failed");
+                                        $('#check-error').html("Please click a Term and Privacy Policy");
                                       }
 
 
