@@ -15,7 +15,6 @@ use Maatwebsite\Excel\Concerns\WithHeadingRow;
 use Hash;
 
 
-
 class UsersImport implements ToModel, WithHeadingRow
 
 {
