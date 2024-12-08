@@ -15,7 +15,7 @@ use App\Models\studentModel;
 use Hash;
 
 
-class UsersImport implements
+class UsersImport
 
 {
 
