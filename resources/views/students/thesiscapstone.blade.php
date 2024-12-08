@@ -178,7 +178,7 @@
              <div class="row mt-3">
                 <div class="col-md-6">
                    <div class="form-group">
-                         <input type="checkbox" id="test7" checked="checked" data-toggle="modal" data-target="#myModal" />
+                         <input type="checkbox" id="test7"  data-toggle="modal" data-target="#myModal" />
                     </div>
                 </div>
             </div>
