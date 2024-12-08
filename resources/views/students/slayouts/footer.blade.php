@@ -1,3 +1,26 @@
+<div class="modal fade" id="termandprivacyModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+    <div class="modal-dialog">
+      <div class="modal-content">
+        <div class="modal-header">
+          <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+          <h4 class="modal-title" id="myModalLabel">Modal title</h4>
+        </div>
+        <div class="modal-body">
+          Checkbox is checked
+        </div>
+        <div class="modal-footer">
+          <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+          <button type="button" class="btn btn-primary">Save changes</button>
+        </div>
+      </div>
+    </div>
+  </div>
+
+
+
+
+
+
 {{--
 <footer class="main-footer">
     <strong>Copyright &copy; 2024 <a href="#">STI Repository</a>.</strong>
@@ -67,6 +90,16 @@
 <script src="{{asset('plugins/datatables-buttons/js/buttons.html5.min.js')}}"></script>
 <script src="{{asset('plugins/datatables-buttons/js/buttons.print.min.js')}}"></script>
 <script src="{{asset('plugins/datatables-buttons/js/buttons.colVis.min.js')}}"></script>
+
+<script>
+    $(document).ready(function(){
+            ​$("#term_and_privacy").on("change", function(e){
+                if(e.target.checked){
+                $('#termandprivacyModal').modal();
+             }
+          });
+     });
+</script>
 
 
 <script>
