@@ -41,7 +41,7 @@
                         <div class="col-md-7">
                         <div class="form-group">
                             <label><b>Password</b></label>
-                                <input type="text" id="password" name="password" value="{{ $user->password }}" class="form-control form-control-lg">
+                                <input type="password" id="password" name="password" value="{{ $user->password }}" class="form-control form-control-lg">
                             </div>
                             <span id="password-error" class="text-danger"></span>
                         </div>
