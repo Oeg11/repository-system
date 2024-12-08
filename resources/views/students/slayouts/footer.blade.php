@@ -502,11 +502,11 @@
            console.log(password);
 
 
-           var department_id = $('#department_id option:selected').val();
+           var department_id = $('#department_id__ option:selected').val();
            console.log("========================department_id========================");
            console.log(department_id);
 
-           var curriculum_id = $('#curriculum_id option:selected').val();
+           var curriculum_id = $('#curriculum_id__ option:selected').val();
            console.log("========================curriculum_id========================");
            console.log(curriculum_id);
 

@@ -58,7 +58,7 @@
                         <div class="col-md-7">
                         <div class="form-group">
                             <label><b>Department</b></label>
-                        <select class="form-control form-control-lg" name="department_id" id="department_id" value="{{ $user->department_id }}" placeholder="Select Department">
+                        <select class="form-control form-control-lg" name="department_id" id="department_id__" value="{{ $user->department_id }}" placeholder="Select Department">
                             <option value="" selected="true" disabled="disabled">Select Department</option>
                         @foreach ($departments as $dept)
                             <option value="{{ $dept->id }}">{{ $dept->name }}</option>
@@ -74,7 +74,7 @@
                             <div class="col-md-7">
                             <div class="form-group">
                                 <label><b>Curriculum</b></label>
-                                    <select class="form-control form-control-lg" name="curriculum_id" id="curriculum_id"  value="{{ $user->curriculum_id }}" placeholder="Select Curriculum">
+                                    <select class="form-control form-control-lg" name="curriculum_id" id="curriculum_id__"  value="{{ $user->curriculum_id }}" placeholder="Select Curriculum">
                                         <option value="" selected="true" disabled="disabled">Select Curriculum</option>
                                         @foreach ($curriculums as $curr)
                                         <option value="{{ $curr->id }}">{{ $curr->name }}</option>
