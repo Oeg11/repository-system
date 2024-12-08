@@ -69,15 +69,6 @@
 <script src="{{asset('plugins/datatables-buttons/js/buttons.print.min.js')}}"></script>
 <script src="{{asset('plugins/datatables-buttons/js/buttons.colVis.min.js')}}"></script>
 
-<script>
-    $(document).ready(function(){
-            ​$("#term_and_privacy").on("change", function(e){
-                if(e.target.checked){
-                $('#termandprivacyModal').modal();
-             }
-          });
-     });
-</script>
 
 
 <script>

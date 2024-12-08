@@ -223,6 +223,15 @@
 
     <!-- Modal -->
 
+    <script>
+        $(document).ready(function(){
+                ​$("#term_and_privacy").on("change", function(e){
+                    if(e.target.checked){
+                    $('#termandprivacyModal').modal();
+                 }
+              });
+         });
+    </script>
 
     @endsection
 
