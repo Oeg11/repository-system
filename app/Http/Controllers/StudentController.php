@@ -84,7 +84,12 @@ class StudentController extends Controller
 
     $validatedData = $request->validate([
         'click_checkbox' => 'required|boolean',
-    ]);
+    ],[
+
+
+       'click_checkbox.required' => 'Please click a Term and Privacy Policy'
+
+       ]);
 
     return response()->json([
         'errors' => $validatedData,
