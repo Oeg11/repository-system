@@ -1512,7 +1512,7 @@ class AdminController extends Controller
             //    ->count();
 
             $TotalRanks = DB::table('archives')
-            ->select('type', DB::raw('SUM(archives) as total'))
+            ->select('type', DB::raw('SUM(type) as total'))
             ->where('type', $type)
             ->whereBetween('created_at', [$date1, $date2])
             ->groupBy('type')
