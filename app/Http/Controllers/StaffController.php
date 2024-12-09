@@ -417,34 +417,6 @@ public function deleteStudent(Request $request) {
 
 public function ViewProject(Request $request){
 
-
-    $archive = DB::table('users')
-    ->select(
-        'users.id as student_id',
-        'users.name',
-        'users.email',
-        'archives.id as archives_id',
-        'archives.student_id',
-        'archives.title',
-        'archives.abstract',
-        'archives.banner_path',
-        'archives.status',
-        'archives.category',
-        'archives.created_at',
-        'archives.archive_code',
-        'curricula.name as curriculum_name',
-        'departments.name as department_name',
-        )
-    ->leftjoin('archives','archives.student_id','=','users.id')//google auth id
-    ->leftjoin('archives','archives.student_foreign_id','=','student_models.id')//student id
-    ->leftjoin('curricula','curricula.id','=','archives.curriculum_id')
-    ->leftjoin('departments','departments.id','=','archives.department_id')
-    ->where('archives.type', 'Capstone 2')
-    ->orderBy('archives.id','DESC')
-    ->get();
-
-
-
     $archive = DB::table('archives')
     ->select(
             'users.id as student_id',
