@@ -1471,7 +1471,7 @@ class AdminController extends Controller
 
                     $output .= '
                     <tr>
-                        <td>'.$row->id.'</td>
+                        <td>'.$row->archives_id.'</td>
                         <td style="text-transform: capitalize;">'.$row->type.'</td>
                         <td>'.$row->category.'</td>
                         <td>'.$row->create_at.'</td>
