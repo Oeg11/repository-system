@@ -1363,7 +1363,7 @@ class AdminController extends Controller
 
         $types = archive::all();
         $systeminformation = SystemInformation::all();
-        return view('admin.searchimport', compact('systeminformation'));
+        return view('admin.searchimport', compact('systeminformation','types'));
 
     }
 
