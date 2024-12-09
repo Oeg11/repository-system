@@ -1390,6 +1390,7 @@ class AdminController extends Controller
                     <th>Department</th>
                     <th>Curriculum</th>
                     <th>Status</th>
+                    <th>Rank</th>
                 </tr>
             <tbody id='load_data'>
         ";
@@ -1415,6 +1416,7 @@ class AdminController extends Controller
                     'archives.category',
                     'archives.created_at',
                     'archives.archive_code',
+                    'archives.count_rank',
                     'curricula.name as curriculum_name',
                     'departments.name as department_name',
                     )
@@ -1449,6 +1451,7 @@ class AdminController extends Controller
                     'archives.category',
                     'archives.created_at',
                     'archives.archive_code',
+                    'archives.count_rank',
                     'curricula.name as curriculum_name',
                     'departments.name as department_name',
                     )
@@ -1487,6 +1490,7 @@ class AdminController extends Controller
                         <td>'.$row->department_name.'</td>
                         <td>'.$row->curriculum_name.'</td>
                         <td>'.$stat.'</td>
+                        <td>'.$row->count_rank.'</td>
                     </tr>
                     ';
                 }
@@ -1502,12 +1506,23 @@ class AdminController extends Controller
                  ->whereBetween('archives.created_at', [$date1, $date2])
                 ->count();
 
+                $TotalRanks = DB::table('archives')
+                ->select('count_rank')
+                ->where('type', $type)
+                ->whereBetween('archives.created_at', [$date1, $date2])
+               ->count();
+
+
 
                 //end Absent Part
                  $output .= '
                   <tr>
                     <td colspan="9" class="mt-3"><h6>Total Type: <span style="background-color:#1bdce3;padding: 1px 3px 1px 3px; border-radius:6px;color:#fff">'.$TotalTypes.'</span></h6></td>
-                 </tr>
+                 </tr><br>
+                    <tr style="background-color:#e3e2e1">
+                        <td colspan="4" style="font-size:0.8rem">Male Present: <span style="background-color:#a69d41;padding: 2px 2px 2px 2px; border-radius:6px;color:#fff">'.$TotalRanks.'</span></td>
+                        <td colspan="1" style="font-size:0.8rem"></td>
+                    </tr>
                   ';
 
 
