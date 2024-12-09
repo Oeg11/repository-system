@@ -1445,7 +1445,7 @@ class AdminController extends Controller
                     'archives.title',
                     'archives.abstract',
                     'archives.banner_path',
-                    'archives.status',
+                    'archives.status at archive_status',
                     'archives.type',
                     'archives.category',
                     'archives.created_at',
@@ -1478,6 +1478,7 @@ class AdminController extends Controller
                         <td>'.$row->archive_code.'</td>
                         <td>'.$row->department_name.'</td>
                         <td>'.$row->curriculum_name.'</td>
+                          <td>'.$row->archive_status.'</td>
                     </tr>
                     ';
                 }
@@ -1584,7 +1585,7 @@ class AdminController extends Controller
                     'archives.title',
                     'archives.abstract',
                     'archives.banner_path',
-                    'archives.status',
+                    'archives.status as archives_status',
                     'archives.type',
                     'archives.category',
                     'archives.created_at',
@@ -1617,6 +1618,7 @@ class AdminController extends Controller
                         <td>'.$row->archive_code.'</td>
                         <td>'.$row->department_name.'</td>
                         <td>'.$row->curriculum_name.'</td>
+                         <td>'.$row->archive_status.'</td>
                     </tr>
                     ';
                 }
