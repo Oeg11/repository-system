@@ -1516,12 +1516,11 @@ class AdminController extends Controller
 
                 //end Absent Part
                  $output .= '
-                  <tr>
-                    <td colspan="9" class="mt-3"><h6>Total Type: <span style="background-color:#1bdce3;padding: 1px 3px 1px 3px; border-radius:6px;color:#fff">'.$TotalTypes.'</span></h6></td>
-                 </tr><br>
+
                     <tr style="background-color:#e3e2e1">
-                        <td colspan="4" style="font-size:0.8rem">Male Present: <span style="background-color:#a69d41;padding: 2px 2px 2px 2px; border-radius:6px;color:#fff">'.$TotalRanks.'</span></td>
-                        <td colspan="1" style="font-size:0.8rem"></td>
+                              <td colspan="4" style="font-size:0.8rem">Male Present: <span style="background-color:#1bdce3;padding: 2px 2px 2px 2px; border-radius:6px;color:#fff">'.$TotalTypes.'</span></td>
+                     <td colspan="1" style="font-size:0.8rem"></td>
+                              <td colspan="4" style="font-size:0.8rem">Male Present: <span style="background-color:#a69d41;padding: 2px 2px 2px 2px; border-radius:6px;color:#fff">'.$TotalRanks.'</span></td>
                     </tr>
                   ';
 
