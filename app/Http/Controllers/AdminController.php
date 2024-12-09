@@ -1825,6 +1825,25 @@ class AdminController extends Controller
                     ';
                 }
 
+                $date1 =  \Carbon\Carbon::parse($request->date1);
+                $date2 =  \Carbon\Carbon::parse($request->date2);
+                $status =  $request->status;
+
+
+                 $TotalStatus= DB::table('archives')
+                 ->where('status', $status)
+                 ->whereBetween('archives.created_at', [$date1, $date2])
+                ->count();
+
+
+                //end Absent Part
+                 $output .= '
+                  <tr>
+                    <td colspan="9" class="mt-3"><h6>Total Status: <span style="background-color:#1bdce3;padding: 1px 3px 1px 3px; border-radius:6px;color:#fff">'.$TotalStatus.'</span></h6></td>
+                 </tr>
+                  ';
+
+
              }
             else
             {
