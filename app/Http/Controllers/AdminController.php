@@ -1421,6 +1421,7 @@ class AdminController extends Controller
                 ->leftjoin('users','users.id','=','archives.student_foreign_id')
                 ->leftjoin('curricula','curricula.id','=','archives.curriculum_id')
                 ->leftjoin('departments','departments.id','=','archives.department_id')
+                ->where('archives.type',  $request->type)
                 ->whereBetween('attendances.create_at', [$date1, $date2])
                ->get();
 
@@ -1455,6 +1456,7 @@ class AdminController extends Controller
                 ->leftjoin('users','users.id','=','archives.student_foreign_id')
                 ->leftjoin('curricula','curricula.id','=','archives.curriculum_id')
                 ->leftjoin('departments','departments.id','=','archives.department_id')
+                ->where('archives.type',  $request->type)
                 ->whereBetween('attendances.create_at', [$date1, $date2])
                ->get();
             }

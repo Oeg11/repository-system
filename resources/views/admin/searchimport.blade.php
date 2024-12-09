@@ -32,6 +32,7 @@
               </div>
               <!-- /.card-header -->
               <div class="card-body">
+                <form method="POST">
                 <div class="row d-flex">
                                 <div class="col-md-3">
                                     <label for="country">Type</label>
@@ -55,6 +56,8 @@
                                 <input type="button" class="btn btn-success" value="Filter"/>
                             </div>
                         </div>
+
+                    </form>
                     <hr>
 
 
@@ -102,6 +105,7 @@
 
   <script type="text/javascript">
     $(document).ready(function(){
+    $('#type option:selected').val();
     $('.date1').datepicker();
     $('.date2').datepicker();
     $('#btn_search').on('click', function(){
@@ -110,6 +114,7 @@
       }else{
         $date1 = $('.date1').val();
         $date2 = $('.date2').val();
+        $type_ = $('#type option:selected').val();
         $('#load_data').empty();
         $loader = $('<tr ><td colspan = "10"><center>Searching....</center></td></tr>');
         $loader.appendTo('#load_data');
@@ -126,7 +131,8 @@
 
             data: {
               date1: $date1,
-              date2: $date2
+              date2: $date2,
+              type: $type_,
             },
             success: function(res){
 
