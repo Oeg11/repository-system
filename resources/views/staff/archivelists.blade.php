@@ -277,12 +277,12 @@
                             }
                         });
 
-                    let status = $('#_edit_status').val();
+                    let status = $('#edit_status').val();
                     console.log("=================status===============");
                      console.log(status);
 
 
-                    let remark = $('edit_remark__').val();
+                    let remark = $('edit_remark').val();
                     console.log("=================remark===============");
                     console.log(remark);
 

@@ -14,7 +14,7 @@
                 <input type="hidden" name="id" value="5">
                 <div class="form-group">
                     <label for="status" class="control-label text-navy">Status</label>
-                    <select name="status" id="edit_status_" class="form-control form-control-border" required="">
+                    <select name="status" id="edit_status" class="form-control form-control-border" required="">
                         <option value="" selected="true" disabled="disabled">Select Status</option>
                         <option value="0">Reject</option>
                         <option value="1">Approved</option>
@@ -23,7 +23,7 @@
 
                 <div class="form-group">
                     <label for="status" class="control-label text-navy">Remark</label>
-                      <textarea type="text" name="remark" class="form-control pk" id="edit_remark__" rows="5" placeholder="Please input remark..."></textarea>
+                      <textarea type="text" name="remark" class="form-control pk" id="edit_remark" rows="5" placeholder="Please input remark..."></textarea>
                 </div>
 
           </div>
