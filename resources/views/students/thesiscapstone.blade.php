@@ -199,7 +199,6 @@
           </div>
     </div>
    </div>
-
     </div>
 
       @include('students.modal.termandprivacy')

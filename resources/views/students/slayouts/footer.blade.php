@@ -223,7 +223,7 @@
                data.append('banner_path', $('#file-ip-1')[0].files[0]);
                data.append('document_path', $('#document_path')[0].files[0]);
                data.append('student_foreign_id', student_foreign_id);
-            //    data.append('click_checkbox', click_checkbox);
+               data.append('click_checkbox', click_checkbox);
 
            $.ajax({
                     url:"{{ route('student.submitproject') }}",
@@ -280,11 +280,9 @@
                                         $('#student_id-error').html(response.errors.student_id[0]);
                                       }
 
-                                    //   if(response.errors.click_checkbox === "true"){
-                                    //      $('#check-error').hide();
-                                    //   }else{
-                                    //     $('#check-error').html("Please click a Term and Privacy Policy");
-                                    //   }
+                                      if(response.errors.click_checkbox){
+                                        $('#check-error').html("Please click a Term and Privacy Policy");
+                                      }
 
 
                             }
