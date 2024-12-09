@@ -260,7 +260,7 @@
 
             $('#edit_status').val(status);
             $('#edit_remark').val(remark);
-            $('#edit_id').val(id);
+            $('#edit_id__').val(id);
 
 
         });
