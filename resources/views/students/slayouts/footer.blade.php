@@ -203,13 +203,10 @@
            console.log("========================student_foreign_id========================");
            console.log(student_foreign_id);
 
-        //    var click_checkbox =  $('#click_checkbox').is(':checked') ? "true" : "false"; //
-        //    console.log("========================click_checkbox========================");
-        //    console.log(click_checkbox);
-
-        var click_checkbox = $(this).is(':checked');
+           var click_checkbox =  $('#click_checkbox').is(':checked') ? "true" : "false"; //
            console.log("========================click_checkbox========================");
            console.log(click_checkbox);
+
 
            var data = new FormData(this.form);
 
