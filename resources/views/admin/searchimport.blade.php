@@ -53,7 +53,7 @@
                             </div>
                             <div class="col-md-3" style="margin-top:3%">
                                 <label  style="color:white">x</label>
-                                <button type="button" class="btn btn-primary" id="btn_search"><em class="icon ni ni-search"></em></button>
+                                <button type="button" class="btn btn-primary" id="btn_search">Filter</button>
                             </div>
                         </div>
 
