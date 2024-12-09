@@ -277,6 +277,7 @@
                         });
 
                     let status = $('#edit_status').val();
+                    let remark = $('edit_remark').val();
                     let id =  $('#edit_id').val();
 
 
@@ -285,6 +286,7 @@
                         method: 'post',
                         data: {
                             status: status,
+                            remark: remark,
                             id: id
                         },
                         success: function(response){
