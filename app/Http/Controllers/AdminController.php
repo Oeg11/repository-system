@@ -1491,6 +1491,26 @@ class AdminController extends Controller
                     ';
                 }
 
+
+                $date1 =  \Carbon\Carbon::parse($request->date1);
+                $date2 =  \Carbon\Carbon::parse($request->date2);
+                $type =  $request->type;
+
+
+                 $TotalTypes = DB::table('archives')
+                 ->where('type', $type)
+                 ->whereBetween('archives.created_at', [$date1, $date2])
+                ->count();
+
+
+                //end Absent Part
+                 $output .= '
+                  <tr>
+                    <td colspan="9" class="mt-3"><h5>Total Type: <span style="background-color:#1bdce3;padding: 1px 3px 1px 3px; border-radius:6px;color:#fff">'.$TotalTypes.'</span></h5></td>
+                 </tr>
+                  ';
+
+
              }
             else
             {
