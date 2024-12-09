@@ -882,7 +882,7 @@ class AdminController extends Controller
             'curricula.name as curriculum_name',
             'departments.name as department_name',
             )
-        ->leftjoin('archives','archives.student_id','=','users.id')
+        ->leftjoin('archives','archives.student_id','=','users.id','student_foreign_id')
         ->leftjoin('curricula','curricula.id','=','archives.curriculum_id')
         ->leftjoin('departments','departments.id','=','archives.department_id')
         ->where('archives.type', 'Capstone 2')
