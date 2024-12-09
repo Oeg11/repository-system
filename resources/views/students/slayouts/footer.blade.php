@@ -203,7 +203,7 @@
            console.log("========================student_foreign_id========================");
            console.log(student_foreign_id);
 
-           var click_checkbox =  $('#click_checkbox').is(':checked') ? "true" : "false"; //
+           var click_checkbox =  $('#click_checkbox').is(':checked') ? "1" : "0"; //
            console.log("========================click_checkbox========================");
            console.log(click_checkbox);
 
@@ -243,10 +243,6 @@
                             }
 
                             if(response.errors){
-
-                                console.log("======================click_checkbox=======================");
-                                console.log(response.errors.click_checkbox);
-
 
                                   if(response.errors.category){
                                         $('#category-error').html(response.errors.category[0]);
