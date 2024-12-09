@@ -287,33 +287,33 @@
                     console.log("=================remark===============");
                     console.log(remark);
 
-                    let id =  $('#edit_id').val();
+                    let id =  $('#edit_id__').val();
                     console.log("=================id===============");
                     console.log(id);
 
 
-                //     $.ajax({
-                //         url: '{{ route("staff.updatestatus") }}',
-                //         method: 'post',
-                //         data: {
-                //             status: status,
-                //             remark: remark,
-                //             id: id
-                //         },
-                //         success: function(response){
-                //             // console.log(response.status == "Success");
-                //             if(response.status == 200){
-                //                 $('#mgs').html('<div class="alert alert-success">Update Status Successfully!</div>');
-                //                 $('.data-table').DataTable().ajax.reload();
-                //                 $("#modal-archive").modal('hide');
-                //         }
-                //         if(response.errors) {
-                //             console.log("Failed");
+                    $.ajax({
+                        url: '{{ route("staff.updatestatus") }}',
+                        method: 'post',
+                        data: {
+                            status: status,
+                            remark: remark,
+                            id: id
+                        },
+                        success: function(response){
+                            // console.log(response.status == "Success");
+                            if(response.status == 200){
+                                $('#mgs').html('<div class="alert alert-success">Update Status Successfully!</div>');
+                                $('.data-table').DataTable().ajax.reload();
+                                $("#modal-archive").modal('hide');
+                        }
+                        if(response.errors) {
+                            console.log("Failed");
 
-                //         }
+                        }
 
-                //       },
-                //  });
+                      },
+                 });
              });
            //end edit status
 
