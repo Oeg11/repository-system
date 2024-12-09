@@ -167,7 +167,6 @@
                                     $('#import_file-error').html(response.errors.import_file[0]);
                                 }
 
-
                             }
 
                           // console.log(response.status == "Success");
