@@ -188,20 +188,35 @@ class StudentController extends Controller
 
         $archive = DB::table('student_models')
         ->select(
+            // 'student_models.id as student_id',
+            // 'student_models.fullname',
+            // 'student_models.email',
+            // 'archives.id as archives_id',
+            // 'archives.student_id',
+            // 'archives.student_foreign_id',
+            // 'archives.title',
+            // 'archives.abstract',
+            // 'archives.banner_path',
+            // 'archives.status',
+            // 'archives.category',
+            // 'archives.created_at',
+            // 'archives.archive_code',
+            // 'curricula.name as curriculum_name',
+
             'student_models.id as student_id',
             'student_models.fullname',
             'student_models.email',
             'archives.id as archives_id',
-            'archives.student_id',
             'archives.student_foreign_id',
             'archives.title',
             'archives.abstract',
             'archives.banner_path',
+            'archives.type',
             'archives.status',
+            'archives.remark',
             'archives.category',
             'archives.created_at',
             'archives.archive_code',
-            'curricula.name as curriculum_name',
 
             )
         ->leftjoin('archives','archives.student_foreign_id','=','student_models.id')
