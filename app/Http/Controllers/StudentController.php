@@ -116,7 +116,7 @@ class StudentController extends Controller
             $isChecked = $request->input('click_checkbox');
 
             if ($validator->fails()) {
-                return response()->json(['errors' => $validator->errors(), 'valid' => false]);
+                return response()->json(['errors' => $validator->errors(), 'valid' => $isChecked]);
             }
 
         $archive = new archive;

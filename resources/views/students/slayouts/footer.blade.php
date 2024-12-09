@@ -283,9 +283,7 @@
                                       }
 
                                       if (response.valid.click_checkbox) {
-                                            $('#check-error').hide();
-                                        } else {
-                                            $('#check-error').show();
+                                           $('#check-error').html(response.valid.click_checkbox[0]);
                                         }
                                         //$('#check-error').html("Please click a Term and Privacy Policy");
 
