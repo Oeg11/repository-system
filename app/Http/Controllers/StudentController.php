@@ -94,7 +94,7 @@ class StudentController extends Controller
                 'members' =>'required',
                 'adviser' =>'required',
                 'banner_path' =>'required|mimes:png,jpg,jpeg|max:2048',
-                'document_path' =>'required|mimes:pdf|max:4096',
+                'document_path' =>'required|mimes:pdf|max:5120',//max upload 5mb limit only upload pdf files
                 'click_checkbox' =>  'accepted',
             ],[
 
@@ -883,7 +883,7 @@ class StudentController extends Controller
                'members' =>'required',
                'adviser' =>'required',
                'banner_path' =>'required|mimes:png,jpg,jpeg|max:2048',
-               'document_path' =>'required|mimes:pdf|max:4096',
+               'document_path' =>'required|mimes:pdf|max:5120',//max upload 5mb limit only upload pdf files
                 'click_checkbox' =>  'accepted',
            ],[
 
