@@ -1506,24 +1506,19 @@ class AdminController extends Controller
                  ->whereBetween('archives.created_at', [$date1, $date2])
                 ->count();
 
-            //     $TotalRanks = archive::select('count_rank')
-            //     ->where('type', $type)
-            //     ->whereBetween('archives.created_at', [$date1, $date2])
-            //    ->count();
 
-            $TotalRanks = DB::table('archives')
-            ->select('type', DB::raw('SUM(count_rank) as totalrank'))
-            ->where('type', $type)
-            ->whereBetween('created_at', [$date1, $date2])
-            ->groupBy('type')
-            ->get();
+                $TotalRanks = DB::table('archives')
+                ->select('type', DB::raw('SUM(count_rank) as totalrank'))
+                ->where('type', $type)
+                ->whereBetween('created_at', [$date1, $date2])
+                ->groupBy('type')
+                ->get();
 
 
             foreach ($TotalRanks as $row){
 
               $totalRank = $row->totalrank;
 
-                //end Absent Part
                  $output .= '
 
                     <tr style="background-color:#e3e2e1">
@@ -1582,6 +1577,7 @@ class AdminController extends Controller
                     <th>Department</th>
                     <th>Curriculum</th>
                     <th>Status</th>
+                    <th>Rank</th>
                 </tr>
             <tbody id='load_data'>
         ";
@@ -1606,6 +1602,7 @@ class AdminController extends Controller
                     'archives.category',
                     'archives.created_at',
                     'archives.archive_code',
+                    'archives.count_rank',
                     'curricula.name as curriculum_name',
                     'departments.name as department_name',
                     )
@@ -1640,6 +1637,7 @@ class AdminController extends Controller
                     'archives.category',
                     'archives.created_at',
                     'archives.archive_code',
+                    'archives.count_rank',
                     'curricula.name as curriculum_name',
                     'departments.name as department_name',
                     )
@@ -1678,6 +1676,7 @@ class AdminController extends Controller
                         <td>'.$row->department_name.'</td>
                         <td>'.$row->curriculum_name.'</td>
                         <td>'.$stat.'</td>
+                        <td>'.$row->count_rank.'</td>
                     </tr>
                     ';
                 }
@@ -1693,14 +1692,28 @@ class AdminController extends Controller
                  ->whereBetween('archives.created_at', [$date1, $date2])
                 ->count();
 
+                $TotalRanks = DB::table('archives')
+                ->select('type', DB::raw('SUM(count_rank) as totalrank'))
+                ->where('type', $type)
+                ->whereBetween('created_at', [$date1, $date2])
+                ->groupBy('type')
+                ->get();
 
-                //end Absent Part
-                 $output .= '
-                  <tr>
-                    <td colspan="9" class="mt-3"><h6>Total Category: <span style="background-color:#1bdce3;padding: 1px 3px 1px 3px; border-radius:6px;color:#fff">'.$TotalCategory.'</span></h6></td>
-                 </tr>
-                  ';
 
+            foreach ($TotalRanks as $row){
+
+              $totalRank = $row->totalrank;
+
+                  $output .= '
+
+                  <tr style="background-color:#e3e2e1">
+                            <td colspan="2" style="font-size:1rem">Total Category: <span style="background-color:#1bdce3;padding: 2px 2px 2px 2px; border-radius:6px;color:#fff">'.$TotalCategory.'</span></td>
+                   <td colspan="1" style="font-size:0.8rem"></td>
+                            <td colspan="8" style="font-size:1rem">Total Rank: <span style="background-color:#a69d41;padding: 2px 2px 2px 2px; border-radius:6px;color:#fff">'.$totalRank.'</span></td>
+                  </tr>
+                ';
+
+              }
 
              }
             else
