@@ -32,7 +32,30 @@
               </div>
               <!-- /.card-header -->
               <div class="card-body">
-                 <h3>Welcome</h3>
+                <div class="row d-flex">
+                                <div class="col-md-3">
+                                    <label for="country">Type</label>
+                                    <select class="form-control" id="type">
+                                        @foreach ($types as $row)
+                                            <option value="{{ $row->id }}">{{ $row->type }}</option>
+                                        @endforeach
+                                    </select>
+                                </div>
+
+                            <div class="col-md-3">
+                                <label for="From">From</label>
+                                <input type="date" id="from" name="from" class="form-control" />
+                            </div>
+                            <div class="col-md-3">
+                                <label for="To">To</label>
+                                <input type="date" id="to" name="to" class="form-control" />
+                            </div>
+                            <div class="col-md-3">
+                                <label  style="color:white">x</label>
+                                <input type="button" class="btn btn-success mt-3" value="Filter"/>
+                            </div>
+                        </div>
+                    <hr>
              </div>
               <!-- /.card-body -->
             </div>
