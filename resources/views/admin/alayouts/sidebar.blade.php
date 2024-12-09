@@ -176,13 +176,31 @@
 
 
             <li class="nav-item">
-                <a href="{{route('admin.reports')}}" class="nav-link btns">
-                    <i class="nav-icon fa fa-print"></i>
+                <a href="#" class="nav-link">
+                  <i class="nav-icon far fa-print"></i>
                   <p>
-                     Reports
+                    Reports
+                    <i class="fas fa-angle-left right"></i>
                   </p>
                 </a>
-            </li>
+                <ul class="nav nav-treeview">
+                  <li class="nav-item">
+                    <a href="#" class="nav-link">
+                      <i class="far fa-circle nav-icon"></i>
+                      <p>Search Report</p>
+                    </a>
+                  </li>
+
+                  <li class="nav-item">
+                    <a href="{{route('admin.reports')}}" class="nav-link">
+                      <i class="far fa-circle nav-icon"></i>
+                      <p>Analytic Report</p>
+                    </a>
+                  </li>
+
+                </ul>
+              </li>
+
 
             <li class="nav-item">
                 <a href="{{route('admin.backupdb')}}" class="nav-link btns">
