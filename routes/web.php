@@ -79,6 +79,7 @@ use App\Http\Controllers\StudentController;
 
        Route::get('/admin/reports', [AdminController::class, 'AdminReports'])->name('admin.reports');
        Route::get('/admin/backup/database', [AdminController::class, 'AdminBackupDatabase'])->name('admin.backupdb');
+       Route::get('/admin/search/reports', [AdminController::class, 'AdminSearchReports'])->name('admin.searchreports');
 
         //my added routes
        Route::get('admin/fetch/excel', [AdminController::class, 'Adminuserimport'])->name('admin.userimport');

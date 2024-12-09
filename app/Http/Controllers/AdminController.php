@@ -1359,4 +1359,12 @@ class AdminController extends Controller
         }
 
 
+    public function AdminSearchReports(Request $request){
+
+        $systeminformation = SystemInformation::all();
+        return view('admin.searchimport', compact('systeminformation'));
+
+    }
+
+
 }
