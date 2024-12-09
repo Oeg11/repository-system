@@ -247,6 +247,10 @@
 
                             if(response.errors){
 
+                                console.log("======================click_checkbox=======================");
+                                console.log(response.errors.click_checkbox);
+
+
                                   if(response.errors.category){
                                         $('#category-error').html(response.errors.category[0]);
                                       }
@@ -281,12 +285,9 @@
                                         $('#student_id-error').html(response.errors.student_id[0]);
                                       }
 
-                                      if (response.errors) {
-                                        $('#check-error').html(response.errors[0]);
+                                      if (response.errors.click_checkbox) {
+                                           $('#check-error').html(response.errors.click_checkbox[0]);
                                         }
-                                    //   if (response.errors.click_checkbox) {
-                                    //        $('#check-error').html(response.errors.click_checkbox[0]);
-                                    //     }
                                         //$('#check-error').html("Please click a Term and Privacy Policy");
 
 
