@@ -117,7 +117,7 @@ class StudentController extends Controller
 
             if ($validator->fails()) {
                 return response()->json(['errors' => $validator->errors()]);
-            }elseif($isChecked) {
+            }else if($isChecked) {
                 return response()->json(['errors' => true]);
             } else {
                 return response()->json(['errors' => false]);
