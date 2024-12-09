@@ -1515,7 +1515,6 @@ class AdminController extends Controller
             ->select('type','count_rank', DB::raw('SUM(count_rank) as total'))
             ->where('type', $type)
             ->whereBetween('created_at', [$date1, $date2])
-            ->groupBy('type')
             ->get();
 
 
