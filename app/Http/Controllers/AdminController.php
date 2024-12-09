@@ -151,7 +151,6 @@ class AdminController extends Controller
                                         data-documentpath="'.$row->document_path.'"
                                     >
                                     <span class="fa fa-external-link-alt text-gray"></span> View</a>
-
                                     <a class="dropdown-item btn-update"
                                      href="javascript:void(0)" data-toggle="modal" data-target="#modal-archive"
                                     data-id="'.$row->archive_id.'"
@@ -160,7 +159,6 @@ class AdminController extends Controller
                                     ><span class="fa fa-check text-dark"></span> Update Status</a>
                                     <a class="dropdown-item btn-deleteArchive" href="javascript:void(0)"
                                     data-del="'.$row->archive_id.'">
-
                                     <span class="fa fa-trash text-danger"></span>
                                      Delete</a>
                                     </div>
