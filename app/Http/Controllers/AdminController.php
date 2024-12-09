@@ -161,7 +161,6 @@ class AdminController extends Controller
                                     data-del="'.$row->archive_id.'">
                                     <span class="fa fa-trash text-danger"></span>
                                      Delete</a>
-
                                     </div>
                                 </div>';
 
