@@ -36,7 +36,7 @@
                 <div class="row d-flex">
                                 <div class="col-md-3">
                                     <label for="country">Type</label>
-                                    <select class="form-control" id="type">
+                                    <select class="form-control" id="type_">
                                         @foreach ($types as $row)
                                             <option value="{{ $row->id }}">{{ $row->type }}</option>
                                         @endforeach
