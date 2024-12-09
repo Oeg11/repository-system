@@ -1506,10 +1506,17 @@ class AdminController extends Controller
                  ->whereBetween('archives.created_at', [$date1, $date2])
                 ->count();
 
-                $TotalRanks = archive::select('count_rank')
-                ->where('type', $type)
-                ->whereBetween('archives.created_at', [$date1, $date2])
-               ->count();
+            //     $TotalRanks = archive::select('count_rank')
+            //     ->where('type', $type)
+            //     ->whereBetween('archives.created_at', [$date1, $date2])
+            //    ->count();
+
+               $TotalRanks = DB::table('archives')
+               ->select('type', DB::raw('COUNT(*) as countStatus'))
+               ->where('type', $type)
+               ->whereBetween('archives.created_at', [$date1, $date2])
+               ->groupBy('type')
+               ->get();
 
 
 
