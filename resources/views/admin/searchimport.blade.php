@@ -38,7 +38,7 @@
                                     <label for="country">Type</label>
                                     <select class="form-control" id="type_">
                                         @foreach ($types as $row)
-                                            <option value="{{ $row->id }}">{{ $row->type }}</option>
+                                            <option value="{{ $row->type }}">{{ $row->type }}</option>
                                         @endforeach
                                     </select>
                                 </div>
