@@ -113,16 +113,16 @@ class StudentController extends Controller
 
             ]);
 
-            $isChecked = $request->input('checked');
+            $isChecked = $request->input('click_checkbox');
 
-            if ($isChecked) {
-                return response()->json(['valid' => true]);
-            } else {
-                return response()->json(['valid' => false]);
-            }
+            // if ($isChecked) {
+            //     return response()->json(['valid' => true]);
+            // } else {
+            //     return response()->json(['valid' => false]);
+            // }
 
             if ($validator->fails()) {
-                return response()->json(['errors' => $validator->errors()]);
+                return response()->json(['errors' => $validator->errors(), 'valid' => false]);
             }
 
         $archive = new archive;
