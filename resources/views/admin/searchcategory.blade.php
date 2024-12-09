@@ -63,20 +63,6 @@
 
                     <div class="table-responsive">
                         <table class="table mt-3 table-striped table-sm gradelevel-datatable">
-                            {{-- <thead>
-                                <tr>
-                                    <th>ID</th>
-                                    <th>Student Name</th>
-                                    <th>Student Number</th>
-                                    <th>RFID Number</th>
-                                    <th>Time In</th>
-                                    <th>Time Out</th>
-                                    <th>Time Duration</th>
-                                    <th>Log Date</th>
-                                    <th>Grade Level Name</th>
-                                    <th>Section Name</th>
-                                </tr>
-                            </thead> --}}
                             <tbody id="load_data" class="table-data">
                             </tbody>
                         </table>

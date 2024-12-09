@@ -1483,6 +1483,7 @@ class AdminController extends Controller
                         <td>'.$row->category.'</td>
                         <td>'.$row->created_at.'</td>
                         <td>'.$row->archive_code.'</td>
+                         <td>'.$row->title.'</td>
                         <td>'.$row->department_name.'</td>
                         <td>'.$row->curriculum_name.'</td>
                         <td>'.$stat.'</td>
@@ -1629,6 +1630,7 @@ class AdminController extends Controller
                         <td>'.$row->category.'</td>
                         <td>'.$row->created_at.'</td>
                         <td>'.$row->archive_code.'</td>
+                        <td>'.$row->title.'</td>
                         <td>'.$row->department_name.'</td>
                         <td>'.$row->curriculum_name.'</td>
                         <td>'.$stat.'</td>
