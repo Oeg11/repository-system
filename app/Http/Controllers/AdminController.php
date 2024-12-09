@@ -1519,6 +1519,10 @@ class AdminController extends Controller
             ->get();
 
 
+            foreach ($TotalRanks as $row){
+
+              $total = $row['total'];
+            }
 
 
 
@@ -1526,7 +1530,7 @@ class AdminController extends Controller
                  $output .= '
 
                     <tr style="background-color:#e3e2e1">
-                              <td colspan="2" style="font-size:1rem">Total Type: <span style="background-color:#1bdce3;padding: 2px 2px 2px 2px; border-radius:6px;color:#fff">'.$TotalTypes->countStatus.'</span></td>
+                              <td colspan="2" style="font-size:1rem">Total Type: <span style="background-color:#1bdce3;padding: 2px 2px 2px 2px; border-radius:6px;color:#fff">'.$total.'</span></td>
                      <td colspan="1" style="font-size:0.8rem"></td>
                               <td colspan="8" style="font-size:1rem">Total Rank: <span style="background-color:#a69d41;padding: 2px 2px 2px 2px; border-radius:6px;color:#fff">'.$TotalRanks.'</span></td>
                     </tr>
