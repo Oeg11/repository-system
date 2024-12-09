@@ -121,13 +121,15 @@ class StaffController extends Controller
 
                     ->addColumn('status',function($data){
                         $html = '';
-                        if ($data->status == 1) {
-                                    $html = '<center><span class="badge badge-success">Published</span></center>';
-                                } else if ($data->status == 0) {
-                                    $html = '<center><span class="badge badge-danger">Not Published</span></center>';
-                                }
-                            return $html;
-                        })
+                            if ($data->status == 1) {
+                                $html = '<center><span class="badge badge-success">Approved</span></center>';
+                            } else if ($data->status == 0) {
+                                $html = '<center><span class="badge badge-danger">Rejected</span></center>';
+                            } else if ($data->status == 2) {
+                            $html = '<center><span class="badge badge-warning">Pending</span></center>';
+                        }
+                        return $html;
+                    })
 
                     ->addColumn('action', function($row){
 
