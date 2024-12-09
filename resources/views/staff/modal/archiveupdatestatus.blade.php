@@ -28,7 +28,7 @@
 
           </div>
         <div class="modal-footer justify-content-between">
-            <input type="hidden" id="edit_id">
+            <input type="text" id="edit_id">
           <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
           <button type="button" class="btn btn-primary" id="btn-updatestatus">Update</button>
         </div>
