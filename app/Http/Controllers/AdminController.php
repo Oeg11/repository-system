@@ -1507,7 +1507,7 @@ class AdminController extends Controller
                 ->count();
 
                 $TotalRanks = archive::select('count_rank')
-                // ->where('type', $type)
+                ->where('type', $type)
                 ->whereBetween('archives.created_at', [$date1, $date2])
                ->count();
 
