@@ -32,7 +32,7 @@
               </div>
               <!-- /.card-header -->
               <div class="card-body">
-                <form method="POST">
+
                 <div class="row d-flex">
                                 <div class="col-md-3">
                                     <label for="country">Type</label>
@@ -57,7 +57,7 @@
                             </div>
                         </div>
 
-                    </form>
+
                     <hr>
 
 
