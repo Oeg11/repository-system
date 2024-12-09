@@ -167,7 +167,7 @@ class StaffController extends Controller
                             if($auth == $user->staff_id && $user->collectionlist_updatestatus == 1){
                                 $edit = ' <a class="dropdown-item btn-update"
                                         href="javascript:void(0)" data-toggle="modal" data-target="#modal-archive"
-                                        data-id="'.$row->archive_id.'"
+                                        data-editid="'.$row->archive_id.'"
                                         data-stat="'.$row->status.'"
                                         data-remark="'.$row->remark.'"
                                         ><span class="fa fa-check text-dark"></span> Update Status</a>

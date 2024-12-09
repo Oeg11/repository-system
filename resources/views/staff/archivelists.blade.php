@@ -235,6 +235,7 @@
             });
 
          var status
+         var remark
          var id
 
         $('body').on('click', '.btn-update', function(e) {
@@ -244,7 +245,7 @@
                 }
             });
 
-            id = $(this).data('id');
+            id = $(this).data('editid');
             console.log("=================id===============");
             console.log(id);
 
