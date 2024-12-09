@@ -47,6 +47,7 @@
                                    <span class="badge bg-warning">Pending</span>
                                  @endif
                             </th>
+                            <th>{{ $item->remark }}</th>
                             <th>
                                 {{-- <button type="button" class="btn btn-primary">Edit</button> --}}
                                 <a href="{{ route('projects.edit', ['id' => encrypt($item->archives_id)]) }}" class="btn btn-primary btn-sm">Edit</a>
