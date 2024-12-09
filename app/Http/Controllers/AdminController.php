@@ -1468,6 +1468,14 @@ class AdminController extends Controller
                 foreach($data as $row)
                 {
 
+                    if($item->status == 1){
+                        $stat = '<span class="badge bg-success">Approved</span>';
+                    }elseif($item->status == 0){
+                        $stat ='<span class="badge bg-danger">Rejected</span>';
+                    }else{
+                       $stat = '<span class="badge bg-warning">Pending</span>';
+                    }
+
                     $output .= '
                     <tr>
                         <td>'.$row->archives_id.'</td>
@@ -1477,7 +1485,7 @@ class AdminController extends Controller
                         <td>'.$row->archive_code.'</td>
                         <td>'.$row->department_name.'</td>
                         <td>'.$row->curriculum_name.'</td>
-                          <td>'.$row->status.'</td>
+                        <td>'.$stat.'</td>
                     </tr>
                     ';
                 }
@@ -1606,6 +1614,14 @@ class AdminController extends Controller
                 foreach($data as $row)
                 {
 
+                if($item->status == 1){
+                    $stat = '<span class="badge bg-success">Approved</span>';
+                }elseif($item->status == 0){
+                    $stat ='<span class="badge bg-danger">Rejected</span>';
+                }else{
+                   $stat = '<span class="badge bg-warning">Pending</span>';
+                }
+
                     $output .= '
                     <tr>
                         <td>'.$row->archives_id.'</td>
@@ -1615,7 +1631,7 @@ class AdminController extends Controller
                         <td>'.$row->archive_code.'</td>
                         <td>'.$row->department_name.'</td>
                         <td>'.$row->curriculum_name.'</td>
-                         <td>'.$row->status.'</td>
+                        <td>'.$$stat.'</td>
                     </tr>
                     ';
                 }
