@@ -199,7 +199,7 @@ class StaffController extends Controller
                                         </button>
                                         <div class="dropdown-menu" role="menu">
 
-                                 '. $view.'
+                                 '.$view.'
                                  '.$edit.'
                                  '.$delete.'
                             </div>
