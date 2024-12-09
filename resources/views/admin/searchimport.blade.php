@@ -50,9 +50,9 @@
                                 <label for="To">To</label>
                                 <input type="date" id="to" name="to" class="form-control" />
                             </div>
-                            <div class="col-md-3">
+                            <div class="col-md-3" style="margin-top:5%">
                                 <label  style="color:white">x</label>
-                                <input type="button" class="btn btn-success mt-3" value="Filter"/>
+                                <input type="button" class="btn btn-success" value="Filter"/>
                             </div>
                         </div>
                     <hr>
