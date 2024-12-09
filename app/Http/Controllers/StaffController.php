@@ -529,7 +529,7 @@ public function ViewTotalprojects(Request $request){
     ->leftjoin('archives','archives.student_id','=','users.id')
     ->leftjoin('curricula','curricula.id','=','archives.curriculum_id')
     ->leftjoin('departments','departments.id','=','archives.department_id')
-    ->where('archives.type', 'Standalone BSTM Thesis')
+    ->where('archives.type', 'BSTM Thesis')
     ->orderBy('archives.id','DESC')
     ->get();
 
