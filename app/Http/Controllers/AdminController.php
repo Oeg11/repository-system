@@ -1506,7 +1506,7 @@ class AdminController extends Controller
                 //end Absent Part
                  $output .= '
                   <tr>
-                    <td colspan="9" class="mt-3"><h6>Total Type: <span style="background-color:#1bdce3;padding: 1px 1px 1px 1px; border-radius:6px;color:#fff">'.$TotalTypes.'</span></h6></td>
+                    <td colspan="9" class="mt-3"><h6>Total Type: <span style="background-color:#1bdce3;padding: 1px 3px 1px 3px; border-radius:6px;color:#fff">'.$TotalTypes.'</span></h6></td>
                  </tr>
                   ';
 
