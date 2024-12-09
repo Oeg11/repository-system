@@ -252,8 +252,13 @@
             console.log("=================status===============");
             console.log(status);
 
+            remark = $(this).data('remark');
+            console.log("=================remark===============");
+            console.log(remark);
+
             $('#edit_id').val(id);
             $('#edit_status').val(status);
+            $('#edit_remark').val(remark);
 
 
         });
