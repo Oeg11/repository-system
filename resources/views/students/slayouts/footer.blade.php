@@ -282,11 +282,8 @@
                                       }
 
                                       if (response.errors) {
-                                            $('#check-error').hide();
-                                        } else {
-                                            $('#check-error').show();
+                                        $('#check-error').html(response.errors[0]);
                                         }
-
                                     //   if (response.errors.click_checkbox) {
                                     //        $('#check-error').html(response.errors.click_checkbox[0]);
                                     //     }
