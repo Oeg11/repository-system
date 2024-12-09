@@ -873,7 +873,7 @@ class StudentController extends Controller
 
         $validator = Validator::make($request->all(), [
 
-              'type' =>'required',
+               'type' =>'required',
                'category' =>'required',
                'department_id' =>'required',
                'curriculum_id' =>'required',

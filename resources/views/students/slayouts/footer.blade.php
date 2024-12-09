@@ -244,6 +244,9 @@
 
                             if(response.errors){
 
+                                 if(response.errors.type){
+                                        $('#type-error').html(response.errors.type[0]);
+                                      }
                                   if(response.errors.category){
                                         $('#category-error').html(response.errors.category[0]);
                                       }
