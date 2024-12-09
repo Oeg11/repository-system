@@ -885,7 +885,7 @@ class AdminController extends Controller
         ->leftjoin('archives','archives.student_id','=','users.id')
         ->leftjoin('curricula','curricula.id','=','archives.curriculum_id')
         ->leftjoin('departments','departments.id','=','archives.department_id')
-        ->where('archives.category', 'Web Application')
+        ->where('archives.type', 'Capstone 2')
         ->orderBy('archives.id','DESC')
         ->get();
 
@@ -917,7 +917,7 @@ class AdminController extends Controller
         ->leftjoin('archives','archives.student_id','=','users.id')
         ->leftjoin('curricula','curricula.id','=','archives.curriculum_id')
         ->leftjoin('departments','departments.id','=','archives.department_id')
-        ->where('archives.category', 'Mobile Application')
+        ->where('archives.type', 'CS Thesis 2')
         ->orderBy('archives.id','DESC')
         ->get();
 
@@ -950,7 +950,7 @@ class AdminController extends Controller
         ->leftjoin('archives','archives.student_id','=','users.id')
         ->leftjoin('curricula','curricula.id','=','archives.curriculum_id')
         ->leftjoin('departments','departments.id','=','archives.department_id')
-        ->where('archives.category', 'PC Application')
+        ->where('archives.type', 'SHS Practical Research')
         ->orderBy('archives.id','DESC')
         ->get();
 
@@ -984,7 +984,7 @@ class AdminController extends Controller
         ->leftjoin('archives','archives.student_id','=','users.id')
         ->leftjoin('curricula','curricula.id','=','archives.curriculum_id')
         ->leftjoin('departments','departments.id','=','archives.department_id')
-        ->where('archives.category', 'Standalone Application')
+        ->where('archives.type', 'BSTM Thesis')
         ->orderBy('archives.id','DESC')
         ->get();
 
