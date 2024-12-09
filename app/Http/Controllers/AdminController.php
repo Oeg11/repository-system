@@ -1361,7 +1361,7 @@ class AdminController extends Controller
 
     public function AdminSearchReports(Request $request){
 
-        $types = archive::all();
+        $types = archive::select('DISTINCT(type) as type')->get();
         $systeminformation = SystemInformation::all();
         return view('admin.searchimport', compact('systeminformation','types'));
 
