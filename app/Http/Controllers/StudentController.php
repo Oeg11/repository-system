@@ -474,31 +474,35 @@ class StudentController extends Controller
 
     public function ViewProject(Request $request){
 
-
-        $archive = DB::table('student_models')
+        $archive = DB::table('archives')
         ->select(
-            'student_models.id as student_id',
-            'student_models.fullname',
-            'student_models.email',
-            'archives.id as archives_id',
-            'archives.student_id',
-            'archives.student_foreign_id',
-            'archives.title',
-            'archives.abstract',
-            'archives.banner_path',
-            'archives.status',
-            'archives.category',
-            'archives.created_at',
-            'archives.archive_code',
-            'curricula.name as curriculum_name',
-            'departments.name as department_name',
+                'users.id as student_id',
+                'users.name',
+                'users.email',
+                'student_models.id as students_id',
+                'student_models.fullname',
+                'student_models.email as student_email',
+                'archives.id as archives_id',
+                'archives.student_id',
+                'archives.title',
+                'archives.abstract',
+                'archives.banner_path',
+                'archives.student_foreign_id',
+                'archives.status',
+                'archives.category',
+                'archives.created_at',
+                'archives.archive_code',
+                'curricula.name as curriculum_name',
+                'departments.name as department_name',
             )
-        ->leftjoin('archives','archives.student_foreign_id','=','student_models.id')
-        ->leftjoin('curricula','curricula.id','=','student_models.curriculum_id')
-        ->leftjoin('departments','departments.id','=','student_models.department_id')
+        ->leftjoin('users','users.id','=','archives.student_id')//google auth id
+        ->leftjoin('student_models','student_models.id','=','archives.student_foreign_id')//student id
+        ->leftjoin('curricula','curricula.id','=','archives.curriculum_id')
+        ->leftjoin('departments','departments.id','=','archives.department_id')
         ->where(['archives.type' => 'Capstone 2', 'archives.student_foreign_id' => Auth::user()->id])
         ->orderBy('archives.id','DESC')
         ->get();
+
 
 
         $systeminformation = SystemInformation::all();
@@ -508,31 +512,35 @@ class StudentController extends Controller
 
     public function ViewResearch(Request $request){
 
-
-        $archive = DB::table('student_models')
+        $archive = DB::table('archives')
         ->select(
-            'student_models.id as student_id',
-            'student_models.fullname',
-            'student_models.email',
-            'archives.id as archives_id',
-            'archives.student_id',
-            'archives.student_foreign_id',
-            'archives.title',
-            'archives.abstract',
-            'archives.banner_path',
-            'archives.status',
-            'archives.category',
-            'archives.created_at',
-            'archives.archive_code',
-            'curricula.name as curriculum_name',
-            'departments.name as department_name',
+                'users.id as student_id',
+                'users.name',
+                'users.email',
+                'student_models.id as students_id',
+                'student_models.fullname',
+                'student_models.email as student_email',
+                'archives.id as archives_id',
+                'archives.student_id',
+                'archives.title',
+                'archives.abstract',
+                'archives.banner_path',
+                'archives.student_foreign_id',
+                'archives.status',
+                'archives.category',
+                'archives.created_at',
+                'archives.archive_code',
+                'curricula.name as curriculum_name',
+                'departments.name as department_name',
             )
-        ->leftjoin('archives','archives.student_foreign_id','=','student_models.id')
-        ->leftjoin('curricula','curricula.id','=','student_models.curriculum_id')
-        ->leftjoin('departments','departments.id','=','student_models.department_id')
+        ->leftjoin('users','users.id','=','archives.student_id')//google auth id
+        ->leftjoin('student_models','student_models.id','=','archives.student_foreign_id')//student id
+        ->leftjoin('curricula','curricula.id','=','archives.curriculum_id')
+        ->leftjoin('departments','departments.id','=','archives.department_id')
         ->where(['archives.type' => 'CS Thesis 2', 'archives.student_foreign_id' => Auth::user()->id])
         ->orderBy('archives.id','DESC')
         ->get();
+
 
         $systeminformation = SystemInformation::all();
         return view('students.viewresearch', compact('archive','systeminformation'));
@@ -542,30 +550,35 @@ class StudentController extends Controller
     public function ViewCapstonethesis(Request $request){
 
 
-        $archive = DB::table('student_models')
+        $archive = DB::table('archives')
         ->select(
-            'student_models.id as student_id',
-            'student_models.fullname',
-            'student_models.email',
-            'archives.id as archives_id',
-            'archives.student_id',
-            'archives.student_foreign_id',
-            'archives.title',
-            'archives.abstract',
-            'archives.banner_path',
-            'archives.status',
-            'archives.category',
-            'archives.created_at',
-            'archives.archive_code',
-            'curricula.name as curriculum_name',
-            'departments.name as department_name',
+                'users.id as student_id',
+                'users.name',
+                'users.email',
+                'student_models.id as students_id',
+                'student_models.fullname',
+                'student_models.email as student_email',
+                'archives.id as archives_id',
+                'archives.student_id',
+                'archives.title',
+                'archives.abstract',
+                'archives.banner_path',
+                'archives.student_foreign_id',
+                'archives.status',
+                'archives.category',
+                'archives.created_at',
+                'archives.archive_code',
+                'curricula.name as curriculum_name',
+                'departments.name as department_name',
             )
-        ->leftjoin('archives','archives.student_foreign_id','=','student_models.id')
-        ->leftjoin('curricula','curricula.id','=','student_models.curriculum_id')
-        ->leftjoin('departments','departments.id','=','student_models.department_id')
+        ->leftjoin('users','users.id','=','archives.student_id')//google auth id
+        ->leftjoin('student_models','student_models.id','=','archives.student_foreign_id')//student id
+        ->leftjoin('curricula','curricula.id','=','archives.curriculum_id')
+        ->leftjoin('departments','departments.id','=','archives.department_id')
         ->where(['archives.type' => 'SHS Practical Research', 'archives.student_foreign_id' => Auth::user()->id])
         ->orderBy('archives.id','DESC')
         ->get();
+
 
         $systeminformation = SystemInformation::all();
         return view('students.viewcapstonethesis', compact('archive','systeminformation'));
@@ -575,30 +588,36 @@ class StudentController extends Controller
     public function ViewTotalprojects(Request $request){
 
 
-        $archive = DB::table('student_models')
+
+        $archive = DB::table('archives')
         ->select(
-            'student_models.id as student_id',
-            'student_models.fullname',
-            'student_models.email',
-            'archives.id as archives_id',
-            'archives.student_id',
-            'archives.student_foreign_id',
-            'archives.title',
-            'archives.abstract',
-            'archives.banner_path',
-            'archives.status',
-            'archives.category',
-            'archives.created_at',
-            'archives.archive_code',
-            'curricula.name as curriculum_name',
-            'departments.name as department_name',
+                'users.id as student_id',
+                'users.name',
+                'users.email',
+                'student_models.id as students_id',
+                'student_models.fullname',
+                'student_models.email as student_email',
+                'archives.id as archives_id',
+                'archives.student_id',
+                'archives.title',
+                'archives.abstract',
+                'archives.banner_path',
+                'archives.student_foreign_id',
+                'archives.status',
+                'archives.category',
+                'archives.created_at',
+                'archives.archive_code',
+                'curricula.name as curriculum_name',
+                'departments.name as department_name',
             )
-        ->leftjoin('archives','archives.student_foreign_id','=','student_models.id')
-        ->leftjoin('curricula','curricula.id','=','student_models.curriculum_id')
-        ->leftjoin('departments','departments.id','=','student_models.department_id')
+        ->leftjoin('users','users.id','=','archives.student_id')//google auth id
+        ->leftjoin('student_models','student_models.id','=','archives.student_foreign_id')//student id
+        ->leftjoin('curricula','curricula.id','=','archives.curriculum_id')
+        ->leftjoin('departments','departments.id','=','archives.department_id')
         ->where(['archives.type' => 'BSTM Thesis', 'archives.student_foreign_id' => Auth::user()->id])
         ->orderBy('archives.id','DESC')
         ->get();
+
 
         $systeminformation = SystemInformation::all();
         return view('students.viewtotalprojects', compact('archive','systeminformation'));
