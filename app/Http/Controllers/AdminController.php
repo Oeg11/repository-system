@@ -1372,6 +1372,7 @@ class AdminController extends Controller
 
         $date1 =  \Carbon\Carbon::parse($request->date1);
         $date2 =  \Carbon\Carbon::parse($request->date2);
+        $type =  $request->type;
         if($request->ajax())
         {
 
@@ -1421,7 +1422,7 @@ class AdminController extends Controller
                 ->leftjoin('users','users.id','=','archives.student_foreign_id')
                 ->leftjoin('curricula','curricula.id','=','archives.curriculum_id')
                 ->leftjoin('departments','departments.id','=','archives.department_id')
-                ->where('archives.type',  $request->type)
+                ->where('archives.type',  $type)
                 ->whereBetween('archives.create_at', [$date1, $date2])
                ->get();
 
@@ -1456,7 +1457,7 @@ class AdminController extends Controller
                 ->leftjoin('users','users.id','=','archives.student_foreign_id')
                 ->leftjoin('curricula','curricula.id','=','archives.curriculum_id')
                 ->leftjoin('departments','departments.id','=','archives.department_id')
-                ->where('archives.type',  $request->type)
+                ->where('archives.type',  $type)
                 ->whereBetween('archives.create_at', [$date1, $date2])
                ->get();
             }

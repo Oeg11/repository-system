@@ -656,7 +656,7 @@
       }else{
         $date1 = $('.date1').val();
         $date2 = $('.date2').val();
-        $type_ = $('#type option:selected').val();
+        $type = $('#type option:selected').val();
         $('#load_data').empty();
         $loader = $('<tr ><td colspan = "10"><center>Searching....</center></td></tr>');
         $loader.appendTo('#load_data');
@@ -673,7 +673,7 @@
             data: {
               date1: $date1,
               date2: $date2,
-              type: $type_,
+              type: $type,
             },
             success: function(res){
 
