@@ -1474,7 +1474,7 @@ class AdminController extends Controller
                         <td>'.$row->archives_id.'</td>
                         <td style="text-transform: capitalize;">'.$row->type.'</td>
                         <td>'.$row->category.'</td>
-                        <td>'.$row->create_at.'</td>
+                        <td>'.$row->created_at.'</td>
                         <td>'.$row->archive_code.'</td>
                         <td>'.$row->department_name.'</td>
                         <td>'.$curriculum_name.'</td>
