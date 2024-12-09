@@ -692,6 +692,53 @@
 
 
 
+<script type="text/javascript">
+    $(document).ready(function(){
+    $('#category option:selected').val();
+    $('.date1').val();
+    $('.date2').val();
+    $('#btn_search').on('click', function(){
+      if($('.date1').val() == "" || $('.date2').val() == ""){
+        alert("Please enter Date 'From' and 'To' before submit");
+      }else{
+        $date1 = $('.date1').val();
+        $date2 = $('.date2').val();
+        $category = $('#category option:selected').val();
+        $('#load_data').empty();
+        $loader = $('<tr ><td colspan = "10"><center>Searching....</center></td></tr>');
+        $loader.appendTo('#load_data');
+        setTimeout(function(){
+          $loader.remove();
+          $.ajaxSetup({
+            headers: {
+                    'X-CSRF-TOKEN': $('meta[name="csrf-token"]').attr('content')
+                }
+            });
+          $.ajax({
+            url: "{{ route("admin.categoryreports") }}",
+            type: 'POST',
+            data: {
+              date1: $date1,
+              date2: $date2,
+              category: $category,
+            },
+            success: function(res){
+
+             $('#load_data').html(res);
+            }
+          });
+        }, 1000);
+      }
+    });
+
+    $('#reset').on('click', function(){
+      location.reload();
+    });
+  });
+</script>
+
+
+
 
 <script type="text/javascript">
   $(window).on('load', function(){

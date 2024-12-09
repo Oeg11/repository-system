@@ -1506,4 +1506,153 @@ class AdminController extends Controller
     }
 
 
+
+    public function AdminFilterCategoryReports(Request $request){
+
+        $date1 =  \Carbon\Carbon::parse($request->date1);
+        $date2 =  \Carbon\Carbon::parse($request->date2);
+        $category =  $request->category;
+        if($request->ajax())
+        {
+
+            $output = '';
+            $output .="
+            <table>
+            <thead>
+                <tr>
+                    <th>ID</th>
+                    <th>Type</th>
+                    <th>Category</th>
+                    <th>Date Created</th>
+                    <th>Archive Code</th>
+                    <th>Project Title</th>
+                    <th>Department</th>
+                    <th>Curriculum</th>
+                    <th>Status</th>
+                </tr>
+            <tbody id='load_data'>
+        ";
+            $query = $request->get('query');
+            if($query != '')
+            {
+                $data = DB::table('archives')
+                ->select(
+                    'student_models.id as student_id',
+                    'student_models.fullname',
+                    'student_models.email',
+                    'users.name',
+                    'users.email',
+                    'users.role',
+                    'users.status',
+                    'archives.id as archives_id',
+                    'archives.student_id',
+                    'archives.student_foreign_id',
+                    'archives.title',
+                    'archives.abstract',
+                    'archives.banner_path',
+                    'archives.status as archives_status',
+                    'archives.category',
+                    'archives.created_at',
+                    'archives.archive_code',
+                    'curricula.name as curriculum_name',
+                    'departments.name as department_name',
+                    )
+                ->leftjoin('student_models','student_models.id','=','archives.student_id')
+                ->leftjoin('users','users.id','=','archives.student_foreign_id')
+                ->leftjoin('curricula','curricula.id','=','archives.curriculum_id')
+                ->leftjoin('departments','departments.id','=','archives.department_id')
+                ->where('archives.category',  $category)
+                ->whereBetween('archives.created_at', [$date1, $date2])
+               ->get();
+
+
+            }
+            else
+            {
+                $data = DB::table('archives')
+                ->select(
+                    'student_models.id as student_id',
+                    'student_models.fullname',
+                    'student_models.email',
+                    'users.name',
+                    'users.email',
+                    'users.role',
+                    'users.status',
+                    'archives.id as archives_id',
+                    'archives.student_id',
+                    'archives.student_foreign_id',
+                    'archives.title',
+                    'archives.abstract',
+                    'archives.banner_path',
+                    'archives.status',
+                    'archives.type',
+                    'archives.category',
+                    'archives.created_at',
+                    'archives.archive_code',
+                    'curricula.name as curriculum_name',
+                    'departments.name as department_name',
+                    )
+                ->leftjoin('student_models','student_models.id','=','archives.student_id')
+                ->leftjoin('users','users.id','=','archives.student_foreign_id')
+                ->leftjoin('curricula','curricula.id','=','archives.curriculum_id')
+                ->leftjoin('departments','departments.id','=','archives.department_id')
+                ->where('archives.category',  $category)
+                ->whereBetween('archives.created_at', [$date1, $date2])
+               ->get();
+            }
+
+            $total_row = $data->count();
+
+            if($total_row > 0)
+            {
+                foreach($data as $row)
+                {
+
+                    $output .= '
+                    <tr>
+                        <td>'.$row->archives_id.'</td>
+                        <td style="text-transform: capitalize;">'.$row->type.'</td>
+                        <td>'.$row->category.'</td>
+                        <td>'.$row->created_at.'</td>
+                        <td>'.$row->archive_code.'</td>
+                        <td>'.$row->department_name.'</td>
+                        <td>'.$row->curriculum_name.'</td>
+                    </tr>
+                    ';
+                }
+
+             }
+            else
+            {
+                $output = '
+                <tr>
+                    <td colspan="10"><center>No Data Found</center></td>
+                </tr>
+                ';
+            }
+            $data = array(
+                'table_data' => $output,
+                //'total_data' => $total_row
+            );
+
+            $data = implode(" ", $data);
+
+            return response()->json($data);
+
+
+        }
+
+    }
+
+
+
+    public function AdminSearchCategoryReports(Request $request){
+
+        $categorys = archive::select('category')->distinct()->get();
+        $systeminformation = SystemInformation::all();
+        return view('admin.searchcategory', compact('systeminformation','categorys'));
+
+    }
+
+
 }

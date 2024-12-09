@@ -28,17 +28,17 @@
           <div class="col-12">
             <div class="card">
               <div class="card-header">
-                 <h2>Search Type Reports</h2>
+                 <h2>Search Category Reports</h2>
               </div>
               <!-- /.card-header -->
               <div class="card-body">
                  <form method="POST">
                 <div class="row d-flex">
                                 <div class="col-md-3">
-                                    <label for="country">Type</label>
-                                    <select class="form-control" id="type">
-                                        @foreach ($types as $row)
-                                            <option value="{{ $row->type }}">{{ $row->type }}</option>
+                                    <label for="country">Category</label>
+                                    <select class="form-control" id="category">
+                                        @foreach ($categorys as $row)
+                                            <option value="{{ $row->category }}">{{ $row->category }}</option>
                                         @endforeach
                                     </select>
                                 </div>
