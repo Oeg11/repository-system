@@ -262,23 +262,8 @@ class StudentController extends Controller
         $getSearchurl = $request->q;
 
 
-        $ranks = DB::table('student_models')
-        ->select(
-            'student_models.id',
-            'student_models.fullname',
-            'student_models.email',
-            'archives.student_id',
-            'archives.title',
-            'archives.abstract',
-            'archives.count_rank',
-            'archives.banner_path')
-        ->leftjoin('archives','archives.student_id','=','student_models.id')
-        ->where('archives.status',  1)
-        ->orderBy('archives.count_rank','DESC')
-        ->get();
-
         $systeminformation = SystemInformation::all();
-        return view('students.projects',compact('systeminformation','paginates','getSearchurl','ranks'));
+        return view('students.projects',compact('systeminformation','paginates','getSearchurl'));
     }
 
 
@@ -300,23 +285,6 @@ class StudentController extends Controller
         // ->get();
 
 
-        $ranks = DB::table('student_models')
-        ->select(
-            'student_models.id',
-            'student_models.fullname',
-            'student_models.email',
-            'archives.student_id',
-            'archives.title',
-            'archives.abstract',
-            'archives.count_rank',
-            'archives.banner_path')
-        ->leftjoin('archives','archives.student_id','=','student_models.id')
-        ->where('archives.status',  1)
-        ->orderBy('archives.count_rank','DESC')
-        ->get();
-        // ->get();
-
-
         $paginates = archive::query()
         ->when(
             $request->q,
@@ -329,7 +297,7 @@ class StudentController extends Controller
         ->latest()->paginate(3);
         $getSearchurl = $request->q;
         $systeminformation = SystemInformation::all();
-           return view('students.projects', compact('systeminformation','archive','paginates','getSearchurl','ranks'));
+           return view('students.projects', compact('systeminformation','archive','paginates','getSearchurl'));
      }
 
 

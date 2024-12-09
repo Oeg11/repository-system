@@ -51,8 +51,8 @@
                                     <p class="mb-0 w-100"style="color:#8c8c8c;font-size:11px">
                                        {{
                                         Str::ucfirst($item->category) }}</p><Br>
-    
-    
+
+
                                     </p><br>
 
                                 <p class="mb-0 w-100"> {!!
@@ -111,7 +111,7 @@
                     <ul class="list-group list-group-flush">
 
                         @php
-                        
+
                         $ranks = DB::table('archives')
                             ->select(
                                 'archives.id',
@@ -122,7 +122,7 @@
                             ->where('archives.status',  1)
                             ->orderBy('archives.count_rank','DESC')
                             ->get();
- 
+
                         @endphp
 
                         @foreach ($ranks as $row)
