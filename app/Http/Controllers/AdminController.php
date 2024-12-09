@@ -1468,9 +1468,9 @@ class AdminController extends Controller
                 foreach($data as $row)
                 {
 
-                    if($item->status == 1){
+                    if($row->status == 1){
                         $stat = '<span class="badge bg-success">Approved</span>';
-                    }elseif($item->status == 0){
+                    }elseif($row->status == 0){
                         $stat ='<span class="badge bg-danger">Rejected</span>';
                     }else{
                        $stat = '<span class="badge bg-warning">Pending</span>';
@@ -1614,9 +1614,9 @@ class AdminController extends Controller
                 foreach($data as $row)
                 {
 
-                if($item->status == 1){
+                if($row->status == 1){
                     $stat = '<span class="badge bg-success">Approved</span>';
-                }elseif($item->status == 0){
+                }elseif($row->status == 0){
                     $stat ='<span class="badge bg-danger">Rejected</span>';
                 }else{
                    $stat = '<span class="badge bg-warning">Pending</span>';
