@@ -175,7 +175,15 @@
                 </div>
              </div>
 
+             <div class="row mt-3">
+                <div class="col-md-6">
+                   <div class="form-group">
+                         <input type="checkbox" id="click_checkbox"  value="1" data-toggle="modal" data-target="#termandprivacy" /> <b>I agree to the terms and privacy policy.</b>
 
+                      </div>
+                      <span id="check-error" class="text-danger"></span>
+                </div>
+            </div>
 
              <div class="row mt-3">
                 <div class="col-md-12">
@@ -195,5 +203,19 @@
 
     </div>
 
+
+    @include('studentgoogleauth.modal.termandprivacy')
+
     @endsection
+
+    <script>
+        $(document).ready(function(){
+                ​$("#click_checkbox").on("change", function(e){
+                    if(e.target.checked){
+                    $('#termandprivacy').modal();
+                }
+                });
+
+            });
+    </script>
 
