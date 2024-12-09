@@ -95,7 +95,7 @@ class StudentController extends Controller
                 'adviser' =>'required',
                 'banner_path' =>'required|mimes:png,jpg,jpeg|max:2048',
                 'document_path' =>'required',
-                'click_checkbox' => 'required|boolean',
+                'click_checkbox' =>  'accepted',
             ],[
 
                 'type.required' => 'Please select type',
@@ -109,7 +109,7 @@ class StudentController extends Controller
                 'adviser.required' => 'Please input your Adviser',
                 'banner_path.required' => 'Please upload sample Image',
                 'document_path.required' => 'Please Attached document',
-                'click_checkbox.required' => 'Please click a Term and Privacy Policy'
+                'accepted.required' => 'Please click a Term and Privacy'
 
             ]);
 
@@ -873,7 +873,7 @@ class StudentController extends Controller
 
         $validator = Validator::make($request->all(), [
 
-              'type' =>'required',
+               'type' =>'required',
                'category' =>'required',
                'department_id' =>'required',
                'curriculum_id' =>'required',
@@ -884,6 +884,7 @@ class StudentController extends Controller
                'adviser' =>'required',
                'banner_path' =>'required|mimes:png,jpg,jpeg|max:2048',
                'document_path' =>'required',
+                'click_checkbox' =>  'accepted',
            ],[
 
                'type.required' => 'Please select type',
@@ -896,7 +897,8 @@ class StudentController extends Controller
                'members.required' => 'Please enter members',
                'adviser.required' => 'Please input your Adviser',
                'banner_path.required' => 'Please upload sample Image',
-               'document_path.required' => 'Please Attached document'
+               'document_path.required' => 'Please Attached document',
+               'accepted.required' => 'Please click a Term and Privacy'
 
            ]);
 
