@@ -1519,6 +1519,9 @@ class AdminController extends Controller
             ->get();
 
 
+            foreach ($TotalRanks as $row){
+
+              $totalRank = $row->total;
 
                 //end Absent Part
                  $output .= '
@@ -1530,7 +1533,7 @@ class AdminController extends Controller
                     </tr>
                   ';
 
-
+                }
 
              }
             else
