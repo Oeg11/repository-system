@@ -186,7 +186,7 @@
 
             <li class="nav-item">
                 <a href="{{route('admin.backupdb')}}" class="nav-link btns">
-                    <i class="nav-icon fa fa-print"></i>
+                    <i class="nav-icon fa fa-database"></i>
                   <p>
                      Backup Database
                   </p>
