@@ -247,6 +247,9 @@
 
                             if(response.errors){
 
+                                console.log("======================click_checkbox=======================");
+                                console.log(response.errors.click_checkbox);
+
 
                                   if(response.errors.category){
                                         $('#category-error').html(response.errors.category[0]);
