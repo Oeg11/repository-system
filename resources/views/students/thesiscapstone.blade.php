@@ -168,7 +168,7 @@
              <div class="row mt-3">
                 <div class="col-md-6">
                    <div class="form-group">
-                       <label><b>Project Document (PDF File Only)</b></label>
+                       <label><b>Project Document (PDF File Only / 5MB max file)</b></label>
                          <input type="file" id="document_path" name="document_path" class="form-control form-control-lg " accept=".pdf">
                       </div>
                       <span id="document_path-error" class="text-danger"></span>
