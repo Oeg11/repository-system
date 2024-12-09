@@ -648,8 +648,8 @@
 <script type="text/javascript">
     $(document).ready(function(){
     $('#type option:selected').val();
-    $('.date1').datepicker();
-    $('.date2').datepicker();
+    $('.date1').val();
+    $('.date2').val();
     $('#btn_search').on('click', function(){
       if($('.date1').val() == "" || $('.date2').val() == ""){
         alert("Please enter Date 'From' and 'To' before submit");
