@@ -1522,7 +1522,6 @@ class AdminController extends Controller
             foreach ($TotalRanks as $row){
 
               $total = $row->total;
-            }
 
 
 
@@ -1536,6 +1535,7 @@ class AdminController extends Controller
                     </tr>
                   ';
 
+                }
 
              }
             else
