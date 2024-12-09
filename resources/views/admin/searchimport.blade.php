@@ -53,7 +53,7 @@
                             </div>
                             <div class="col-md-3" style="margin-top:3%">
                                 <label  style="color:white">x</label>
-                                <input type="button" class="btn btn-success" id="btn_search" value="Filter"/>
+                                <button type="button" class="btn btn-primary" id="btn_search"><em class="icon ni ni-search"></em></button>
                             </div>
                         </div>
 
