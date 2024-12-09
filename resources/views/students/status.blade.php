@@ -19,15 +19,16 @@
 
                     <table id="example1" class="table table-bordered table-striped">
                         <thead>
-                          <tr>
-                            <th scope="col">Date Created</th>
-                            <th scope="col">Archive Code</th>
-                            {{-- <th scope="col">Category</th> --}}
-                            <th scope="col">Project Title</th>
-                            <th scope="col">Curriculum</th>
-                            <th scope="col">Status</th>
-                            <th scope="col">Action</th>
-                          </tr>
+                            <tr>
+                                <th scope="col">Date Created</th>
+                                <th scope="col">Archive Code</th>
+                                {{-- <th scope="col">Category</th> --}}
+                                <th scope="col">Project Title</th>
+                                {{-- <th scope="col">Curriculum</th> --}}
+                                <th scope="col">Status</th>
+                                <th scope="col">Remarks</th>
+                                <th scope="col">Action</th>
+                              </tr>
                         </thead>
                         <tbody>
                             @foreach ($archive as $item)
@@ -36,7 +37,7 @@
                             <th>{{ $item->archive_code }}</th>
                             {{-- <th>{{ $item->category }}</th> --}}
                             <th>{{ $item->title }}</th>
-                            <th>{{ $item->curriculum_name }}</th>
+                            {{-- <th>{{ $item->curriculum_name }}</th> --}}
                             <th>
                                 @if($item->status == 1)
                                 <span class="badge bg-success">Approved</span>
