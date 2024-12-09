@@ -647,7 +647,7 @@
 
 <script type="text/javascript">
     $(document).ready(function(){
-    $('#type_').val();
+    $('#type option:selected').val();
     $('.date1').val();
     $('.date2').val();
     $('#btn_search').on('click', function(){
@@ -656,7 +656,7 @@
       }else{
         $date1 = $('.date1').val();
         $date2 = $('.date2').val();
-        $type = $('#type_').val();
+        $type = $('#type option:selected').val();
         $('#load_data').empty();
         $loader = $('<tr ><td colspan = "10"><center>Searching....</center></td></tr>');
         $loader.appendTo('#load_data');
