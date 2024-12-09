@@ -203,11 +203,13 @@
            console.log("========================student_foreign_id========================");
            console.log(student_foreign_id);
 
-           var click_checkbox =  $('#click_checkbox').is(':checked') ? "true" : "false"; //
+        //    var click_checkbox =  $('#click_checkbox').is(':checked') ? "true" : "false"; //
+        //    console.log("========================click_checkbox========================");
+        //    console.log(click_checkbox);
+
+        var click_checkbox = $(this).is(':checked');
            console.log("========================click_checkbox========================");
            console.log(click_checkbox);
-
-
 
            var data = new FormData(this.form);
 
@@ -281,8 +283,13 @@
                                       }
 
                                       if(response.errors.click_checkbox){
-                                        $('#check-error').html("Please click a Term and Privacy Policy");
-                                      }
+                                           $('#check-error').hide();
+                                        } else {
+                                            $('#check-error').show();
+                                        }
+
+                                        //$('#check-error').html("Please click a Term and Privacy Policy");
+
 
 
                             }
