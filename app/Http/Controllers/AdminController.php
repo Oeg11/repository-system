@@ -1418,7 +1418,7 @@ class AdminController extends Controller
                     'curricula.name as curriculum_name',
                     'departments.name as department_name',
                     )
-                ->leftjoin('student_models','student_models.student_id','=','archives.student_id')
+                ->leftjoin('student_models','student_models.id','=','archives.student_id')
                 ->leftjoin('users','users.id','=','archives.student_foreign_id')
                 ->leftjoin('curricula','curricula.id','=','archives.curriculum_id')
                 ->leftjoin('departments','departments.id','=','archives.department_id')
@@ -1453,7 +1453,7 @@ class AdminController extends Controller
                     'curricula.name as curriculum_name',
                     'departments.name as department_name',
                     )
-                ->leftjoin('student_models','student_models.student_id','=','archives.student_id')
+                ->leftjoin('student_models','student_models.id','=','archives.student_id')
                 ->leftjoin('users','users.id','=','archives.student_foreign_id')
                 ->leftjoin('curricula','curricula.id','=','archives.curriculum_id')
                 ->leftjoin('departments','departments.id','=','archives.department_id')
