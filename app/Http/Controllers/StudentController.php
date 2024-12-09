@@ -95,7 +95,7 @@ class StudentController extends Controller
                 'adviser' =>'required',
                 'banner_path' =>'required|mimes:png,jpg,jpeg|max:2048',
                 'document_path' =>'required',
-                // 'click_checkbox' => 'required|boolean',
+                // 'click_checkbox' => 'required',
             ],[
 
                 'type.required' => 'Please select type',
@@ -113,8 +113,10 @@ class StudentController extends Controller
 
             ]);
 
+            $isChecked = $request->input('click_checkbox');
+
             if ($validator->fails()) {
-                return response()->json(['errors' => $validator->errors()]);
+                return response()->json(['errors' => $validator->errors(), 'valid' => false]);
             }
 
         $archive = new archive;
