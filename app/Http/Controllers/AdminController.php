@@ -1631,7 +1631,7 @@ class AdminController extends Controller
                         <td>'.$row->archive_code.'</td>
                         <td>'.$row->department_name.'</td>
                         <td>'.$row->curriculum_name.'</td>
-                        <td>'.$$stat.'</td>
+                        <td>'.$stat.'</td>
                     </tr>
                     ';
                 }
