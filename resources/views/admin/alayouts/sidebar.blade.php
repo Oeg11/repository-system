@@ -198,6 +198,14 @@
                     </a>
                   </li>
 
+                  <li class="nav-item">
+                    <a href="{{route('admin.searchstatusreports')}}" class="nav-link">
+                      <i class="far fa-circle nav-icon"></i>
+                      <p>Search Status Report</p>
+                    </a>
+                  </li>
+
+
 
                   <li class="nav-item">
                     <a href="{{route('admin.reports')}}" class="nav-link">

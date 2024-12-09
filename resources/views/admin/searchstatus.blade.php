@@ -35,11 +35,11 @@
                  <form method="POST">
                 <div class="row d-flex">
                                 <div class="col-md-3">
-                                    <label for="country">Category</label>
-                                    <select class="form-control" id="category">
-                                        @foreach ($categorys as $row)
-                                            <option value="{{ $row->category }}">{{ $row->category }}</option>
-                                        @endforeach
+                                    <label for="country">Status</label>
+                                    <select class="form-control" id="status">
+                                         <option value="0">Reject</option>
+                                         <option value="1">Approved</option>
+                                         <option value="2">Pending</option>
                                     </select>
                                 </div>
 
@@ -53,7 +53,7 @@
                             </div>
                             <div class="col-md-3" style="margin-top:3%">
                                 <label  style="color:white">x</label>
-                                <button type="button" class="btn btn-primary" id="btn_search_2">Filter</button>
+                                <button type="button" class="btn btn-primary" id="btn_search_1">Filter</button>
                             </div>
                         </div>
                     </form>
