@@ -1515,7 +1515,7 @@ class AdminController extends Controller
                ->select('type', DB::raw('SUM(*) as countStatus'))
                ->where('type', $type)
                ->whereBetween('archives.created_at', [$date1, $date2])
-            //    ->groupBy('type')
+                ->groupBy('type')
                ->get();
 
 
