@@ -95,7 +95,7 @@ class StudentController extends Controller
                 'adviser' =>'required',
                 'banner_path' =>'required|mimes:png,jpg,jpeg|max:2048',
                 'document_path' =>'required',
-                'click_checkbox' => 'required',
+                // 'click_checkbox' => 'required',
             ],[
 
                 'type.required' => 'Please select type',
@@ -109,9 +109,17 @@ class StudentController extends Controller
                 'adviser.required' => 'Please input your Adviser',
                 'banner_path.required' => 'Please upload sample Image',
                 'document_path.required' => 'Please Attached document',
-                'click_checkbox.required' => 'Please click a Term and Privacy Policy'
+                // 'click_checkbox.required' => 'Please click a Term and Privacy Policy'
 
             ]);
+
+            $isChecked = $request->input('checked');
+
+            if ($isChecked) {
+                return response()->json(['valid' => true]);
+            } else {
+                return response()->json(['valid' => false]);
+            }
 
             if ($validator->fails()) {
                 return response()->json(['errors' => $validator->errors()]);

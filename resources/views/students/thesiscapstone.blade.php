@@ -181,7 +181,7 @@
                          <input type="checkbox" id="click_checkbox" value="true" data-toggle="modal" data-target="#termandprivacy" /> <b>I agree to the terms and privacy policy.</b>
 
                       </div>
-                      <span id="check-error" class="text-danger"></span>
+                      <span id="check-error" style="color: red; display: none;"></span>
                 </div>
             </div>
 

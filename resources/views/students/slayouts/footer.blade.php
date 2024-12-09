@@ -282,12 +282,11 @@
                                         $('#student_id-error').html(response.errors.student_id[0]);
                                       }
 
-                                      if(response.errors.click_checkbox){
-                                           $('#check-error').hide();
+                                      if (response.valid) {
+                                            $('#check-error').hide();
                                         } else {
                                             $('#check-error').show();
                                         }
-
                                         //$('#check-error').html("Please click a Term and Privacy Policy");
 
 
