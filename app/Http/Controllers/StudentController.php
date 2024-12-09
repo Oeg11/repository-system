@@ -115,11 +115,8 @@ class StudentController extends Controller
 
             $isChecked = $request->input('checked');
 
-            if($isChecked) {
-                return response()->json(['errors' => true]);
-            } else {
-                return response()->json(['errors' => false]);
-            }
+           return response()->json(['errors' => $isChecked]);
+
 
         $archive = new archive;
         $banner_path = "";
