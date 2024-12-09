@@ -1740,7 +1740,7 @@ class AdminController extends Controller
                     'archives.banner_path',
                     'archives.status',
                     'archives.type',
-                    'archives.status',
+                    'archives.category',
                     'archives.created_at',
                     'archives.archive_code',
                     'curricula.name as curriculum_name',
