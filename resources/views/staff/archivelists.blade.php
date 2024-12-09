@@ -283,7 +283,7 @@
                      console.log(status);
 
 
-                    let remark = $('edit_remark').val();
+                    let remark = $('#edit_remark').val();
                     console.log("=================remark===============");
                     console.log(remark);
 
