@@ -1512,7 +1512,7 @@ class AdminController extends Controller
             //    ->count();
 
             $TotalRanks = DB::table('archives')
-            ->select('type', DB::raw('SUM(count_rank) as total'))
+            ->select('type', DB::raw('SUM(count_rank) as totalrank'))
             ->where('type', $type)
             ->whereBetween('created_at', [$date1, $date2])
             ->groupBy('type')
@@ -1521,7 +1521,7 @@ class AdminController extends Controller
 
             foreach ($TotalRanks as $row){
 
-              $totalRank = $row->total;
+              $totalRank = $row->totalrank;
 
                 //end Absent Part
                  $output .= '
@@ -1529,7 +1529,7 @@ class AdminController extends Controller
                     <tr style="background-color:#e3e2e1">
                               <td colspan="2" style="font-size:1rem">Total Type: <span style="background-color:#1bdce3;padding: 2px 2px 2px 2px; border-radius:6px;color:#fff">'.$TotalTypes.'</span></td>
                      <td colspan="1" style="font-size:0.8rem"></td>
-                              <td colspan="8" style="font-size:1rem">Total Rank: <span style="background-color:#a69d41;padding: 2px 2px 2px 2px; border-radius:6px;color:#fff">'.$TotalRanks.'</span></td>
+                              <td colspan="8" style="font-size:1rem">Total Rank: <span style="background-color:#a69d41;padding: 2px 2px 2px 2px; border-radius:6px;color:#fff">'.$totalRank.'</span></td>
                     </tr>
                   ';
 
