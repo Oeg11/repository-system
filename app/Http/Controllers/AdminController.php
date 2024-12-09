@@ -1521,7 +1521,7 @@ class AdminController extends Controller
 
             foreach ($TotalRanks as $row){
 
-              $total = $row['total'];
+              $total = $row->total;
             }
 
 
