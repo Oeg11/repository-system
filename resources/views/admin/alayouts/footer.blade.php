@@ -670,7 +670,6 @@
           $.ajax({
             url: "{{ route("admin.typereports") }}",
             type: 'POST',
-
             data: {
               date1: $date1,
               date2: $date2,
