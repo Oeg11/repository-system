@@ -1438,14 +1438,13 @@ class AdminController extends Controller
                     'users.name',
                     'users.email',
                     'users.role',
-                    'users.status',
                     'archives.id as archives_id',
                     'archives.student_id',
                     'archives.student_foreign_id',
                     'archives.title',
                     'archives.abstract',
                     'archives.banner_path',
-                    'archives.status as archive_status',
+                    'archives.status',
                     'archives.type',
                     'archives.category',
                     'archives.created_at',
@@ -1478,7 +1477,7 @@ class AdminController extends Controller
                         <td>'.$row->archive_code.'</td>
                         <td>'.$row->department_name.'</td>
                         <td>'.$row->curriculum_name.'</td>
-                          <td>'.$row->archive_status.'</td>
+                          <td>'.$row->status.'</td>
                     </tr>
                     ';
                 }
@@ -1544,14 +1543,13 @@ class AdminController extends Controller
                     'users.name',
                     'users.email',
                     'users.role',
-                    'users.status',
                     'archives.id as archives_id',
                     'archives.student_id',
                     'archives.student_foreign_id',
                     'archives.title',
                     'archives.abstract',
                     'archives.banner_path',
-                    'archives.status as archives_status',
+                    'archives.status',
                     'archives.category',
                     'archives.created_at',
                     'archives.archive_code',
@@ -1578,14 +1576,13 @@ class AdminController extends Controller
                     'users.name',
                     'users.email',
                     'users.role',
-                    'users.status',
                     'archives.id as archives_id',
                     'archives.student_id',
                     'archives.student_foreign_id',
                     'archives.title',
                     'archives.abstract',
                     'archives.banner_path',
-                    'archives.status as archives_status',
+                    'archives.status',
                     'archives.type',
                     'archives.category',
                     'archives.created_at',
@@ -1618,7 +1615,7 @@ class AdminController extends Controller
                         <td>'.$row->archive_code.'</td>
                         <td>'.$row->department_name.'</td>
                         <td>'.$row->curriculum_name.'</td>
-                         <td>'.$row->archive_status.'</td>
+                         <td>'.$row->status.'</td>
                     </tr>
                     ';
                 }
