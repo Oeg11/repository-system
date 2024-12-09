@@ -256,9 +256,10 @@
             console.log("=================remark===============");
             console.log(remark);
 
+
+            $('#edit_status_').val(status);
+            $('#edit_remark__').val(remark);
             $('#edit_id').val(id);
-            $('#edit_status').val(status);
-            $('#edit_remark').val(remark);
 
 
         });
@@ -276,12 +277,12 @@
                             }
                         });
 
-                    let status = $('#edit_status').val();
+                    let status = $('#_edit_status').val();
                     console.log("=================status===============");
                      console.log(status);
 
 
-                    let remark = $('edit_remark').val();
+                    let remark = $('edit_remark__').val();
                     console.log("=================remark===============");
                     console.log(remark);
 
