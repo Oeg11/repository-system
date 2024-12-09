@@ -94,7 +94,7 @@ class StudentController extends Controller
                 'members' =>'required',
                 'adviser' =>'required',
                 'banner_path' =>'required|mimes:png,jpg,jpeg|max:2048',
-                'document_path' =>'required',
+                'document_path' =>'required|mimes:pdf|max:4096',
                 'click_checkbox' =>  'accepted',
             ],[
 
