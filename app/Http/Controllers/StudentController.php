@@ -353,6 +353,7 @@ class StudentController extends Controller
            'archives.abstract',
            'archives.members',
            'archives.adviser',
+           'archives.thesis_coordinator',
            'archives.banner_path',
            'archives.document_path',
            'archives.status',
@@ -388,6 +389,7 @@ class StudentController extends Controller
             'abstract' =>'required',
             'members' =>'required',
             'adviser' =>'required',
+            'thesis_coordinator' =>'required',
             'banner_path' =>'required',
             'document_path' =>'required',
         ],[
@@ -401,6 +403,7 @@ class StudentController extends Controller
             'abstract.required' => 'Please enter Abstract',
             'members.required' => 'Please enter members',
             'adviser.required' => 'Please input your Adviser',
+            'thesis_coordinator.required' => 'Please input your Thesis Coordinator',
             'banner_path.required' => 'Please upload sample Image',
             'document_path.required' => 'Please Attached document'
 
@@ -450,6 +453,7 @@ class StudentController extends Controller
             'abstract' => $request->abstract,
             'members' => $request->members,
             'adviser' => $request->adviser,
+            'thesis_coordinator' => $request->thesis_coordinator,
             'banner_path' => $request->banner_path,
             'document_path' => $request->document_path,
             'banner_path' => $imagefile,
