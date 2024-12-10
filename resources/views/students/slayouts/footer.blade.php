@@ -191,7 +191,7 @@
            console.log("========================adviser========================");
            console.log(adviser);
 
-           var adviser = $('#thesis_coordinator').val();
+           var thesis_coordinator = $('#thesis_coordinator').val();
            console.log("========================thesis_coordinator========================");
            console.log(thesis_coordinator);
 
