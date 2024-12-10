@@ -28,7 +28,7 @@
             <div class="card">
               <div class="card-header">
                 <div class="row">
-                    <div class="col-md-10">List of Settings</h2></div>
+                    <div class="col-md-10"><h2><b>Web Settings</b></h2></div>
 
                 </div>
               </div>
