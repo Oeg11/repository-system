@@ -31,7 +31,6 @@
                 <div class="card-body">
                     <form method="POST">
                         <div class="col-md-10"><h2>User Control</h2></div>
-                        <button type="button"  data-toggle="modal" data-target="#modal-addstaffcontrol" class="btn btn-success w-100 mt-2 my-button">Add User Control</button>
                         <hr>
                         {{-- <select class="form-control" aria-label="Default select example">
                             <option selected="true" disabled="disabled"> &larr; Select Staff &rarr;</option>
@@ -44,7 +43,7 @@
 
                             <div class="card-body">
                                <div class="row">
-                                  {{-- <div class="col-md-10"> <h4 ><b>Collection List Control</b></h4></div> --}}
+                                  <div class="col-md-10"> <h4 >List of approved user with control</h4></div>
                                   <div class="col-md-2">
                                      <button type="button"  data-toggle="modal" data-target="#modal-addstaffcontrol" class="btn btn-primary w-100 mt-2 my-button">Add User Control</button>
                                      @include('admin.modal.addstaffcontrol')
