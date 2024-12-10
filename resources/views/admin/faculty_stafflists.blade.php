@@ -28,7 +28,7 @@
             <div class="card">
               <div class="card-header">
                 <div class="row">
-                    <div class="col-md-10"><h2>List of Faculty / Staff</h2></div>
+                    <div class="col-md-10"><h2><b>List of Faculty / Staff</b></h2></div>
                     <div class="col-md-2"><button type="button" class="btn btn-success"
                          data-toggle="modal" data-target="#modal-addstaff">Add Staff</button></div>
                     @include('admin.modal.addstaff')

@@ -23,7 +23,7 @@
 
     <section class="content">
       <div class="container-fluid">
-        <h2>List of Students</h2><hr>
+        <h2><b>List of Students</b></h2>
         <table class="table table-bordered data-table2">
             <thead>
                 <tr>

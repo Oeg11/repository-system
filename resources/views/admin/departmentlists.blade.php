@@ -29,7 +29,7 @@
             <div class="card">
               <div class="card-header">
                 <div class="row">
-                    <div class="col-md-10"><h2>List of Department</h2></div>
+                    <div class="col-md-10"><h2><b>List of Department</b></h2></div>
                     <div class="col-md-2"><button type="button" class="btn btn-success"
                          data-toggle="modal" data-target="#modal-adddepartment">Add Department</button></div>
                     @include('admin.modal.adddepartment')

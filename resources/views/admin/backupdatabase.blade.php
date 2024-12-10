@@ -29,7 +29,7 @@
             <div class="card">
               <div class="card-header">
                 <div class="row">
-                    <div class="col-md-10"><h2>List of Backup Database</h2></div>
+                    <div class="col-md-10"><h2><b>List of Backup Database</b></h2></div>
 
                 </div>
               </div>

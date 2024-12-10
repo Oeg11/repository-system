@@ -56,7 +56,7 @@
                   </form>
                   <hr>
                 <div class="row">
-                    <div class="col-md-10"><h4>Import users by uploading excel file</h4></div>
+                    <div class="col-md-10"><h4>Import users by uploading excel or CSV file</h4></div>
                     <div class="col-md-2">  <a class="btn btn-warning float-end" class="btn btn-success" href="{{ route('admin.exportexcel') }}">Export User Data</a>
                 </div>
               </div>
