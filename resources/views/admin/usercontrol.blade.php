@@ -30,7 +30,7 @@
             <div class="card mt-4">
                 <div class="card-body">
                     <form method="POST">
-                        <h3 class="text-center">User Control</h3>
+                        <div class="col-md-10"><h2>User Control</h2></div>
                         <hr>
                         {{-- <select class="form-control" aria-label="Default select example">
                             <option selected="true" disabled="disabled"> &larr; Select Staff &rarr;</option>
