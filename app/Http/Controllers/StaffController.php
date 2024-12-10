@@ -99,6 +99,7 @@ class StaffController extends Controller
                 'archives.abstract',
                 'archives.members',
                 'archives.adviser',
+                'archives.thesis_coordinator',
                 'archives.banner_path',
                 'archives.document_path',
                 'archives.status',
