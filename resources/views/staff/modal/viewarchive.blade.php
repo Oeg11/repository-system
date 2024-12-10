@@ -93,15 +93,24 @@
           </div>
       </div>
 
-      <div class="row">
-        <div class="col-md-6">
-           <div class="form-group">
-               <label><b>Adviser</b></label>
-                 <input type="text" id="view_adviser" name="adviser" class="form-control" disabled="disabled">
-              </div>
-              <span id="adviser-error" class="text-danger"></span>
+        <div class="row">
+            <div class="col-md-6">
+            <div class="form-group">
+                <label><b>Adviser</b></label>
+                    <input type="text" id="view_adviser" name="adviser" class="form-control" disabled="disabled">
+                </div>
+                <span id="adviser-error" class="text-danger"></span>
+            </div>
         </div>
-   </div>
+    <div class="row">
+        <div class="col-md-6">
+        <div class="form-group">
+            <label><b>Thesis Coordinator</b></label>
+                <input type="text" id="view_thesis_coordinator" name="thesis_coordinator" class="form-control" disabled="disabled">
+            </div>
+            <span id="thesis_coordinator-error" class="text-danger"></span>
+        </div>
+    </div>
 
    <div class="row">
     <div class="mb-3 col-md-12">
