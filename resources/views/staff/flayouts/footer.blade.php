@@ -168,8 +168,6 @@
            console.log("========================year========================");
            console.log(year);
 
-
-
            const abstract = document.querySelector("[id=editor_details1").value = instance1.getData();
            console.log("========================abstract========================");
             console.log(abstract);
@@ -178,7 +176,6 @@
            console.log("========================members========================");
            console.log(members);
 
-
            var adviser = $('#adviser').val();
            console.log("========================adviser========================");
            console.log(adviser);
@@ -186,7 +183,6 @@
            var thesis_coordinator = $('#thesis_coordinator').val();
            console.log("========================thesis_coordinator========================");
            console.log(thesis_coordinator);
-
 
            var banner_path = $('#file-ip-1').val();
            console.log("========================banner_path========================");
