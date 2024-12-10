@@ -876,6 +876,7 @@ class StudentController extends Controller
                'abstract' =>'required',
                'members' =>'required',
                'adviser' =>'required',
+               'thesis_coordinator' =>'required',
                'banner_path' =>'required|mimes:png,jpg,jpeg|max:2048',
                'document_path' =>'required|mimes:pdf|max:5120',//max upload 5mb limit only upload pdf files
                 'click_checkbox' =>  'accepted',
@@ -890,6 +891,7 @@ class StudentController extends Controller
                'abstract.required' => 'Please enter Abstract',
                'members.required' => 'Please enter members',
                'adviser.required' => 'Please input your Adviser',
+               'thesis_coordinator.required' => 'Please input your Thesis Coordinator',
                'banner_path.required' => 'Please upload sample Image',
                'document_path.required' => 'Please Attached document',
                'accepted.required' => 'Please click a Term and Privacy'
@@ -929,6 +931,7 @@ class StudentController extends Controller
        $archive->abstract = $request->abstract;
        $archive->members = $request->members;
        $archive->adviser = $request->adviser;
+       $archive->thesis_coordinator = $request->thesis_coordinator;
        $archive->banner_path = $banner_path;
        $archive->document_path = $document_path;
        $archive->status = $status;
@@ -961,6 +964,7 @@ class StudentController extends Controller
             'archives.abstract',
             'archives.members',
             'archives.adviser',
+            'archives.thesis_coordinator',
             'archives.banner_path',
             'archives.document_path',
             'archives.type',
@@ -996,6 +1000,7 @@ class StudentController extends Controller
             'abstract' =>'required',
             'members' =>'required',
             'adviser' =>'required',
+            'thesis_coordinator' =>'required',
             'banner_path' =>'required',
             'document_path' =>'required',
         ],[
@@ -1009,6 +1014,7 @@ class StudentController extends Controller
             'abstract.required' => 'Please enter Abstract',
             'members.required' => 'Please enter members',
             'adviser.required' => 'Please input your Adviser',
+            'thesis_coordinator.required' => 'Please input your Thesis Coordinator',
             'banner_path.required' => 'Please upload sample Image',
             'document_path.required' => 'Please Attached document'
 
@@ -1058,6 +1064,7 @@ class StudentController extends Controller
             'abstract' => $request->abstract,
             'members' => $request->members,
             'adviser' => $request->adviser,
+            'thesis_coordinator' => $request->thesis_coordinator,
             'banner_path' => $request->banner_path,
             'document_path' => $request->document_path,
             'banner_path' => $imagefile,
