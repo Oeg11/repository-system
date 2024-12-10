@@ -24,7 +24,7 @@ use App\Http\Controllers\StudentController;
     Route::get('/login', [UserController::class, 'login'])->name('view_login');
     // Route::post('/register', [UserController::class, 'register'])->name('student.register');
     Route::post('/user-login', [UserController::class, 'userLogin'])->name('user.login');
-    Route::get('/public/admin', [UserController::class, 'NotFound'])->name('main.notfound');
+    Route::get('/admin', [UserController::class, 'NotFound'])->name('main.notfound');
 
     Route::get('/admin/login', [AdminController::class, 'adminlogin'])->name('admin.login');
     Route::post('/admin/login/account', [AdminController::class, 'loginfunctionadmin'])->name('admin.loginaccount');
