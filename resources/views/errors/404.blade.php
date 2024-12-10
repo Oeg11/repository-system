@@ -128,7 +128,7 @@
                Sorry, the page you're looking for doesn't exist. If you think something is broken, report a problem.
             </p>
             <div class="btns">
-               <a href="{{ route('main.notfound') }}">return home</a>
+               <a href="{{ route('view_login') }}">return home</a>
                {{-- <a href="https://repositorysystem.xyz/">report problem</a> --}}
             </div>
          </div>
