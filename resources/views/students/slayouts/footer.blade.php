@@ -384,7 +384,7 @@
            console.log("========================adviser========================");
            console.log(adviser);
 
-           var adviser = $('#edit_thesis_coordinator').val();
+           var thesis_coordinator = $('#edit_thesis_coordinator').val();
            console.log("========================thesis_coordinator========================");
            console.log(thesis_coordinator);
 
