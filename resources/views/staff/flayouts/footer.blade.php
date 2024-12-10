@@ -385,8 +385,6 @@
            console.log(default_document_path);
 
 
-
-
            var student_id = $('#edit_student_id').val();
            console.log("========================student_id========================");
            console.log(student_id);
