@@ -141,6 +141,7 @@
              $('#abstract-error').html("");
              $('#members-error').html("");
              $('#adviser-error').html("");
+             $('#thesis_coordinator-error').html("");
              $('#banner_path-error').html("");
              $('#document_path-error').html("");
 
@@ -182,6 +183,10 @@
            console.log("========================adviser========================");
            console.log(adviser);
 
+           var thesis_coordinator = $('#thesis_coordinator').val();
+           console.log("========================thesis_coordinator========================");
+           console.log(thesis_coordinator);
+
 
            var banner_path = $('#file-ip-1').val();
            console.log("========================banner_path========================");
@@ -207,6 +212,7 @@
                data.append('abstract', abstract);
                data.append('members', members);
                data.append('adviser', adviser);
+               data.append('thesis_coordinator', thesis_coordinator);
                data.append('banner_path', $('#file-ip-1')[0].files[0]);
                data.append('document_path', $('#document_path')[0].files[0]);
                data.append('student_id', student_id);
@@ -256,6 +262,9 @@
                                       }
                                       if(response.errors.adviser){
                                         $('#adviser-error').html(response.errors.adviser[0]);
+                                      }
+                                      if(response.errors.thesis_coordinator){
+                                        $('#thesis_coordinator-error').html(response.errors.thesis_coordinator[0]);
                                       }
                                       if(response.errors.banner_path){
                                         $('#banner_path-error').html(response.errors.banner_path[0]);
@@ -309,6 +318,7 @@
              $('#abstract-error').html("");
              $('#members-error').html("");
              $('#adviser-error').html("");
+             $('#thesis_coordinator-error').html("");
              $('#banner_path-error').html("");
              $('#document_path-error').html("");
 
@@ -349,6 +359,10 @@
            var adviser = $('#edit_adviser').val();
            console.log("========================adviser========================");
            console.log(adviser);
+
+           var thesis_coordinator = $('#edit_thesis_coordinator').val();
+           console.log("========================thesis_coordinator========================");
+           console.log(thesis_coordinator);
 
 
            var banner_path = $('#add_file-ip-1').val();
@@ -394,6 +408,7 @@
                data.append('abstract', abstract);
                data.append('members', members);
                data.append('adviser', adviser);
+               data.append('thesis_coordinator', thesis_coordinator);
                data.append('banner_path', $('#add_file-ip-1')[0].files[0]);
                data.append('document_path', $('#add_document_path')[0].files[0]);
                data.append('default_banner_path', default_banner_path);
@@ -446,6 +461,9 @@
                                       }
                                       if(response.errors.adviser){
                                         $('#adviser-error').html(response.errors.adviser[0]);
+                                      }
+                                      if(response.errors.thesis_coordinator){
+                                        $('#thesis_coordinator-error').html(response.errors.thesis_coordinator[0]);
                                       }
                                       if(response.errors.banner_path){
                                         $('#banner_path-error').html(response.errors.banner_path[0]);
