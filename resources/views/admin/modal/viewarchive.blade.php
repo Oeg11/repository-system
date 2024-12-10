@@ -104,6 +104,16 @@
    </div>
 
    <div class="row">
+    <div class="col-md-6">
+       <div class="form-group">
+           <label><b>Thesis Coordinator</b></label>
+             <input type="text" id="view_thesis_coordinator" name="thesis_coordinator" class="form-control" disabled="disabled">
+          </div>
+          <span id="thesis_coordinator-error" class="text-danger"></span>
+    </div>
+</div>
+
+   <div class="row">
     <div class="mb-3 col-md-12">
         <label for="exampleFormControlInput1" class="form-label">Thesis Image</label>
         <div class="preview" style="border:1px solid #5f6265;background-color:#5f6265">

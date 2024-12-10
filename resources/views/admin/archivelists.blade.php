@@ -138,6 +138,7 @@
          var abstract
          var members
          var adviser
+         var thesis_coordinator
          var banner_path
          var document_path
          var id
@@ -173,7 +174,6 @@
             console.log("=================year===============");
             console.log(year);
 
-
             abstract = $(this).data('abstract');
             console.log("=================abstract===============");
             console.log(abstract);
@@ -186,6 +186,9 @@
             console.log("=================adviser===============");
             console.log(adviser);
 
+            thesis_coordinator = $(this).data('thesis_coordinator');
+            console.log("=================thesis_coordinator===============");
+            console.log(thesis_coordinator);
 
             banner_path = $(this).data('bannerpath');
             console.log("=================banner_path===============");
@@ -209,6 +212,7 @@
              $('._abstract').val(abstract);
             $('._members').val(members);
             $('#view_adviser').val(adviser);
+            $('#view_thesis_coordinator').val(thesis_coordinator);
               if(banner_path == ""){
                          $('#view_abanner_path').attr("src", "assets/img/no-image-available.png");
                       }else{
