@@ -60,10 +60,10 @@
                 <i class="fa fa-lock"></i> Change Password
               </a>
 
-            <form method="POST" action="{{ route('student.logout') }}">
+            <form method="POST" action="{{ route('staff.logout') }}">
               @csrf
 
-              <a class="dropdown-item p-3 text-dark"  href="route('student.logout')"
+              <a class="dropdown-item p-3 text-dark"  href="route('staff.logout')"
                       onclick="event.preventDefault();
                                  this.closest('form').submit();">
                   <i class="fa fa-arrow-right"></i>  {{ __('Log Out') }}
