@@ -114,6 +114,7 @@
             }
       </style>
    </head>
+
    <body>
       <div id="error-page">
          <div class="content">
