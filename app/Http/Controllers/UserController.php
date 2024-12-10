@@ -95,6 +95,6 @@ class UserController extends Controller
 
     public function NotFound(){
 
-        return view('errors.notfound');
+        return view('errors.404');
     }
 }
