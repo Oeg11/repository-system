@@ -28,7 +28,7 @@
           <div class="col-12">
             <div class="card">
               <div class="card-header">
-                 <h2>List of Collection</h2>
+                 <h2><b>List of Collection</b></h2>
               </div>
               <!-- /.card-header -->
               <div class="card-body">
