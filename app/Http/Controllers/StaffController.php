@@ -20,8 +20,6 @@ use App\Models\User;
 
 use DataTables;
 
-
-
 class StaffController extends Controller
 {
 
