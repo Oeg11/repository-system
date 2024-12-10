@@ -100,7 +100,7 @@
 
               {data: 'system_name', name: 'system_name'},
 
-              {data: 'system_short_name', name: 'system_short_name'},
+            //   {data: 'system_short_name', name: 'system_short_name'},
 
               {data: 'description', name: 'description'},
 
@@ -128,7 +128,7 @@
             });
 
          var system_name
-         var system_short_name
+        //  var system_short_name
          var description
          var about
          var email
@@ -149,9 +149,9 @@
             console.log(system_name);
 
 
-            system_short_name = $(this).data('ssname');
-            console.log("=================system_short_name===============");
-            console.log(system_short_name);
+            // system_short_name = $(this).data('ssname');
+            // console.log("=================system_short_name===============");
+            // console.log(system_short_name);
 
             description = $(this).data('desc');
             console.log("=================description===============");
@@ -179,7 +179,7 @@
             console.log(id);
 
             $('#edit_system_name').val(system_name);
-            $('#edit_system_short_name').val(system_short_name);
+            // $('#edit_system_short_name').val(system_short_name);
             $('#edit_description').val(description);
             $('#edit_about').val(about);
             $('#edit_email').val(email);
@@ -204,7 +204,7 @@
                         });
 
                     let system_name = $('#edit_system_name').val();
-                    let system_short_name = $('#edit_system_short_name').val();
+                    // let system_short_name = $('#edit_system_short_name').val();
                     let description = $('#edit_description').val();
                     let about = $('#edit_about').val();
                     let email = $('#edit_email').val();
@@ -218,7 +218,7 @@
                         method: 'post',
                         data: {
                             system_name:system_name,
-                            system_short_name: system_short_name,
+                            // system_short_name: system_short_name,
                             description: description,
                             about: about,
                             email: email,
