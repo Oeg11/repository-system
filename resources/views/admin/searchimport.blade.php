@@ -28,7 +28,7 @@
           <div class="col-12">
             <div class="card">
               <div class="card-header">
-                 <h2>Search Type Reports</h2>
+                 <h2>Type Reports</h2>
               </div>
               <!-- /.card-header -->
               <div class="card-body">
