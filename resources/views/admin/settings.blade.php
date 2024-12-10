@@ -40,7 +40,7 @@
                         <tr>
                             <th scope="col">ID</th>
                             <th scope="col">System Name</th>
-                            <th scope="col">System Short Name</th>
+                            {{-- <th scope="col">System Short Name</th> --}}
                             <th scope="col">Description</th>
                             <th scope="col">About</th>
                             <th scope="col">Email</th>
