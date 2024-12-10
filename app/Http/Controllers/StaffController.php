@@ -152,7 +152,7 @@ class StaffController extends Controller
                                             data-abstract="'.$row->abstract.'"
                                             data-members="'.$row->members.'"
                                             data-adviser="'.$row->adviser.'"
-                                            data-thesis_coordinator="'.$row->thesis_coordinator.'"
+                                            // data-thesis_coordinator="'.$row->thesis_coordinator.'"
                                             data-bannerpath="'.$row->banner_path.'"
                                             data-documentpath="'.$row->document_path.'"
                                         >
