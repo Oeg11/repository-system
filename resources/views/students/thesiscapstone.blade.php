@@ -146,7 +146,7 @@
                 <div class="col-md-6">
                 <div class="form-group">
                     <label><b>Thesis Coordinator</b></label>
-                        <input type="text" id="coordinator" name="coordinator" class="form-control form-control-lg">
+                        <input type="text" id="thesis_coordinator" name="thesis_coordinator" class="form-control form-control-lg">
                     </div>
                     <span id="coordinator-error" class="text-danger"></span>
                 </div>
