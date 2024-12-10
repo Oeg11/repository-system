@@ -45,7 +45,7 @@ class StaffController extends Controller
 
 
     public function loginfunctionStaff(Request $request)
-   {
+    {
        $request->validate([
            'email' => 'required',
            'password' => 'required',
@@ -67,7 +67,6 @@ class StaffController extends Controller
                 'message' => 'Invalid email and password.',
             ]);
         }
-
 
    }
 
@@ -210,15 +209,13 @@ class StaffController extends Controller
                      return $btn;
 
 
-                    }
+                  }
 
+            })
 
+            ->rawColumns(['status', 'action'])
 
-                    })
-
-                    ->rawColumns(['status', 'action'])
-
-                    ->make(true);
+            ->make(true);
 
         }
         $systeminformation = SystemInformation::all();
@@ -229,14 +226,14 @@ class StaffController extends Controller
 
     public function updatearchivelist(Request $request) {
 
-        $archive = archive::find($request->id);
-        $archive->status = $request->status;
-        $archive->remark = $request->remark;
-        $archive->save();
-       return response()->json([
-        'status' => 200,
-    ]);
- }
+            $archive = archive::find($request->id);
+            $archive->status = $request->status;
+            $archive->remark = $request->remark;
+            $archive->save();
+        return response()->json([
+            'status' => 200,
+        ]);
+    }
 
 
      public function deleteArchive(Request $request) {
@@ -245,8 +242,6 @@ class StaffController extends Controller
          return response()->json(['status'=> 200]);
 
      }
-
-
 
 
     //  public function stafftudentlists(Request $request){
@@ -332,351 +327,342 @@ class StaffController extends Controller
 
 
 
-  public function stafftudentlists(Request $request){
+    public function stafftudentlists(Request $request){
 
 
-    if ($request->ajax()) {
+        if ($request->ajax()) {
 
-        $data = DB::table('users')
-            ->select(
+            $data = DB::table('users')
+                ->select(
+                    'users.id as student_id',
+                    'users.name',
+                    'users.email',
+                    'users.role',
+                    'users.status',
+                    'users.created_at',
+                    )
+                ->get();
+
+            return Datatables::of($data)
+
+                    ->addIndexColumn()
+
+
+                    // ->addColumn('status',function($data){
+                    //     $html = '';
+                    //     if ($data->status == 1) {
+                    //                 $html = '<center><span class="badge badge-success">Verified</span></center>';
+                    //             } else {
+                    //                 $html = '<center><span class="badge badge-danger">Not Verified</span></center>';
+                    //             }
+                    //         return $html;
+                    //     })
+
+                    ->addColumn('action', function($row){
+
+
+
+                            $btn = '<div class="btn-group">
+                                    <button type="button" class="btn btn-default">Action</button>
+                                    <button type="button" class="btn btn-default dropdown-toggle dropdown-icon" data-toggle="dropdown">
+                                    <span class="sr-only">Toggle Dropdown</span>
+                                    </button>
+                                    <div class="dropdown-menu" role="menu">
+                                    <a class="dropdown-item btn-viewstudent" href="javascript:void(0)"
+                                    data-toggle="modal" data-target="#modal-viewstudent"
+                                    data-id="'.$row->student_id.'"
+                                    data-fname="'.$row->name.'"
+                                    data-email="'.$row->email.'"
+                                    data-status="'.$row->status.'"
+
+                                    ><span class="fa fa-external-link-alt text-gray"></span> View</a>
+
+                                    <a class="dropdown-item btn-deleteStudent" href="javascript:void(0)"
+                                    data-del="'.$row->student_id.'">
+                                    <span class="fa fa-trash text-danger"></span>
+                                    Delete</a>
+
+                                    </div>
+                                </div>';
+
+
+
+                            return $btn;
+
+                    })
+
+                    ->rawColumns(['action'])
+
+                    ->make(true);
+
+        }
+        $systeminformation = SystemInformation::all();
+        return view('staff.studentlistsgoogleauth' ,compact('systeminformation'));
+    }
+
+
+    public function deleteStudent(Request $request) {
+        $id = $request->id;
+        User::find($id)->delete();
+        return response()->json(['status'=> 200]);
+
+    }
+
+
+
+    public function ViewProject(Request $request){
+
+        $archive = DB::table('archives')
+        ->select(
                 'users.id as student_id',
                 'users.name',
                 'users.email',
-                'users.role',
-                'users.status',
-                'users.created_at',
-                )
-            ->get();
+                'student_models.id as students_id',
+                'student_models.fullname',
+                'student_models.email as student_email',
+                'archives.id as archives_id',
+                'archives.student_id',
+                'archives.title',
+                'archives.abstract',
+                'archives.banner_path',
+                'archives.student_foreign_id',
+                'archives.status',
+                'archives.category',
+                'archives.created_at',
+                'archives.archive_code',
+                'curricula.name as curriculum_name',
+                'departments.name as department_name',
+            )
+        ->leftjoin('users','users.id','=','archives.student_id')//google auth id
+        ->leftjoin('student_models','student_models.id','=','archives.student_foreign_id')//student id
+        ->leftjoin('curricula','curricula.id','=','archives.curriculum_id')
+        ->leftjoin('departments','departments.id','=','archives.department_id')
+        ->where('archives.type', 'Capstone 2')
+        ->orderBy('archives.id','DESC')
+        ->get();
 
-        return Datatables::of($data)
-
-                ->addIndexColumn()
-
-
-                // ->addColumn('status',function($data){
-                //     $html = '';
-                //     if ($data->status == 1) {
-                //                 $html = '<center><span class="badge badge-success">Verified</span></center>';
-                //             } else {
-                //                 $html = '<center><span class="badge badge-danger">Not Verified</span></center>';
-                //             }
-                //         return $html;
-                //     })
-
-                ->addColumn('action', function($row){
+        $systeminformation = SystemInformation::all();
+        return view('staff.viewproject', compact('archive','systeminformation'));
+    }
 
 
-
-                        $btn = '<div class="btn-group">
-                                <button type="button" class="btn btn-default">Action</button>
-                                <button type="button" class="btn btn-default dropdown-toggle dropdown-icon" data-toggle="dropdown">
-                                <span class="sr-only">Toggle Dropdown</span>
-                                </button>
-                                <div class="dropdown-menu" role="menu">
-                                <a class="dropdown-item btn-viewstudent" href="javascript:void(0)"
-                                data-toggle="modal" data-target="#modal-viewstudent"
-                                  data-id="'.$row->student_id.'"
-                                  data-fname="'.$row->name.'"
-                                  data-email="'.$row->email.'"
-                                  data-status="'.$row->status.'"
-
-                                ><span class="fa fa-external-link-alt text-gray"></span> View</a>
-
-                                <a class="dropdown-item btn-deleteStudent" href="javascript:void(0)"
-                                data-del="'.$row->student_id.'">
-                                <span class="fa fa-trash text-danger"></span>
-                                Delete</a>
-
-                                </div>
-                            </div>';
+    public function ViewResearch(Request $request){
 
 
 
-                        return $btn;
+        $archive = DB::table('archives')
+        ->select(
+                'users.id as student_id',
+                'users.name',
+                'users.email',
+                'student_models.id as students_id',
+                'student_models.fullname',
+                'student_models.email as student_email',
+                'archives.id as archives_id',
+                'archives.student_id',
+                'archives.title',
+                'archives.abstract',
+                'archives.banner_path',
+                'archives.student_foreign_id',
+                'archives.status',
+                'archives.category',
+                'archives.created_at',
+                'archives.archive_code',
+                'curricula.name as curriculum_name',
+                'departments.name as department_name',
+            )
+        ->leftjoin('users','users.id','=','archives.student_id')//google auth id
+        ->leftjoin('student_models','student_models.id','=','archives.student_foreign_id')//student id
+        ->leftjoin('curricula','curricula.id','=','archives.curriculum_id')
+        ->leftjoin('departments','departments.id','=','archives.department_id')
+        ->where('archives.type', 'CS Thesis 2')
+        ->orderBy('archives.id','DESC')
+        ->get();
 
-                })
+        $systeminformation = SystemInformation::all();
+        return view('staff.viewresearch', compact('archive','systeminformation'));
+    }
 
-                ->rawColumns(['action'])
 
-                ->make(true);
+    public function ViewCapstonethesis(Request $request){
+
+        $archive = DB::table('archives')
+        ->select(
+                'users.id as student_id',
+                'users.name',
+                'users.email',
+                'student_models.id as students_id',
+                'student_models.fullname',
+                'student_models.email as student_email',
+                'archives.id as archives_id',
+                'archives.student_id',
+                'archives.title',
+                'archives.abstract',
+                'archives.banner_path',
+                'archives.student_foreign_id',
+                'archives.status',
+                'archives.category',
+                'archives.created_at',
+                'archives.archive_code',
+                'curricula.name as curriculum_name',
+                'departments.name as department_name',
+            )
+        ->leftjoin('users','users.id','=','archives.student_id')//google auth id
+        ->leftjoin('student_models','student_models.id','=','archives.student_foreign_id')//student id
+        ->leftjoin('curricula','curricula.id','=','archives.curriculum_id')
+        ->leftjoin('departments','departments.id','=','archives.department_id')
+        ->where('archives.type', 'SHS Practical Research')
+        ->orderBy('archives.id','DESC')
+        ->get();
+
+        $systeminformation = SystemInformation::all();
+        return view('staff.viewcapstonethesis', compact('archive','systeminformation'));
+    }
+
+
+    public function ViewTotalprojects(Request $request){
+
+
+        $archive = DB::table('archives')
+        ->select(
+                'users.id as student_id',
+                'users.name',
+                'users.email',
+                'student_models.id as students_id',
+                'student_models.fullname',
+                'student_models.email as student_email',
+                'archives.id as archives_id',
+                'archives.student_id',
+                'archives.title',
+                'archives.abstract',
+                'archives.banner_path',
+                'archives.student_foreign_id',
+                'archives.status',
+                'archives.category',
+                'archives.created_at',
+                'archives.archive_code',
+                'curricula.name as curriculum_name',
+                'departments.name as department_name',
+            )
+        ->leftjoin('users','users.id','=','archives.student_id')//google auth id
+        ->leftjoin('student_models','student_models.id','=','archives.student_foreign_id')//student id
+        ->leftjoin('curricula','curricula.id','=','archives.curriculum_id')
+        ->leftjoin('departments','departments.id','=','archives.department_id')
+        ->where('archives.type', 'BSTM Thesis')
+        ->orderBy('archives.id','DESC')
+        ->get();
+
+        $systeminformation = SystemInformation::all();
+        return view('staff.viewtotalprojects', compact('archive','systeminformation'));
+    }
+
+
+    public function ViewVerifiedarchive(Request $request){
+
+
+        $verifiedarchive = DB::table('student_models')
+        ->select(
+            'student_models.id as student_id',
+            'student_models.fullname',
+            'student_models.email',
+            'archives.id as archives_id',
+            'archives.student_id',
+            'archives.title',
+            'archives.abstract',
+            'archives.banner_path',
+            'archives.status',
+            'archives.category',
+            'archives.created_at',
+            'archives.archive_code',
+            'curricula.name as curriculum_name',
+            'departments.name as department_name',
+            )
+        ->leftjoin('archives','archives.student_id','=','student_models.id')
+        ->leftjoin('curricula','curricula.id','=','student_models.curriculum_id')
+        ->leftjoin('departments','departments.id','=','student_models.department_id')
+        ->where('archives.status', 1)
+        ->orderBy('archives.id','DESC')
+        ->get();
+
+        $systeminformation = SystemInformation::all();
+        return view('staff.viewverifiedarchive', compact('verifiedarchive','systeminformation'));
 
     }
-    $systeminformation = SystemInformation::all();
-    return view('staff.studentlistsgoogleauth' ,compact('systeminformation'));
-}
 
+    public function ViewNotVerifiedarchive(Request $request){
 
-
-
-public function deleteStudent(Request $request) {
-    $id = $request->id;
-    User::find($id)->delete();
-    return response()->json(['status'=> 200]);
-
-}
-
-
-
-public function ViewProject(Request $request){
-
-    $archive = DB::table('archives')
-    ->select(
-            'users.id as student_id',
-            'users.name',
-            'users.email',
-            'student_models.id as students_id',
+        $notverifiedarchive = DB::table('student_models')
+        ->select(
+            'student_models.id as student_id',
             'student_models.fullname',
-            'student_models.email as student_email',
+            'student_models.email',
             'archives.id as archives_id',
             'archives.student_id',
             'archives.title',
             'archives.abstract',
             'archives.banner_path',
-            'archives.student_foreign_id',
             'archives.status',
             'archives.category',
             'archives.created_at',
             'archives.archive_code',
             'curricula.name as curriculum_name',
             'departments.name as department_name',
-        )
-    ->leftjoin('users','users.id','=','archives.student_id')//google auth id
-    ->leftjoin('student_models','student_models.id','=','archives.student_foreign_id')//student id
-    ->leftjoin('curricula','curricula.id','=','archives.curriculum_id')
-    ->leftjoin('departments','departments.id','=','archives.department_id')
-    ->where('archives.type', 'Capstone 2')
-    ->orderBy('archives.id','DESC')
-    ->get();
+            )
+        ->leftjoin('archives','archives.student_id','=','student_models.id')
+        ->leftjoin('curricula','curricula.id','=','student_models.curriculum_id')
+        ->leftjoin('departments','departments.id','=','student_models.department_id')
+        ->where('archives.status', 0)
+        ->orderBy('archives.id','DESC')
+        ->get();
+
+        $systeminformation = SystemInformation::all();
+        return view('staff.viewnotverifiedarchive', compact('notverifiedarchive','systeminformation'));
+    }
 
 
-
-    $systeminformation = SystemInformation::all();
-    return view('staff.viewproject', compact('archive','systeminformation'));
-}
+    public function ViewVerifiedstudents(Request $request){
 
 
-public function ViewResearch(Request $request){
-
-
-
-    $archive = DB::table('archives')
-    ->select(
-            'users.id as student_id',
-            'users.name',
-            'users.email',
-            'student_models.id as students_id',
+        $verifiedstudent = DB::table('student_models')
+        ->select(
+            'student_models.id as student_id',
             'student_models.fullname',
-            'student_models.email as student_email',
-            'archives.id as archives_id',
-            'archives.student_id',
-            'archives.title',
-            'archives.abstract',
-            'archives.banner_path',
-            'archives.student_foreign_id',
-            'archives.status',
-            'archives.category',
-            'archives.created_at',
-            'archives.archive_code',
+            'student_models.email',
             'curricula.name as curriculum_name',
             'departments.name as department_name',
-        )
-    ->leftjoin('users','users.id','=','archives.student_id')//google auth id
-    ->leftjoin('student_models','student_models.id','=','archives.student_foreign_id')//student id
-    ->leftjoin('curricula','curricula.id','=','archives.curriculum_id')
-    ->leftjoin('departments','departments.id','=','archives.department_id')
-    ->where('archives.type', 'CS Thesis 2')
-    ->orderBy('archives.id','DESC')
-    ->get();
+            'student_models.status as student_status',
+            )
+        ->leftjoin('curricula','curricula.id','=','student_models.curriculum_id')
+        ->leftjoin('departments','departments.id','=','student_models.department_id')
+        ->where('student_models.status', 1)
+        ->get();
+
+        $systeminformation = SystemInformation::all();
+        return view('staff.viewverifiedstudent', compact('verifiedstudent','systeminformation'));
+
+    }
+
+    public function ViewNotVerifiedstudents(Request $request){
 
 
-
-    $systeminformation = SystemInformation::all();
-    return view('staff.viewresearch', compact('archive','systeminformation'));
-}
-
-
-public function ViewCapstonethesis(Request $request){
-
-
-
-    $archive = DB::table('archives')
-    ->select(
-            'users.id as student_id',
-            'users.name',
-            'users.email',
-            'student_models.id as students_id',
+        $notverifiedstudent = DB::table('student_models')
+        ->select(
+            'student_models.id as student_id',
             'student_models.fullname',
-            'student_models.email as student_email',
-            'archives.id as archives_id',
-            'archives.student_id',
-            'archives.title',
-            'archives.abstract',
-            'archives.banner_path',
-            'archives.student_foreign_id',
-            'archives.status',
-            'archives.category',
-            'archives.created_at',
-            'archives.archive_code',
+            'student_models.email',
             'curricula.name as curriculum_name',
             'departments.name as department_name',
-        )
-    ->leftjoin('users','users.id','=','archives.student_id')//google auth id
-    ->leftjoin('student_models','student_models.id','=','archives.student_foreign_id')//student id
-    ->leftjoin('curricula','curricula.id','=','archives.curriculum_id')
-    ->leftjoin('departments','departments.id','=','archives.department_id')
-    ->where('archives.type', 'SHS Practical Research')
-    ->orderBy('archives.id','DESC')
-    ->get();
+            'student_models.status as student_status',
+            )
+        ->leftjoin('curricula','curricula.id','=','student_models.curriculum_id')
+        ->leftjoin('departments','departments.id','=','student_models.department_id')
+        ->where('student_models.status', 0)
+        ->get();
 
+        $systeminformation = SystemInformation::all();
+        return view('staff.viewnotverifiedstudent', compact('notverifiedstudent','systeminformation'));
 
-    $systeminformation = SystemInformation::all();
-    return view('staff.viewcapstonethesis', compact('archive','systeminformation'));
-}
-
-
-public function ViewTotalprojects(Request $request){
-
-
-    $archive = DB::table('archives')
-    ->select(
-            'users.id as student_id',
-            'users.name',
-            'users.email',
-            'student_models.id as students_id',
-            'student_models.fullname',
-            'student_models.email as student_email',
-            'archives.id as archives_id',
-            'archives.student_id',
-            'archives.title',
-            'archives.abstract',
-            'archives.banner_path',
-            'archives.student_foreign_id',
-            'archives.status',
-            'archives.category',
-            'archives.created_at',
-            'archives.archive_code',
-            'curricula.name as curriculum_name',
-            'departments.name as department_name',
-        )
-    ->leftjoin('users','users.id','=','archives.student_id')//google auth id
-    ->leftjoin('student_models','student_models.id','=','archives.student_foreign_id')//student id
-    ->leftjoin('curricula','curricula.id','=','archives.curriculum_id')
-    ->leftjoin('departments','departments.id','=','archives.department_id')
-    ->where('archives.type', 'BSTM Thesis')
-    ->orderBy('archives.id','DESC')
-    ->get();
-
-    $systeminformation = SystemInformation::all();
-    return view('staff.viewtotalprojects', compact('archive','systeminformation'));
-}
-
-
-public function ViewVerifiedarchive(Request $request){
-
-
-    $verifiedarchive = DB::table('student_models')
-    ->select(
-        'student_models.id as student_id',
-        'student_models.fullname',
-        'student_models.email',
-        'archives.id as archives_id',
-        'archives.student_id',
-        'archives.title',
-        'archives.abstract',
-        'archives.banner_path',
-        'archives.status',
-        'archives.category',
-        'archives.created_at',
-        'archives.archive_code',
-        'curricula.name as curriculum_name',
-        'departments.name as department_name',
-        )
-    ->leftjoin('archives','archives.student_id','=','student_models.id')
-    ->leftjoin('curricula','curricula.id','=','student_models.curriculum_id')
-    ->leftjoin('departments','departments.id','=','student_models.department_id')
-    ->where('archives.status', 1)
-    ->orderBy('archives.id','DESC')
-    ->get();
-
-    $systeminformation = SystemInformation::all();
-    return view('staff.viewverifiedarchive', compact('verifiedarchive','systeminformation'));
-
-}
-
-public function ViewNotVerifiedarchive(Request $request){
-
-    $notverifiedarchive = DB::table('student_models')
-    ->select(
-        'student_models.id as student_id',
-        'student_models.fullname',
-        'student_models.email',
-        'archives.id as archives_id',
-        'archives.student_id',
-        'archives.title',
-        'archives.abstract',
-        'archives.banner_path',
-        'archives.status',
-        'archives.category',
-        'archives.created_at',
-        'archives.archive_code',
-        'curricula.name as curriculum_name',
-        'departments.name as department_name',
-        )
-    ->leftjoin('archives','archives.student_id','=','student_models.id')
-    ->leftjoin('curricula','curricula.id','=','student_models.curriculum_id')
-    ->leftjoin('departments','departments.id','=','student_models.department_id')
-    ->where('archives.status', 0)
-    ->orderBy('archives.id','DESC')
-    ->get();
-
-    $systeminformation = SystemInformation::all();
-    return view('staff.viewnotverifiedarchive', compact('notverifiedarchive','systeminformation'));
-}
-
-
-public function ViewVerifiedstudents(Request $request){
-
-
-    $verifiedstudent = DB::table('student_models')
-    ->select(
-        'student_models.id as student_id',
-        'student_models.fullname',
-        'student_models.email',
-        'curricula.name as curriculum_name',
-        'departments.name as department_name',
-        'student_models.status as student_status',
-        )
-    ->leftjoin('curricula','curricula.id','=','student_models.curriculum_id')
-    ->leftjoin('departments','departments.id','=','student_models.department_id')
-    ->where('student_models.status', 1)
-    ->get();
-
-    $systeminformation = SystemInformation::all();
-    return view('staff.viewverifiedstudent', compact('verifiedstudent','systeminformation'));
-
-}
-
-public function ViewNotVerifiedstudents(Request $request){
-
-
-    $notverifiedstudent = DB::table('student_models')
-    ->select(
-        'student_models.id as student_id',
-        'student_models.fullname',
-        'student_models.email',
-        'curricula.name as curriculum_name',
-        'departments.name as department_name',
-        'student_models.status as student_status',
-        )
-    ->leftjoin('curricula','curricula.id','=','student_models.curriculum_id')
-    ->leftjoin('departments','departments.id','=','student_models.department_id')
-    ->where('student_models.status', 0)
-    ->get();
-
-    $systeminformation = SystemInformation::all();
-    return view('staff.viewnotverifiedstudent', compact('notverifiedstudent','systeminformation'));
-
-}
+    }
 
 
 
