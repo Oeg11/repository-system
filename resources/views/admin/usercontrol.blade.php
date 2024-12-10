@@ -43,9 +43,9 @@
 
                             <div class="card-body">
                                <div class="row">
-                                  <div class="col-md-10"> <h4 >List of approved user with control</h4></div>
+                                  <div class="col-md-10"><h4>List of approved user with control</h4></div>
                                   <div class="col-md-2">
-                                     <button type="button"  data-toggle="modal" data-target="#modal-addstaffcontrol" class="btn btn-primary w-100 mt-2 my-button">Add User Control</button>
+                                     <button type="button"  data-toggle="modal" data-target="#modal-addstaffcontrol" class="btn btn-success w-100 mt-2 my-button">Add User Control</button>
                                      @include('admin.modal.addstaffcontrol')
                                   </div>
                                </div>
