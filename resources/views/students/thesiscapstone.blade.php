@@ -148,7 +148,7 @@
                     <label><b>Thesis Coordinator</b></label>
                         <input type="text" id="thesis_coordinator" name="thesis_coordinator" class="form-control form-control-lg">
                     </div>
-                    <span id="coordinator-error" class="text-danger"></span>
+                    <span id="thesis_coordinator-error" class="text-danger"></span>
                 </div>
             </div>
 
