@@ -17,7 +17,6 @@ use App\Http\Controllers\StudentController;
 |
 */
 
-
     Route::get('/', [UserController::class, 'Mainindex'])->name('main');
     Route::get('/about', [UserController::class, 'about'])->name('about_us');
     Route::get('/project', [UserController::class, 'project'])->name('view_project');
