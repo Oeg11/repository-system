@@ -187,21 +187,21 @@
                   <li class="nav-item">
                     <a href="{{route('admin.searchreports')}}" class="nav-link">
                       <i class="far fa-circle nav-icon"></i>
-                      <p>Search Type Report</p>
+                      <p>Type Report</p>
                     </a>
                   </li>
 
                   <li class="nav-item">
                     <a href="{{route('admin.searchcategoryreports')}}" class="nav-link">
                       <i class="far fa-circle nav-icon"></i>
-                      <p>Search Category Report</p>
+                      <p>Category Report</p>
                     </a>
                   </li>
 
                   <li class="nav-item">
                     <a href="{{route('admin.searchstatusreports')}}" class="nav-link">
                       <i class="far fa-circle nav-icon"></i>
-                      <p>Search Status Report</p>
+                      <p>Status Report</p>
                     </a>
                   </li>
 
