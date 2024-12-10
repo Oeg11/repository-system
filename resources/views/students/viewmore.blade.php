@@ -33,7 +33,7 @@
                         <label style="font-weight:bolder">Abstract</label><br>
                         <p class="mb-0 w-100"> {!! html_entity_decode($getonethesis->abstract) !!}</p><br>
 
-                        <label style="font-weight:bolder">Thesis Members</label><br>
+                        <label style="font-weight:bolder">Authors</label><br>
                         <p class="mb-0 w-100"> {!! html_entity_decode($getonethesis->members) !!}</p><br>
 
                         <body oncontextmenu="return false">
