@@ -84,7 +84,7 @@
       <div class="row mt-3">
         <div class="col-md-12">
            <div class="form-group">
-               <label><b>Project Members</b></label>
+               <label><b>Authors</b></label>
                <textarea class="form-control _members" name="members" disabled="disabled"></textarea>
                <textarea id="editor_details2" hidden></textarea>
                 {{-- <textarea rows="5" id="members" name="members" class="form-control"> </textarea> --}}
