@@ -95,7 +95,6 @@ class UserController extends Controller
 
     public function NotFound(){
 
-        $systeminformation = SystemInformation::all();
-        return view('errors.notfound', compact('systeminformation'));
+        return view('errors.notfound');
     }
 }
