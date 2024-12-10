@@ -39,6 +39,9 @@
                         <label style="font-weight:bolder">Adviser</label><br>
                         <p class="mb-0 w-100"> {!! html_entity_decode($getonethesis->adviser) !!}</p><br>
 
+                        <label style="font-weight:bolder">Thesis Coordinator</label><br>
+                        <p class="mb-0 w-100"> {!! html_entity_decode($getonethesis->thesis_coordinator) !!}</p><br>
+
 
                         {{-- <iframe src="{{ (!empty($getonethesis->document_path)) ? url('/storage/uploads/'.$getonethesis->document_path) :  url('assets/uploads/No_Image_Available.jpg')}}" width="100%" height="600px" oncontextmenu="return false;"></iframe> --}}
                         <body oncontextmenu="return false">
