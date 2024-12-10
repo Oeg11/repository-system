@@ -142,6 +142,16 @@
                 </div>
            </div>
 
+            <div class="row">
+                <div class="col-md-6">
+                <div class="form-group">
+                    <label><b>Thesis Coordinator</b></label>
+                        <input type="text" id="coordinator" name="coordinator" class="form-control form-control-lg">
+                    </div>
+                    <span id="coordinator-error" class="text-danger"></span>
+                </div>
+            </div>
+
            <div class="row">
             <div class="mb-3 col-md-12">
                 <label for="exampleFormControlInput1" class="form-label">Project Image</label>
