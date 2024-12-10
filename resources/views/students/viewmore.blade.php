@@ -39,6 +39,9 @@
                         <label style="font-weight:bolder">Adviser</label><br>
                         <p class="mb-0 w-100"> {!! html_entity_decode($getonethesis->adviser) !!}</p><br>
 
+                        <label style="font-weight:bolder">Thesis Coordinator</label><br>
+                        <p class="mb-0 w-100"> {!! html_entity_decode($getonethesis->thesis_coordinator) !!}</p><br>
+
                         <body oncontextmenu="return false">
                             <iframe id="pdfFrame" width="100%" height="600px" src="{{ (!empty($getonethesis->document_path)) ? url('/storage/uploads/'.$getonethesis->document_path.'#toolbar=0') :  url('assets/uploads/No_Image_Available.jpg')}}"></iframe>
                         </body>
