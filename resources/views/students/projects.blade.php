@@ -11,7 +11,7 @@
 
             <div class="card shadow-lg p-3 mb-5 bg-body rounded" style="border-top:2px solid #007bff">
                 <div class="card-body">
-                    <h1>Archive List</h1>
+                    <h1>List of Collection</h1>
                     <hr>
 
                     <form action="{{ route('students.search')}}" method="get">
