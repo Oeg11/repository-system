@@ -86,6 +86,8 @@ use App\Http\Controllers\StudentController;
        Route::get('/admin/search/status/reports', [AdminController::class, 'AdminSearchStatusReports'])->name('admin.searchstatusreports');
        Route::post('/admin/filter/status/reports', [AdminController::class, 'AdminFilterStatusReports'])->name('admin.statusreports');
 
+       Route::get('/admin/search/student/reports', [AdminController::class, 'AdminSearchStudentReports'])->name('admin.searchstudentreports');
+
         //my added routes
        Route::get('admin/fetch/excel', [AdminController::class, 'Adminuserimport'])->name('admin.userimport');
        Route::post('admin/import/csv', [AdminController::class, 'Adminimportdata'])->name('admin.useraddingcsv');
