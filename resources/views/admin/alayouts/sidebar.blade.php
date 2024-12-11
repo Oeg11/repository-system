@@ -204,15 +204,15 @@
                     </a>
                   </li>
 
-                  <li class="nav-item">
-                    <a href="{{route('admin.searchstatusreports')}}" class="nav-link">
+                  {{-- <li class="nav-item">
+                    <a href="{{route('')}}" class="nav-link">
                       <i class="far fa-circle nav-icon"></i>
                       <p>Student Report</p>
                     </a>
-                  </li>
+                  </li> --}}
 
                   <li class="nav-item">
-                    <a href="{{route('admin.searchstudentreports')}}" class="nav-link">
+                    <a href="{{route('admin.reports')}}" class="nav-link">
                       <i class="far fa-circle nav-icon"></i>
                       <p>Analytic Report</p>
                     </a>
