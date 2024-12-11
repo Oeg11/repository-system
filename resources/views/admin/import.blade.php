@@ -40,7 +40,7 @@
 
                             </div>
                             <span class="text-danger">
-                                <strong id="import_file-error"></strong>
+                                <strong id="import_file-error" class="text-danger"></strong>
                              </span>
                         </div>
 
@@ -162,6 +162,7 @@
 
                       success: function(response){
                         console.log(response);
+
                             if(response.errors) {
                                 if(response.errors.import_file){
                                     $('#import_file-error').html(response.errors.import_file[0]);
