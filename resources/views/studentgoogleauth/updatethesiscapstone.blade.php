@@ -27,7 +27,7 @@
                    </div>
 
 
-                   
+
 
                     <div class="row mt-3">
                         <div class="col-md-6">
@@ -49,14 +49,14 @@
                         </div>
                     </div>
 
-                    
+
                    <div class="row mt-3">
                     <div class="col-md-6">
                        <div class="form-group">
                            <label><b>Category</b></label>
                              <select class="form-control form-control-lg" id="edit_category" name="category" aria-label="Default select example">
                                 <option value="" selected="true" disabled="disabled">&larr; Select Category &rarr;</option>
-                            
+
                                 <option value="Web Application" @if ($ct->category == "Web Application") {{ 'selected' }} @endif>Web Application</option>
                                 <option value="Mobile Application" @if ($ct->category == "Mobile Application") {{ 'selected' }} @endif>Mobile Application</option>
                                 <option value="PC Application" @if ($ct->category == "PC Application") {{ 'selected' }} @endif>PC Application</option>
@@ -158,6 +158,16 @@
                       <span id="adviser-error" class="text-danger"></span>
                 </div>
            </div>
+
+           <div class="row">
+            <div class="col-md-6">
+               <div class="form-group">
+                   <label><b>Thesis Coordinator</b></label>
+                     <input type="text" id="edit_thesis_coordinator" name="thesis_coordinator" value="{{$ct->thesis_coordinator}}" class="form-control form-control-lg">
+                  </div>
+                  <span id="thesis_coordinator-error" class="text-danger"></span>
+            </div>
+       </div>
 
            <div class="row">
             <div class="mb-3 col-md-12">
