@@ -40,7 +40,7 @@
 
                             </div>
                             <span class="text-danger">
-                                <strong id="import_file-error" class="text-danger"></strong>
+                                <strong id="import_file-error"></strong>
                              </span>
                         </div>
 
