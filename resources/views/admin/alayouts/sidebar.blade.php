@@ -82,7 +82,7 @@
       <a href="{{route('admin.dashboard')}}" class="brand-link">
 
         <img src="{{asset('assets/img/131507_hacker_administrator_system_sys_hack_icon.png')}}" alt="Logo" class="brand-image img-circle elevation-3" style="opacity: .8">
-        <span class="brand-text font-weight-light"><center>Admin Panel</center></span>
+        <span class="brand-text font-weight-light">Admin Panel</span>
       </a>
 
       <!-- Sidebar -->
