@@ -1,7 +1,6 @@
 @extends('admin.alayouts.main')
 @section('content')
 
-
 <div class="content-wrapper">
   <div id="loader"></div>
     <!-- Content Header (Page header) -->
@@ -90,31 +89,6 @@
                         </div>
                         <div class="card-body">
 
-                                    {{-- <div class="row d-flex">
-                                            <div class="col-md-3">
-                                                <label for="country">Country</label>
-                                                <select class="form-control" id="type">
-                                                    @foreach ($types as $row)
-                                                        <option value="{{ $row->id }}">{{ $row->type }}</option>
-                                                    @endforeach
-                                                </select>
-                                            </div>
-
-                                        <div class="col-md-3">
-                                            <label for="From">From</label>
-                                            <input type="date" id="from" name="from" class="form-control" />
-                                        </div>
-                                        <div class="col-md-3">
-                                            <label for="To">To</label>
-                                            <input type="date" id="to" name="to" class="form-control" />
-                                        </div>
-                                        <div class="col-md-3">
-                                            <label  style="color:white">x</label>
-                                            <input type="button" class="btn btn-success mt-3" value="Filter" onclick="getData()" />
-                                        </div>
-                                    </div>
-                               <hr> --}}
-
                                <div class="chart chart-lg">
                                 <canvas id="chartjs-pie2"></canvas>
                             </div>
@@ -163,7 +137,6 @@
                 data: <?php echo '['. substr($countCategory,19)?>,
             }]
         };
-
         var ctx = document.getElementById('bargraph2').getContext('2d');
         window.myBar = new Chart(ctx, {
             type: 'bar',
@@ -178,8 +151,6 @@
 
     });
 </script>
-
-
 <script>
     document.addEventListener("DOMContentLoaded", function () {
         // Pie chart
