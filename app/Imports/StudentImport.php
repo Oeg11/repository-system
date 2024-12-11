@@ -33,7 +33,7 @@ class StudentImport implements ToCollection, ToModel
             $stud->department_id = $row[3];
             $stud->curriculum_id = $row[4];
             $stud->role = $row[5];
-            // $stud->status = $row[6];
+            $stud->status = $row[6];
             $stud->save();
 
 

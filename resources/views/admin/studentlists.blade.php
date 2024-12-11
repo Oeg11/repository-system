@@ -141,7 +141,7 @@
             $('#view_curriculum_name').val(curriculum_name);
             $('#view_department_name').val(department_name);
 
-            if(status == 0){
+            if(status == 1){
                 $('#view_status').html('<span class="badge badge-pill badge-success">Verified</span>');
             }else{
                 $('#view_status').html('<span class="badge badge-pill badge-danger">Not Verified</span>');
