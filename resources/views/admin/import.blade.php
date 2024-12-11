@@ -69,11 +69,11 @@
                             <th scope="col">ID</th>
                             <th scope="col">Name</th>
                             <th scope="col">Email</th>
-                            <th scope="collapse">Password</th>
+                            <th style="visibility: hidden;">Password</th>
                             <th scope="col">Department</th>
                             <th scope="col">Curriculum</th>
                             <th scope="col">Role</th>
-                            <th scope="collapse">Status</th>
+                            <th style="visibility: hidden;">Status</th>
 
                         </tr>
                     </thead>
