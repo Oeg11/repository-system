@@ -1,9 +1,9 @@
 <div class="wrapper">
 
     <!-- Preloader -->
-    <!--<div class="preloader flex-column justify-content-center align-items-center">-->
-    <!--  <img class="animation__shake" src="{{asset('assets/img/131507_hacker_administrator_system_sys_hack_icon.png')}}" alt="AdminLTELogo" height="60" width="60" style="border-radius: 50%">-->
-    <!--</div>-->
+    <div class="preloader flex-column justify-content-center align-items-center">
+       <img class="animation__shake" src="{{asset('assets/img/131507_hacker_administrator_system_sys_hack_icon.png')}}" alt="AdminLTELogo" height="60" width="60" style="border-radius: 50%">-->
+     </div>
 
     <!-- Navbar -->
     <nav class="main-header navbar navbar-expand navbar-white navbar-light">
