@@ -154,13 +154,13 @@
         // Bar Chart
 
         var barChartData = {
-            labels: <?php echo '['. substr($CategoryName,17)?>,
+            labels: <?php echo '['. substr($CategoryName,18)?>,
             datasets: [{
                 label: 'Count',
                 backgroundColor: 'rgb(79,129,189)',
                 borderColor: 'rgba(0, 158, 251, 1)',
                 borderWidth: 1,
-                data: <?php echo '['. substr($countCategory,17)?>,
+                data: <?php echo '['. substr($countCategory,19)?>,
             }]
         };
 
