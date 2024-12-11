@@ -73,7 +73,7 @@
                             <th scope="col">Department</th>
                             <th scope="col">Curriculum</th>
                             <th scope="col">Role</th>
-                            <th style="col">Status</th>
+                            {{-- <th style="col">Status</th> --}}
 
                         </tr>
                     </thead>
@@ -87,7 +87,7 @@
                               <td>{{ $row->department_id  }}</td>
                               <td>{{ $row->curriculum_id  }}</td>
                               <td>{{ $row->role  }}</td>
-                              <td style="visibility:collapse;">{{ $row->status  }}</td>
+                              {{-- <td style="visibility:collapse;">{{ $row->status  }}</td> --}}
 
                           </tr>
                           @endforeach
