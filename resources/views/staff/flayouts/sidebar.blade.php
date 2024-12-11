@@ -81,9 +81,8 @@
     <aside class="main-sidebar sidebar-dark-primary elevation-4">
       <!-- Brand Logo -->
       <a href="{{route('staff.dashboard')}}" class="brand-link">
-
-        <!--<img src="{{ asset('assets/img/logo.jpg') }}" alt="AdminLTE Logo" class="brand-image img-circle elevation-3" style="opacity: .8">-->
-        <span class="brand-text font-weight-light"><center>Faculty Panel</center></span>
+        <img src="{{asset('assets/img/131507_hacker_administrator_system_sys_hack_icon.png')}}" alt="Logo" class="brand-image img-circle elevation-3" style="opacity: .8">
+        <span class="brand-text font-weight-light">Faculty Panel</span>
       </a>
 
       <!-- Sidebar -->
