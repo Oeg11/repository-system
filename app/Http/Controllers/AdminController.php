@@ -1942,13 +1942,13 @@ class AdminController extends Controller
 
     }
 
-    public function AdminSearchStudentReports(Request $request){
+    // public function AdminSearchStudentReports(Request $request){
 
-        $categorys = archive::select('student')->distinct()->get();
-        $systeminformation = SystemInformation::all();
-        return view('admin.searchstudent', compact('systeminformation','student'));
+    //     $categorys = archive::select('student')->distinct()->get();
+    //     $systeminformation = SystemInformation::all();
+    //     return view('admin.searchstudent', compact('systeminformation','student'));
 
-    }
+    // }
 
 
 }
