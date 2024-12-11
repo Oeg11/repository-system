@@ -74,7 +74,6 @@
                             <th scope="col">Curriculum</th>
                             <th scope="col">Role</th>
                             <th scope="col">Status</th>
-
                         </tr>
                     </thead>
                      <tbody>
@@ -83,12 +82,11 @@
                               <td>{{ $row->id  }}</td>
                               <td>{{ $row->fullname  }}</td>
                               <td>{{ $row->email  }}</td>
-                              <td hidden>{{ $row->password  }}</td>
+                              <td style="display:none;">{{ $row->password  }}</td>
                               <td>{{ $row->department_id  }}</td>
                               <td>{{ $row->curriculum_id  }}</td>
                               <td>{{ $row->role  }}</td>
-                              <td hidden>{{ $row->status  }}</td>
-
+                              <td style="display:none;">{{ $row->status  }}</td>
                           </tr>
                           @endforeach
                     </tbody>
