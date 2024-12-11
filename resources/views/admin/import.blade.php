@@ -69,11 +69,11 @@
                             <th scope="col">ID</th>
                             <th scope="col">Name</th>
                             <th scope="col">Email</th>
-                            <th scope="col">Password</th>
+                            {{-- <th scope="col">Password</th> --}}
                             <th scope="col">Department</th>
                             <th scope="col">Curriculum</th>
                             <th scope="col">Role</th>
-                            <th scope="col">Status</th>
+                            {{-- <th scope="col">Status</th> --}}
 
                         </tr>
                     </thead>
@@ -83,11 +83,11 @@
                               <td>{{ $row->id  }}</td>
                               <td>{{ $row->fullname  }}</td>
                               <td>{{ $row->email  }}</td>
-                              <td>{{ $row->password  }}</td>
+                              {{-- <td>{{ $row->password  }}</td> --}}
                               <td>{{ $row->department_id  }}</td>
                               <td>{{ $row->curriculum_id  }}</td>
                               <td>{{ $row->role  }}</td>
-                              <td>{{ $row->status  }}</td>
+                              {{-- <td>{{ $row->status  }}</td> --}}
 
                           </tr>
                           @endforeach
