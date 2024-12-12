@@ -41,6 +41,7 @@
         }
         body{
             font-family: "source_sans_proregular", Calibri,Candara,Segoe,Segoe UI,Optima,Arial,sans-serif;
+            font-size: 12px;
         }
 
     </style>
