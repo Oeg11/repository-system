@@ -105,3 +105,51 @@
 
 
   @endsection
+
+
+  <script>
+    $(document).ready(function() {
+        load_data();
+        var count = 1;
+        function load_data() {
+            $(document).on('click', '.btn-click', function() {
+
+                       var type = $('#type').val();
+                       var date1 = $('#date1').val();
+                       var date2 = $('#date2').val();
+
+                    $.ajaxSetup({
+                      headers: {
+                              'X-CSRF-TOKEN': $('meta[name="csrf-token"]').attr('content')
+                          }
+                      });
+
+                //   $.ajax({
+                //         type: 'GET',
+                //         url: '{{ route('reports.attendance_reports') }}',
+                //         data: {
+                //         type: type,
+                //           date1: date1,
+                //           date2: date2
+                //         },
+                //         xhrFields: {
+                //             responseType: 'blob'
+                //         },
+                //         success: function(response){
+                //           var blob = new Blob([response]);
+                //           var link = document.createElement('a');
+                //           link.href = window.URL.createObjectURL(blob);
+                //           link.download = "attendance_reports.pdf";
+                //           link.click();
+                //       }, error: function(blob){
+                //             console.log(blob);
+                //         }
+
+                //   })
+
+            });
+         }
+
+    });
+
+  </script>
