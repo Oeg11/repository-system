@@ -133,7 +133,7 @@
                         var blob = new Blob([response]);
                         var link = document.createElement('a');
                         link.href = window.URL.createObjectURL(blob);
-                        link.download = "typeexcel_reports.pdf";
+                        link.download = "typepdf_reports.pdf";
                         link.click();
                     }, error: function(blob){
                           console.log(blob);
@@ -189,7 +189,7 @@
                         var blob = new Blob([response]);
                         var link = document.createElement('a');
                         link.href = window.URL.createObjectURL(blob);
-                        link.download = "categoryexcel_reports.pdf";
+                        link.download = "categorypdf_reports.pdf";
                         link.click();
                     }, error: function(blob){
                           console.log(blob);
@@ -245,7 +245,7 @@
                         var blob = new Blob([response]);
                         var link = document.createElement('a');
                         link.href = window.URL.createObjectURL(blob);
-                        link.download = "categoryexcel_reports.pdf";
+                        link.download = "statuspdf_reports.pdf";
                         link.click();
                     }, error: function(blob){
                           console.log(blob);
