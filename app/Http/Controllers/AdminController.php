@@ -1552,14 +1552,14 @@ class AdminController extends Controller
                      <td colspan="1" style="font-size:0.8rem"></td>
                               <td colspan="8" style="font-size:1rem">Total Rank: <span style="background-color:#a69d41;padding: 2px 2px 2px 2px; border-radius:6px;color:#fff">'.$totalRank.'</span></td>
                     </tr>
-                        <tr>
+                    <tr>
                     <td colspan="8"></td>
                      <td colspan="">
                         <form method="GET">
                             <input type="hidden" name="text" id="type"  value="'.$type.'">
                             <input type="hidden" name="text" id="date1"  value="'.$date1.'">
                             <input type="hidden" name="text" id="date2"  value="'.$date2.'">
-                            <buttton type="button" class="btn btn-success btn-excel">Export&nbsp;Excel</button>
+                            <buttton type="button" class="btn btn-success btn-excel">Export&nbsp;PDF</button>
                         </form>
                      </td>
                      </tr>
@@ -1593,7 +1593,6 @@ class AdminController extends Controller
     }
 
     public function Exportexceltypereport(Request $request){
-
 
         $date1 =  \Carbon\Carbon::parse($request->date1);
         $date2 =  \Carbon\Carbon::parse($request->date2);
@@ -1794,6 +1793,18 @@ class AdminController extends Controller
                    <td colspan="1" style="font-size:0.8rem"></td>
                             <td colspan="8" style="font-size:1rem">Total Rank: <span style="background-color:#a69d41;padding: 2px 2px 2px 2px; border-radius:6px;color:#fff">'.$totalRank.'</span></td>
                   </tr>
+
+                   <tr>
+                    <td colspan="8"></td>
+                     <td colspan="">
+                        <form method="GET">
+                            <input type="hidden" name="text" id="category"  value="'.$category.'">
+                            <input type="hidden" name="text" id="date1"  value="'.$date1.'">
+                            <input type="hidden" name="text" id="date2"  value="'.$date2.'">
+                            <buttton type="button" class="btn btn-success btn-pdf-category">Export&nbsp;PDF</button>
+                        </form>
+                     </td>
+                     </tr>
                 ';
 
               }
@@ -1821,6 +1832,49 @@ class AdminController extends Controller
 
     }
 
+
+    public function Exportpdfcategoryreport(Request $request){
+
+        $date1 =  \Carbon\Carbon::parse($request->date1);
+        $date2 =  \Carbon\Carbon::parse($request->date2);
+        $category =  $request->category;
+
+        $data = DB::table('archives')
+        ->select(
+            'student_models.id as student_id',
+            'student_models.fullname',
+            'student_models.email',
+            'users.name',
+            'users.email',
+            'users.role',
+            'users.status',
+            'archives.id as archives_id',
+            'archives.student_id',
+            'archives.student_foreign_id',
+            'archives.title',
+            'archives.abstract',
+            'archives.banner_path',
+            'archives.status as archives_status',
+            'archives.type',
+            'archives.category',
+            'archives.created_at',
+            'archives.archive_code',
+            'archives.count_rank',
+            'curricula.name as curriculum_name',
+            'departments.name as department_name',
+            )
+        ->leftjoin('student_models','student_models.id','=','archives.student_id')
+        ->leftjoin('users','users.id','=','archives.student_foreign_id')
+        ->leftjoin('curricula','curricula.id','=','archives.curriculum_id')
+        ->leftjoin('departments','departments.id','=','archives.department_id')
+        ->where('archives.category',  $category)
+        ->whereBetween('archives.created_at', [$date1, $date2])
+       ->get();
+
+       $pdf = \PDF::loadView('reports.ExportexcelcategoryReport', compact('data'))->setPaper('a4', 'landscape');
+       return $pdf->stream("ExportexcelcategoryReport.pdf");
+
+    }
 
 
     public function AdminFilterStatusReports(Request $request){

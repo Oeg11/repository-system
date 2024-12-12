@@ -92,6 +92,8 @@ use App\Http\Controllers\StudentController;
        Route::get('/admin/search/student/report', [AdminController::class, 'AdminSearchStudentReports'])->name('admin.studentreportview');//route for student report
     //    Route::post('/admin/filter/student/report', [AdminController::class, 'AdminFilterStudentReports'])->name('admin.statusviewreports');
        Route::get('/admin/export/excel/type/report', [AdminController::class, 'Exportexceltypereport'])->name('admin.exportexceltypereport');
+       Route::get('/admin/export/pdf/type/report', [AdminController::class, 'Exportpdfcategoryreport'])->name('admin.exportpdfcategoryreport');
+
 
         //my added routes
        Route::get('admin/fetch/excel', [AdminController::class, 'Adminuserimport'])->name('admin.userimport');
