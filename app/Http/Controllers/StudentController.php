@@ -709,21 +709,6 @@ class StudentController extends Controller
         ->where('archives.status', '=',  1)
         ->orderBy('archives.id','DESC')
         ->simplePaginate(5);
-        // ->get();
-
-
-        // $ranks = DB::table('archives')
-        // ->select(
-        //     'archives.id',
-        //     'archives.title',
-        //     'archives.abstract',
-        //     'archives.count_rank',
-        //     'archives.banner_path')
-        // ->where('archives.status',  1)
-        // ->orderBy('archives.count_rank','DESC')
-        // ->get();
-        // ->get();
-
 
         $paginates = archive::query()
         ->when(
@@ -735,6 +720,8 @@ class StudentController extends Controller
         )
         ->where('status',  1)
         ->latest()->paginate(3);
+
+
         $getSearchurl = $request->q;
         $systeminformation = SystemInformation::all();
         $user = Auth::user(); //google auth

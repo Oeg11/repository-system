@@ -30,6 +30,7 @@ class archive extends Model
         'count_rank',
         'google_id',
         'student_foreign_id',
+        'submitted_by',
         'usercontrol_id',
         'collectionlist_view',
         'collectionlist_updatestatus',
