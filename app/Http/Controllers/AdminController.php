@@ -1550,6 +1550,19 @@ class AdminController extends Controller
                     </tr>
                   ';
 
+                  $output .= '
+                    <tr>
+                     <td colspan="10">
+                        <form method="GET">
+                        <input type="hidden" name="text" id="type"  value="'.$type.'">
+                        <input type="hidden" name="text" id="date1"  value="'.$date1.'">
+                        <input type="hidden" name="text" id="date2"  value="'.$date2.'">
+                        <buttton type="submit" class="btn btn-success btn-click">Print&nbsp;Excel</button>
+                        </form>
+                        </td>
+                     </tr>
+                   ';
+
                 }
 
              }
