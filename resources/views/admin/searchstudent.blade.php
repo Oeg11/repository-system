@@ -28,14 +28,14 @@
           <div class="col-12">
             <div class="card">
               <div class="card-header">
-                 <h2><b>testing reports</b></h2>
+                 <h2><b>Student Reports</b></h2>
               </div>
               <!-- /.card-header -->
               <div class="card-body">
                  <form method="POST">
                 <div class="row d-flex">
                                 <div class="col-md-3">
-                                    <label for="country">Category</label>
+                                    <label for="country">Student</label>
                                     <select class="form-control" id="category">
                                         {{-- @foreach ($categorys as $row)
                                             <option value="{{ $row->category }}">{{ $row->category }}</option>
