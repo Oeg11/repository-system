@@ -126,19 +126,18 @@
                           date1: date1,
                           date2: date2
                         },
-                        // xhrFields: {
-                        //     responseType: 'blob'
-                        // },
-                        success: function(response){
-                            console.log(response.data);
-                        //   var blob = new Blob([response]);
-                        //   var link = document.createElement('a');
-                        //   link.href = window.URL.createObjectURL(blob);
-                        //   link.download = "attendance_reports.pdf";
-                        //   link.click();
-                      }, error: function(response){
-                            //console.log(response);
-                        }
+                        xhrFields: {
+                          responseType: 'blob'
+                      },
+                      success: function(response){
+                        var blob = new Blob([response]);
+                        var link = document.createElement('a');
+                        link.href = window.URL.createObjectURL(blob);
+                        link.download = "typeexcel_reports.pdf";
+                        link.click();
+                    }, error: function(blob){
+                          console.log(blob);
+                      }
 
                   })
 

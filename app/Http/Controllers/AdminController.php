@@ -19,6 +19,10 @@ use App\Models\usercontrol;
 use App\Models\User;
 use App\Models\backup;
 use DataTables;
+use Dompdf\Dompdf;
+use Dompdf\Options;
+use Illuminate\Support\Facades\View;
+use Barryvdh\DomPDF\Facade\Pdf;
 
 use App\Exports\StudentExport;
 use App\Imports\StudentImport;
@@ -1626,31 +1630,8 @@ class AdminController extends Controller
         ->whereBetween('archives.created_at', [$date1, $date2])
        ->get();
 
-       return Excel::download(['data' => $data], 'ExportexceltypeReport.xlsx');
-
-//        $output = '';
-//        $output .="
-//        <table>
-//        <thead>
-//            <tr>
-//                <th>ID</th>
-//                <th>Type</th>
-//                <th>Category</th>
-//                <th>Date Created</th>
-//                <th>Archive Code</th>
-//                <th>Project Title</th>
-//                <th>Department</th>
-//                <th>Curriculum</th>
-//                <th>Status</th>
-//                <th>Rank</th>
-//            </tr>
-//        <tbody id='load_data'>
-//    ";
-
-//        foreach ($data as $row){
-//            echo ''
-
-//        }
+       $pdf = \PDF::loadView('reports.ExportexceltypeReport', compact('data'));
+       return $pdf->stream("ExportexceltypeReport.pdf");
 
     }
 
