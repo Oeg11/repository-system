@@ -101,17 +101,17 @@
         load_data();
         var count = 1;
         function load_data() {
-            $(document).on('click', '.btn-click', function() {
+            $(document).on('click', '.btn-excel', function() {
 
                        var type = $('#type').val();
                        var date1 = $('#date1').val();
                        var date2 = $('#date2').val();
 
-                    $.ajaxSetup({
-                      headers: {
-                              'X-CSRF-TOKEN': $('meta[name="csrf-token"]').attr('content')
-                          }
-                      });
+                    // $.ajaxSetup({
+                    //   headers: {
+                    //           'X-CSRF-TOKEN': $('meta[name="csrf-token"]').attr('content')
+                    //       }
+                    //   });
 
                 //   $.ajax({
                 //         type: 'GET',

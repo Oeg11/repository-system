@@ -1558,7 +1558,7 @@ class AdminController extends Controller
                         <input type="hidden" name="text" id="type"  value="'.$type.'">
                         <input type="hidden" name="text" id="date1"  value="'.$date1.'">
                         <input type="hidden" name="text" id="date2"  value="'.$date2.'">
-                        <buttton type="submit" class="btn btn-success btn-click">Export&nbsp;Excel</button>
+                        <buttton type="button" class="btn btn-success btn-excel">Export&nbsp;Excel</button>
                         </form>
                      </td>
                      </tr>
