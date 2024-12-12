@@ -69,7 +69,7 @@
                             <th scope="col">ID</th>
                             <th scope="col">Name</th>
                             <th scope="col">Email</th>
-                            <th scope="col">Password</th>
+                            <th id="columnHeader">Password</th>
                             <th scope="col">Department</th>
                             <th scope="col">Curriculum</th>
                             <th scope="col">Role</th>
@@ -83,11 +83,11 @@
                               <td>{{ $row->id  }}</td>
                               <td>{{ $row->fullname  }}</td>
                               <td>{{ $row->email  }}</td>
-                              <td>{{ $row->password  }}</td>
+                              <td id="columnData">{{ $row->password  }}</td>
                               <td>{{ $row->department_id  }}</td>
                               <td>{{ $row->curriculum_id  }}</td>
                               <td>{{ $row->role  }}</td>
-                              <td>{{ $row->status  }}</td>
+                              <td id="columnData">{{ $row->status  }}</td>
 
                           </tr>
                           @endforeach
@@ -114,6 +114,11 @@
   @endsection
   <script src="https://code.jquery.com/jquery-3.5.1.js"></script>
   <script src="https://cdnjs.cloudflare.com/ajax/libs/toastr.js/latest/toastr.min.js"></script>
+
+  <script>
+    document.getElementById('columnHeader').style.display = 'none';
+    document.querySelectorAll('#columnData').forEach(td => td.style.display = 'none');
+  </script>
 
   <script type="text/javascript">
 
