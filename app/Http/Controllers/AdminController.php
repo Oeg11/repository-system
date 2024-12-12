@@ -22,6 +22,7 @@ use DataTables;
 
 use App\Exports\StudentExport;
 use App\Imports\StudentImport;
+use App\Exports\FilteredTypeExport;
 use Excel;
 
 
