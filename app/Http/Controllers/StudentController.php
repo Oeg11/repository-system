@@ -925,6 +925,7 @@ class StudentController extends Controller
        $archive->student_id = $request->student_id;
        $archive->slug = Str::slug($request->title); //payroll-system
        $archive->google_id = $request->google_id;
+       $archive->submitted_by = $request->submitted_by;
        $archive->save();
 
            return response()->json(['status' => 200]);

@@ -199,7 +199,7 @@
                    <div class="form-group">
                     <input type="hidden" id="student_id" name="student_id" value="{{ Auth::user()->id }}">
                     <input type="hidden" id="google_id" name="google_id" value="{{ Auth::user()->google_id }}">
-                    <input type="text" id="submitted_by" name="submitted_by" value="{{ Auth::user()->name }}">
+                    <input type="hidden" id="submitted_by" name="submitted_by" value="{{ Auth::user()->name }}">
                        <button type="button" class="btn btn-outline-primary" id="btn-submit">Submit</button>
                       </div>
                 </div>
