@@ -199,6 +199,7 @@
                 <div class="col-md-12">
                    <div class="form-group">
                     <input type="hidden" id="student_foreign_id" name="student_foreign_id" value="{{ Auth::user()->id }}">
+                    <input type="hidden" id="submitted_by" name="submitted_by" value="{{ Auth::user()->fullname }}">
                        <button type="button" class="btn btn-outline-primary" id="btn-submit">Submit</button>
                       </div>
                 </div>

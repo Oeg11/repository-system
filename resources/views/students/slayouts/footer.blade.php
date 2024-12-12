@@ -208,6 +208,10 @@
            console.log("========================student_foreign_id========================");
            console.log(student_foreign_id);
 
+           var submitted_by = $('#submitted_by').val();
+           console.log("========================submitted_by========================");
+           console.log(submitted_by);
+
            var click_checkbox =  $('#click_checkbox').is(':checked') ? "1" : "0"; //
            console.log("========================click_checkbox========================");
            console.log(click_checkbox);
@@ -228,6 +232,7 @@
                data.append('banner_path', $('#file-ip-1')[0].files[0]);
                data.append('document_path', $('#document_path')[0].files[0]);
                data.append('student_foreign_id', student_foreign_id);
+               data.append('submitted_by', submitted_by);
                data.append('click_checkbox', click_checkbox);
 
            $.ajax({
