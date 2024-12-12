@@ -1552,7 +1552,7 @@ class AdminController extends Controller
 
                   $output .= '
                     <tr>
-                    <td colspan="10"></td>
+                    <td colspan="8"></td>
                      <td colspan="">
                         <form method="GET">
                         <input type="hidden" name="text" id="type"  value="'.$type.'">
