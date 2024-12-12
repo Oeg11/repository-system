@@ -46,7 +46,7 @@
     </style>
   </head>
   <body>
-    <div class="header"><div class="row"><div class="col-md-3"><img src="data:image/png;base64,<?php echo base64_encode(file_get_contents(base_path('public/admin_assets/images/228-2280680_yourlogo-icon-your-logo-goes-here-hd-png-removebg-preview.png'))); ?>" width="80" style=""> </div><div class="col-md-3"> Attendance Report</div></div></div>
+    <div class="header"><div class="row"><div class="col-md-3"><img src="data:image/png;base64,<?php echo base64_encode(file_get_contents(base_path('public/assets/img/131507_hacker_administrator_system_sys_hack_icon.png'))); ?>" width="80" style=""> </div><div class="col-md-3"> Type Report</div></div></div>
     {{-- <div class="header"><img src="{{ asset('admin_assets/images/228-2280680_yourlogo-icon-your-logo-goes-here-hd-png.png') }}" width="60px" height="60px" >Attendance Report</div> --}}
     <table>
         <thead>
