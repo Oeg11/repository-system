@@ -204,12 +204,12 @@
                     </a>
                   </li>
 
-                  {{-- <li class="nav-item">
-                    <a href="{{route('')}}" class="nav-link">
+                  <li class="nav-item">
+                    <a href="{{route('admin.studentreports')}}" class="nav-link">
                       <i class="far fa-circle nav-icon"></i>
                       <p>Student Report</p>
                     </a>
-                  </li> --}}
+                  </li>
 
                   <li class="nav-item">
                     <a href="{{route('admin.reports')}}" class="nav-link">
