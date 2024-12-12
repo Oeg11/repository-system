@@ -73,7 +73,7 @@
                             <th scope="col">Department</th>
                             <th scope="col">Curriculum</th>
                             <th scope="col">Role</th>
-                            <th scope="col">Status</th>
+                            <th id="columnHeader">Status</th>
 
                         </tr>
                     </thead>
