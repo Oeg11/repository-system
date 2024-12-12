@@ -1942,13 +1942,10 @@ class AdminController extends Controller
 
     }
 
-    // public function AdminSearchStudentReports(Request $request){
+    public function AdminExportTypeDownload(Request $request){
 
-    //     $categorys = archive::select('student')->distinct()->get();
-    //     $systeminformation = SystemInformation::all();
-    //     return view('admin.searchstudent', compact('systeminformation','student'));
-
-    // }
+        return Excel::download(new FilteredTypeExport, 'type_report.csv');
+     }
 
 
 }

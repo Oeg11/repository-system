@@ -30,7 +30,7 @@
               <div class="card-header">
                 <div class="row">
                     <div class=col-md-10><h2><b>Type Reports</b></h2></div>
-                    <div class="col-md-2">  <a class="btn btn-warning float-end" class="btn btn-success" href="">Download Report</a>
+                    <div class="col-md-2">  <a class="btn btn-warning float-end" class="btn btn-success" href="{{ route('admin.exporttype') }}">Download Type Report</a>
                 </div>
               </div>
               <!-- /.card-header -->
