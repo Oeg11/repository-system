@@ -28,8 +28,10 @@
           <div class="col-12">
             <div class="card">
               <div class="card-header">
-                 <div><h2><b>Type Reports</b></h2></div>
-                 <div class="col-md-2">  <a class="btn btn-warning float-end" class="btn btn-success" href="">Download Report</a>
+                <div class="row">
+                    <div class=col-md-10><h2><b>Type Reports</b></h2></div>
+                    <div class="col-md-2">  <a class="btn btn-warning float-end" class="btn btn-success" href="">Download Report</a>
+                </div>
               </div>
               <!-- /.card-header -->
               <div class="card-body">
