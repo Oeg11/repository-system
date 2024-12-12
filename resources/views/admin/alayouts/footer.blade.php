@@ -102,11 +102,15 @@
         var count = 1;
         function load_data() {
             $(document).on('click', '.btn-excel', function() {
-                alert('click');
 
                        var type = $('#type').val();
+                       console.log(type);
+
                        var date1 = $('#date1').val();
+                       console.log(date1);
+
                        var date2 = $('#date2').val();
+                       console.log(date2);
 
                     // $.ajaxSetup({
                     //   headers: {
