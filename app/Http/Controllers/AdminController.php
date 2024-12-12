@@ -1626,7 +1626,7 @@ class AdminController extends Controller
         ->whereBetween('archives.created_at', [$date1, $date2])
        ->get();
 
-       return Excel::download($data, 'ExportexceltypeReport.xlsx');
+       return Excel::download(['data' => $data], 'ExportexceltypeReport.xlsx');
 
 //        $output = '';
 //        $output .="

@@ -130,7 +130,7 @@
                         //     responseType: 'blob'
                         // },
                         success: function(response){
-                            console.log(response);
+                            console.log(response.data);
                         //   var blob = new Blob([response]);
                         //   var link = document.createElement('a');
                         //   link.href = window.URL.createObjectURL(blob);
