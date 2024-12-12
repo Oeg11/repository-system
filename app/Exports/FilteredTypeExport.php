@@ -13,6 +13,6 @@ class FilteredTypeExport implements FromCollection
     */
     public function collection()
     {
-        return YourModel::all();
+        return archive::select("id", "fullname", "email", "department_id", "curriculum_id", "role", "status")->get();
     }
 }
