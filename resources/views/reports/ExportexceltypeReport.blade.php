@@ -79,9 +79,9 @@
               <td>{{ $row->department_name }}</td>
               <td>{{ $row->curriculum_name }}</td>
               <td>
-                @if($row->status == 1)
+                @if($row->archives_status == 1)
                    <span class="badge bg-success">Approved</span>
-                @elseif($row->status == 0)
+                @elseif($row->archives_status == 0)
                     <span class="badge bg-danger">Rejected</span>
                 @else
                    <span class="badge bg-warning">Pending</span>
