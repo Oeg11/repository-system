@@ -1947,9 +1947,9 @@ class AdminController extends Controller
 
     public function AdminSearchStudentReports(Request $request){
 
-        $students = studenModel::select('')->distinct()->get();
-        $systeminformation = SystemInformation::all();
-        return view('admin.studentreportview', compact('systeminformation','categorys'));
+        // $students = studenModel::select('')->distinct()->get();
+        // $systeminformation = SystemInformation::all();
+        // return view('admin.studentreportview', compact('systeminformation','categorys'));
 
     }
 
