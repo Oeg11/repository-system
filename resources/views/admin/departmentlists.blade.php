@@ -85,6 +85,7 @@
 
       var table = $('.data-table3').DataTable({
 
+
           processing: true,
 
           serverSide: true,

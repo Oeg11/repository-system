@@ -112,34 +112,35 @@
                        var date2 = $('#date2').val();
                        console.log(date2);
 
-                    // $.ajaxSetup({
-                    //   headers: {
-                    //           'X-CSRF-TOKEN': $('meta[name="csrf-token"]').attr('content')
-                    //       }
-                    //   });
+                    $.ajaxSetup({
+                      headers: {
+                              'X-CSRF-TOKEN': $('meta[name="csrf-token"]').attr('content')
+                          }
+                      });
 
-                //   $.ajax({
-                //         type: 'GET',
-                //         url: '',
-                //         data: {
-                //         type: type,
-                //           date1: date1,
-                //           date2: date2
-                //         },
-                //         xhrFields: {
-                //             responseType: 'blob'
-                //         },
-                //         success: function(response){
-                //           var blob = new Blob([response]);
-                //           var link = document.createElement('a');
-                //           link.href = window.URL.createObjectURL(blob);
-                //           link.download = "attendance_reports.pdf";
-                //           link.click();
-                //       }, error: function(blob){
-                //             console.log(blob);
-                //         }
+                  $.ajax({
+                        type: 'GET',
+                        url:"{{ route('admin.exportexceltypereport') }}",
+                        data: {
+                          type: type,
+                          date1: date1,
+                          date2: date2
+                        },
+                        // xhrFields: {
+                        //     responseType: 'blob'
+                        // },
+                        success: function(response){
+                            console.log(response);
+                        //   var blob = new Blob([response]);
+                        //   var link = document.createElement('a');
+                        //   link.href = window.URL.createObjectURL(blob);
+                        //   link.download = "attendance_reports.pdf";
+                        //   link.click();
+                      }, error: function(response){
+                            //console.log(response);
+                        }
 
-                //   })
+                  })
 
             });
          }

@@ -1588,6 +1588,72 @@ class AdminController extends Controller
 
     }
 
+    public function Exportexceltypereport(Request $request){
+
+
+        $date1 =  \Carbon\Carbon::parse($request->date1);
+        $date2 =  \Carbon\Carbon::parse($request->date2);
+        $type =  $request->type;
+
+        $data = DB::table('archives')
+        ->select(
+            'student_models.id as student_id',
+            'student_models.fullname',
+            'student_models.email',
+            'users.name',
+            'users.email',
+            'users.role',
+            'users.status',
+            'archives.id as archives_id',
+            'archives.student_id',
+            'archives.student_foreign_id',
+            'archives.title',
+            'archives.abstract',
+            'archives.banner_path',
+            'archives.status as archives_status',
+            'archives.category',
+            'archives.created_at',
+            'archives.archive_code',
+            'archives.count_rank',
+            'curricula.name as curriculum_name',
+            'departments.name as department_name',
+            )
+        ->leftjoin('student_models','student_models.id','=','archives.student_id')
+        ->leftjoin('users','users.id','=','archives.student_foreign_id')
+        ->leftjoin('curricula','curricula.id','=','archives.curriculum_id')
+        ->leftjoin('departments','departments.id','=','archives.department_id')
+        ->where('archives.type',  $type)
+        ->whereBetween('archives.created_at', [$date1, $date2])
+       ->get();
+
+       return Excel::download($data, 'ExportexceltypeReport.xlsx');
+
+//        $output = '';
+//        $output .="
+//        <table>
+//        <thead>
+//            <tr>
+//                <th>ID</th>
+//                <th>Type</th>
+//                <th>Category</th>
+//                <th>Date Created</th>
+//                <th>Archive Code</th>
+//                <th>Project Title</th>
+//                <th>Department</th>
+//                <th>Curriculum</th>
+//                <th>Status</th>
+//                <th>Rank</th>
+//            </tr>
+//        <tbody id='load_data'>
+//    ";
+
+//        foreach ($data as $row){
+//            echo ''
+
+//        }
+
+    }
+
 
 
     public function AdminFilterCategoryReports(Request $request){
