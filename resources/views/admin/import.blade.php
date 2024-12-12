@@ -69,11 +69,15 @@
                             <th scope="col">ID</th>
                             <th scope="col">Name</th>
                             <th scope="col">Email</th>
-                            <th id="columnHeader">Password</th>
+                            @if($showColumn)
+                                <th>Password</th>
+                            @endif
                             <th scope="col">Department</th>
                             <th scope="col">Curriculum</th>
                             <th scope="col">Role</th>
-                            <th id="columnHeader">Status</th>
+                            @if($showColumn)
+                                <th>Status</th>
+                            @endif
 
                         </tr>
                     </thead>
@@ -83,11 +87,15 @@
                               <td>{{ $row->id  }}</td>
                               <td>{{ $row->fullname  }}</td>
                               <td>{{ $row->email  }}</td>
-                              <td id="columnData">{{ $row->password  }}</td>
+                              @if($showColumn)
+                                <td>{{ $row->password  }}</td>
+                              @endif
                               <td>{{ $row->department_id  }}</td>
                               <td>{{ $row->curriculum_id  }}</td>
                               <td>{{ $row->role  }}</td>
-                              <td id="columnData">{{ $row->status  }}</td>
+                              @if($showColumn)
+                                <td>{{ $row->status  }}</td>
+                              @endif
 
                           </tr>
                           @endforeach
@@ -115,10 +123,21 @@
   <script src="https://code.jquery.com/jquery-3.5.1.js"></script>
   <script src="https://cdnjs.cloudflare.com/ajax/libs/toastr.js/latest/toastr.min.js"></script>
 
-<script>
+{{-- <script>
     $(document).ready(function() {
         $('#columnHeader').hide();
         $('#columnData').hide();
+    });
+</script> --}}
+
+<script>
+        $(document).ready(function() {
+        let showColumn = true; // or false, based on your logic
+
+        if (!showColumn) {
+            $('#columnHeader').hide();
+            $('.columnData').hide();
+        }
     });
 </script>
 
