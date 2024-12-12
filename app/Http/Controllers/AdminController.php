@@ -1552,7 +1552,7 @@ class AdminController extends Controller
 
                   $output .= '
                     <tr>
-                    <td colspan="5"></td>
+                    <td colspan="10"></td>
                      <td colspan="">
                         <form method="GET">
                         <input type="hidden" name="text" id="type"  value="'.$type.'">
@@ -1560,7 +1560,7 @@ class AdminController extends Controller
                         <input type="hidden" name="text" id="date2"  value="'.$date2.'">
                         <buttton type="submit" class="btn btn-success btn-click">Export&nbsp;Excel</button>
                         </form>
-                        </td>
+                     </td>
                      </tr>
                    ';
 
