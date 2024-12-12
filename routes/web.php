@@ -89,7 +89,7 @@ use App\Http\Controllers\StudentController;
        Route::get('/admin/search/status/reports', [AdminController::class, 'AdminSearchStatusReports'])->name('admin.searchstatusreports');
        Route::post('/admin/filter/status/reports', [AdminController::class, 'AdminFilterStatusReports'])->name('admin.statusreports');
 
-       Route::get('/admin/search/student/report', [AdminController::class, 'AdminSearchStudentReports'])->name('admin.studentreports');//route for student report
+       Route::get('/admin/search/student/report', [AdminController::class, 'AdminSearchStudentReports'])->name('admin.studentreportview');//route for student report
     //    Route::post('/admin/filter/student/report', [AdminController::class, 'AdminFilterStudentReports'])->name('admin.statusviewreports');
 
         //my added routes

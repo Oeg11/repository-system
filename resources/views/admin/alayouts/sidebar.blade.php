@@ -205,7 +205,7 @@
                   </li>
 
                   <li class="nav-item">
-                    <a href="{{route('admin.studentreports')}}" class="nav-link">
+                    <a href="{{route('admin.studentreportview')}}" class="nav-link">
                       <i class="far fa-circle nav-icon"></i>
                       <p>Student Report</p>
                     </a>
