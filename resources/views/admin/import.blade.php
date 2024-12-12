@@ -63,6 +63,9 @@
               <!-- /.card-header -->
               <div class="card-body">
                 <div class="table-responsive">
+                    @php
+                    $showColumn = $showColumn ?? false; // Default to false if undefined
+                    @endphp
                 <table class="table table-bordered table-hover data-table3">
                     <thead>
                         <tr>
