@@ -1947,11 +1947,11 @@ class AdminController extends Controller
 
     public function AdminSearchStudentReports(Request $request){
 
-
-        $categorys = archive::select('category')->distinct()->get();
+        $students = studentModel::select('student_models')->distinct()->get();
         $systeminformation = SystemInformation::all();
-        return view('admin.searchcategory', compact('systeminformation','categorys'));
-     }
+        return view('admin.studentreportview', compact('systeminformation','student_models'));
+
+    }
 
     public function AdminExportTypeDownload(Request $request){
 
