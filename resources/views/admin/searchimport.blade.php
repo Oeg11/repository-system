@@ -28,7 +28,7 @@
           <div class="col-12">
             <div class="card">
               <div class="card-header">
-                 <h2><b>Type Reports</b></h2>
+                 <div><h2><b>Type Reports</b></h2></div>
                  <div class="col-md-2">  <a class="btn btn-warning float-end" class="btn btn-success" href="">Download Report</a>
               </div>
               <!-- /.card-header -->
