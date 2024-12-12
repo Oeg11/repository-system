@@ -126,7 +126,7 @@
 
                 //   $.ajax({
                 //         type: 'GET',
-                //         url: '{{ route('reports.attendance_reports') }}',
+                //         url: '',
                 //         data: {
                 //         type: type,
                 //           date1: date1,
