@@ -93,6 +93,7 @@ use App\Http\Controllers\StudentController;
     //    Route::post('/admin/filter/student/report', [AdminController::class, 'AdminFilterStudentReports'])->name('admin.statusviewreports');
        Route::get('/admin/export/excel/type/report', [AdminController::class, 'Exportexceltypereport'])->name('admin.exportexceltypereport');
        Route::get('/admin/export/pdf/type/report', [AdminController::class, 'Exportpdfcategoryreport'])->name('admin.exportpdfcategoryreport');
+       Route::get('/admin/export/pdf/status/report', [AdminController::class, 'Exportpdfstatusreport'])->name('admin.exportpdfstatusreport');
 
 
         //my added routes

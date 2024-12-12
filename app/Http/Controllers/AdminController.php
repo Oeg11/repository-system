@@ -2015,6 +2015,17 @@ class AdminController extends Controller
                   <tr>
                     <td colspan="9" class="mt-3"><h6>Total Status: <span style="background-color:#1bdce3;padding: 1px 3px 1px 3px; border-radius:6px;color:#fff">'.$TotalStatus.'</span></h6></td>
                  </tr>
+                 <tr>
+                    <td colspan="8"></td>
+                     <td colspan="">
+                        <form method="GET">
+                            <input type="hidden" name="text" id="status"  value="'.$status.'">
+                            <input type="hidden" name="text" id="date1"  value="'.$date1.'">
+                            <input type="hidden" name="text" id="date2"  value="'.$date2.'">
+                            <buttton type="button" class="btn btn-success btn-pdf-status">Export&nbsp;PDF</button>
+                        </form>
+                     </td>
+                     </tr>
                   ';
 
 
@@ -2038,6 +2049,48 @@ class AdminController extends Controller
 
 
         }
+
+    }
+
+    public function Exportpdfstatusreport(Request $request){
+        $date1 =  \Carbon\Carbon::parse($request->date1);
+        $date2 =  \Carbon\Carbon::parse($request->date2);
+        $status =  $request->status;
+
+        $data = DB::table('archives')
+        ->select(
+            'student_models.id as student_id',
+            'student_models.fullname',
+            'student_models.email',
+            'users.name',
+            'users.email',
+            'users.role',
+            'users.status',
+            'archives.id as archives_id',
+            'archives.student_id',
+            'archives.student_foreign_id',
+            'archives.title',
+            'archives.abstract',
+            'archives.banner_path',
+            'archives.status as archives_status',
+            'archives.type',
+            'archives.category',
+            'archives.created_at',
+            'archives.archive_code',
+            'archives.count_rank',
+            'curricula.name as curriculum_name',
+            'departments.name as department_name',
+            )
+        ->leftjoin('student_models','student_models.id','=','archives.student_id')
+        ->leftjoin('users','users.id','=','archives.student_foreign_id')
+        ->leftjoin('curricula','curricula.id','=','archives.curriculum_id')
+        ->leftjoin('departments','departments.id','=','archives.department_id')
+        ->where('archives.status',  $status)
+        ->whereBetween('archives.created_at', [$date1, $date2])
+       ->get();
+
+       $pdf = \PDF::loadView('reports.ExportexcelstatusReport', compact('data'))->setPaper('a4', 'landscape');
+       return $pdf->stream("ExportexcelstatusReport.pdf");
 
     }
 

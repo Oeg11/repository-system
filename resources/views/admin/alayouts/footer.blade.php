@@ -207,6 +207,62 @@
 {{--end print search  category pdf --}}
 
 
+{{-- print search  status pdf --}}
+<script>
+    $(document).ready(function() {
+        load_data();
+        var count = 1;
+        function load_data() {
+            $(document).on('click', '.btn-pdf-status', function() {
+
+                       var status = $('#status').val();
+                       console.log(status);
+
+                       var date1 = $('#date1').val();
+                       console.log(date1);
+
+                       var date2 = $('#date2').val();
+                       console.log(date2);
+
+                    $.ajaxSetup({
+                      headers: {
+                              'X-CSRF-TOKEN': $('meta[name="csrf-token"]').attr('content')
+                          }
+                      });
+
+                  $.ajax({
+                        type: 'GET',
+                        url:"{{ route('admin.exportpdfstatusreport') }}",
+                        data: {
+                            status: status,
+                          date1: date1,
+                          date2: date2
+                        },
+                        xhrFields: {
+                          responseType: 'blob'
+                      },
+                      success: function(response){
+                        var blob = new Blob([response]);
+                        var link = document.createElement('a');
+                        link.href = window.URL.createObjectURL(blob);
+                        link.download = "categoryexcel_reports.pdf";
+                        link.click();
+                    }, error: function(blob){
+                          console.log(blob);
+                      }
+
+                  })
+
+            });
+         }
+
+    });
+
+  </script>
+
+{{--end print search  status pdf --}}
+
+
 {{-- for add thesis/capstone --}}
   <script>
     $(document).ready(function(){
