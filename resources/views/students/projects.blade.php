@@ -46,8 +46,8 @@
                                 <h2>{{ Str::ucfirst($item->title) }}</h2>
 
                                 <p>
-                                    <span style="color:#8c8c8c">By</span> <span style="color:#007bff">{{
-                                        Str::ucfirst($item->fullname) }}</span>
+                                    <span style="color:#8c8c8c">Submitted By:</span> <span style="color:#007bff">{{
+                                        Str::ucfirst($item->submitted_by) }}</span>
                                     <br>
                                     <p class="mb-0 w-100"style="color:#8c8c8c;font-size:11px">
                                        {{
