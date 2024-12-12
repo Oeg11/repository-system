@@ -117,8 +117,8 @@
 
 <script>
     $(document).ready(function() {
-        $('#columnHeader').collapse();
-        $('#columnData').collapse();
+        $('#columnHeader').hide();
+        $('#columnData').hide();
     });
 </script>
 
