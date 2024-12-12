@@ -102,6 +102,7 @@
         var count = 1;
         function load_data() {
             $(document).on('click', '.btn-excel', function() {
+                alert('click');
 
                        var type = $('#type').val();
                        var date1 = $('#date1').val();

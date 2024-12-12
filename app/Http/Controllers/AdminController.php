@@ -1548,21 +1548,20 @@ class AdminController extends Controller
                      <td colspan="1" style="font-size:0.8rem"></td>
                               <td colspan="8" style="font-size:1rem">Total Rank: <span style="background-color:#a69d41;padding: 2px 2px 2px 2px; border-radius:6px;color:#fff">'.$totalRank.'</span></td>
                     </tr>
-                  ';
-
-                  $output .= '
-                    <tr>
+                        <tr>
                     <td colspan="8"></td>
                      <td colspan="">
                         <form method="GET">
-                        <input type="hidden" name="text" id="type"  value="'.$type.'">
-                        <input type="hidden" name="text" id="date1"  value="'.$date1.'">
-                        <input type="hidden" name="text" id="date2"  value="'.$date2.'">
-                        <buttton type="button" class="btn btn-success btn-excel">Export&nbsp;Excel</button>
+                            <input type="hidden" name="text" id="type"  value="'.$type.'">
+                            <input type="hidden" name="text" id="date1"  value="'.$date1.'">
+                            <input type="hidden" name="text" id="date2"  value="'.$date2.'">
+                            <buttton type="button" class="btn btn-success btn-excel">Export&nbsp;Excel</button>
                         </form>
                      </td>
                      </tr>
-                   ';
+                  ';
+
+
 
                 }
 
