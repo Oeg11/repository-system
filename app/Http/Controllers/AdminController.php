@@ -1948,7 +1948,8 @@ class AdminController extends Controller
     public function AdminSearchStudentReports(Request $request){
 
 
-        return view('admin.studentreportview', compact('systeminformation'));
+        $systeminformation = SystemInformation::all();
+        return view('admin.studentreportview', compact('systeminformation',));
      }
 
     public function AdminExportTypeDownload(Request $request){
