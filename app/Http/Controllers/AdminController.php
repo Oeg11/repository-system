@@ -1376,7 +1376,7 @@ class AdminController extends Controller
 
         public function AdminExportexcel(Request $request){
 
-            return Excel::download(new StudentExport, 'studentlist.xlsx');
+            return Excel::download(new StudentExport, 'studentlist.csv');
         }
 
 
