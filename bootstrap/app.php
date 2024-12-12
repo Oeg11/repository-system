@@ -31,8 +31,8 @@ $app->singleton(
     App\Http\Kernel::class
 );
 
-$app->register(\Barryvdh\DomPDF\ServiceProvider::class);
-$app->configure('dompdf');
+// $app->register(\Barryvdh\DomPDF\ServiceProvider::class);
+// $app->configure('dompdf');
 
 $app->singleton(
     Illuminate\Contracts\Console\Kernel::class,
