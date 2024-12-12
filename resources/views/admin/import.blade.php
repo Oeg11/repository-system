@@ -115,10 +115,12 @@
   <script src="https://code.jquery.com/jquery-3.5.1.js"></script>
   <script src="https://cdnjs.cloudflare.com/ajax/libs/toastr.js/latest/toastr.min.js"></script>
 
-  <script>
-    document.getElementById('columnHeader').style.display = 'none';
-    document.querySelectorAll('#columnData').forEach(td => td.style.display = 'none');
-  </script>
+<script>
+    $(document).ready(function() {
+        $('#columnHeader').hide();
+        $('#columnData').hide();
+    });
+</script>
 
   <script type="text/javascript">
 
