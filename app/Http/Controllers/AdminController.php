@@ -1631,7 +1631,7 @@ class AdminController extends Controller
         ->whereBetween('archives.created_at', [$date1, $date2])
        ->get();
 
-       $pdf = \PDF::loadView('reports.ExportexceltypeReport', compact('data'));
+       $pdf = \PDF::loadView('reports.ExportexceltypeReport', compact('data'))->setPaper('a4', 'landscape');
        return $pdf->stream("ExportexceltypeReport.pdf");
 
     }
