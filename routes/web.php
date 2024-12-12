@@ -82,7 +82,7 @@ use App\Http\Controllers\StudentController;
        Route::get('/admin/search/reports', [AdminController::class, 'AdminSearchReports'])->name('admin.searchreports');
        Route::post('/admin/search/type/reports', [AdminController::class, 'AdminSearchTypeReports'])->name('admin.typereports');
 
-    //    Route::get('admin/export/type', [AdminController::class, 'AdminExportTypeDownload'])->name('admin.exporttype');//route for type export
+       Route::get('admin/export/type', [AdminController::class, 'AdminExportTypeDownload'])->name('admin.exporttype');//route for type export
 
        Route::get('/admin/search/category/reports', [AdminController::class, 'AdminSearchCategoryReports'])->name('admin.searchcategoryreports');
        Route::post('/admin/filter/category/reports', [AdminController::class, 'AdminFilterCategoryReports'])->name('admin.categoryreports');
