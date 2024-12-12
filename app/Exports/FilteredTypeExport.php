@@ -5,7 +5,7 @@ namespace App\Exports;
 use App\Models\YourModel;
 use App\Models\archive;
 use Maatwebsite\Excel\Concerns\FromCollection;
-use Maatwebsite\Excel\Concerns\WithHeadings;
+// use Maatwebsite\Excel\Concerns\WithHeadings;
 
 class FilteredTypeExport implements FromCollection
 {
@@ -14,7 +14,7 @@ class FilteredTypeExport implements FromCollection
     */
     protected $filters;
 
-    public function __construct($filters)
+    public function collection($filters)
     {
         $this->filters = $filters;
     }
