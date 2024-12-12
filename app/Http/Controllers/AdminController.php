@@ -1945,7 +1945,7 @@ class AdminController extends Controller
 
     public function AdminExportTypeDownload(Request $request){
 
-        return Excel::download(new FilteredTypeExport, 'type_report.csv');
+        // return Excel::download(new FilteredTypeExport, 'type_report.csv');
      }
 
 
