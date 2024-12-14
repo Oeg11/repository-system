@@ -952,18 +952,6 @@
   });
 </script>
 
-<script>
-        function filterData(filterType) {
-            axios.get(`/filter-data?filter=${filterType}`)
-                .then(response => {
-                    // Update the data container with the filtered data
-                    document.getElementById('data-container').innerHTML = response.data;
-                })
-                .catch(error => {
-                    console.error(error);
-                });
-        }
-</script>
 
 
 <script type="text/javascript">

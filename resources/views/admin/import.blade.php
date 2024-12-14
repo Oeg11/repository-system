@@ -75,8 +75,12 @@
                             @if($showColumn)
                                 <th>Password</th>
                             @endif
+                            @if($showColumn)
                             <th scope="col">Department</th>
+                            @endif
+                            @if($showColumn)
                             <th scope="col">Curriculum</th>
+                            @endif
                             <th scope="col">Role</th>
                             @if($showColumn)
                                 <th>Status</th>
@@ -93,8 +97,12 @@
                               @if($showColumn)
                                 <td>{{ $row->password  }}</td>
                               @endif
+                              @if($showColumn)
                               <td>{{ $row->department_id  }}</td>
+                              @endif
+                              @if($showColumn)
                               <td>{{ $row->curriculum_id  }}</td>
+                              @endif
                               <td>{{ $row->role  }}</td>
                               @if($showColumn)
                                 <td>{{ $row->status  }}</td>
