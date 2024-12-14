@@ -55,11 +55,6 @@
                                 <label  style="color:white">x</label>
                                 <button type="button" class="btn btn-primary" id="btn_search_2">Filter</button>
                             </div>
-                            <div class="btn-group">
-                                <button class="btn btn-primary" id= "weekly"onclick="filterData('weekly')">Weekly</button>
-                                <button class="btn btn-secondary" id= "monthly " onclick="filterData('monthly')">Monthly</button>
-                                <button class="btn btn-success" id= "yearly " onclick="filterData('yearly')">Yearly</button>
-                            </div>
                         </div>
                     </form>
 
