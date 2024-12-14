@@ -12,11 +12,10 @@
          @csrf
         <div class="modal-body">
              <p>
-                 <h5><b>Privacy Policy</b></h5>
+                <P>Before submitting your project or research output to [Website Name], please review the
+                    following waiver and provide your consent by checking the box below:</P>
+                <br>
                 <ul>
-                    <P>Before submitting your project or research output to [Website Name], please review the
-                        following waiver and provide your consent by checking the box below:</P>
-                    <br>
                     <li>I acknowledge that I am voluntarily submitting my capstone project or research
                         output to STI Marikina Repository System for the purpose of archiving and public
                         display within the institution’s repository system. I understand that my
