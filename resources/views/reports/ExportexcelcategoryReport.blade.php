@@ -10,7 +10,7 @@
         <a class="nav-link" data-toggle="dropdown" href="#">
           <i class="fa fa-user"></i>Exported by: {{ Auth::user()->email }}
           <br>
-          <i class="fa fa-user"></i>Exported Date: {{ Carbon::now()->currentDateTime}}
+          {{-- <i class="fa fa-user"></i>Exported Date: {{ Carbon::now()->currentDateTime}} --}}
         </a>
     </li>
     <style>
