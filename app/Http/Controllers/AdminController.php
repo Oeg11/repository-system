@@ -1639,8 +1639,8 @@ class AdminController extends Controller
 
     public function AdminFilterCategoryReports(Request $request){
 
-        $date1 =  \Carbon\Carbon::parse($request->date1);
-        $date2 =  \Carbon\Carbon::parse($request->date2);
+        $date1 =  \Carbon\Carbon::parse($request->date1)->startOfDay();
+        $date2 =  \Carbon\Carbon::parse($request->date2)->endOfDay();
         $category =  $request->category;
         if($request->ajax())
         {
