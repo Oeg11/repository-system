@@ -1397,9 +1397,10 @@ class AdminController extends Controller
 
     public function AdminSearchTypeReports(Request $request){
 
-        $date1 =  \Carbon\Carbon::parse($request->date1)->startOfDay();
-        $date2 =  \Carbon\Carbon::parse($request->date2)->endOfDay();
+        // $date1 =  \Carbon\Carbon::parse($request->date1)->startOfDay();
+        // $date2 =  \Carbon\Carbon::parse($request->date2)->endOfDay();
         $type =  $request->type;
+        $date_filter =  $request->date_filter;
         if($request->ajax())
         {
 
@@ -1452,7 +1453,8 @@ class AdminController extends Controller
                 ->leftjoin('curricula','curricula.id','=','archives.curriculum_id')
                 ->leftjoin('departments','departments.id','=','archives.department_id')
                 ->where('archives.type',  $type)
-                ->whereBetween('archives.created_at', [$date1, $date2])
+                ->where(['archives.type' =>  $type, 'archives.created_at' => $date_filter])
+                // ->whereBetween('archives.created_at', [$date1, $date2])
                ->get();
 
 
@@ -1486,8 +1488,8 @@ class AdminController extends Controller
                 ->leftjoin('users','users.id','=','archives.student_foreign_id')
                 ->leftjoin('curricula','curricula.id','=','archives.curriculum_id')
                 ->leftjoin('departments','departments.id','=','archives.department_id')
-                ->where('archives.type',  $type)
-                ->whereBetween('archives.created_at', [$date1, $date2])
+                ->where(['archives.type' =>  $type, 'archives.created_at' => $date_filter])
+                // ->whereBetween('archives.created_at', [$date1, $date2])
                ->get();
             }
 
@@ -1523,21 +1525,23 @@ class AdminController extends Controller
                 }
 
 
-                $date1 =  \Carbon\Carbon::parse($request->date1)->startOfDay();
-                $date2 =  \Carbon\Carbon::parse($request->date2)->endOfDay();
+                // $date1 =  \Carbon\Carbon::parse($request->date1)->startOfDay();
+                // $date2 =  \Carbon\Carbon::parse($request->date2)->endOfDay();
                 $type =  $request->type;
-
+                $date_filter =  $request->date_filter;
 
                  $TotalTypes = DB::table('archives')
-                 ->where('type', $type)
-                 ->whereBetween('archives.created_at', [$date1, $date2])
+                 ->where(['type' =>  $type, 'created_at' => $date_filter])
+                //  ->where('type', $type)
+                //  ->whereBetween('archives.created_at', [$date1, $date2])
                 ->count();
 
 
                 $TotalRanks = DB::table('archives')
                 ->select('type', DB::raw('SUM(count_rank) as totalrank'))
-                ->where('type', $type)
-                ->whereBetween('created_at', [$date1, $date2])
+                ->where(['type' =>  $type, 'created_at' => $date_filter])
+                // ->where('type', $type)
+                // ->whereBetween('created_at', [$date1, $date2])
                 ->groupBy('type')
                 ->get();
 
@@ -1558,8 +1562,8 @@ class AdminController extends Controller
                      <td colspan="">
                         <form method="GET">
                             <input type="hidden" name="text" id="type"  value="'.$type.'">
-                            <input type="hidden" name="text" id="date1"  value="'.$date1.'">
-                            <input type="hidden" name="text" id="date2"  value="'.$date2.'">
+                            <input type="hidden" name="text" id="date1"  value="'.$date_filter.'">
+                     
                             <buttton type="button" class="btn btn-success btn-excel">Export&nbsp;PDF</button>
                         </form>
                      </td>

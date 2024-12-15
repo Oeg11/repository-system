@@ -38,6 +38,21 @@
                  <form method="POST">
                 <div class="row d-flex">
                                 <div class="col-md-3">
+                                <label for="date_filter">Filter by Date:</label>
+                                    <select class="form-select" id="date_filter" name="date_filter">
+                                        <option value="" selected="true" disabled="disabled">All Dates</option>
+                                        <option value="today" {{ $dateFilter == 'today' ? 'selected' : '' }}>Today</option>
+                                        <option value="yesterday" {{ $dateFilter == 'yesterday' ? 'selected' : '' }}>Yesterday</option>
+                                        <option value="this_week" {{ $dateFilter == 'this_week' ? 'selected' : '' }}>This Week</option>
+                                        <option value="last_week" {{ $dateFilter == 'last_week' ? 'selected' : '' }}>Last Week</option>
+                                        <option value="this_month" {{ $dateFilter == 'this_month' ? 'selected' : '' }}>This Month</option>
+                                        <option value="last_month" {{ $dateFilter == 'last_month' ? 'selected' : '' }}>Last Month</option>
+                                        <option value="this_year" {{ $dateFilter == 'this_year' ? 'selected' : '' }}>This Year</option>
+                                        <option value="last_year" {{ $dateFilter == 'last_year' ? 'selected' : '' }}>Last Year</option>
+                                     </select>
+                                </div>
+
+                                <div class="col-md-3">
                                     <label for="country">Type</label>
                                     <select class="form-control" id="type">
                                         @foreach ($types as $row)
@@ -46,6 +61,7 @@
                                     </select>
                                 </div>
 
+<!-- 
                             <div class="col-md-3">
                                 <label for="From">From</label>
                                 <input type="date" class="form-control date1" />
@@ -53,11 +69,13 @@
                             <div class="col-md-3">
                                 <label for="To">To</label>
                                 <input type="date"  class="form-control date2" />
-                            </div>
+                            </div> -->
+
                             <div class="col-md-3" style="margin-top:3%">
                                 <label  style="color:white">x</label>
                                 <button type="button" class="btn btn-primary" id="btn_search">Filter</button>
                             </div>
+
                         </div>
                     </form>
 
