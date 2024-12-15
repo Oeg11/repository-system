@@ -1396,8 +1396,8 @@ class AdminController extends Controller
 
     public function AdminSearchTypeReports(Request $request){
 
-        $date1 =  \Carbon\Carbon::parse($request->date1);
-        $date2 =  \Carbon\Carbon::parse($request->date2);
+        $date1 =  \Carbon\Carbon::parse($request->date1)->startOfDay();
+        $date2 =  \Carbon\Carbon::parse($request->date2)->endOfDay();
         $type =  $request->type;
         if($request->ajax())
         {
@@ -1522,8 +1522,8 @@ class AdminController extends Controller
                 }
 
 
-                $date1 =  \Carbon\Carbon::parse($request->date1);
-                $date2 =  \Carbon\Carbon::parse($request->date2);
+                $date1 =  \Carbon\Carbon::parse($request->date1)->startOfDay();
+                $date2 =  \Carbon\Carbon::parse($request->date2)->endOfDay();
                 $type =  $request->type;
 
 
@@ -1594,8 +1594,8 @@ class AdminController extends Controller
 
     public function Exportexceltypereport(Request $request){
 
-        $date1 =  \Carbon\Carbon::parse($request->date1);
-        $date2 =  \Carbon\Carbon::parse($request->date2);
+        $date1 =  \Carbon\Carbon::parse($request->date1)->startOfDay();
+        $date2 =  \Carbon\Carbon::parse($request->date2)->endOfDay();
         $type =  $request->type;
 
         $data = DB::table('archives')
@@ -1764,8 +1764,8 @@ class AdminController extends Controller
                 }
 
 
-                $date1 =  \Carbon\Carbon::parse($request->date1);
-                $date2 =  \Carbon\Carbon::parse($request->date2);
+                $date1 =  \Carbon\Carbon::parse($request->date1)->startOfDay();
+                $date2 =  \Carbon\Carbon::parse($request->date2)->endOfDay();
                 $category =  $request->category;
 
 
@@ -1835,8 +1835,8 @@ class AdminController extends Controller
 
     public function Exportpdfcategoryreport(Request $request){
 
-        $date1 =  \Carbon\Carbon::parse($request->date1);
-        $date2 =  \Carbon\Carbon::parse($request->date2);
+        $date1 =  \Carbon\Carbon::parse($request->date1)->startOfDay();
+        $date2 =  \Carbon\Carbon::parse($request->date2)->endOfDay();
         $category =  $request->category;
 
         $data = DB::table('archives')
@@ -1879,8 +1879,8 @@ class AdminController extends Controller
 
     public function AdminFilterStatusReports(Request $request){
 
-        $date1 =  \Carbon\Carbon::parse($request->date1);
-        $date2 =  \Carbon\Carbon::parse($request->date2);
+        $date1 =  \Carbon\Carbon::parse($request->date1)->startOfDay();
+        $date2 =  \Carbon\Carbon::parse($request->date2)->endOfDay();
         $status =  $request->status;
         if($request->ajax())
         {
@@ -1999,8 +1999,8 @@ class AdminController extends Controller
                     ';
                 }
 
-                $date1 =  \Carbon\Carbon::parse($request->date1);
-                $date2 =  \Carbon\Carbon::parse($request->date2);
+                $date1 =  \Carbon\Carbon::parse($request->date1)->startOfDay();
+                $date2 =  \Carbon\Carbon::parse($request->date2)->endOfDay();
                 $status =  $request->status;
 
 
@@ -2053,8 +2053,8 @@ class AdminController extends Controller
     }
 
     public function Exportpdfstatusreport(Request $request){
-        $date1 =  \Carbon\Carbon::parse($request->date1);
-        $date2 =  \Carbon\Carbon::parse($request->date2);
+        $date1 =  \Carbon\Carbon::parse($request->date1)->startOfDay();
+        $date2 =  \Carbon\Carbon::parse($request->date2)->endOfDay();
         $status =  $request->status;
 
         $data = DB::table('archives')
