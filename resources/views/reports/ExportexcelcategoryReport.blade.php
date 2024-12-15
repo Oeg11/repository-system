@@ -8,7 +8,8 @@
     <title>Category Report</title>
     <li class="nav-item dropdown">
         <a class="nav-link" data-toggle="dropdown" href="#">
-          <h1 class="fa fa-user"></h1>Exported by: {{ Auth::user()->email }}
+          <i class="fa fa-user"></i>Exported by: {{ Auth::user()->email }}
+          <i class="fa fa-user"></i>Exported Date:
         </a>
     </li>
     <style>
