@@ -10,7 +10,7 @@
     <li class="nav-item dropdown">
         <a class="nav-link" data-toggle="dropdown" href="#">
           <i class="fa fa-user"></i>Exported by: {{ Auth::user()->email }}
-          <i class="fa fa-user"></i>Exported at:
+          <i class="fa fa-user"></i>Exported at: {{ Carbon::now()->format('Y-m-d H:i:s') }}
         </a>
     </li>
     <style>
