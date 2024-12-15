@@ -122,7 +122,7 @@
   @endsection
 
 
-  <script>
+<script>
     document.addEventListener("DOMContentLoaded", function () {
 
         // Bar Chart
@@ -150,7 +150,9 @@
         });
 
     });
+
 </script>
+
 <script>
     document.addEventListener("DOMContentLoaded", function () {
         // Pie chart
