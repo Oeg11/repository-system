@@ -821,8 +821,8 @@
       if($('.date1').val() == "" || $('.date2').val() == ""){
         alert("Please enter Date 'From' and 'To' before submit");
       }else{
-        $date1 = $('.date1').val("2024-06-10T00:00");
-        $date2 = $('.date2').val("2024-06-10T23:59");
+        $date1 = $('.date1').val();
+        $date2 = $('.date2').val();
         $type = $('#type option:selected').val();
         $('#load_data').empty();
         $loader = $('<tr ><td colspan = "10"><center>Searching....</center></td></tr>');
