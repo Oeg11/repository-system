@@ -6,11 +6,13 @@
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-1BmE4kWBq78iYhFldvKuhfTAU6auU8tT94WrHftjDbrCEXSU1oBoqyl2QvZ6jIW3" crossorigin="anonymous">
 
     <title>Category Report</title>
-
+    @php
+        use Carbon\Carbon;
+    @endphp
     <li class="nav-item dropdown">
         <a class="nav-link" data-toggle="dropdown" href="#">
           <i class="fa fa-user"></i>Exported by: {{ Auth::user()->email }}
-          <i class="fa fa-user"></i>Exported at: {{ Carbon::now()->format('Y-m-d H:i:s') }}
+          <i class="fa fa-user"></i>Exported Date and Time: {{ Carbon::now()->format('Y-m-d H:i:s') }}
         </a>
     </li>
     <style>
