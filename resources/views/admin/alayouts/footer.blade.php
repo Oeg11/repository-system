@@ -815,20 +815,15 @@
 <script type="text/javascript">
     $(document).ready(function(){
     $('#type option:selected').val();
-    $('#date_filter').val();
-    // $('.date2').val();
+    $('.date1').val();
+    $('.date2').val();
     $('#btn_search').on('click', function(){
-      // if($('.date1').val() == "" || $('.date2').val() == ""){
-      //   alert("Please enter Date 'From' and 'To' before submit");
-      // }else{
-
-      if($('#date_filter').val() == ""){
-        alert("Please select type and date filter  before submit");
+      if($('.date1').val() == "" || $('.date2').val() == ""){
+        alert("Please enter Date 'From' and 'To' before submit");
       }else{
-        // $date1 = $('.date1').val();
-        // $date2 = $('.date2').val();
+        $date1 = $('.date1').val();
+        $date2 = $('.date2').val();
         $type = $('#type option:selected').val();
-        $type = $('#date_filter option:selected').val();
         $('#load_data').empty();
         $loader = $('<tr ><td colspan = "10"><center>Searching....</center></td></tr>');
         $loader.appendTo('#load_data');
@@ -843,10 +838,9 @@
             url: "{{ route("admin.typereports") }}",
             type: 'POST',
             data: {
-              // date1: $date1,
-              // date2: $date2,
+              date1: $date1,
+              date2: $date2,
               type: $type,
-              date_filter: $date_filter,
             },
             success: function(res){
 
