@@ -1693,7 +1693,7 @@ class AdminController extends Controller
                 ->leftjoin('curricula','curricula.id','=','archives.curriculum_id')
                 ->leftjoin('departments','departments.id','=','archives.department_id')
                 ->where('archives.category',  $category)
-                ->whereDate('archives.created_at', [$date1, $date2])
+                ->whereBetween('archives.created_at', [$date1, $date2])
                ->get();
 
 
