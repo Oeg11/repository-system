@@ -45,11 +45,11 @@
 
                             <div class="col-md-3">
                                 <label for="From">From</label>
-                                <input type="datetime-local" class="form-control date1" />
+                                <input type="date" class="form-control date1" />
                             </div>
                             <div class="col-md-3">
                                 <label for="To">To</label>
-                                <input type="datetime-local"  class="form-control date2" />
+                                <input type="date"  class="form-control date2" />
                             </div>
                             <div class="col-md-3" style="margin-top:3%">
                                 <label  style="color:white">x</label>
