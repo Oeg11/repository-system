@@ -55,7 +55,14 @@
                                 <label  style="color:white">x</label>
                                 <button type="button" class="btn btn-primary" id="btn_search_2">Filter</button>
                             </div>
-
+                            <div class="col-md-3" style="margin-top:3%">
+                                <label  style="color:white">Select Frequency</label>
+                                <select name="frequency">
+                                    <option value="Weekly">Weekly</option>
+                                    <option value="Monthly">Monthly</option>
+                                    <option value="Yearly">Yearly</option>
+                                </select>
+                            </div>
                             {{-- <div class="button-group">
                                 <!-- Weekly Button -->
                                 <button class="btn btn-primary" onclick="loadData('weekly')">Weekly</button>
