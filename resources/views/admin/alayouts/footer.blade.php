@@ -153,8 +153,6 @@
 
 {{-- print search  category pdf --}}
 <script>
-    let now = new Date();
-    let formattedDateTime = now.toISOString().slice(0, 19).replace('T', '_').replace(/:/g, '-');
     $(document).ready(function() {
         load_data();
         var count = 1;
@@ -191,7 +189,7 @@
                         var blob = new Blob([response]);
                         var link = document.createElement('a');
                         link.href = window.URL.createObjectURL(blob);
-                        link.download = 'category_reports_${formattedDateTime}.pdf';
+                        link.download = "categorypdf_reports.pdf";
                         link.click();
                     }, error: function(blob){
                           console.log(blob);
