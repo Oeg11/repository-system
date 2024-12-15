@@ -1641,8 +1641,6 @@ class AdminController extends Controller
 
         $date1 =  \Carbon\Carbon::parse($request->date1)->startOfDay();
         $date2 =  \Carbon\Carbon::parse($request->date2)->endOfDay();
-        $currentDateTime = Carbon::now()->format('Y-m-d_H-i-s'); // e.g., 2024-06-10_14-30-45
-        $fileName = 'categorypdf_reports_' . $currentDateTime . '.pdf';
         $category =  $request->category;
         if($request->ajax())
         {
