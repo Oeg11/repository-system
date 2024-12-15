@@ -9,13 +9,15 @@
     @php
         use Carbon\Carbon;
     @endphp
-        <a class="nav-link" data-toggle="dropdown" href="#">
-          <i class="fa fa-user"></i>Exported by: {{ Auth::user()->email }}
-        </a>
-            <br>
-        <a class="nav-link" data-toggle="dropdown" href="#">
-          <i class="fa fa-user"></i>Exported Date and Time: {{ Carbon::now('Asia/Manila')->toDayDateTimeString() }}
-        </a>
+        <div class="col-md-5">
+            <a class="nav-link" data-toggle="dropdown" href="#">
+                <i class="fa fa-user"></i>Exported by: {{ Auth::user()->email }}
+              </a>
+                  <br>
+              <a class="nav-link" data-toggle="dropdown" href="#">
+                <i class="fa fa-user"></i>Exported Date and Time: {{ Carbon::now('Asia/Manila')->toDayDateTimeString() }}
+              </a>
+        </div>
     <style>
         /* @import url('https://fonts.googleapis.com/css2?family=Afacad&display=swap');
          body{
