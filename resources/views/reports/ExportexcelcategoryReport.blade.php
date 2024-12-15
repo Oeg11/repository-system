@@ -55,7 +55,7 @@
     </style>
   </head>
   <body>
-    <div class="header"><div class="row"><div class="col-md-3"><img src="data:image/png;base64,<?php echo base64_encode(file_get_contents(base_path(''))); ?>" width="80" style=""> </div><div class="col-md-3">Summary of report based on Category</div></div></div>
+    <div class="header"><div class="row"><div class="col-md-3">Summary of report based on Category</div></div></div>
     {{-- <div class="header"><img src="{{ asset('admin_assets/images/228-2280680_yourlogo-icon-your-logo-goes-here-hd-png.png') }}" width="60px" height="60px" >Attendance Report</div> --}}
     <table>
         <thead>
