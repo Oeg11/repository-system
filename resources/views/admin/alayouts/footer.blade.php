@@ -862,7 +862,7 @@
     $(document).ready(function(){
     $('#status option:selected').val();
     $('.date1').val();
-    $('.date2').val();
+    $('.date2').val()
     $('#btn_search_1').on('click', function(){
       if($('.date1').val() == "" || $('.date2').val() == ""){
         alert("Please enter Date 'From' and 'To' before submit");
@@ -918,6 +918,7 @@
       }else{
         $date1 = $('.date1').val();
         $date2 = $('.date2').val();
+        $frequency = $('#frequency').val();
         $category = $('#category option:selected').val();
         $('#load_data').empty();
         $loader = $('<tr ><td colspan = "10"><center>Searching....</center></td></tr>');
@@ -936,6 +937,7 @@
               date1: $date1,
               date2: $date2,
               category: $category,
+              frequency: $frequency
             },
             success: function(res){
 

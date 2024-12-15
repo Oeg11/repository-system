@@ -1643,6 +1643,7 @@ class AdminController extends Controller
         $date1 =  \Carbon\Carbon::parse($request->date1)->startOfDay();
         $date2 =  \Carbon\Carbon::parse($request->date2)->endOfDay();
         $category =  $request->category;
+        $frequency = $request->frequency;
         if($request->ajax())
         {
 
