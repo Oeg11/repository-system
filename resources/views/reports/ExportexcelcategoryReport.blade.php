@@ -15,7 +15,7 @@
         </a>
             <br>
         <a class="nav-link" data-toggle="dropdown" href="#">
-          <i class="fa fa-user"></i>Exported Date and Time: {{ Carbon::now()->toDayDateTimeString() }}
+          <i class="fa fa-user"></i>Exported Date and Time: {{ Carbon::now('Asia/Manila')->toDayDateTimeString() }}
         </a>
     </li>
     <style>
@@ -58,6 +58,7 @@
 
     </style>
   </head>
+  <br>
   <body>
     <div class="header"><div class="row"><div class="col-md-3">Summary of report based on Category</div></div></div>
     {{-- <div class="header"><img src="{{ asset('admin_assets/images/228-2280680_yourlogo-icon-your-logo-goes-here-hd-png.png') }}" width="60px" height="60px" >Attendance Report</div> --}}
