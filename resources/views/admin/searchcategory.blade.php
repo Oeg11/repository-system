@@ -56,14 +56,14 @@
                                 <button type="button" class="btn btn-primary" id="btn_search_2">Filter</button>
                             </div>
 
-                            <div class="button-group">
+                            {{-- <div class="button-group">
                                 <!-- Weekly Button -->
                                 <button class="btn btn-primary" onclick="loadData('weekly')">Weekly</button>
                                 <!-- Monthly Button -->
                                 <button class="btn btn-secondary" onclick="loadData('monthly')">Monthly</button>
                                 <!-- Yearly Button -->
                                 <button class="btn btn-success" onclick="loadData('yearly')">Yearly</button>
-                            </div>
+                            </div> --}}
                         </div>
                     </form>
 
