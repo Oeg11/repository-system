@@ -33,7 +33,7 @@
   <link rel="stylesheet" href="{{asset('plugins/datatables-buttons/css/buttons.bootstrap4.min.css')}}">
   <script src="https://cdn.ckeditor.com/ckeditor5/37.0.1/classic/ckeditor.js"></script>
 
-  <style>
+<style>
     #loader{
     position: fixed;
     left: 0px;
@@ -48,15 +48,14 @@
         background-color: #0f58c5;
         color: white;
     }
-    </style>
-
-    <style>
+</style>
+<style>
         canvas {
     -moz-user-select: none;
     -webkit-user-select: none;
     -ms-user-select: none;
   }
-    </style>
+</style>
 
 
 </head>
