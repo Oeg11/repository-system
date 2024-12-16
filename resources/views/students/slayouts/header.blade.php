@@ -56,20 +56,6 @@
     -ms-user-select: none;
   }
 </style>
-<style>
-    &:hover > .nav-link {
-      background-color: $sidebar-light-hover-bg;
-      color: $sidebar-light-hover-color;
-    }
-
-    > .nav-link.active {
-      color: $sidebar-light-active-color;
-
-      @if $enable-shadows {
-        box-shadow: map-get($elevations, 1);
-      }
-    }
-</style>
 
 </head>
 <body class="hold-transition sidebar-mini layout-fixed">
