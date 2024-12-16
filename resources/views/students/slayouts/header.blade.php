@@ -56,8 +56,7 @@
     -ms-user-select: none;
   }
 </style>
- <style>    // Hover and active states
-    &.menu-open > .nav-link,
+<style>
     &:hover > .nav-link {
       background-color: $sidebar-light-hover-bg;
       color: $sidebar-light-hover-color;
@@ -70,12 +69,7 @@
         box-shadow: map-get($elevations, 1);
       }
     }
-
-    // First Level Submenu
-    > .nav-treeview {
-      background-color: $sidebar-light-submenu-bg;
-    }
- </style>
+</style>
 
 </head>
 <body class="hold-transition sidebar-mini layout-fixed">
