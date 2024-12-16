@@ -44,15 +44,19 @@
     background: url('{{ asset("assets/img/output-onlinegiftools.gif") }}') 50% 50% no-repeat rgb(249,249,249);
     opacity: 1;
 }
+    .active, .btns:hover {
+        background-color: #0f58c5;
+        color: white;
+    }
+    </style>
 
-   /* Style the active class, and buttons on mouse-over */
-   /* .active, .btns_:hover {
-      background-color: #0f58c5;
-      color: white;
-    } */
-
-
-</style>
+    <style>
+        canvas {
+    -moz-user-select: none;
+    -webkit-user-select: none;
+    -ms-user-select: none;
+  }
+    </style>
 
 
 </head>
