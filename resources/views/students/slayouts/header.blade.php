@@ -45,7 +45,7 @@
     opacity: 1;
 }
     .active, .btns:hover {
-        background-color: #0f58c5;
+        /* background-color: #0f58c5; */
         color: white;
     }
 </style>
