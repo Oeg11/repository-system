@@ -12,7 +12,7 @@
          @csrf
         <div class="modal-body">
              <p>
-                <P>Before submitting your project or research output to [Website Name], please review the
+                <P>Before submitting your project or research output to STI Marikina Repository System, please review the
                     following waiver and provide your consent by checking the box below:</P>
                 <br>
                 <ul>
