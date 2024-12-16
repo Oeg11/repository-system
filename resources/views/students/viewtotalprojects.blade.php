@@ -10,7 +10,7 @@
 
     <div class="card p-2 " style="border-top:2px solid #007bff;margin-top:5%">
         <div class="card-body">
-            <h1>View Total Projects List</h1>
+            <h1>View BSTM Thesist</h1>
             <hr>
 
             <div class="card shadow-lg p-3 mb-5 bg-body rounded">
