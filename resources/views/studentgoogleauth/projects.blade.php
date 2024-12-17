@@ -121,7 +121,7 @@
                                 'archives.banner_path')
                             ->where('archives.status',  1)
                             ->orderBy('archives.count_rank','DESC')
-                            ->limit(5)
+                            ->limit(10)
                             ->get();
 
                         @endphp
