@@ -45,6 +45,45 @@
                         <body oncontextmenu="return false" oncopy="return false" oncut="return false" onpaste="return false">
                             <iframe id="pdfFrame" width="100%" height="600px" src="{{ (!empty($getonethesis->document_path)) ? url('/storage/uploads/'.$getonethesis->document_path.'#toolbar=0') :  url('assets/uploads/No_Image_Available.jpg')}}"></iframe>
                             <script>
+                                // Disable right-click on the iframe content
+                                const iframe = document.getElementById('pdfFrame');
+                                const iframeDocument = iframe.contentDocument || iframe.contentWindow.document;
+
+                                iframeDocument.addEventListener('contextmenu', function(e) {
+                                    e.preventDefault();
+                                    alert('Right-click is disabled!');
+                                });
+
+                                // Disable copy, paste, and cut inside the iframe
+                                iframeDocument.addEventListener('copy', function(e) {
+                                    e.preventDefault();
+                                    alert('Copy is disabled inside the iframe!');
+                                });
+
+                                iframeDocument.addEventListener('paste', function(e) {
+                                    e.preventDefault();
+                                    alert('Paste is disabled inside the iframe!');
+                                });
+
+                                iframeDocument.addEventListener('cut', function(e) {
+                                    e.preventDefault();
+                                    alert('Cut is disabled inside the iframe!');
+                                });
+
+                                // Disable text selection inside the iframe (for copying purposes)
+                                iframeDocument.body.style.userSelect = 'none';
+
+                                // Disable keyboard shortcuts inside the iframe (Ctrl+C, Ctrl+V, etc.)
+                                iframeDocument.addEventListener('keydown', function(e) {
+                                    if (e.ctrlKey && ['c', 'v', 'x', 'a'].includes(e.key.toLowerCase())) {
+                                        e.preventDefault();
+                                        alert('Keyboard shortcuts are disabled inside the iframe!');
+                                    }
+                                });
+                            </script>
+                            <script src="https://cdnjs.cloudflare.com/ajax/libs/pdf.js/2.10.377/pdf.min.js"></script>
+
+                            {{-- <script>
                                 // Disable right-click globally
                                 document.addEventListener('contextmenu', function (e) {
                                     e.preventDefault();
@@ -92,7 +131,7 @@
                                     }
                                 });
                             </script>
-                            <script src="https://cdnjs.cloudflare.com/ajax/libs/pdf.js/2.10.377/pdf.min.js"></script>
+                            <script src="https://cdnjs.cloudflare.com/ajax/libs/pdf.js/2.10.377/pdf.min.js"></script> --}}
                         </body>
 
                     </div>

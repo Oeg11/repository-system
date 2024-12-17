@@ -58,13 +58,10 @@
 </style>
 
 <style>
-    /* Disable text selection and pointer events */
-    #pdfonli {
-        user-select: none; /* Disable text selection */
-        pointer-events: none; /* Disable interaction with the iframe */
-        -webkit-user-select: none;
-        -ms-user-select: none;
-    }
+    iframe {
+    user-select: none; /* Disable text selection */
+    pointer-events: none; /* Disable interaction inside iframe */
+}
 </style>
 
 </head>
