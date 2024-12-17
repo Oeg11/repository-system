@@ -42,7 +42,7 @@
                         <label style="font-weight:bolder">Thesis Coordinator</label><br>
                         <p class="mb-0 w-100"> {!! html_entity_decode($getonethesis->thesis_coordinator) !!}</p><br>
 
-                        <body oncontextmenu="return false oncopy="return false" oncut="return false" onpaste="return false">
+                        {{-- <body oncontextmenu="return false oncopy="return false" oncut="return false" onpaste="return false">
                             <iframe id="pdfFrame" width="100%" height="600px" src="{{ (!empty($getonethesis->document_path)) ? url('/storage/uploads/'.$getonethesis->document_path.'#toolbar=0') :  url('assets/uploads/No_Image_Available.jpg')}}"></iframe>
                             <style>
                                 body, iframe {
@@ -65,7 +65,52 @@
                                     e.preventDefault();
                                 });
                             </script>
+                        </body> --}}
+
+                        <body oncontextmenu="return false" onmousedown="return false" onmouseup="return false" onselectstart="return false">
+                            <iframe id="pdfFrame"
+                                    width="100%"
+                                    height="600px"
+                                    src="{{ (!empty($getonethesis->document_path)) ? url('/storage/uploads/'.$getonethesis->document_path.'#toolbar=0') :  url('assets/uploads/No_Image_Available.jpg') }}">
+                            </iframe>
+
+                            <script>
+                                // Disable right-click and left-click
+                                document.addEventListener('contextmenu', function(e) {
+                                    e.preventDefault();
+                                    alert('Right-click is disabled!');
+                                });
+
+                                // Disable mouse events (left-click, right-click, middle-click)
+                                document.addEventListener('mousedown', function(e) {
+                                    e.preventDefault();
+                                });
+                                document.addEventListener('mouseup', function(e) {
+                                    e.preventDefault();
+                                });
+
+                                // Disable keyboard shortcuts for copying, pasting, and developer tools
+                                document.addEventListener('keydown', function(e) {
+                                    if (e.ctrlKey && ['c', 'v', 'x', 'u', 'p'].includes(e.key.toLowerCase())) {
+                                        e.preventDefault();
+                                        alert('Copying and pasting are disabled!');
+                                    }
+
+                                    // Disable PrintScreen (not 100% reliable)
+                                    if (e.key === 'PrintScreen') {
+                                        e.preventDefault();
+                                        alert('Screenshots are disabled!');
+                                    }
+
+                                    // Disable F12 (Developer Tools)
+                                    if (e.key === 'F12') {
+                                        e.preventDefault();
+                                        alert('Developer tools are disabled!');
+                                    }
+                                });
+                            </script>
                         </body>
+
 
                         {{-- <body oncontextmenu="return false" oncopy="return false" oncut="return false" onpaste="return false">
                             <iframe id="pdfFrame"
