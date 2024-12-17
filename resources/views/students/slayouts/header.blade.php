@@ -60,7 +60,7 @@
 <style>
     iframe #pdfFrame {
     user-select: none; /* Disable text selection */
-    pointer-events: auto;
+    pointer-events: none;
 }
 </style>
 
