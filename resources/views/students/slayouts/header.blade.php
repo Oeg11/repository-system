@@ -58,7 +58,7 @@
 </style>
 
 <style>
-    iframe {
+    iframe #pdfFrame {
     user-select: none; /* Disable text selection */
     pointer-events: auto;
 }
