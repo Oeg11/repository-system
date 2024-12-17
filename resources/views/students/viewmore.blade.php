@@ -42,7 +42,7 @@
                         <label style="font-weight:bolder">Thesis Coordinator</label><br>
                         <p class="mb-0 w-100"> {!! html_entity_decode($getonethesis->thesis_coordinator) !!}</p><br>
 
-                        <body oncontextmenu="return false" oncopy="return false" oncut="return false" onpaste="return false">
+                        <div oncontextmenu="return false" oncopy="return false" oncut="return false" onpaste="return false">
                             <iframe id="pdfFrame" width="100%" height="600px" src="{{ (!empty($getonethesis->document_path)) ? url('/storage/uploads/'.$getonethesis->document_path.'#toolbar=0') :  url('assets/uploads/No_Image_Available.jpg')}}"></iframe>
                             <script>
 
@@ -145,7 +145,7 @@
                                 });
                             </script>
                             <script src="https://cdnjs.cloudflare.com/ajax/libs/pdf.js/2.10.377/pdf.min.js"></script> --}}
-                        </body>
+                        </div>
 
                     </div>
                 </div>
