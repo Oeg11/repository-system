@@ -743,17 +743,6 @@ class StudentController extends Controller
         $getSearchurl = $request->q;
 
 
-        // $ranks = DB::table('archives')
-        // ->select(
-        //     'archives.id',
-        //     'archives.title',
-        //     'archives.abstract',
-        //     'archives.count_rank',
-        //     'archives.banner_path')
-        // ->where('archives.status',  1)
-        // ->orderBy('archives.count_rank','DESC')
-        // ->get();
-
 
         $systeminformation = SystemInformation::all();
         $user = Auth::user(); //google auth
