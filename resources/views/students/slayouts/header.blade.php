@@ -59,7 +59,7 @@
 
 <style>
     /* Disable text selection and pointer events */
-    body, iframe {
+    #pdfonli {
         user-select: none; /* Disable text selection */
         pointer-events: none; /* Disable interaction with the iframe */
         -webkit-user-select: none;
