@@ -740,7 +740,7 @@
     });
   </script>
 
-    <script>
+    {{-- <script>
         // Disable right-click globally
         document.addEventListener('contextmenu', function (e) {
             e.preventDefault();
@@ -805,7 +805,7 @@
                 page.render({ canvasContext: context, viewport: viewport });
             });
         });
-    </script>
+    </script> --}}
 
 
 </body>
