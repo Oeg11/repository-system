@@ -44,7 +44,7 @@
 
 
                         {{-- <iframe src="{{ (!empty($getonethesis->document_path)) ? url('/storage/uploads/'.$getonethesis->document_path) :  url('assets/uploads/No_Image_Available.jpg')}}" width="100%" height="600px" oncontextmenu="return false;"></iframe> --}}
-                        <body oncontextmenu="return false">
+                        <body oncontextmenu="return false" oncopy="return false" oncut="return false" onpaste="return false">
                             <iframe id="pdfFrame" width="100%" height="600px" src="{{ (!empty($getonethesis->document_path)) ? url('/storage/uploads/'.$getonethesis->document_path.'#toolbar=0') :  url('assets/uploads/No_Image_Available.jpg')}}"></iframe>
                             <script>
                                 // Disable right-click globally
