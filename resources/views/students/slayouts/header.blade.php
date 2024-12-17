@@ -58,9 +58,9 @@
 </style>
 
 <style>
-    iframe #pdfFrame {
+    iframe {
     user-select: none; /* Disable text selection */
-    pointer-events: none;
+    pointer-events: auto;
 }
 </style>
 
