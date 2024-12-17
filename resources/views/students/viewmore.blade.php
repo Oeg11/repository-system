@@ -44,6 +44,13 @@
 
                         <body oncontextmenu="return false oncopy="return false" oncut="return false" onpaste="return false">
                             <iframe id="pdfFrame" width="100%" height="600px" src="{{ (!empty($getonethesis->document_path)) ? url('/storage/uploads/'.$getonethesis->document_path.'#toolbar=0') :  url('assets/uploads/No_Image_Available.jpg')}}"></iframe>
+                            <style>
+                                body, iframe {
+                                    user-select: none; /* Disable text selection */
+                                    -webkit-user-select: none;
+                                    -ms-user-select: none;
+                                }
+                            </style>
                             <script>
                                 document.addEventListener('keydown', function(e) {
                                     // Disable Ctrl+C, Ctrl+V, Ctrl+X, Ctrl+U, and PrintScreen
