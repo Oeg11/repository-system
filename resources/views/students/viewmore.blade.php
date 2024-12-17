@@ -52,6 +52,21 @@
                                     height="600px"
                                     src="{{ (!empty($getonethesis->document_path)) ? url('/storage/uploads/'.$getonethesis->document_path.'#toolbar=0') :  url('assets/uploads/No_Image_Available.jpg')}}">
                             </iframe>
+                            <script>
+                                document.addEventListener('keydown', function(e) {
+                                    // Disable Ctrl+C, Ctrl+V, Ctrl+X, Ctrl+U, and PrintScreen
+                                    if ((e.ctrlKey && ['c', 'v', 'x', 'u', 'p'].includes(e.key.toLowerCase())) || e.key === 'PrintScreen') {
+                                        e.preventDefault();
+                                        alert('Copying, pasting, and screenshots are disabled!');
+                                    }
+                                });
+
+                                // Disable right-click completely
+                                window.addEventListener('contextmenu', function(e) {
+                                    e.preventDefault();
+                                });
+                            </script>
+
                         </body>
 
                     </div>
@@ -64,17 +79,4 @@
 
 @endsection
 
-<script>
-    document.addEventListener('keydown', function(e) {
-        // Disable Ctrl+C, Ctrl+V, Ctrl+X, Ctrl+U, and PrintScreen
-        if ((e.ctrlKey && ['c', 'v', 'x', 'u', 'p'].includes(e.key.toLowerCase())) || e.key === 'PrintScreen') {
-            e.preventDefault();
-            alert('Copying, pasting, and screenshots are disabled!');
-        }
-    });
 
-    // Disable right-click completely
-    window.addEventListener('contextmenu', function(e) {
-        e.preventDefault();
-    });
-</script>
