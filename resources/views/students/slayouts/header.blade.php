@@ -60,7 +60,7 @@
 <style>
     iframe {
     user-select: none; /* Disable text selection */
-    pointer-events: none; /* Disable interaction inside iframe */
+    pointer-events: auto;
 }
 </style>
 
