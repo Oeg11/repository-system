@@ -43,7 +43,7 @@
                         <p class="mb-0 w-100"> {!! html_entity_decode($getonethesis->thesis_coordinator) !!}</p><br>
 
                         <body oncontextmenu="return false" oncopy="return false" oncut="return false" onpaste="return false">
-                            <iframe id="pdfFrame" width="100%" height="600px" sandbox="allow-scripts allow-same-origin" src="{{ (!empty($getonethesis->document_path)) ? url('/storage/uploads/'.$getonethesis->document_path.'#toolbar=0') :  url('assets/uploads/No_Image_Available.jpg')}}"></iframe>
+                            <iframe id="pdfFrame" width="100%" height="600px" sandbox="allow-same-origin" src="{{ (!empty($getonethesis->document_path)) ? url('/storage/uploads/'.$getonethesis->document_path.'#toolbar=0') :  url('assets/uploads/No_Image_Available.jpg')}}"></iframe>
                             <script>
                                 // Disable right-click on the iframe content
                                 const iframe = document.getElementById('pdfFrame');
