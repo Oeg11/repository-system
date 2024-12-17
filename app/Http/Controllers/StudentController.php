@@ -743,7 +743,6 @@ class StudentController extends Controller
         $getSearchurl = $request->q;
 
 
-
         $systeminformation = SystemInformation::all();
         $user = Auth::user(); //google auth
 
