@@ -45,6 +45,9 @@
                         <body oncontextmenu="return false" oncopy="return false" oncut="return false" onpaste="return false">
                             <iframe id="pdfFrame" width="100%" height="600px" src="{{ (!empty($getonethesis->document_path)) ? url('/storage/uploads/'.$getonethesis->document_path.'#toolbar=0') :  url('assets/uploads/No_Image_Available.jpg')}}"></iframe>
                             <script>
+
+                                const iframe = document.getElementById('pdfFrame');
+                                const iframeDocument = iframe.contentDocument || iframe.contentWindow.document;
                                 // Disable right-click globally
                                 document.addEventListener('contextmenu', function (e) {
                                     e.preventDefault();
