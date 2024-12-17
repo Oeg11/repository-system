@@ -45,53 +45,39 @@
                         <body oncontextmenu="return false" oncopy="return false" oncut="return false" onpaste="return false">
                             <iframe id="pdfFrame" width="100%" height="600px" src="{{ (!empty($getonethesis->document_path)) ? url('/storage/uploads/'.$getonethesis->document_path.'#toolbar=0') :  url('assets/uploads/No_Image_Available.jpg')}}"></iframe>
                             <script>
-
+                                // Disable right-click on the iframe content
                                 const iframe = document.getElementById('pdfFrame');
                                 const iframeDocument = iframe.contentDocument || iframe.contentWindow.document;
-                                // Disable right-click globally
-                                document.addEventListener('contextmenu', function (e) {
+
+                                iframeDocument.addEventListener('contextmenu', function(e) {
                                     e.preventDefault();
-                                    alert("Right-click is disabled!");
+                                    alert('Right-click is disabled!');
                                 });
 
-                                // Disable mouse actions globally (left-click, right-click, middle-click)
-                                document.addEventListener('mousedown', function (e) {
+                                // Disable copy, paste, and cut inside the iframe
+                                iframeDocument.addEventListener('copy', function(e) {
                                     e.preventDefault();
+                                    alert('Copy is disabled inside the iframe!');
                                 });
 
-                                document.addEventListener('mouseup', function (e) {
+                                iframeDocument.addEventListener('paste', function(e) {
                                     e.preventDefault();
+                                    alert('Paste is disabled inside the iframe!');
                                 });
 
-                                // Disable keyboard shortcuts
-                                document.addEventListener('keydown', function (e) {
-                                    const forbiddenKeys = ['c', 'v', 'x', 'u', 'p', 's', 'a']; // Add more keys as needed
-                                    if (e.ctrlKey && forbiddenKeys.includes(e.key.toLowerCase())) {
-                                        e.preventDefault();
-                                        alert('Copy, paste, and other shortcuts are disabled!');
-                                    }
-
-                                    // Block F12 (Developer Tools)
-                                    if (e.key === 'F12') {
-                                        e.preventDefault();
-                                        alert('Developer tools are disabled!');
-                                    }
-
-                                    // Attempt to block PrintScreen (not foolproof)
-                                    if (e.key === 'PrintScreen') {
-                                        e.preventDefault();
-                                        alert('Screenshots are disabled!');
-                                    }
+                                iframeDocument.addEventListener('cut', function(e) {
+                                    e.preventDefault();
+                                    alert('Cut is disabled inside the iframe!');
                                 });
 
-                                // Additional measure: blur content on PrintScreen (experimental)
-                                document.addEventListener('keyup', function (e) {
-                                    if (e.key === 'PrintScreen') {
-                                        alert('Screenshots are disabled!');
-                                        document.body.style.filter = 'blur(10px)'; // Blur the screen temporarily
-                                        setTimeout(() => {
-                                            document.body.style.filter = 'none'; // Restore clarity
-                                        }, 1000);
+                                // Disable text selection inside the iframe (for copying purposes)
+                                iframeDocument.body.style.userSelect = 'none';
+
+                                // Disable keyboard shortcuts inside the iframe (Ctrl+C, Ctrl+V, etc.)
+                                iframeDocument.addEventListener('keydown', function(e) {
+                                    if (e.ctrlKey && ['c', 'v', 'x', 'a'].includes(e.key.toLowerCase())) {
+                                        e.preventDefault();
+                                        alert('Keyboard shortcuts are disabled inside the iframe!');
                                     }
                                 });
                             </script>
