@@ -95,22 +95,6 @@
                             </script>
 
                             <script src="https://cdnjs.cloudflare.com/ajax/libs/pdf.js/2.10.377/pdf.min.js"></script>
-                            {{-- <script>
-                                const url = '{{ url('/storage/uploads/'.$getonethesis->document_path) }}';
-                                const pdfViewer = document.getElementById('pdfViewer');
-
-                                pdfjsLib.getDocument(url).promise.then(function (pdf) {
-                                    pdf.getPage(1).then(function (page) {
-                                        const canvas = document.createElement('canvas');
-                                        const context = canvas.getContext('2d');
-                                        const viewport = page.getViewport({ scale: 1.5 });
-                                        canvas.width = viewport.width;
-                                        canvas.height = viewport.height;
-                                        pdfViewer.appendChild(canvas);
-                                        page.render({ canvasContext: context, viewport: viewport });
-                                    });
-                                });
-                            </script> --}}
                         </body>
 
 
