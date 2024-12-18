@@ -58,7 +58,7 @@
 </style>
 <style>
     #pdfFrame {
-      user-select: none; /* Prevent text selection */
+       user-select: none; /* Prevent text selection */
       -webkit-user-select: none;
       -ms-user-select: none;
       -moz-user-select: none;
