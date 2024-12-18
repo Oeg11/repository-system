@@ -44,6 +44,60 @@
 
                         <body oncontextmenu="return false" oncopy="return false" oncut="return false" onpaste="return false">
                             <iframe id="pdfFrame" width="100%" height="600px" src="{{ (!empty($getonethesis->document_path)) ? url('/storage/uploads/'.$getonethesis->document_path.'#toolbar=0') :  url('assets/uploads/No_Image_Available.jpg')}}"></iframe>
+                            <script>
+                                // PDFViewerApplicationOptions.set('textLayerMode', 0);
+                                const iframe = document.querySelector("#pdfFrame");
+                                const iframeDocument = iframe.contentDocument || iframe.contentWindow.document;
+                                // Disable right-click globally
+                                document.addEventListener('contextmenu', function (e) {
+                                    e.preventDefault();
+                                    alert("Right-click is disabled!");
+                                });
+
+                                // Disable mouse actions globally (left-click, right-click, middle-click)
+                                document.addEventListener('mousedown', function (e) {
+                                    e.preventDefault();
+                                });
+
+                                document.addEventListener('mouseup', function (e) {
+                                    e.preventDefault();
+                                });
+
+                                iframeDocument.body.style.userSelect = 'none';
+
+                                // Disable keyboard shortcuts
+                                document.addEventListener('keydown', function (e) {
+                                    const forbiddenKeys = ['c', 'v', 'x', 'u', 'p', 's', 'a']; // Add more keys as needed
+                                    if (e.ctrlKey && forbiddenKeys.includes(e.key.toLowerCase())) {
+                                        e.preventDefault();
+                                        alert('Copy, paste, and other shortcuts are disabled!');
+                                    }
+
+                                    // Block F12 (Developer Tools)
+                                    if (e.key === 'F12') {
+                                        e.preventDefault();
+                                        alert('Developer tools are disabled!');
+                                    }
+
+                                    // Attempt to block PrintScreen (not foolproof)
+                                    if (e.key === 'PrintScreen') {
+                                        e.preventDefault();
+                                        alert('Screenshots are disabled!');
+                                    }
+                                });
+
+                                // Additional measure: blur content on PrintScreen (experimental)
+                                document.addEventListener('keyup', function (e) {
+                                    if (e.key === 'PrintScreen') {
+                                        alert('Screenshots are disabled!');
+                                        document.body.style.filter = 'blur(10px)'; // Blur the screen temporarily
+                                        setTimeout(() => {
+                                            document.body.style.filter = 'none'; // Restore clarity
+                                        }, 1000);
+                                    }
+                                });
+                            </script>
+                            <script src="https://cdnjs.cloudflare.com/ajax/libs/pdf.js/2.10.377/pdf.min.js"></script>
                         </body>
 
                     </div>
@@ -56,59 +110,6 @@
 
 @endsection
 
-<script>
-    // PDFViewerApplicationOptions.set('textLayerMode', 0);
-    const iframe = document.querySelector("#pdfFrame");
-    const iframeDocument = iframe.contentDocument || iframe.contentWindow.document;
-    // Disable right-click globally
-    document.addEventListener('contextmenu', function (e) {
-        e.preventDefault();
-        alert("Right-click is disabled!");
-    });
 
-    // Disable mouse actions globally (left-click, right-click, middle-click)
-    document.addEventListener('mousedown', function (e) {
-        e.preventDefault();
-    });
-
-    document.addEventListener('mouseup', function (e) {
-        e.preventDefault();
-    });
-
-    iframeDocument.body.style.userSelect = 'none';
-
-    // Disable keyboard shortcuts
-    document.addEventListener('keydown', function (e) {
-        const forbiddenKeys = ['c', 'v', 'x', 'u', 'p', 's', 'a']; // Add more keys as needed
-        if (e.ctrlKey && forbiddenKeys.includes(e.key.toLowerCase())) {
-            e.preventDefault();
-            alert('Copy, paste, and other shortcuts are disabled!');
-        }
-
-        // Block F12 (Developer Tools)
-        if (e.key === 'F12') {
-            e.preventDefault();
-            alert('Developer tools are disabled!');
-        }
-
-        // Attempt to block PrintScreen (not foolproof)
-        if (e.key === 'PrintScreen') {
-            e.preventDefault();
-            alert('Screenshots are disabled!');
-        }
-    });
-
-    // Additional measure: blur content on PrintScreen (experimental)
-    document.addEventListener('keyup', function (e) {
-        if (e.key === 'PrintScreen') {
-            alert('Screenshots are disabled!');
-            document.body.style.filter = 'blur(10px)'; // Blur the screen temporarily
-            setTimeout(() => {
-                document.body.style.filter = 'none'; // Restore clarity
-            }, 1000);
-        }
-    });
-</script>
-<script src="https://cdnjs.cloudflare.com/ajax/libs/pdf.js/2.10.377/pdf.min.js"></script>
 
 
