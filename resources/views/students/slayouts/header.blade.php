@@ -58,10 +58,10 @@
 </style>
 
 <style>
-    iframe {
+    body {
     user-select: none; /* Disable text selection */
-    pointer-events: auto;
-    overflow: auto;
+    /* pointer-events: auto;
+    overflow: auto; */
 }
 </style>
 
