@@ -63,6 +63,10 @@
     /* pointer-events: auto;
     overflow: auto; */
 }
+
+#pdfFrame{
+    user-select: none; /* Disable text selection */
+}
 </style>
 
 </head>
