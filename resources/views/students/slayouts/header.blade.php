@@ -64,7 +64,7 @@
     overflow: auto; */
 }
 
-#pdfFrame{
+iframe{
     user-select: none; /* Disable text selection */
 }
 </style>
