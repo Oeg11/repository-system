@@ -55,13 +55,18 @@
 </style>
 
 <style>
-    <style>
-    /* Disable text selection and pointer events */
-    body, iframe {
-        user-select: none; /* Disable text selection */
-        pointer-events: none; /* Disable interaction with the iframe */
-        -webkit-user-select: none;
-        -ms-user-select: none;
+    body {
+    user-select: none; /* Disable text selection */
+    /* pointer-events: auto;
+    overflow: auto; */
+}
+</style>
+<style>
+    #pdfFrame {
+       user-select: none; /* Prevent text selection */
+      -webkit-user-select: none;
+      -ms-user-select: none;
+      -moz-user-select: none;
     }
 </style>
 
