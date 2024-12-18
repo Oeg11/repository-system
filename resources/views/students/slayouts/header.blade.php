@@ -50,24 +50,21 @@
     }
 </style>
 <style>
-        canvas {
-    -moz-user-select: none;
-    -webkit-user-select: none;
-    -ms-user-select: none;
-  }
-</style>
-
-<style>
     body {
     user-select: none; /* Disable text selection */
     /* pointer-events: auto;
     overflow: auto; */
 }
-
-iframe{
-    user-select: none; /* Disable text selection */
-}
 </style>
+<style>
+    #pdfFrame {
+      user-select: none; /* Prevent text selection */
+      -webkit-user-select: none;
+      -ms-user-select: none;
+      -moz-user-select: none;
+    }
+</style>
+
 
 </head>
 <body class="hold-transition sidebar-mini layout-fixed">
